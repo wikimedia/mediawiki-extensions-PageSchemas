@@ -1,0 +1,124 @@
+.pageSchema td {
+	padding-right: 5px;
+}
+
+body.rtl .pageSchema td {
+	padding-right: auto;
+	padding-left: 5px;
+}
+
+.pageSchema .template_class {
+	background: #bbaa88;
+	padding-left: 5px;
+}
+
+body.rtl .pageSchema .template_class {
+	padding-left: auto;
+	padding-right: 5px;
+}
+
+.pageSchema .template_class span.rowValue {
+	font-weight: bold;
+}
+
+.pageSchema .param {
+	background: #d3c2a0;
+	padding-left: 20px;
+}
+
+body.rtl .pageSchema .param {
+	padding-left: auto;
+	padding-right: 20px;
+}
+
+.pageSchema .param span.rowValue {
+	font-weight: bold;
+}
+
+.pageSchema .paramAttr {
+	background: #eeddbb;
+	padding-left: 35px;
+}
+
+body.rtl .pageSchema .paramAttr {
+	padding-left: auto;
+	padding-right: 35px;
+}
+
+.pageSchema .paramAttrMsg {
+	background: #ffeecc;
+	padding-left: 50px;
+}
+
+body.rtl .pageSchema .paramAttrMsg {
+	padding-left: auto;
+	padding-right: 50px;
+}
+
+.pageSchema .paramOptions {
+	padding-left: 20px;
+	background: #ffff77;
+}
+
+body.rtl .pageSchema .paramOptions {
+	padding-left: auto;
+	padding-right: 20px;
+}
+
+.pageSchema .paramOption {
+	padding-left: 35px;
+	background: #ffff99;
+}
+
+body.rtl .pageSchema .paramOption {
+	padding-left: auto;
+	padding-right: 35px;
+}
+
+.pageSchema .paramOption span.rowValue {
+	font-weight: bold;
+}
+
+.pageSchema .paramOptionMsg {
+	padding-left: 50px;
+	background: #ffffbb;
+}
+
+body.rtl .pageSchema .paramOptionMsg {
+	padding-left: auto;
+	padding-right: 50px;
+}
+
+.pageSchema .paramData {
+	padding-left: 20px;
+	background: #77dd77;
+}
+
+body.rtl .pageSchema .paramData {
+	padding-left: auto;
+	padding-right: 20px;
+}
+
+.pageSchema .paramData span.rowValue {
+	font-weight: bold;
+}
+
+.pageSchema .paramDataField {
+	background: #99ff99;
+	padding-left: 35px;
+}
+
+body.rtl .pageSchema .paramDataField {
+	padding-left: auto;
+	padding-right: 35px;
+}
+
+.pageSchema .msg {
+	padding-left: 5px;
+	background: white;
+}
+
+body.rtl .pageSchema .msg {
+	padding-left: auto;
+	padding-right: 5px;
+}
