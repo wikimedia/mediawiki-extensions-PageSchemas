@@ -25,4 +25,3 @@ class GeneratePages extends IncludableSpecialPage {
                 $wgOut->addWikiText( $output );
         }
 }
-
