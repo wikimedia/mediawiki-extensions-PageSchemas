@@ -42,7 +42,7 @@ $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
-$wgAutoloadClasses['GeneratePages'] = $dir . 'GeneratePages.php';
+$wgAutoloadClasses['GeneratePages'] = $dir . 'specials/GeneratePages.php';
 // registering Special page 
 $wgSpecialPages['PageSchemas'] = 'GeneratePages'; 
 $wgSpecialPageGroups['PageSchemas'] = 'other';
