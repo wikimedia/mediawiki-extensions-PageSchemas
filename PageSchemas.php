@@ -42,7 +42,10 @@ $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
-
+$wgAutoloadClasses['SpecialPageSchemas'] = $dir . 'specials/GeneratePages.php';
+// registering Special page 
+$wgSpecialPages['PageSchemas'] = 'SpecialPageSchemas'; 
+$wgSpecialPageGroups['PageSchemas'] = 'other';
 // Register parser hook
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 
