@@ -9,8 +9,6 @@
 class PageSchemas {
 
 	/* Functions */
-    
-    
 	public static function validateXML( $xml, &$error_msg ) {
 	
 	
@@ -69,7 +67,7 @@ END;
 			if ($tag == 'Template') {
 				$text .= self::parseTemplate($child);
 			} else{
-			       echo "Code to be added by other extension\n";
+			    echo "Code to be added by other extension\n";
 			}
 		}
 		$text .= "</table>\n";
