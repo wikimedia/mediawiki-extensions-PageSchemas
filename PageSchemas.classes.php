@@ -143,9 +143,13 @@ class PageSchema {
 				$PSTemplates[$i++]= $templateObj;				
 			}
 		}
-  }
-  
+	}
   	
+	/* function to generate all pages based on the Xml contained in the page */
+	function generateAllPages () {		
+		wfRunHooks( 'PageSchemasGeneratePages', array($this->pageXml) );			
+	}
+	
 	/*return an array of PSTemplate  Objects */
 	static function getTemplates () {				
 		return PSTemplates;  	
