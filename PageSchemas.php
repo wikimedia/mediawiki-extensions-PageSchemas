@@ -44,8 +44,8 @@ $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
 $wgAutoloadClasses['GeneratePages'] = $dir . 'specials/GeneratePages.php';
 // registering Special page 
-$wgSpecialPages['PageSchemas'] = 'GeneratePages'; 
-$wgSpecialPageGroups['PageSchemas'] = 'other';
+$wgSpecialPages['GeneratePages'] = 'GeneratePages'; 
+$wgSpecialPageGroups['GeneratePages'] = 'other';
 // Register parser hook
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 
