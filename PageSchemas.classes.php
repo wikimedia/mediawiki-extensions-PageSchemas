@@ -100,17 +100,15 @@ END;
 
 class PageSchema {
 
-	$categoryName = "";
-	$pageId=0;
-	$pageXml="";
-	$pageName="";
+	public  $categoryName="";
+	public $pageId=0;
+	public  $pageXml="";
+	public $pageName="";
   
   /* Stores the templte objects */
-	$PSTemplates = array();
+	public $PSTemplates = array();
   
-	function __construct ( $category_name ) {
-	
-		$pageName = $pageXml->attributes()->name;
+	function __construct ( $category_name ) {			
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
 		$pageId = $title->getArticleID();
@@ -134,7 +132,7 @@ class PageSchema {
  	
 		/* retrievimg the third attribute which is pp_value */
 		$pageXml = $row[2];
-	
+		$pageName = $pageXml->attributes()->name;
 		/*  index for template objects */
 	 	$i = 0 ;
 		foreach ( $pageXml->children() as $tag => $child ) {
@@ -146,8 +144,17 @@ class PageSchema {
 	}
   	
 	/* function to generate all pages based on the Xml contained in the page */
-	function generateAllPages () {		
-		wfRunHooks( 'PageSchemasGeneratePages', array($this->pageXml) );			
+	function generateAllPages () {	
+	    //Get templates 
+		$template_all = $this->getTemplates();
+		//For each template, Get Fields 
+		foreach ( $template_all as $template ) {
+			$field_all = $template->getFields();
+			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 		
+				$prop_array = $field->getObject('semanticmediawiki:Property');   //this returns an array with property values filled				
+				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'] ) );		
+			}
+		}						
 	}
 	
 	/*return an array of PSTemplate  Objects */
@@ -162,9 +169,9 @@ class PageSchema {
 }
 class PSTemplate { 
 	/* Stores the field objects */
-	$PSFields = array(); 
-	$templateName ="";
-	$templateXml ="";
+	public $PSFields = array(); 
+	public $templateName ="";
+	public $templateXml ="";
 	function __construct( $template_xml ) {
 		$templateXml = $template_xml; 
 		$templateName = $templateXml->attributes()->name;
@@ -185,8 +192,8 @@ class PSTemplate {
 
 class PSTemplateField {
 	
-	$fieldName ="";
-	$fieldXml= "";
+	public $fieldName ="";
+	public $fieldXml= "";
 	
 	function __construct( $field_xml ) {
 		$fieldXml = $field_xml; 
