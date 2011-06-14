@@ -41,6 +41,7 @@ $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 // Register auto load for the special page class
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
+$wgAutoloadClasses['PageSchema'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
 $wgAutoloadClasses['GeneratePages'] = $dir . 'specials/GeneratePages.php';
 // registering Special page 
