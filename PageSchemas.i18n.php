@@ -20,8 +20,8 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
- * @author The Evil IP address
  * @author Ankit Garg 
+ * @author The Evil IP address
  */
 $messages['qqq'] = array(
 	'pageschemas-desc' => '{{desc}}',
