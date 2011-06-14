@@ -38,6 +38,11 @@ $dir = dirname( __FILE__ ) . '/';
 // Internationalization
 $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 
+//Job classes
+$wgJobClasses['createPage'] = 'PSCreatePageJob';
+$wgAutoloadClasses['SFCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
+
+
 // Register auto load for the special page class
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
