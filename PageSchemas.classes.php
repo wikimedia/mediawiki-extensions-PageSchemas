@@ -112,9 +112,29 @@ class PageSchema {
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
 		$pageId = $title->getArticleID();
-		/* get the database instance */
+		$pageXml =<<<END
+		<ClassSchema name="City">
+			<semanticforms:FormName>City</semanticforms:FormName>
+			<Template name="City">
+                <Field name="Population">
+                    <semanticmediawiki:Property name="Has population">
+						<Type>Number</Type>
+					</semanticmediawiki:Property>
+                    <semanticforms:FormInput>
+                        <InputType>text</InputType>
+                        <Size>20</Size>
+                    </semanticforms:FormInput>
+                    <semanticdrilldown:Filter>
+                        <Label>Population</Label>
+                    </semanticdrilldown:Filter>
+                </Field>                
+			</Template>        
+		<ClassSchema>				
+END;
+		
+		/*
 		$dbr = wfGetDB( DB_SLAVE );
-		/*get the result set, query : slect page_props*/
+		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
 		array(
 			'pp_page',
@@ -127,11 +147,12 @@ class PageSchema {
 		)
 		);
 	
-		/*first row of the result set */
+		//first row of the result set 
 		$row = $dbr->fetchRow( $res );
  	
-		/* retrievimg the third attribute which is pp_value */
+		//retrievimg the third attribute which is pp_value 
 		$pageXml = $row[2];
+		*/
 		$pageName = $pageXml->attributes()->name;
 		/*  index for template objects */
 	 	$i = 0 ;
