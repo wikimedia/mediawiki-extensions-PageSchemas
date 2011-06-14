@@ -18,7 +18,7 @@ class GeneratePages extends IncludableSpecialPage {
 		# Get request data from, e.g.
         $param = $wgRequest->getText('param');
 		if ( $param != "" ) {
-			$this->generateAllPages($param);
+			$this->generate_pages($param);
 		
 		}
 		$text =<<< END
@@ -32,9 +32,11 @@ END;
 				
     }
 		
-	function generateAllPages ( $category_name ) {
-		global $wgRequest, $wgOut;
-	  $wgOut->addWikiText( $category_name );
+	function generate_pages ( $categoryName ) {
+		global $wgRequest, $wgOut;	
+        $pageSchema = new PageSchema( $categoryName );
+		$pageSchema->generateAllPages();					
+	
 	
 	}
 		
