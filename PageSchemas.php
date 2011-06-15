@@ -40,7 +40,7 @@ $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 
 //Job classes
 $wgJobClasses['createPage'] = 'PSCreatePageJob';
-$wgAutoloadClasses['SFCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
+$wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
 
 // Register auto load for the special page class
