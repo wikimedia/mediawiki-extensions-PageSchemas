@@ -76,7 +76,6 @@ END;
 		}
 		return $text;
 	}
-
 	static function parseTemplate ( $template_xml ) {
 		$name = $template_xml->attributes()->name;
 		$text = self::tableRowHTML('template_class', 'Template', $name);
@@ -84,16 +83,12 @@ END;
 			$text .= self::parseField($child);
 		}
 		return $text;
-	}
-
-	
-	
+	}		
 	static function parseField ( $field_xml ) {
 		$name = $field_xml->attributes()->name;
 		$text = self::tableMessageRowHTML('paramDataField', $name, $field_xml);
 		return $text;
 	}
-
 }
 
 /*class holds the PageScheme tag equivalent object */
@@ -102,7 +97,8 @@ class PageSchema {
 
 	public  $categoryName="";
 	public $pageId=0;
-	public  $pageXml="";
+	public  $pageXml=null;
+	public $pageXmlstr= "";
 	public $pageName="";
   
   /* Stores the templte objects */
@@ -110,26 +106,26 @@ class PageSchema {
   
 	function __construct ( $category_name ) {			
 		$this->categoryName = $category_name; 
-		$title = Title::newFromText( $categoryName, NS_CATEGORY );
-		$pageId = $title->getArticleID();
-		$pageXml =<<<END
+		$title = Title::newFromText( $category_name, NS_CATEGORY );
+		$pageId = $title->getArticleID(); 
+		$pageXmlstr =<<<END
 		<ClassSchema name="City">
-			<semanticforms:FormName>City</semanticforms:FormName>
+			<FormName>City</FormName>
 			<Template name="City">
                 <Field name="Population">
-                    <semanticmediawiki:Property name="Has population">
+                    <Property name="Has population">
 						<Type>Number</Type>
-					</semanticmediawiki:Property>
-                    <semanticforms:FormInput>
+					</Property>
+                    <FormInput>
                         <InputType>text</InputType>
                         <Size>20</Size>
-                    </semanticforms:FormInput>
-                    <semanticdrilldown:Filter>
+                    </FormInput>
+                    <Filter>
                         <Label>Population</Label>
-                    </semanticdrilldown:Filter>
+                    </Filter>
                 </Field>                
 			</Template>        
-		<ClassSchema>				
+		</ClassSchema>				
 END;
 		
 		/*
@@ -153,34 +149,36 @@ END;
 		//retrievimg the third attribute which is pp_value 
 		$pageXml = $row[2];
 		*/
-		$pageName = $pageXml->attributes()->name;
+		$pageXml = simplexml_load_string ( $pageXmlstr );		
+		$pageName = $pageXml->attributes()->name;				
 		/*  index for template objects */
 	 	$i = 0 ;
 		foreach ( $pageXml->children() as $tag => $child ) {
-			if ( $tag == 'Template' ) {
+			if ( $tag == 'Template' ) {				
 			    $templateObj =  new PSTemplate($child);
-				$PSTemplates[$i++]= $templateObj;				
+				$this->PSTemplates[$i++]= $templateObj;				
 			}
 		}
+	
 	}
   	
 	/* function to generate all pages based on the Xml contained in the page */
 	function generateAllPages () {	
 	    //Get templates 
-		$template_all = $this->getTemplates();
+		$template_all = $this->getTemplates();		
 		//For each template, Get Fields 
 		foreach ( $template_all as $template ) {
 			$field_all = $template->getFields();
 			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 		
-				$prop_array = $field->getObject('semanticmediawiki:Property');   //this returns an array with property values filled				
+				$prop_array = $field->getObject('Property');   //this returns an array with property values filled								
 				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'] ) );		
 			}
 		}						
 	}
 	
-	/*return an array of PSTemplate  Objects */
-	static function getTemplates () {				
-		return PSTemplates;  	
+	/*return an array of PSTemplate Objects */
+	function getTemplates () {				
+		return $this->PSTemplates;  	
 	}
 		
 	 /*returns the name of the PageSchema object */
@@ -192,40 +190,40 @@ class PSTemplate {
 	/* Stores the field objects */
 	public $PSFields = array(); 
 	public $templateName ="";
-	public $templateXml ="";
+	public $templateXml = null;
 	function __construct( $template_xml ) {
 		$templateXml = $template_xml; 
 		$templateName = $templateXml->attributes()->name;
-		/*  index for template objects */
+		/*index for template objects */
 	 	$i = 0 ;
-		foreach ($templateXml->children() as $child) {
+		foreach ($templateXml->children() as $child) {			
 		    $fieldObj =  new PSTemplateField($child);
-			$PSFields[$i++]= $fieldObj;								
+			$this->PSFields[$i++]= $fieldObj;								
 		}	
 	}
 	function getName(){
-	return $templateName;
+	return $this->templateName;
   }
-	static function getFields(){    
-	return $PSFields;
+	function getFields(){    
+	return $this->PSFields;
 	}   
 }
 
 class PSTemplateField {
 	
 	public $fieldName ="";
-	public $fieldXml= "";
+	public $fieldXml= null;
 	
 	function __construct( $field_xml ) {
-		$fieldXml = $field_xml; 
-		$fieldXml = $templateXml->attributes()->name;
+		$this->fieldXml = $field_xml; 
+		$this->fieldName = $this->fieldXml->attributes()->name;		
 	}
 	function getName(){
-		return $fieldName;
+		return $this->fieldName;
 	}
-	public function getObject( $objectName ) {
-		$object = null;
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->fieldXml, $object ) );
+	function getObject( $objectName ) {
+		$object = array();
+		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->fieldXml, &$object ) );		
 		return $object;
 	}
 }
