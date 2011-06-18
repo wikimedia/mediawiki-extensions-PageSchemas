@@ -80,9 +80,10 @@ $messages['bs'] = array(
 
 /** German (Deutsch)
  * @author Imre
+ * @author Kghbln
  */
 $messages['de'] = array(
-	'pageschemas-desc' => 'Unterstützt Vorlagen, die ihre Datenstruktur über XML auszeichnen',
+	'pageschemas-desc' => 'Ermöglicht die Unterstützung von Vorlagen, die ihre Datenstruktur über XML auszeichnen',
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 );
 
