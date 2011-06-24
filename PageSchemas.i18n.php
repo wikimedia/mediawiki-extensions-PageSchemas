@@ -17,8 +17,9 @@ $messages = array();
 $messages['en'] = array(
     'pageschemas-desc' => 'Supports templates defining their data structure via XML markup',
     'pageschemas-header' => 'The XML definition for this template is:',
-	'ps_property_isproperty'             => 'This is a property of type $1.',
-	'ps_property_allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
+	'ps-property-isproperty'             => 'This is a property of type $1.',
+	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
+	'ps-generate-pages'                  => 'Generate Pages',   
 );
 
 /** Message documentation (Message documentation)
