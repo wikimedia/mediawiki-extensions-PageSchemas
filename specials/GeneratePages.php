@@ -21,10 +21,11 @@ class GeneratePages extends IncludableSpecialPage {
 			$this->generate_pages($param);
 		
 		}
+		$generate_page_text = wfMsg( 'ps-generate-pages' );
 		$text =<<< END
 <form method="post">        
 		<input type="hidden" name="param" value="$category" /><br />  
-		<input type="submit" value="Generate Pages" />
+		<input type="submit" value="$generate_page_text" />
 </form>
 		
 END;
@@ -34,7 +35,7 @@ END;
 		
 	function generate_pages ( $categoryName ) {
 		global $wgRequest, $wgOut;	
-        $pageSchema = new PageSchema( $categoryName );
+        $pageSchema = new PSSchema( $categoryName );
 		$pageSchema->generateAllPages();					
 	
 	
