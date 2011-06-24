@@ -13,7 +13,7 @@ class PageSchemasHooks {
 	// Initialization
 	public static function register( &$parser ) {
 		// Register the hook with the parser
-		$parser->setHook( 'ClassSchema', array( 'PageSchemasHooks', 'render' ) );
+		$parser->setHook( 'PageSchema', array( 'PageSchemasHooks', 'render' ) );
 		// add the CSS
 		global $wgOut, $wgScriptPath;
 		$wgOut->addStyle($wgScriptPath . '/extensions/PageSchemas/PageSchemas.css');
@@ -37,7 +37,7 @@ class PageSchemasHooks {
 		// recreate the top-level <PageSchema> tag, with whatever
 		// attributes it contained, because that was actually a tag-
 		// function call, as opposed to a real XML tag
-		$input = Xml::tags('ClassSchema', $args, $input);
+		$input = Xml::tags('PageSchema', $args, $input);
 		
 		// if 'type=' was specified, and it wasn't set to one of the
 		// allowed values (currently just 'auto'),  don't validate -
