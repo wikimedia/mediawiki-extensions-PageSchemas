@@ -93,7 +93,7 @@ END;
 
 /*class holds the PageScheme tag equivalent object */
 
-class PageSchema {
+class PSSchema {
 
 	public  $categoryName="";
 	public $pageId=0;
@@ -107,29 +107,7 @@ class PageSchema {
 	function __construct ( $category_name ) {			
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $category_name, NS_CATEGORY );
-		$pageId = $title->getArticleID(); 
-		/*$pageXmlstr =<<<END
-		<ClassSchema name="City">
-			<FormName>City</FormName>
-			<Template name="City">
-                <Field name="Population">
-                    <Property name="Has population">
-						<Type>Number</Type>
-					</Property>
-                    <FormInput>
-                        <InputType>text</InputType>
-                        <Size>20</Size>
-                    </FormInput>
-                    <Filter>
-                        <Label>Population</Label>
-                    </Filter>
-                </Field>                
-			</Template>        
-		</ClassSchema>				
-END;
-		
-		*/
-		
+		$pageId = $title->getArticleID(); 		
 		$dbr = wfGetDB( DB_SLAVE );
 		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
@@ -172,7 +150,7 @@ END;
 			$field_all = $template->getFields();
 			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 		
 				$prop_array = $field->getObject('Property');   //this returns an array with property values filled												
-				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'], $prop_array['allowed_value_str'] ) );				
+				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'], $prop_array['allowed_value_array'] ) );				
 			}
 		}						
 	}
