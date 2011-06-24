@@ -25,7 +25,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
-	'name'			=> 'PageSchemas',
+	'name'			=> 'Page Schemas',
 	'author'		=> array( 'Ankit Garg' ),
 	'version'		=> '0.0.1',
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:PageSchemas',
@@ -46,7 +46,7 @@ $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 // Register auto load for the special page class
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PageSchema'] = $dir . 'PageSchemas.classes.php';
+$wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
 $wgAutoloadClasses['GeneratePages'] = $dir . 'specials/GeneratePages.php';
 // registering Special page 
@@ -54,9 +54,6 @@ $wgSpecialPages['GeneratePages'] = 'GeneratePages';
 $wgSpecialPageGroups['GeneratePages'] = 'other';
 // Register parser hook
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
-
-// Register API action
-$wgAPIPropModules['PageSchema'] = 'ApiQueryPageSchemas';
 
 // Register page_props usage
 $wgPageProps['PageSchema'] = 'Content of &lt;PageSchema&gt; tag';
