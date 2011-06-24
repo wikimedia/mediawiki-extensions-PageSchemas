@@ -108,7 +108,7 @@ class PageSchema {
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $category_name, NS_CATEGORY );
 		$pageId = $title->getArticleID(); 
-		$pageXmlstr =<<<END
+		/*$pageXmlstr =<<<END
 		<ClassSchema name="City">
 			<FormName>City</FormName>
 			<Template name="City">
@@ -128,7 +128,8 @@ class PageSchema {
 		</ClassSchema>				
 END;
 		
-		/*
+		*/
+		
 		$dbr = wfGetDB( DB_SLAVE );
 		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
@@ -147,8 +148,8 @@ END;
 		$row = $dbr->fetchRow( $res );
  	
 		//retrievimg the third attribute which is pp_value 
-		$pageXml = $row[2];
-		*/
+		$pageXmlstr = $row[2];
+		
 		$pageXml = simplexml_load_string ( $pageXmlstr );		
 		$pageName = $pageXml->attributes()->name;				
 		/*  index for template objects */
@@ -170,8 +171,8 @@ END;
 		foreach ( $template_all as $template ) {
 			$field_all = $template->getFields();
 			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 		
-				$prop_array = $field->getObject('Property');   //this returns an array with property values filled								
-				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'] ) );		
+				$prop_array = $field->getObject('Property');   //this returns an array with property values filled												
+				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'], $prop_array['allowed_value_str'] ) );				
 			}
 		}						
 	}
