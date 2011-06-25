@@ -29,7 +29,10 @@ class GeneratePages extends IncludableSpecialPage {
 			//this is when Special:GeneratePages/Category is accessed first time 
 			//Here check for the valid Category  name and allow for generating pages 
 				$title = Title::newFromText( $category, NS_CATEGORY );
-				$pageId = $title->getArticleID(); 		
+				$pageId = $title->getArticleID();
+				$test_text = Title::newFromId($pageId)->getText();	
+				wfDebugLog( 'myextension', 'newFromId: ' .$test_text );
+				wfDebugLog( 'myextension', 'newFromId->getNamespace(): ' .Title::newFromId($pageId)->getNamespace() );
 				$dbr = wfGetDB( DB_SLAVE );
 				//get the result set, query : slect page_props
 				$res = $dbr->select( 'page_props',
@@ -48,7 +51,7 @@ class GeneratePages extends IncludableSpecialPage {
 				if( $row != null ){
 					$wgOut->addHTML($text_2);
 				}else {
-						$text = "<p>No such category exist ! </p>";
+						$text = "<p>Error: there is no page schema defined for that category in the wiki. </p>";
 						$wgOut->addHTML( $text );
 				}				
 			}
