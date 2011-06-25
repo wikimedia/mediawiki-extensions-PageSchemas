@@ -88,6 +88,9 @@ $messages['bs'] = array(
 $messages['de'] = array(
 	'pageschemas-desc' => 'Ermöglicht die Unterstützung von Vorlagen, die ihre Datenstruktur über XML auszeichnen',
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
+	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
+	'ps-generate-pages' => 'Seiten generieren',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -155,11 +158,15 @@ $messages['gsw'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author YaronSh
  */
 $messages['he'] = array(
 	'pageschemas-desc' => 'תומכת בתבניות המגדירות את מבנה הנתונים שלהן באמצעות תחביר XML',
 	'pageschemas-header' => 'הגדרת ה־XML עבור תבנית זו היא:',
+	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
+	'ps-generate-pages' => 'יצירת דפים',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -239,6 +246,9 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'pageschemas-desc' => 'Поддржува шаблони кои ја определуваат нивната податочна структура по пат на XML ознаки',
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
+	'ps-property-isproperty' => 'Ова е својство од типот $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
+	'ps-generate-pages' => 'Создај страници',
 );
 
 /** Dutch (Nederlands)
@@ -296,6 +306,9 @@ $messages['pms'] = array(
 $messages['pt'] = array(
 	'pageschemas-desc' => 'Define a estrutura de dados das predefinições em XML',
 	'pageschemas-header' => 'A definição XML para esta predefinição é:',
+	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
+	'ps-generate-pages' => 'Gerar Páginas',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
