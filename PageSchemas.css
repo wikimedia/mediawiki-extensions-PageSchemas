@@ -7,17 +7,17 @@ body.rtl .pageSchema td {
 	padding-left: 5px;
 }
 
-.pageSchema .template_class {
+.pageSchema .paramGroup {
 	background: #bbaa88;
 	padding-left: 5px;
 }
 
-body.rtl .pageSchema .template_class {
+body.rtl .pageSchema .paramGroup {
 	padding-left: auto;
 	padding-right: 5px;
 }
 
-.pageSchema .template_class span.rowValue {
+.pageSchema .paramGroup span.rowValue {
 	font-weight: bold;
 }
 
