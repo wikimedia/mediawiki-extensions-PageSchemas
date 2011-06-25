@@ -20,11 +20,11 @@ $messages['en'] = array(
 	'ps-property-isproperty'             => 'This is a property of type $1.',
 	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
 	'ps-generate-pages'                  => 'Generate Pages',   
+	'ps-generate-pages-desc'             => 'Press the button below to generate all the wiki pages used for this schema',
 );
 
 /** Message documentation (Message documentation)
  * @author Ankit Garg 
- * @author The Evil IP address
  */
 $messages['qqq'] = array(
 	'pageschemas-desc' => '{{desc}}',
