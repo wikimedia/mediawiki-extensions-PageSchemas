@@ -56,29 +56,30 @@ END;
 
 	static function parsePageSchemas($class_schema_xml) {
 	
-		global $wgTitle;
-		
+		global $wgTitle;		
 		if($wgTitle->getNamespace() == NS_CATEGORY){
 		$text = "<p>Schema description:</p>\n";
 		$text .= "<table class=\"pageSchema\">\n";
 		$name = $class_schema_xml->attributes()->name;
-		$text = self::tableRowHTML('template_class', 'PageSchema', $name);
-		foreach ( $class_schema_xml->children() as $tag => $child ) {
-			if ($tag == 'Template') {
-				$text .= self::parseTemplate($child);
-			} else{
-			    echo "Code to be added by other extension\n";
+		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
+			foreach ( $class_schema_xml->children() as $tag => $child ) {
+				if ($tag == 'Template') {
+					$text .= self::parseTemplate($child);
+				} else{
+					echo "Code to be added by other extension\n";
+				}
 			}
-		}
 		$text .= "</table>\n";
 		}else{
 		$text = "";
 		}
+		wfDebugLog( 'myextension', 'Generate html is::  ' . $text );		
 		return $text;
+		
 	}
-	static function parseTemplate ( $template_xml ) {
+	static function parseTemplate ( $template_xml ) {		
 		$name = $template_xml->attributes()->name;
-		$text = self::tableRowHTML('template_class', 'Template', $name);
+		$text = self::tableRowHTML('param', 'Template', $name);
 		foreach ($template_xml->children() as $child) {
 			$text .= self::parseField($child);
 		}
@@ -86,7 +87,7 @@ END;
 	}		
 	static function parseField ( $field_xml ) {
 		$name = $field_xml->attributes()->name;
-		$text = self::tableMessageRowHTML('paramDataField', $name, $field_xml);
+		$text = self::tableMessageRowHTML('paramAttr', $name, $field_xml);
 		return $text;
 	}
 }
