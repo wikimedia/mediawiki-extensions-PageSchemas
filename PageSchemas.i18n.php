@@ -91,6 +91,7 @@ $messages['de'] = array(
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
 	'ps-generate-pages' => 'Seiten generieren',
+	'ps-generate-pages-desc' => 'Klicke auf die Schaltfläche unten, um alle Wikiseiten zu generieren, die für dieses Schema genutzt werden',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -167,6 +168,7 @@ $messages['he'] = array(
 	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
 	'ps-generate-pages' => 'יצירת דפים',
+	'ps-generate-pages-desc' => 'לחצו על הכפתור להלן כדי לחולל את דפי הוויקי בסכמה הזאת',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -191,6 +193,10 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'pageschemas-desc' => 'Supporta patronos que defini lor structura de datos per medio del notation XML',
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
+	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
+	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
+	'ps-generate-pages' => 'Generar paginas',
+	'ps-generate-pages-desc' => 'Preme le button hic infra pro generar tote le paginas wiki usate pro iste scherma',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -249,14 +255,18 @@ $messages['mk'] = array(
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
 	'ps-generate-pages' => 'Создај страници',
+	'ps-generate-pages-desc' => 'Стиснете на копчето подолу за да ги создадете сите вики-страници што се користат во оваа шема',
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
 	'pageschemas-desc' => 'Ondersteunt sjablonen waarvoor de gegevensstructuur is gedefinieerd via XML',
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
+	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
+	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -309,6 +319,7 @@ $messages['pt'] = array(
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
 	'ps-generate-pages' => 'Gerar Páginas',
+	'ps-generate-pages-desc' => 'Clique o botão abaixo para gerar todas as páginas da wiki usadas para este esquema',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
