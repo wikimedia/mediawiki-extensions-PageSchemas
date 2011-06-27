@@ -72,10 +72,8 @@ END;
 		$text .= "</table>\n";
 		}else{
 		$text = "";
-		}
-		wfDebugLog( 'myextension', 'Generate html is::  ' . $text );		
-		return $text;
-		
+		}			
+		return $text;		
 	}
 	static function parseTemplate ( $template_xml ) {		
 		$name = $template_xml->attributes()->name;
@@ -87,7 +85,12 @@ END;
 	}		
 	static function parseField ( $field_xml ) {
 		$name = $field_xml->attributes()->name;
-		$text = self::tableMessageRowHTML('paramAttr', $name, $field_xml);
+		$text = self::tableRowHTML('paramAttr', 'Field', $name);
+		$text_object = array(); //different extensions will fill the html parsed text in this array via hooks
+		wfRunHooks( 'PSParseFieldElements', array( $field_xml, &$text_object ) );		
+		foreach( $text_object as $key => $value ) {
+			$text .= $value;
+		}
 		return $text;
 	}
 }
