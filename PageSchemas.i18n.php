@@ -63,6 +63,10 @@ $messages['arz'] = array(
 $messages['be-tarask'] = array(
 	'pageschemas-desc' => 'Падтрымлівае шаблёны вызначаючы іх будову зьвестак праз меткі XML',
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
+	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
+	'ps-generate-pages' => 'Стварыць старонкі',
+	'ps-generate-pages-desc' => 'Націсьніце кнопку ніжэй каб стварыць усе вікі-старонкі неабходныя для гэтай схемы',
 );
 
 /** Breton (Brezhoneg)
@@ -352,6 +356,8 @@ $messages['ru'] = array(
 $messages['sl'] = array(
 	'pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
+	'ps-property-isproperty' => 'To je lastnost vrste $1.',
+	'ps-generate-pages' => 'Ustvarjajte strani',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
