@@ -24,15 +24,37 @@ class GeneratePages extends IncludableSpecialPage {
 			$wgOut->addHTML($text_1);
 		}else {
 			if( $category == ""){
-				## Code to Display the list of categories
+				$cat_titles = array();
+				$count_title = 0;
+				$text = "";
+				$dbr = wfGetDB( DB_SLAVE );
+				//get the result set, query : slect page_props
+				$res = $dbr->select( 'page_props',
+				array(
+					'pp_page',
+					'pp_propname',
+					'pp_value'	
+				),
+				array(					
+					'pp_propname' => 'PageSchema'
+				)
+				);	
+				while ( $row = $dbr->fetchRow( $res ) ) {
+					if( $row[2] != null ){
+						$page_id_cat = $row[0];
+						if( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY){
+							$cat_text = Title::newFromId($page_id_cat)->getText();
+							$text .= '<a href="/index.php/Special:GeneratePages/'.$cat_text.'">'.$cat_text.'</a> <br />';	
+						}							
+					}					
+				}
+				$dbr->freeResult( $res );	
+				$wgOut->addHTML( $text );								
 			}else {
 			//this is when Special:GeneratePages/Category is accessed first time 
 			//Here check for the valid Category  name and allow for generating pages 
 				$title = Title::newFromText( $category, NS_CATEGORY );
-				$pageId = $title->getArticleID();
-				$test_text = Title::newFromId($pageId)->getText();	
-				wfDebugLog( 'myextension', 'newFromId: ' .$test_text );
-				wfDebugLog( 'myextension', 'newFromId->getNamespace(): ' .Title::newFromId($pageId)->getNamespace() );
+				$pageId = $title->getArticleID();				
 				$dbr = wfGetDB( DB_SLAVE );
 				//get the result set, query : slect page_props
 				$res = $dbr->select( 'page_props',
