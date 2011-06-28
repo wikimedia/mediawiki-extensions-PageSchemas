@@ -44,7 +44,9 @@ class GeneratePages extends IncludableSpecialPage {
 						$page_id_cat = $row[0];
 						if( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY){
 							$cat_text = Title::newFromId($page_id_cat)->getText();
-							$text .= '<a href="/index.php/Special:GeneratePages/'.$cat_text.'">'.$cat_text.'</a> <br />';	
+							$generatePagesPage = SpecialPage::getTitleFor( 'GeneratePages' );
+							$url = $generatePagesPage ->getFullURL() . '/' . $cat_text;
+							$text .= '<a href='.$generatePagesPage.'</a> <br />';	
 						}							
 					}					
 				}
