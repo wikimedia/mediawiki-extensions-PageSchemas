@@ -18,7 +18,7 @@ class GeneratePages extends IncludableSpecialPage {
 		$generate_page_desc = wfMsg( 'ps-generate-pages-desc' );
 		$param = $wgRequest->getText('param');		
 		$text_1 = '<p>All pages will be generated! </p>';				
-		$text_2 = '<form method="post">  <input type="hidden" name="param" value="'.$category.'" /><br />  <input type="submit" value="'.$generate_page_text.'" /> </form>';
+		$text_2 = '<p>'.$generate_page_desc.'</p> <form method="post">  <input type="hidden" name="param" value="'.$category.'" /><br />  <input type="submit" value="'.$generate_page_text.'" /> </form>';
 		if ( $param != "" &&  $category != "" ) {		
 			$this->generate_pages($param);
 			$wgOut->addHTML($text_1);
