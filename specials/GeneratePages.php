@@ -45,12 +45,12 @@ class GeneratePages extends IncludableSpecialPage {
 						if( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY){
 							$cat_text = Title::newFromId($page_id_cat)->getText();
 							$generatePagesPage = SpecialPage::getTitleFor( 'GeneratePages' );
-							$url = $generatePagesPage ->getFullURL() . '/' . $cat_text;
-							$text .= '<a href='.$generatePagesPage.'</a> <br />';	
+							$url = $generatePagesPage ->getFullURL() . '/' . $cat_text;						
+							$text .= '<a href='.$url.'>'.$cat_text.'   </a> <br /> ';	
 						}							
 					}					
 				}
-				$dbr->freeResult( $res );	
+				$dbr->freeResult( $res );						
 				$wgOut->addHTML( $text );								
 			}else {
 			//this is when Special:GeneratePages/Category is accessed first time 
