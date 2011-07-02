@@ -151,11 +151,27 @@ class PSSchema {
 		$template_all = $this->getTemplates();		
 		//For each template, Get Fields 
 		foreach ( $template_all as $template ) {
+			$template_array = array();			
+			$template_array['name'] = $template->getName();
+			$template_array['category_name'] = $this->categoryName;
 			$field_all = $template->getFields();
-			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 		
-				$prop_array = $field->getObject('Property');   //this returns an array with property values filled												
-				wfRunHooks( 'PageSchemasGeneratePages', array( $prop_array['name'], $prop_array['Type'], $prop_array['allowed_value_array'] ) );				
+			$genPageObject = array();
+			$field_count = 0; //counts the number of fields
+			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 
+				$field_count++;
+				$field_array = array();
+				$field_array['name'] = $field->getName();
+				$field_array['label'] = $field->getLabel();							
+				$prop_array = $field->getObject('Property');   //this returns an array with property values filled
+				$genPageObject['Property'] = $prop_array;
+				$field_array['Property'] = $prop_array;
+				$template_array['Field'.$field_count] = $field_array;
+				$form_input_array = $field->getObject('FormInput');   //this returns an array with property values filled	
+				$genPageObject['FormInput'] = $form_input_array;
+				wfRunHooks( 'PageSchemasGeneratePages', array( $genPageObject ));												
 			}
+			$genPageObject['Template'] =  $template_array ;			
+			wfRunHooks( 'PageSchemasGeneratePages', array( $genPageObject ));
 		}						
 	}
 	
@@ -175,11 +191,11 @@ class PSTemplate {
 	public $templateName ="";
 	public $templateXml = null;
 	function __construct( $template_xml ) {
-		$templateXml = $template_xml; 
-		$templateName = $templateXml->attributes()->name;
+		$this->templateXml = $template_xml; 
+		$this->templateName = (string) $template_xml->attributes()->name;
 		/*index for template objects */
 	 	$i = 0 ;
-		foreach ($templateXml->children() as $child) {			
+		foreach ($template_xml->children() as $child) {			
 		    $fieldObj =  new PSTemplateField($child);
 			$this->PSFields[$i++]= $fieldObj;								
 		}	
@@ -196,13 +212,21 @@ class PSTemplateField {
 	
 	public $fieldName ="";
 	public $fieldXml= null;
-	
+    public $fieldLabel = "";	
 	function __construct( $field_xml ) {
 		$this->fieldXml = $field_xml; 
-		$this->fieldName = $this->fieldXml->attributes()->name;		
+		$this->fieldName = (string)$this->fieldXml->attributes()->name;
+		foreach ($this->fieldXml->children() as $tag => $child ) {
+			if ( $tag == 'Label' ) {
+			$this->fieldLabel = (string)$child;
+			}									
+		}		
 	}
 	function getName(){
 		return $this->fieldName;
+	}
+	function getLabel(){
+		return $this->fieldLabel;
 	}
 	function getObject( $objectName ) {
 		$object = array();
