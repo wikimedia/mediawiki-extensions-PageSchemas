@@ -248,6 +248,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'pageschemas-desc' => "Ënnerstëtzt d'Schablounen déi hir Datestruktur iwwer XML-Tagen definéieren",
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
+	'ps-generate-pages' => 'Säite generéieren',
 );
 
 /** Macedonian (Македонски)
