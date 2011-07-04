@@ -104,7 +104,7 @@ class PSSchema {
 	public  $pageXml=null;
 	public $pageXmlstr= "";
 	public $pageName="";
-  
+    public $formName="";
   /* Stores the templte objects */
 	public $PSTemplates = array();
   
@@ -133,13 +133,16 @@ class PSSchema {
 		$pageXmlstr = $row[2];
 		
 		$pageXml = simplexml_load_string ( $pageXmlstr );		
-		$pageName = $pageXml->attributes()->name;				
+		$this->pageName = (string)$pageXml->attributes()->name;				
 		/*  index for template objects */
 	 	$i = 0 ;
 		foreach ( $pageXml->children() as $tag => $child ) {
 			if ( $tag == 'Template' ) {				
 			    $templateObj =  new PSTemplate($child);
 				$this->PSTemplates[$i++]= $templateObj;				
+			}
+			if ( $tag == 'FormName' ) {
+				$this->formName = (string)$child;
 			}
 		}
 	
@@ -149,7 +152,9 @@ class PSSchema {
 	function generateAllPages () {	
 	    //Get templates 
 		$template_all = $this->getTemplates();		
-		//For each template, Get Fields 
+		/*obj. to create form Page */
+		$form_templates = array();
+		$genFormObj = array();	
 		foreach ( $template_all as $template ) {
 			$template_array = array();			
 			$template_array['name'] = $template->getName();
@@ -158,21 +163,21 @@ class PSSchema {
 			$genPageObject = array();
 			$field_count = 0; //counts the number of fields
 			foreach( $field_all as $field ) { //for each Field, retrieve smw properties and fill $prop_name , $prop_type 
-				$field_count++;
-				$field_array = array();
-				$field_array['name'] = $field->getName();
-				$field_array['label'] = $field->getLabel();							
+				$field_count++;				
 				$prop_array = $field->getObject('Property');   //this returns an array with property values filled
-				$genPageObject['Property'] = $prop_array;
-				$field_array['Property'] = $prop_array;
-				$template_array['Field'.$field_count] = $field_array;
+				$genPageObject['Property'] = $prop_array;				
+				$template_array['Field'.$field_count] = $field;
 				$form_input_array = $field->getObject('FormInput');   //this returns an array with property values filled	
 				$genPageObject['FormInput'] = $form_input_array;
-				wfRunHooks( 'PageSchemasGeneratePages', array( $genPageObject ));												
+				wfRunHooks( 'PageSchemasGeneratePages', array( $genPageObject ));					
 			}
-			$genPageObject['Template'] =  $template_array ;			
+			$genPageObject['Template'] = $template_array ;			
 			wfRunHooks( 'PageSchemasGeneratePages', array( $genPageObject ));
-		}						
+			$form_templates[] = $template_array;
+		}
+		$genFormObj['Form'] = $form_templates;
+		$genFormObj['FormName'] = $this->getFormName();
+       	wfRunHooks( 'PageSchemasGeneratePages', array( $genFormObj ));	
 	}
 	
 	/*return an array of PSTemplate Objects */
@@ -182,7 +187,10 @@ class PSSchema {
 		
 	 /*returns the name of the PageSchema object */
 	function getName(){		
-		return $pageName;
+		return $this->pageName;
+    }
+	function getFormName(){		
+		return $this->formName;
     }
 }
 class PSTemplate { 
