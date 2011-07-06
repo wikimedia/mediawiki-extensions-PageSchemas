@@ -108,7 +108,7 @@ class PSSchema {
   /* Stores the templte objects */
 	public $PSTemplates = array();
   
-	function __construct ( $category_name ) {			
+	function __construct ( $category_name ) {
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $category_name, NS_CATEGORY );
 		$this->pageId = $title->getArticleID(); 		
@@ -133,6 +133,7 @@ class PSSchema {
 		$this->pageName = (string)$pageXml->attributes()->name;				
 		/*  index for template objects */
 	 	$i = 0 ;
+		$j = 1;
 		foreach ( $pageXml->children() as $tag => $child ) {
 			if ( $tag == 'Template' ) {				
 			    $templateObj =  new PSTemplate($child);
