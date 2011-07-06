@@ -129,7 +129,7 @@ class PSSchema {
 		$row = $dbr->fetchRow( $res );
 		//retrievimg the third attribute which is pp_value 
 		$pageXmlstr = $row[2];
-		$pageXml = simplexml_load_string ( $pageXmlstr );		
+		$pageXml = simplexml_load_string ( $pageXmlstr );	
 		$this->pageName = (string)$pageXml->attributes()->name;				
 		/*  index for template objects */
 	 	$i = 0 ;
@@ -144,20 +144,20 @@ class PSSchema {
 		}
 	}
 	/* function to generate all pages based on the Xml contained in the page */
-	function generateAllPages () {		    
+	function generateAllPages () {
 		wfRunHooks( 'PageSchemasGeneratePages', array( $this ));	
 	}
 	/*return an array of PSTemplate Objects */
-	function getTemplates () {				
+	function getTemplates () {
 		return $this->PSTemplates;  	
 	}		
 	 /*returns the name of the PageSchema object */
-	function getName(){		
+	function getName(){
 		return $this->pageName;
     }
-	function getFormName(){		
+	function getFormName(){
 		return $this->formName;
-    }
+	}
 	function getCategoryName(){		
 		return $this->categoryName;
     }		
