@@ -132,8 +132,7 @@ class PSSchema {
 		$pageXml = simplexml_load_string ( $pageXmlstr );	
 		$this->pageName = (string)$pageXml->attributes()->name;				
 		/*  index for template objects */
-	 	$i = 0 ;
-		$j = 1;
+	 	$i = 0 ;		
 		foreach ( $pageXml->children() as $tag => $child ) {
 			if ( $tag == 'Template' ) {				
 			    $templateObj =  new PSTemplate($child);
@@ -145,8 +144,8 @@ class PSSchema {
 		}
 	}
 	/* function to generate all pages based on the Xml contained in the page */
-	function generateAllPages () {
-		wfRunHooks( 'PageSchemasGeneratePages', array( $this ));	
+	function generateAllPages ( $toGenPageList ) {
+		wfRunHooks( 'PageSchemasGeneratePages', array( $this, $toGenPageList ));	
 	}
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
@@ -169,19 +168,34 @@ class PSTemplate {
 	public $PSFields = array(); 
 	public $templateName ="";
 	public $templateXml = null;
+	public $multiple_allowed = false;
+	private $label_name = null;
 	function __construct( $template_xml ) {
-		$this->templateXml = $template_xml; 
+		$this->templateXml = $template_xml;
 		$this->templateName = (string) $template_xml->attributes()->name;
+		if( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
+			$this->multiple_allowed = true;
+		}
 		/*index for template objects */
 	 	$i = 0 ;
-		foreach ($template_xml->children() as $child) {			
-		    $fieldObj =  new PSTemplateField($child);
-			$this->PSFields[$i++]= $fieldObj;								
-		}	
+		foreach ($template_xml->children() as $child) {
+			if( $child->getName() == "Label" ) { //@TODO Label => sf:Label 
+				$this->label_name = (string)$child;
+			}else{
+				$fieldObj =  new PSTemplateField($child);
+				$this->PSFields[$i++]= $fieldObj;
+			}
+		}
 	}
 	function getName(){
 	return $this->templateName;
-  }
+	}
+	function isMultiple(){
+	return $this->multiple_allowed;
+	}
+	public function getLabel(){
+	return $this->label_name;
+	}	
 	function getFields(){    
 	return $this->PSFields;
 	}   
@@ -191,10 +205,14 @@ class PSTemplateField {
 	
 	public $fieldName ="";
 	public $fieldXml= null;
-    public $fieldLabel = "";	
+    public $fieldLabel = "";
+	private $list_values = false; 	
 	function __construct( $field_xml ) {
 		$this->fieldXml = $field_xml; 
 		$this->fieldName = (string)$this->fieldXml->attributes()->name;
+		if( ((string)$this->fieldXml->attributes()->list) == "list") {
+			 $this->list_values = true;
+		}
 		foreach ($this->fieldXml->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
 			$this->fieldLabel = (string)$child;
@@ -206,6 +224,9 @@ class PSTemplateField {
 	}
 	function getLabel(){
 		return $this->fieldLabel;
+	}
+	public function isList(){
+		return $this->list_values;
 	}
 	function getObject( $objectName ) {
 		$object = array();
