@@ -18,9 +18,8 @@ class GeneratePages extends IncludableSpecialPage {
 		$generate_page_desc = wfMsg( 'ps-generate-pages-desc' );
 		$param = $wgRequest->getText('param');		
 		$text_1 = '<p>All pages will be generated! </p>';				
-		$text_2 = '<p>'.$generate_page_desc.'</p> <form method="post">  <input type="hidden" name="param" value="'.$category.'" /><br />  <input type="submit" value="'.$generate_page_text.'" /> </form>';
-		if ( $param != "" &&  $category != "" ) {		
-			$this->generate_pages($param);
+		if ( $param != "" &&  $category != "" ) {			
+			$this->generate_pages( $param, $_POST['page'] );
 			$wgOut->addHTML($text_1);
 		}else {
 			if( $category == ""){
@@ -69,25 +68,30 @@ class GeneratePages extends IncludableSpecialPage {
 					'pp_page' => $pageId,
 					'pp_propname' => 'PageSchema'
 				)
-				);	
+				);
 				//first row of the result set 
 				$row = $dbr->fetchRow( $res );
 				if( $row != null ){
+					$text_2 = '<p>'.$generate_page_desc.'</p> <form method="post">  <input type="hidden" name="param" value="'.$category.'" /><br />  ';
+					//add code to generate a list of check-box for pages to be generated.
+					$pageSchemaObj = new PSSchema( $category );
+					$pageList = array();
+					wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ));	//will return an array of string, with each value as a title of the page to be created.		
+					foreach( $pageList as $page ){
+						$text_2 .= '<input type="checkbox" name="page[]" value="'.$page.'" />  '.$page.' <br />';
+					}					
+					$text_2 .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> <br /> <br /></form>';
 					$wgOut->addHTML($text_2);
 				}else {
 						$text = "<p>Error: there is no page schema defined for that category in the wiki. </p>";
 						$wgOut->addHTML( $text );
-				}				
+				}
 			}
-		
-		}															
-    }
-		
-	function generate_pages ( $categoryName ) {
-		global $wgRequest, $wgOut;	
+		}
+    }	
+	function generate_pages ( $categoryName, $toGenPageList ) {
+		global $wgRequest, $wgOut;
         $pageSchema = new PSSchema( $categoryName );
-		$pageSchema->generateAllPages();					
-	
-	
-	}		
+		$pageSchema->generateAllPages( $toGenPageList );
+	}
 }
