@@ -95,7 +95,7 @@ $messages['de'] = array(
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
 	'ps-generate-pages' => 'Seiten generieren',
-	'ps-generate-pages-desc' => 'Klicke auf die Schaltfläche unten, um alle Wikiseiten zu generieren, die für dieses Schema genutzt werden',
+	'ps-generate-pages-desc' => 'Generiere die folgenden Seiten auf Basis des Schemas dieser Kategorie:',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -358,7 +358,9 @@ $messages['sl'] = array(
 	'pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
 	'ps-generate-pages' => 'Ustvarjajte strani',
+	'ps-generate-pages-desc' => 'Pritisnite spodnji gumb za ustvaritev vseh wikistrani, uporabljenih za to shemo',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
