@@ -172,7 +172,7 @@ $messages['he'] = array(
 	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
 	'ps-generate-pages' => 'יצירת דפים',
-	'ps-generate-pages-desc' => 'לחצו על הכפתור להלן כדי לחולל את דפי הוויקי בסכמה הזאת',
+	'ps-generate-pages-desc' => 'לחולל את דפי הוויקי הבאים, לפי הסכֵמה של הקטגוריה הזאת:',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -200,7 +200,7 @@ $messages['ia'] = array(
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
 	'ps-generate-pages' => 'Generar paginas',
-	'ps-generate-pages-desc' => 'Preme le button hic infra pro generar tote le paginas wiki usate pro iste scherma',
+	'ps-generate-pages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -260,7 +260,7 @@ $messages['mk'] = array(
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
 	'ps-generate-pages' => 'Создај страници',
-	'ps-generate-pages-desc' => 'Стиснете на копчето подолу за да ги создадете сите вики-страници што се користат во оваа шема',
+	'ps-generate-pages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
 );
 
 /** Dutch (Nederlands)
@@ -324,7 +324,7 @@ $messages['pt'] = array(
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
 	'ps-generate-pages' => 'Gerar Páginas',
-	'ps-generate-pages-desc' => 'Clique o botão abaixo para gerar todas as páginas da wiki usadas para este esquema',
+	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no esquema desta categoria:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -360,7 +360,7 @@ $messages['sl'] = array(
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
 	'ps-generate-pages' => 'Ustvarjajte strani',
-	'ps-generate-pages-desc' => 'Pritisnite spodnji gumb za ustvaritev vseh wikistrani, uporabljenih za to shemo',
+	'ps-generate-pages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
