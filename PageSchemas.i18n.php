@@ -59,14 +59,15 @@ $messages['arz'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'pageschemas-desc' => 'Падтрымлівае шаблёны вызначаючы іх будову зьвестак праз меткі XML',
+	'pageschemas-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную будову зьвестак праз XML-разьметку',
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
 	'ps-generate-pages' => 'Стварыць старонкі',
-	'ps-generate-pages-desc' => 'Націсьніце кнопку ніжэй каб стварыць усе вікі-старонкі неабходныя для гэтай схемы',
+	'ps-generate-pages-desc' => 'Стварыць наступныя старонкі, зыходзячы са схемы катэгорыі:',
 );
 
 /** Breton (Brezhoneg)
