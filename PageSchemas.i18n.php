@@ -67,7 +67,7 @@ $messages['be-tarask'] = array(
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
 	'ps-generate-pages' => 'Стварыць старонкі',
-	'ps-generate-pages-desc' => 'Стварыць наступныя старонкі, зыходзячы са схемы катэгорыі:',
+	'ps-generate-pages-desc' => 'Стварае старонкі, зыходзячы са схемы катэгорыі:',
 );
 
 /** Breton (Brezhoneg)
