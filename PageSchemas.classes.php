@@ -8,7 +8,32 @@
 
 class PageSchemas {
 
+
 	/* Functions */
+	//Copied from SFUtils
+	public static function titleString( $title ) {
+		$namespace = $title->getNsText();
+		if ( $namespace != '' ) {
+			$namespace .= ':';
+		}
+		if ( self::isCapitalized( $title ) ) {
+			global $wgContLang;
+			return $namespace . $wgContLang->ucfirst( $title->getText() );
+		} else {
+			return $namespace . $title->getText();
+		}
+	}
+	public static function isCapitalized( $title ) {
+		// Method was added in MW 1.16.
+		$realFunction = array( 'MWNamespace', 'isCapitalized' );
+		if ( is_callable( $realFunction ) ) {
+			return MWNamespace::isCapitalized( $title->getNamespace() );
+		} else {
+			global $wgCapitalLinks;
+			return $wgCapitalLinks;
+		}
+
+	}
 	public static function validateXML( $xml, &$error_msg ) {
 	
 	
@@ -98,10 +123,9 @@ END;
 /*class holds the PageScheme tag equivalent object */
 
 class PSSchema {
-
 	public  $categoryName="";
 	public $pageId=0;
-	public  $pageXml=null;
+	public $pageXml=null;
 	public $pageXmlstr= "";
 	public $pageName="";
     public $formName="";
@@ -118,7 +142,7 @@ class PSSchema {
 		array(
 			'pp_page',
 			'pp_propname',
-			'pp_value'	
+			'pp_value'
 		),
 		array(
 			'pp_page' => $this->pageId,
@@ -129,14 +153,33 @@ class PSSchema {
 		$row = $dbr->fetchRow( $res );
 		//retrievimg the third attribute which is pp_value 
 		$pageXmlstr = $row[2];
-		$pageXml = simplexml_load_string ( $pageXmlstr );	
-		$this->pageName = (string)$pageXml->attributes()->name;				
+		$pageXml = simplexml_load_string ( $pageXmlstr );
+		$this->pageName = (string)$pageXml->attributes()->name;
 		/*  index for template objects */
-	 	$i = 0 ;		
+	 	$i = 0;
+		$inherited_templates = null ;
 		foreach ( $pageXml->children() as $tag => $child ) {
-			if ( $tag == 'Template' ) {				
-			    $templateObj =  new PSTemplate($child);
-				$this->PSTemplates[$i++]= $templateObj;				
+			if ( $tag == 'InheritsFrom ' ) {
+				$schema_to_inherit = (string) $child->attributes()->schema;
+				if( $schema_to_inherit !=null ){
+					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
+					$inherited_templates = $inheritedSchemaObj->getTemplates();
+				}
+			}
+			if ( $tag == 'Template' ) {
+				$ignore = (string) $child->attributes()->ignore;
+			    if( $child->children() != null ){
+					$templateObj =  new PSTemplate($child);
+					$this->PSTemplates[$i++]= $templateObj;
+				}else if( $ignore != "true" ) {
+					//Code  to Add Templates from Inherited templates
+					$temp_name = (string) $child->attributes()->name;
+					foreach( $inherited_templates as $inherited_template ) {
+						if( $temp_name == $inherited_template->getName() ){
+							$this->PSTemplates[$i++] = $inherited_template;
+						}
+					}
+				}
 			}
 			if ( $tag == 'FormName' ) {
 				$this->formName = (string)$child;
@@ -160,8 +203,7 @@ class PSSchema {
 	}
 	function getCategoryName(){		
 		return $this->categoryName;
-    }		
-	
+    }
 }
 class PSTemplate { 
 	/* Stores the field objects */
@@ -178,12 +220,37 @@ class PSTemplate {
 		}
 		/*index for template objects */
 	 	$i = 0 ;
+		$inherited_fields = null ;
 		foreach ($template_xml->children() as $child) {
-			if( $child->getName() == "Label" ) { //@TODO Label => sf:Label 
+			if ( $child->getName == 'InheritsFrom ' ) {
+				$schema_to_inherit = (string) $child->attributes()->schema;
+				$template_to_inherit = (string) $child->attributes()->template;
+				if( $schema_to_inherit !=null && $template_to_inherit != null ) {
+					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
+					$inherited_templates = $inheritedSchemaObj->getTemplates();
+					foreach( $inherited_templates as $inherited_template ) {
+						if( $template_to_inherit == $inherited_template->getName() ){
+							$inherited_fields = $inherited_template->getFields();
+						}
+					}
+				}
+			}
+			else if( $child->getName() == "Label" ) { //@TODO Label => sf:Label 
 				$this->label_name = (string)$child;
-			}else{
-				$fieldObj =  new PSTemplateField($child);
-				$this->PSFields[$i++]= $fieldObj;
+			} else if ( $child->getName() == "Field" ){
+				$ignore = (string) $child->attributes()->ignore;
+			    if( $child->children() != null ){
+					$fieldObj =  new PSTemplateField($child);
+					$this->PSFields[$i++]= $fieldObj;
+				}else if( $ignore != "true" ) {
+					//Code  to Add Templates from Inherited templates
+					$field_name = (string) $child->attributes()->name;
+					foreach( $inherited_fields as $inherited_field ) {
+						if( $field_name == $inherited_field->getName() ){
+							$this->PSFields[$i++]= $inherited_field;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -198,7 +265,7 @@ class PSTemplate {
 	}	
 	function getFields(){    
 	return $this->PSFields;
-	}   
+	}
 }
 
 class PSTemplateField {
