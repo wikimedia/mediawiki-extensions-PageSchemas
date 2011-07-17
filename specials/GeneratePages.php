@@ -13,6 +13,7 @@ class GeneratePages extends IncludableSpecialPage {
  
     function execute( $category ) {
 		global $wgRequest, $wgOut;
+		global $wgSkin;
         $this->setHeaders();
 		$generate_page_text = wfMsg( 'ps-generate-pages' );
 		$generate_page_desc = wfMsg( 'ps-generate-pages-desc' );
@@ -37,7 +38,7 @@ class GeneratePages extends IncludableSpecialPage {
 				array(					
 					'pp_propname' => 'PageSchema'
 				)
-				);	
+				);
 				while ( $row = $dbr->fetchRow( $res ) ) {
 					if( $row[2] != null ){
 						$page_id_cat = $row[0];
@@ -55,7 +56,7 @@ class GeneratePages extends IncludableSpecialPage {
 			//this is when Special:GeneratePages/Category is accessed first time 
 			//Here check for the valid Category  name and allow for generating pages 
 				$title = Title::newFromText( $category, NS_CATEGORY );
-				$pageId = $title->getArticleID();				
+				$pageId = $title->getArticleID();			
 				$dbr = wfGetDB( DB_SLAVE );
 				//get the result set, query : slect page_props
 				$res = $dbr->select( 'page_props',
@@ -76,10 +77,13 @@ class GeneratePages extends IncludableSpecialPage {
 					//add code to generate a list of check-box for pages to be generated.
 					$pageSchemaObj = new PSSchema( $category );
 					$pageList = array();
-					wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ));	//will return an array of string, with each value as a title of the page to be created.		
+					wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ));	//will return an array of string, with each value as a title of the page to be created.					
 					foreach( $pageList as $page ){
-						$text_2 .= '<input type="checkbox" name="page[]" value="'.$page.'" />  '.$page.' <br />';
-					}					
+						//$page_link = $wgSkin->link( $page );
+						$page_link = $page->getFullUrl();
+						$page_val = PageSchemas::titleString( $page );
+						$text_2 .= '<input type="checkbox" name="page[]" value="'.$page_val.'" />  '.$page_link.' <br />';
+					}
 					$text_2 .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> <br /> <br /></form>';
 					$wgOut->addHTML($text_2);
 				}else {
