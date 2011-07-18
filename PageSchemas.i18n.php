@@ -15,12 +15,12 @@
 $messages = array();
 
 $messages['en'] = array(
-    'pageschemas-desc'					 => 'Supports templates defining their data structure via XML markup',
+    'pageschemas-desc'					 => 'XML schemas for defining the structure of wiki pages',
     'pageschemas-header'				 => 'The XML definition for this template is:',
 	'ps-property-isproperty'             => 'This is a property of type $1.',
 	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
-	'ps-generate-pages'                  => 'Generate Pages',   
-	'ps-generate-pages-desc'             => 'Generate the following pages, based on this category\'s schema:',
+	'generatepages'                  => 'Generate pages',   
+	'generatepages-desc'             => 'Generate the following pages, based on this category\'s schema:',
 );
 
 /** Message documentation (Message documentation)
