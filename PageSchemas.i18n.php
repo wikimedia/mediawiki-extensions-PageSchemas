@@ -66,8 +66,8 @@ $messages['be-tarask'] = array(
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
-	'ps-generate-pages' => 'Стварыць старонкі',
-	'ps-generate-pages-desc' => 'Стварае старонкі, зыходзячы са схемы катэгорыі:',
+	'generatepages' => 'Стварыць старонкі',
+	'generatepages-desc' => 'Стварае старонкі, зыходзячы са схемы катэгорыі:',
 );
 
 /** Breton (Brezhoneg)
@@ -95,8 +95,8 @@ $messages['de'] = array(
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
-	'ps-generate-pages' => 'Seiten generieren',
-	'ps-generate-pages-desc' => 'Generiere die folgenden Seiten auf Basis des Schemas dieser Kategorie:',
+	'generatepages' => 'Seiten generieren',
+	'generatepages-desc' => 'Generiere die folgenden Seiten auf Basis des Schemas dieser Kategorie:',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -172,8 +172,8 @@ $messages['he'] = array(
 	'pageschemas-header' => 'הגדרת ה־XML עבור תבנית זו היא:',
 	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
-	'ps-generate-pages' => 'יצירת דפים',
-	'ps-generate-pages-desc' => 'לחולל את דפי הוויקי הבאים, לפי הסכֵמה של הקטגוריה הזאת:',
+	'generatepages' => 'יצירת דפים',
+	'generatepages-desc' => 'לחולל את דפי הוויקי הבאים, לפי הסכֵמה של הקטגוריה הזאת:',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -200,8 +200,8 @@ $messages['ia'] = array(
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
-	'ps-generate-pages' => 'Generar paginas',
-	'ps-generate-pages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
+	'generatepages' => 'Generar paginas',
+	'generatepages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -249,7 +249,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'pageschemas-desc' => "Ënnerstëtzt d'Schablounen déi hir Datestruktur iwwer XML-Tagen definéieren",
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
-	'ps-generate-pages' => 'Säite generéieren',
+	'generatepages' => 'Säite generéieren',
 );
 
 /** Macedonian (Македонски)
@@ -260,8 +260,8 @@ $messages['mk'] = array(
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
-	'ps-generate-pages' => 'Создај страници',
-	'ps-generate-pages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
+	'generatepages' => 'Создај страници',
+	'generatepages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
 );
 
 /** Dutch (Nederlands)
@@ -324,8 +324,8 @@ $messages['pt'] = array(
 	'pageschemas-header' => 'A definição XML para esta predefinição é:',
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
-	'ps-generate-pages' => 'Gerar Páginas',
-	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no esquema desta categoria:',
+	'generatepages' => 'Gerar Páginas',
+	'generatepages-desc' => 'Gerar as seguintes páginas, com base no esquema desta categoria:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -360,8 +360,8 @@ $messages['sl'] = array(
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
-	'ps-generate-pages' => 'Ustvarjajte strani',
-	'ps-generate-pages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
+	'generatepages' => 'Ustvarjajte strani',
+	'generatepages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
