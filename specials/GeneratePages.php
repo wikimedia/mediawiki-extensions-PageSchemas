@@ -15,8 +15,8 @@ class GeneratePages extends IncludableSpecialPage {
 		global $wgRequest, $wgOut;
 		global $wgSkin;
         $this->setHeaders();
-		$generate_page_text = wfMsg( 'ps-generate-pages' );
-		$generate_page_desc = wfMsg( 'ps-generate-pages-desc' );
+		$generate_page_text = wfMsg( 'generatepages' );
+		$generate_page_desc = wfMsg( 'generatepages-desc' );
 		$param = $wgRequest->getText('param');		
 		$text_1 = '<p>All pages will be generated! </p>';				
 		if ( $param != "" &&  $category != "" ) {			
@@ -92,7 +92,7 @@ class GeneratePages extends IncludableSpecialPage {
 				}
 			}
 		}
-    }	
+    }
 	function generate_pages ( $categoryName, $toGenPageList ) {
 		global $wgRequest, $wgOut;
         $pageSchema = new PSSchema( $categoryName );
