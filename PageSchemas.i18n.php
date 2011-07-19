@@ -91,7 +91,7 @@ $messages['bs'] = array(
  * @author Kghbln
  */
 $messages['de'] = array(
-	'pageschemas-desc' => 'Ermöglicht die Unterstützung von Vorlagen, die ihre Datenstruktur über XML auszeichnen',
+	'pageschemas-desc' => 'Ermöglicht XML-Schemas zur Definition der Datenstruktur von Wikiseiten',
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
@@ -247,7 +247,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'pageschemas-desc' => "Ënnerstëtzt d'Schablounen déi hir Datestruktur iwwer XML-Tagen definéieren",
+	'pageschemas-desc' => "XML Schemae fir d'Struktur vu Wikisäiten ze definéieren",
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
 	'generatepages' => 'Säite generéieren',
 );
@@ -256,7 +256,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'pageschemas-desc' => 'Поддржува шаблони кои ја определуваат нивната податочна структура по пат на XML ознаки',
+	'pageschemas-desc' => 'XML-шеми за определување на составот на вики-страници',
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
@@ -269,7 +269,7 @@ $messages['mk'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'pageschemas-desc' => 'Ondersteunt sjablonen waarvoor de gegevensstructuur is gedefinieerd via XML',
+	'pageschemas-desc' => "XML-schemas voor het definiëren van de structuur van wiki-pagina's",
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
 	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
 	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
@@ -320,12 +320,12 @@ $messages['pms'] = array(
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'pageschemas-desc' => 'Define a estrutura de dados das predefinições em XML',
-	'pageschemas-header' => 'A definição XML para esta predefinição é:',
+	'pageschemas-desc' => 'Modelos de dados em XML para definir a estrutura das páginas da wiki',
+	'pageschemas-header' => 'O modelo de dados em XML para esta predefinição é:',
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
 	'generatepages' => 'Gerar Páginas',
-	'generatepages-desc' => 'Gerar as seguintes páginas, com base no esquema desta categoria:',
+	'generatepages-desc' => 'Gerar as seguintes páginas, com base no modelo de dados desta categoria:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -356,7 +356,7 @@ $messages['ru'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
+	'pageschemas-desc' => 'Sheme XML za opredelitev zgradbe wikistrani',
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
