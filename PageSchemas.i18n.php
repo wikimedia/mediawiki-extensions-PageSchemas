@@ -196,7 +196,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'pageschemas-desc' => 'Supporta patronos que defini lor structura de datos per medio del notation XML',
+	'pageschemas-desc' => 'Schemas XML pro definir le structura de paginas wiki',
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
