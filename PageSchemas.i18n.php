@@ -91,7 +91,7 @@ $messages['bs'] = array(
  * @author Kghbln
  */
 $messages['de'] = array(
-	'pageschemas-desc' => 'Ermöglicht XML-Schemas zur Definition der Datenstruktur von Wikiseiten',
+	'pageschemas-desc' => 'Ermöglicht Vorlagen, die ihre Datenstruktur über XML auszeichnen',
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
@@ -168,7 +168,7 @@ $messages['gsw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'pageschemas-desc' => 'תומכת בתבניות המגדירות את מבנה הנתונים שלהן באמצעות תחביר XML',
+	'pageschemas-desc' => 'תמיכה בתבניות שמגדירות את מבנה הנתונים שלהן דרך XML',
 	'pageschemas-header' => 'הגדרת ה־XML עבור תבנית זו היא:',
 	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
@@ -325,7 +325,7 @@ $messages['pt'] = array(
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
 	'ps-generate-pages' => 'Gerar Páginas',
-	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no esquema desta categoria:',
+	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no modelo de dados desta categoria:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -356,7 +356,7 @@ $messages['ru'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'pageschemas-desc' => 'Sheme XML za opredelitev zgradbe wikistrani',
+	'pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
