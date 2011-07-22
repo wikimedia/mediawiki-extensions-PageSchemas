@@ -260,7 +260,6 @@ class PSTemplate {
 				$this->label_name = (string)$child;
 			} else if ( $child->getName() == "Field" ){
 				$ignore = (string) $child->attributes()->ignore;
-				wfDebugLog( 'myextension', 'Something is not right: ' . print_r( count($child->children()), true ) );
 			    if( count($child->children()) > 0 ){ //@TODO :Can be dealt more efficiently
 					$fieldObj =  new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
