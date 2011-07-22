@@ -196,7 +196,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'pageschemas-desc' => 'Schemas XML pro definir le structura de paginas wiki',
+	'pageschemas-desc' => 'Appoia patronos que defini lor structura de datos via marcation XML',
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
@@ -256,7 +256,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'pageschemas-desc' => 'XML-шеми за определување на составот на вики-страници',
+	'pageschemas-desc' => 'Поддржува шаблони со определување на нивниот податочнот состав користејќи XML-означување',
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
@@ -269,7 +269,7 @@ $messages['mk'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'pageschemas-desc' => "XML-schemas voor het definiëren van de structuur van wiki-pagina's",
+	'pageschemas-desc' => 'Ondersteunt sjablonen die hun gegevensstructuur via XML-opmaak definiëren',
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
 	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
 	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
@@ -320,7 +320,7 @@ $messages['pms'] = array(
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'pageschemas-desc' => 'Modelos de dados em XML para definir a estrutura das páginas da wiki',
+	'pageschemas-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
 	'pageschemas-header' => 'O modelo de dados em XML para esta predefinição é:',
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
