@@ -181,7 +181,7 @@ class PSSchema {
 			}
 			if ( $tag == 'Template' ) {
 				$ignore = (string) $child->attributes()->ignore;
-			    if( count($child->children()) > 1 ){
+			    if( count($child->children()) > 0 ){
 					$templateObj =  new PSTemplate($child);					
 					$this->PSTemplates[$i++]= $templateObj;
 				}else if( $ignore != "true" ) {
@@ -261,7 +261,7 @@ class PSTemplate {
 			} else if ( $child->getName() == "Field" ){
 				$ignore = (string) $child->attributes()->ignore;
 				wfDebugLog( 'myextension', 'Something is not right: ' . print_r( count($child->children()), true ) );
-			    if( count($child->children()) > 1 ){ //@TODO :Can be dealt more efficiently
+			    if( count($child->children()) > 0 ){ //@TODO :Can be dealt more efficiently
 					$fieldObj =  new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
 				}else if( $ignore != "true" ) {
