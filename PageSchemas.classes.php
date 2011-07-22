@@ -8,7 +8,6 @@
 
 class PageSchemas {
 
-
 	/* Functions */
 	//Copied from SFUtils
 	public static function titleString( $title ) {
@@ -41,9 +40,11 @@ class PageSchemas {
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE PageSchema [
 <!ELEMENT PageSchema (Template*)>
+<!ELEMENT PageSchema (Form*)>
 <!ATTLIST PageSchema name CDATA #REQUIRED>
 <!ELEMENT Template (Field*)>
 <!ATTLIST Template name CDATA #REQUIRED>
+<!ATTLIST Form name CDATA #REQUIRED>
 <!ATTLIST Field name CDATA #REQUIRED>
 ]>
 
@@ -88,7 +89,10 @@ END;
 		$name = $class_schema_xml->attributes()->name;
 		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
 			foreach ( $class_schema_xml->children() as $tag => $child ) {
-				if ($tag == 'Template') {
+				if ( $tag == 'Form' ){				
+					$text .= self::parseFormElem($child);
+				}
+				else if ($tag == 'Template') {
 					$text .= self::parseTemplate($child);
 				} else{
 					echo "Code to be added by other extension\n";
@@ -99,6 +103,14 @@ END;
 		$text = "";
 		}			
 		return $text;		
+	}
+	static function parseFormElem( $form_xml ) {
+		$name = $form_xml->attributes()->name;
+		$text = self::tableRowHTML('param', 'Form', $name);
+		foreach ($form_xml->children() as $key => $value ) {
+			$text .= self::tableMessageRowHTML("paramAttrMsg", (string)$key, (string)$value );
+		}
+		return $text;
 	}
 	static function parseTemplate ( $template_xml ) {		
 		$name = $template_xml->attributes()->name;
@@ -129,6 +141,7 @@ class PSSchema {
 	public $pageXmlstr= "";
 	public $pageName="";
     public $formName="";
+	public  $formArray = array();
   /* Stores the templte objects */
 	public $PSTemplates = array();
   
@@ -163,13 +176,13 @@ class PSSchema {
 				$schema_to_inherit = (string) $child->attributes()->schema;
 				if( $schema_to_inherit !=null ){
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-					$inherited_templates = $inheritedSchemaObj->getTemplates();
+					$inherited_templates = $inheritedSchemaObj->getTemplates();					
 				}
 			}
 			if ( $tag == 'Template' ) {
 				$ignore = (string) $child->attributes()->ignore;
-			    if( $child->children() != null ){
-					$templateObj =  new PSTemplate($child);
+			    if( count($child->children()) > 1 ){
+					$templateObj =  new PSTemplate($child);					
 					$this->PSTemplates[$i++]= $templateObj;
 				}else if( $ignore != "true" ) {
 					//Code  to Add Templates from Inherited templates
@@ -181,14 +194,22 @@ class PSSchema {
 					}
 				}
 			}
-			if ( $tag == 'FormName' ) {
-				$this->formName = (string)$child;
+			if ( $tag == 'Form' ) {
+				$this->formName = (string) $child->attributes()->name;
+				$this->formArray['name'] = (string) $child->attributes()->name;
+				foreach ($child->children() as $tag => $formelem) {
+					$this->formArray[(string)$tag] = (string)$formelem;
+				}
 			}
 		}
 	}
 	/* function to generate all pages based on the Xml contained in the page */
 	function generateAllPages ( $toGenPageList ) {
 		wfRunHooks( 'PageSchemasGeneratePages', array( $this, $toGenPageList ));	
+	}
+	/*return an array of PSTemplate Objects */
+	function getFormArray () {
+		return $this->formArray;	
 	}
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
@@ -220,17 +241,17 @@ class PSTemplate {
 		}
 		/*index for template objects */
 	 	$i = 0 ;
-		$inherited_fields = null ;
-		foreach ($template_xml->children() as $child) {
-			if ( $child->getName == 'InheritsFrom ' ) {
+		$inherited_fields = null ;		
+		foreach ($template_xml->children() as $child) {		
+			if ( $child->getName() == 'InheritsFrom' ) {			                           
 				$schema_to_inherit = (string) $child->attributes()->schema;
-				$template_to_inherit = (string) $child->attributes()->template;
+				$template_to_inherit = (string) $child->attributes()->template;				
 				if( $schema_to_inherit !=null && $template_to_inherit != null ) {
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-					$inherited_templates = $inheritedSchemaObj->getTemplates();
+					$inherited_templates = $inheritedSchemaObj->getTemplates();					
 					foreach( $inherited_templates as $inherited_template ) {
 						if( $template_to_inherit == $inherited_template->getName() ){
-							$inherited_fields = $inherited_template->getFields();
+							$inherited_fields = $inherited_template->getFields();							
 						}
 					}
 				}
@@ -239,12 +260,13 @@ class PSTemplate {
 				$this->label_name = (string)$child;
 			} else if ( $child->getName() == "Field" ){
 				$ignore = (string) $child->attributes()->ignore;
-			    if( $child->children() != null ){
+				wfDebugLog( 'myextension', 'Something is not right: ' . print_r( count($child->children()), true ) );
+			    if( count($child->children()) > 1 ){ //@TODO :Can be dealt more efficiently
 					$fieldObj =  new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
 				}else if( $ignore != "true" ) {
 					//Code  to Add Templates from Inherited templates
-					$field_name = (string) $child->attributes()->name;
+					$field_name = (string) $child->attributes()->name;					
 					foreach( $inherited_fields as $inherited_field ) {
 						if( $field_name == $inherited_field->getName() ){
 							$this->PSFields[$i++]= $inherited_field;
@@ -278,13 +300,13 @@ class PSTemplateField {
 		$this->fieldXml = $field_xml; 
 		$this->fieldName = (string)$this->fieldXml->attributes()->name;
 		if( ((string)$this->fieldXml->attributes()->list) == "list") {
-			 $this->list_values = true;
+			$this->list_values = true;
 		}
 		foreach ($this->fieldXml->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
-			$this->fieldLabel = (string)$child;
-			}									
-		}		
+				$this->fieldLabel = (string)$child;
+			}		
+		}	
 	}
 	function getName(){
 		return $this->fieldName;
