@@ -280,7 +280,8 @@ class PSSchema {
 	public  $formArray = array();
   /* Stores the templte objects */
 	public $PSTemplates = array();
-  
+    public $isPSDefined = true;
+	public $pp_value = "";
 	function __construct ( $category_name ) {
 		$this->categoryName = $category_name; 
 		$title = Title::newFromText( $category_name, NS_CATEGORY );
@@ -300,41 +301,45 @@ class PSSchema {
 		);
 		//first row of the result set 
 		$row = $dbr->fetchRow( $res );
-		//retrievimg the third attribute which is pp_value 
-		$pageXmlstr = $row[2];
-		$pageXml = simplexml_load_string ( $pageXmlstr );
-		$this->pageName = (string)$pageXml->attributes()->name;
-		/*  index for template objects */
-	 	$i = 0;
-		$inherited_templates = null ;
-		foreach ( $pageXml->children() as $tag => $child ) {
-			if ( $tag == 'InheritsFrom ' ) {
-				$schema_to_inherit = (string) $child->attributes()->schema;
-				if( $schema_to_inherit !=null ){
-					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-					$inherited_templates = $inheritedSchemaObj->getTemplates();					
+		if( $row == null){
+			$this->isPSDefined = false;
+		}else{
+			//retrievimg the third attribute which is pp_value 		
+			$pageXmlstr = $row[2];
+			$pageXml = simplexml_load_string ( $pageXmlstr );
+			$this->pageName = (string)$pageXml->attributes()->name;
+			/*  index for template objects */
+			$i = 0;
+			$inherited_templates = null ;
+			foreach ( $pageXml->children() as $tag => $child ) {
+				if ( $tag == 'InheritsFrom ' ) {
+					$schema_to_inherit = (string) $child->attributes()->schema;
+					if( $schema_to_inherit !=null ){
+						$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
+						$inherited_templates = $inheritedSchemaObj->getTemplates();					
+					}
 				}
-			}
-			if ( $tag == 'Template' ) {
-				$ignore = (string) $child->attributes()->ignore;
-			    if( count($child->children()) > 0 ){
-					$templateObj =  new PSTemplate($child);					
-					$this->PSTemplates[$i++]= $templateObj;
-				}else if( $ignore != "true" ) {
-					//Code  to Add Templates from Inherited templates
-					$temp_name = (string) $child->attributes()->name;
-					foreach( $inherited_templates as $inherited_template ) {
-						if( $temp_name == $inherited_template->getName() ){
-							$this->PSTemplates[$i++] = $inherited_template;
+				if ( $tag == 'Template' ) {
+					$ignore = (string) $child->attributes()->ignore;
+					if( count($child->children()) > 0 ){
+						$templateObj =  new PSTemplate($child);					
+						$this->PSTemplates[$i++]= $templateObj;
+					}else if( $ignore != "true" ) {
+						//Code  to Add Templates from Inherited templates
+						$temp_name = (string) $child->attributes()->name;
+						foreach( $inherited_templates as $inherited_template ) {
+							if( $temp_name == $inherited_template->getName() ){
+								$this->PSTemplates[$i++] = $inherited_template;
+							}
 						}
 					}
 				}
-			}
-			if ( $tag == 'Form' ) {
-				$this->formName = (string) $child->attributes()->name;
-				$this->formArray['name'] = (string) $child->attributes()->name;
-				foreach ($child->children() as $tag => $formelem) {
-					$this->formArray[(string)$tag] = (string)$formelem;
+				if ( $tag == 'Form' ) {
+					$this->formName = (string) $child->attributes()->name;
+					$this->formArray['name'] = (string) $child->attributes()->name;
+					foreach ($child->children() as $tag => $formelem) {
+						$this->formArray[(string)$tag] = (string)$formelem;
+					}
 				}
 			}
 		}
@@ -347,6 +352,10 @@ class PSSchema {
 	function getFormArray () {
 		return $this->formArray;	
 	}
+	/*return an array of PSTemplate Objects */
+	function isPSDefined () {
+		return $this->isPSDefined;  	
+	}		
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
 		return $this->PSTemplates;  	
