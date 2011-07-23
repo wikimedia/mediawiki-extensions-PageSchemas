@@ -95,6 +95,9 @@ END;
 				$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
 				$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
 				$text .= '<p>Name of schema: <input type="text" /> </p> ';
+				$text .= '<p>Additional XML:
+				<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
+				</p> ';
 				$text .= '<div id="templatesList">';
 				$text .= '<div class="templateBox" >';
 				$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
@@ -113,17 +116,7 @@ END;
 				<textarea rows=4 style="width: 100%" name="add_xml_1"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" /> </div>
-					<div class="fieldBox" id="starterField" style="display: none">
-				<p>Field name: <input size="15" name="name_starter">
-				Display label: <input size="15" name="label_starter">
-				</p>
-			<p><input type="checkbox" name="is_list_starter" /> This field can hold a list of values, separated by commas
-	&#160;&#160; <p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="add_xml_starter"></textarea> 
-				</p> 
-				<input type="button" value="Remove field" class="deleteField" />
-</p>
-</div>
+					
 </div>	
 			</fieldset> ';
 			$add_field_button = Xml::element( 'input',
@@ -158,6 +151,17 @@ END;
 	</div>
 	</div>
 		<hr /> ';
+		$text .= '<div class="fieldBox" id="starterField" style="display: none">
+				<p>Field name: <input size="15" name="name_starter">
+				Display label: <input size="15" name="label_starter">
+				</p>
+			<p><input type="checkbox" name="is_list_starter" /> This field can hold a list of values, separated by commas
+	&#160;&#160; <p>Additional XML:
+				<textarea rows=4 style="width: 100%" name="add_xml_starter"></textarea> 
+				</p> 
+				<input type="button" value="Remove field" class="deleteField" />
+</p>
+</div>';
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
