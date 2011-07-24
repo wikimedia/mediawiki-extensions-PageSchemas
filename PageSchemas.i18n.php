@@ -247,7 +247,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'pageschemas-desc' => "XML Schemae fir d'Struktur vu Wikisäiten ze definéieren",
+	'pageschemas-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
 	'ps-generate-pages' => 'Säite generéieren',
 );
