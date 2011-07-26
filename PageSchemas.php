@@ -48,8 +48,8 @@ $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
-$wgAutoloadClasses['GeneratePages'] = $dir . 'specials/GeneratePages.php';
-$wgAutoloadClasses['EditSchema'] = $dir . 'specials/EditSchema.php';
+$wgAutoloadClasses['GeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
+$wgAutoloadClasses['EditSchema'] = $dir . 'specials/PS_EditSchema.php';
 // registering Special page 
 $wgSpecialPages['GeneratePages'] = 'GeneratePages'; 
 $wgSpecialPages['EditSchema'] = 'EditSchema'; 
