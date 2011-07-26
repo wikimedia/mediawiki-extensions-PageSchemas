@@ -152,7 +152,8 @@ END;
 	</div>
 		<hr /> ';
 		$text .= '<div class="fieldBox" id="starterField" style="display: none">
-				<p>Field name: <input size="15" name="name_starter">
+				<fieldset style="background: #bbb;"><legend>Field</legend> 
+				<input size="15" name="name_starter">
 				Display label: <input size="15" name="label_starter">
 				</p>
 			<p><input type="checkbox" name="is_list_starter" /> This field can hold a list of values, separated by commas
@@ -161,6 +162,7 @@ END;
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
 </p>
+</fieldset>
 </div>';
 		$add_template_button = Xml::element( 'input',
 			array(
