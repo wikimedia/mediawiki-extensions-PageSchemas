@@ -45,7 +45,9 @@ function createAddTemplate() {
 	});
 	jQuery('#templatesList').append(newField);
 }
-
+function clickcheckbox(form){
+alert('Handler for .change() uncalled.');
+}
 
 jQuery(document).ready(function() {
 	jQuery(".deleteField").click( function() {
@@ -57,14 +59,25 @@ jQuery(document).ready(function() {
 		// Remove the encompassing div for this instance.
 		jQuery(this).closest(".templateBox")
 			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});
+	});	
 });
+
 </script>
 
 END;
 		$wgOut->addScript( $jsText );
 	}
-
+/*
+@TODO :Code which can be useful
+jQuery("#is_list_1").click(function() {
+	if (jQuery("#is_list_1").is(":checked"))
+    {
+	alert('Handler for .change() called.');
+	}else{
+	alert('Handler for .change() uncalled.');
+	}  
+	});
+*/
     function execute( $category ) {
 		global $wgRequest, $wgOut;
 		global $wgSkin;
@@ -109,9 +122,10 @@ END;
 				<p>Field name: <input size="15" name="name_1">
 				Display label: <input size="15" name="label_1">
 				</p> 
-				<p><input type="checkbox" name="is_list_1"/> 
+				<p><input type="checkbox" name="is_list_1" onclick="clickcheckbox(this)" /> 				
 				This field can hold a list of values
 				</p> 
+				<p>Delimiter for values (default is ","): <input type="text" name="delimiter_1" /> </p>
 				<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="add_xml_1"></textarea> 
 				</p> 
@@ -157,7 +171,9 @@ END;
 				Display label: <input size="15" name="label_starter">
 				</p>
 			<p><input type="checkbox" name="is_list_starter" /> This field can hold a list of values, separated by commas
-	&#160;&#160; <p>Additional XML:
+	&#160;&#160;
+	<p>Delimiter for values (default is ","): <input type="text" name="delimiter_starter" /> </p>
+	<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="add_xml_starter"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
