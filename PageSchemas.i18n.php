@@ -273,6 +273,8 @@ $messages['nl'] = array(
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
 	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
 	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
+	'ps-generate-pages' => "Pagina's aanmaken",
+	'ps-generate-pages-desc' => "De volgende pagina's aanmaken, gebaseerd op dit categorieschema:",
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
