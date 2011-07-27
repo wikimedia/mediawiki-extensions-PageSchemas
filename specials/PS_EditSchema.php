@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
 			if (jQuery(this).is(":checked"))
 			{				
 				alert("checked");
-				jQuery(this).siblings('.delimiterInput').css('display', '');
+				jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', '');
 			}else{
 				alert("unchecked");
 				jQuery(this).siblings('.delimiterInput').css('display', 'none');
