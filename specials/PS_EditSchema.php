@@ -45,9 +45,6 @@ function createAddTemplate() {
 	});
 	jQuery('#templatesList').append(newField);
 }
-function clickcheckbox(form){
-alert('Handler for .change() uncalled.');
-}
 
 jQuery(document).ready(function() {
 	jQuery(".deleteField").click( function() {
@@ -59,7 +56,16 @@ jQuery(document).ready(function() {
 		// Remove the encompassing div for this instance.
 		jQuery(this).closest(".templateBox")
 			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});	
+	});
+	jQuery('.isListCheckbox').click(function() {
+			if (jQuery(this).is(":checked"))
+			{				
+				jQuery(this).siblings('.delimiterInput').css('display', '');
+			}else{
+				jQuery(this).siblings('.delimiterInput').css('display', 'none');
+			}  
+	});
+
 });
 
 </script>
@@ -67,18 +73,7 @@ jQuery(document).ready(function() {
 END;
 		$wgOut->addScript( $jsText );
 	}
-/*
-@TODO :Code which can be useful
-jQuery("#is_list_1").click(function() {
-	if (jQuery("#is_list_1").is(":checked"))
-    {
-	alert('Handler for .change() called.');
-	}else{
-	alert('Handler for .change() uncalled.');
-	}  
-	});
-*/
-    function execute( $category ) {
+   function execute( $category ) {
 		global $wgRequest, $wgOut;
 		global $wgSkin;
         $this->setHeaders();		
@@ -107,7 +102,7 @@ jQuery("#is_list_1").click(function() {
 				$text = "";
 				$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
 				$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
-				$text .= '<p>Name of schema: <input type="text" /> </p> ';
+				$text .= '<p>Name of schema: <input type="text" name="s_name"/> </p> ';
 				$text .= '<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
 				</p> ';
@@ -122,10 +117,10 @@ jQuery("#is_list_1").click(function() {
 				<p>Field name: <input size="15" name="name_1">
 				Display label: <input size="15" name="label_1">
 				</p> 
-				<p><input type="checkbox" name="is_list_1" onclick="clickcheckbox(this)" /> 				
+				<p><input type="checkbox" name="is_list_1" class="isListCheckbox" /> 				
 				This field can hold a list of values
 				</p> 
-				<p>Delimiter for values (default is ","): <input type="text" name="delimiter_1" /> </p>
+				<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="delimiter_1" /> </p></div>
 				<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="add_xml_1"></textarea> 
 				</p> 
