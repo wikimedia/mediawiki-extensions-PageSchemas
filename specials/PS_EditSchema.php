@@ -60,8 +60,10 @@ jQuery(document).ready(function() {
 	jQuery('.isListCheckbox').click(function() {
 			if (jQuery(this).is(":checked"))
 			{				
+				alert("checked");
 				jQuery(this).siblings('.delimiterInput').css('display', '');
 			}else{
+				alert("unchecked");
 				jQuery(this).siblings('.delimiterInput').css('display', 'none');
 			}  
 	});
@@ -79,7 +81,35 @@ END;
         $this->setHeaders();		
 		$text_1 = '<p>This category does not exist yet. Create this category and its page schema: </p>';
 		$text_2 = '<p>This category exists, but does not have a page schema. Create schema:" </p>';
-		if ( $category != "" ) {
+		$save_page = $wgRequest->getCheck( 'wpSave' );		
+		if ($save_page) {
+			//Generate the Xml from the Form elements
+			$Xmltext  = "";
+			$s_name = $wgRequest->getText('s_name');
+			$Xmltext .= '<PageSchema name="'.$s_name.'">';
+			$ps_add_xml = $wgRequest->getText('ps_add_xml');
+			$Xmltext .= $ps_add_xml;			
+			foreach ( $wgRequest->getValues() as $var => $val ) {			
+				if(substr($var,0,7) == 't_name_'){
+					$Xmltext .= '<Template name="'.$val.'">';
+				}else if(substr($var,0,7) == 'f_name_'){
+					$Xmltext .= '<Field name="'.$val.'">';
+				}else if(substr($var,0,8) == 'f_label_'){
+					$Xmltext .= '<Label>'.$val.'</Label>';
+				}else if(substr($var,0,10) == 'f_add_xml_'){
+					$Xmltext .= $val;
+					$Xmltext .= '</Field>';
+				}else if(substr($var,0,10) == 't_add_xml_'){
+					$Xmltext .= $val;
+					$Xmltext .= '</Template>';
+				}
+			}
+			$Xmltext .= '</PageSchema>';
+			wfDebugLog( 'myextension', 'Something is not right: ' . print_r( $Xmltext, true ) );
+		}
+		else{
+		   if ( $category != "" ) {
+
 			$title = Title::newFromText( $category, NS_CATEGORY );
 			$pageId = $title->getArticleID();			
 			$dbr = wfGetDB( DB_SLAVE );
@@ -114,15 +144,15 @@ END;
 				$text .= '<div id="fieldsList_1">';
 				$text .= '<div class="fieldBox" >';
 				$text .= '<fieldset style="background: #bbb;"><legend>Field</legend> 
-				<p>Field name: <input size="15" name="name_1">
-				Display label: <input size="15" name="label_1">
+				<p>Field name: <input size="15" name="f_name_1">
+				Display label: <input size="15" name="f_label_1">
 				</p> 
-				<p><input type="checkbox" name="is_list_1" class="isListCheckbox" /> 				
+				<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" /> 				
 				This field can hold a list of values
 				</p> 
-				<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="delimiter_1" /> </p></div>
+				<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_1" /> </p></div>
 				<p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="add_xml_1"></textarea> 
+				<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" /> </div>
 					
@@ -141,8 +171,22 @@ END;
 			<textarea rows=4 style="width: 100%" name="t_add_xml_1"></textarea> 
 			</p> 
 			<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
-		</fieldset> </div>';
-		     $text .= '<div class="templateBox" id="starterTemplate" style="display: none">
+		</fieldset> </div></div>';
+		    
+		$add_template_button = Xml::element( 'input',
+			array(
+				'type' => 'button',
+				'value' => 'Add Template',
+				'onclick' => "createAddTemplate()"
+			)
+		);
+		$text .= Xml::tags( 'p', null, $add_template_button ) . "\n";
+		$text .= '		<hr /> 
+		<div class="editButtons">
+	<input type="submit" id="wpSave" name="wpSave" value="Save" />	
+	</div>';
+				$text .= '	</form>';
+				 $text .= '<div class="templateBox" id="starterTemplate" style="display: none">
 <fieldset style="background: #ddd;">
 <legend>Template</legend> 
 <p>Name: <input type="text"  name="t_name_starter"/></p> 
@@ -157,36 +201,24 @@ END;
 	</p> 
 	<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
 	</fieldset>
-	</div>
-	</div>
+	</div>	
 		<hr /> ';
 		$text .= '<div class="fieldBox" id="starterField" style="display: none">
 				<fieldset style="background: #bbb;"><legend>Field</legend> 
-				<input size="15" name="name_starter">
-				Display label: <input size="15" name="label_starter">
+				<input size="15" name="f_name_starter">
+				Display label: <input size="15" name="f_label_starter">
 				</p>
-			<p><input type="checkbox" name="is_list_starter" /> This field can hold a list of values, separated by commas
+			<p><input type="checkbox" name="f_is_list_starter" /> This field can hold a list of values, separated by commas
 	&#160;&#160;
-	<p>Delimiter for values (default is ","): <input type="text" name="delimiter_starter" /> </p>
+	<p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p>
 	<p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="add_xml_starter"></textarea> 
+				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
 </p>
 </fieldset>
 </div>';
-		$add_template_button = Xml::element( 'input',
-			array(
-				'type' => 'button',
-				'value' => 'Add Template',
-				'onclick' => "createAddTemplate()"
-			)
-		);
-		$text .= Xml::tags( 'p', null, $add_template_button ) . "\n";
-		$text .= '		<hr /> 
-		<p><input type="submit" value="Save" /></p> ';				
-				$text .= '	</form>';
-				$wgOut->addHTML( $text );			
+				$wgOut->addHTML( $text );
 			}else{
 			  if( ($row[1] == 'PageSchema') && ($row[2] != null )){
 				
@@ -224,5 +256,6 @@ END;
 			$dbr->freeResult( $res );
 			$wgOut->addHTML( $text );
 		}
+	  }
 	}
 }
