@@ -104,8 +104,7 @@ END;
 					$Xmltext .= '</Template>';
 				}
 			}
-			$Xmltext .= '</PageSchema>';
-			wfDebugLog( 'myextension', 'Something is not right: ' . print_r( $Xmltext, true ) );
+			$Xmltext .= '</PageSchema>';			
 		}
 		else{
 		   if ( $category != "" ) {
