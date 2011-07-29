@@ -82,42 +82,50 @@ END;
 		$text_1 = '<p>This category does not exist yet. Create this category and its page schema: </p>';
 		$text_2 = '<p>This category exists, but does not have a page schema. Create schema:" </p>';
 		$text_3 = '<p>This category exists,have a page schema. Edit schema:" </p>';
-				self::addJavascript();
-				$text = "";
-				$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
-				$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
-				$text .= '<p>Name of schema: <input type="text" name="s_name"/> </p> ';
-				$text .= '<p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
-				</p> ';
-				$text .= '<div id="templatesList">';
-				$text .= '<div class="templateBox" >';
-				$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
-				$text .= '<p>Name: <input type="text"  name="t_name_1"/></p> ';
-				$text .= '<p><input type="checkbox" name="is_multiple_1"/>  Allow multiple instances of this template</p> ';
-				$text .= '<div id="fieldsList_1">';
-				$text .= '<div class="fieldBox" >';
-				$text .= '<fieldset style="background: #bbb;"><legend>Field</legend> 
-				<p>Field name: <input size="15" name="f_name_1">
-				Display label: <input size="15" name="f_label_1">
-				</p> 
-				<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" /> 				
-				This field can hold a list of values
-				</p> 
-				<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_1" /> </p></div>
-				<p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea> 
-				</p> 
-				<input type="button" value="Remove field" class="deleteField" /></fieldset>
-				</div>			
-			</div>	
-			';
-			$add_field_button = Xml::element( 'input',
-			array(
-				'type' => 'button',
-				'value' => 'Add Field',
-				'onclick' => "createTemplateAddField(1)"
-			)
+		self::addJavascript();
+		$text_extensions = array(); //This var. will save the html text returned by the extensions
+		$js_extensions = array();
+		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
+		
+		$text = "";
+		$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
+		$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
+		$text .= '<p>Name of schema: <input type="text" name="s_name"/> </p> ';
+		$text .= '<p>Additional XML:
+		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
+		</p> ';
+		$text .= '<div id="templatesList">';
+		$text .= '<div class="templateBox" >';
+		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
+		$text .= '<p>Name: <input type="text"  name="t_name_1"/></p> ';
+		$text .= '<p><input type="checkbox" name="is_multiple_1"/>  Allow multiple instances of this template</p> ';
+		$text .= '<div id="fieldsList_1">';
+		$text .= '<div class="fieldBox" >';
+		$text .= '<fieldset style="background: #bbb;"><legend>Field</legend> 
+		<p>Field name: <input size="15" name="f_name_1">
+		Display label: <input size="15" name="f_label_1">
+		</p> 
+		<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" /> 				
+		This field can hold a list of values
+		</p> 
+		<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_1" /> </p></div>';
+		foreach( $text_extensions as $text_ex ){
+			$text_ex = preg_replace('/starter/', '1', $text_ex);				
+			$text .= $text_ex ;
+		}
+		$text .= '<p>Additional XML:
+		<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea> 
+		</p> 
+		<input type="button" value="Remove field" class="deleteField" /></fieldset>
+		</div>			
+		</div>	
+		';
+		$add_field_button = Xml::element( 'input',
+		array(
+			'type' => 'button',
+			'value' => 'Add Field',
+			'onclick' => "createTemplateAddField(1)"
+		)
 		);
 		$text .= Xml::tags( 'p', null, $add_field_button ) . "\n";
 			$text .= '<hr /> 
@@ -165,8 +173,11 @@ END;
 				</p>
 			<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> This field can hold a list of values
 	&#160;&#160;</p>
-	<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>
-	<p>Additional XML:
+	<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>';
+	foreach( $text_extensions as $text_ex ){		
+		$text .= $text_ex ;
+	}
+	$text .= '<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
@@ -206,6 +217,13 @@ END;
 					}
 				}else if(substr($var,0,8) == 'f_label_'){
 					$Xmltext .= '<Label>'.$val.'</Label>';
+					//Get Xml parsed from extensions, 
+					$text_extensions = array(); //This var. will save the html text returned by the extensions
+					$js_extensions = array();
+					wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$text_extensions ));
+					foreach( $text_extensions as $text_ex ){					
+						$text .= $text_ex ;
+					}
 				}else if(substr($var,0,10) == 'f_add_xml_'){
 					$Xmltext .= $val;
 					$Xmltext .= '</Field>';
