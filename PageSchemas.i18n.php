@@ -344,6 +344,10 @@ $messages['pt-br'] = array(
 $messages['roa-tara'] = array(
 	'pageschemas-desc' => "Le template de supporte definiscene 'a struttura lore ausanne l'XML",
 	'pageschemas-header' => "'A definizione XML pe st'esembie jè:",
+	'ps-property-isproperty' => "Queste jè 'na probbietà de tipe $1.",
+	'ps-property-allowedvals' => "{{PLURAL:$1'U valore permesse pe sta probbietà jè|Le valore permesse pe ste probbietà sonde}}:",
+	'ps-generate-pages' => 'Genera pàggene',
+	'ps-generate-pages-desc' => 'Genere le pàggene ca seguene, basate sus a stu schema de categorije:',
 );
 
 /** Russian (Русский)
