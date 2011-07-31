@@ -82,6 +82,7 @@ END;
 		$text_1 = '<p>This category does not exist yet. Create this category and its page schema: </p>';
 		$text_2 = '<p>This category exists, but does not have a page schema. Create schema:" </p>';
 		$text_3 = '<p>This category exists,have a page schema. Edit schema:" </p>';
+		$text_4 = '';
 		self::addJavascript();
 		$text_extensions = array(); //This var. will save the html text returned by the extensions
 		$js_extensions = array();
@@ -148,7 +149,7 @@ END;
 	<input type="submit" id="wpSave" name="wpSave" value="Save" />	
 	</div>';
 				$text .= '	</form>';
-				 $text .= '<div class="templateBox" id="starterTemplate" style="display: none">
+				 $starter_text = '<div class="templateBox" id="starterTemplate" style="display: none">
 <fieldset style="background: #ddd;">
 <legend>Template</legend> 
 <p>Name: <input type="text"  name="t_name_starter"/></p> 
@@ -165,7 +166,7 @@ END;
 	</fieldset>
 	</div>	
 		<hr /> ';
-		$text .= '<div class="fieldBox" id="starterField" style="display: none">
+		$starter_text .= '<div class="fieldBox" id="starterField" style="display: none">
 				<fieldset style="background: #bbb;"><legend>Field</legend> 
 				<p>
 				<input size="15" name="f_name_starter">
@@ -175,14 +176,15 @@ END;
 	&#160;&#160;</p>
 	<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>';
 	foreach( $text_extensions as $text_ex ){		
-		$text .= $text_ex ;
+		$starter_text .= $text_ex ;
 	}
-	$text .= '<p>Additional XML:
+	$starter_text .= '<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
 </fieldset>
 </div>';
+		$text .= $starter_text;
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ($save_page) {
 			//Generate the Xml from the Form elements
@@ -193,7 +195,7 @@ END;
 			$Xmltext .= $ps_add_xml;			
 			$fieldName = "";
 			$fieldNum= -1;
-			$templateNum = -1;
+			$templateNum = -1;			
 			foreach ( $wgRequest->getValues() as $var => $val ) {			
 				if(substr($var,0,7) == 't_name_'){
 					$templateNum = substr($var,7,1);					
@@ -222,7 +224,7 @@ END;
 					$js_extensions = array();
 					wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$text_extensions ));
 					foreach( $text_extensions as $text_ex ){					
-						$text .= $text_ex ;
+						$Xmltext .= $text_ex ;
 					}
 				}else if(substr($var,0,10) == 'f_add_xml_'){
 					$Xmltext .= $val;
@@ -233,7 +235,7 @@ END;
 				}
 			}
 			$Xmltext .= '</PageSchema>';
-			
+			wfDebugLog( 'myextension', 'Xmltext: ' . print_r( $Xmltext, true ) );
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			$pageText = $categoryArticle->getContent();
@@ -270,16 +272,109 @@ END;
 			$row = $dbr->fetchRow( $res );
 			if( $row == null ){
 				//Create form here, Cat doesnt exist, create new cat with this text
-				$text .= $text_1;
-				$wgOut->addHTML( $text );
+				$text_1 .= $text;
+				$wgOut->addHTML( $text_1 );
 			}else{
 			  if( ($row[1] == 'PageSchema') && ($row[2] != null )){
 				//Populate the form here with autocompleted values 
-				$pageXml = $row[2];
-				$wgOut->addHTML($text_3);
+				$pageXmlstr = $row[2];
+				$pageXml = simplexml_load_string ( $pageXmlstr );	
+				$pageName = (string)$pageXml->attributes()->name;
+				$text_4 .= 	'';
+				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
+				$text_4 .= '<p>Name of schema: <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
+				$text_4 .= '<p>Additional XML:
+				<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
+				</p> ';
+				$text_4 .= '<div id="templatesList">';
+				$text_4 .= '<div class="templateBox" >';
+				$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';				
+				$template_num = 0;
+				/*  index for template objects */								
+				foreach ( $pageXml->children() as $tag => $template_xml ) {
+					if ( $tag == 'Template' ) {
+						$template_num++;
+						if( count($template_xml->children()) > 0 ){
+							$templateName = (string) $template_xml->attributes()->name;
+							$text_4 .= '<p>Name: <input type="text"  name="t_name_'.$template_num.'" value="'.$templateName.'" /></p> ';
+							if( ((string) $template_xml->attributes()->multiple) == "multiple" ) {												
+								$text_4 .= '<p><input type="checkbox" checked name="is_multiple_'.$template_num.'"/>  Allow multiple instances of this template</p> ';
+							}else{
+								$text_4 .= '<p><input type="checkbox" name="is_multiple_'.$template_num.'"/>  Allow multiple instances of this template</p> ';
+							}
+							foreach ($template_xml->children() as $field_xml) {
+								if ( $field_xml->getName() == "Field" ){
+									$fieldName = (string)$field_xml->attributes()->name;
+									$text_4 .= '<div id="fieldsList_'.$template_num.'">';
+									$text_4 .= '<div class="fieldBox" >';
+									$text_4 .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
+									if( ((string)$field_xml->attributes()->list) == "list") {
+										$list_values = true;
+									}
+									if( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ){
+										$delimiter = (string)$field_xml->attributes()->delimiter;
+									}
+									foreach ($field_xml->children() as $tag => $child ) {
+										if ( $tag == 'Label' ) {
+											$fieldLabel = (string)$child;
+										}
+									}									
+								 	$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$template_num.'" value="'.$fieldName.'" >';
+		$text_4 .= 'Display label: <input size="15" name="f_label_'.$template_num.'" value="'.$fieldLabel.'" >
+		</p> ';
+									if($list_values){
+										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$template_num.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
+										$text_4 .= '<div class="delimiterInput"  style="display:"  ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$template_num.'" value="'.$delimiter.'" /> </p></div>';
+									}else{
+										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$template_num.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
+										$text_4 .= '<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$template_num.'" /> </p></div>';
+									}
+									$text_4 .= '<p>Additional XML:
+		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$template_num.'"></textarea> 
+		</p> 
+		<input type="button" value="Remove field" class="deleteField" /></fieldset>
+		</div>			
+		</div>	
+		';	
+								}
+							
+							}
+							$add_field_button = Xml::element( 'input',
+							array(
+								'type' => 'button',
+								'value' => 'Add Field',
+								'onclick' => "createTemplateAddField(1)"
+							)
+							);
+							$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
+								$text_4 .= '<hr /> 
+								<p>Additional XML:
+								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'"></textarea> 
+								</p> 
+								<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
+							</fieldset> </div></div>';	
+												    
+						}
+					}				
+			}
+				$add_template_button = Xml::element( 'input',
+								array(
+									'type' => 'button',
+									'value' => 'Add Template',
+									'onclick' => "createAddTemplate()"
+								)
+							);
+				$text_4 .= Xml::tags( 'p', null, $add_template_button ) . "\n";
+				$text_4 .= '		<hr /> 
+				<div class="editButtons">
+				<input type="submit" id="wpSave" name="wpSave" value="Save" />	
+				</div>';
+				$text_4 .= '	</form>';
+				$text_4 .= $starter_text;
+				$wgOut->addHTML($text_4);
 			  }else{
-				$text .= $text_2;
-				$wgOut->addHTML($text);
+				$text_2 .= $text;
+				$wgOut->addHTML($text_2);
 			  }
 			}
 		}else {
