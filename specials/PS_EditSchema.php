@@ -280,31 +280,43 @@ END;
 			  if( ($row[1] == 'PageSchema') && ($row[2] != null )){
 				//Populate the form here with autocompleted values 
 				$pageXmlstr = $row[2];
-				wfDebugLog( 'myextension', 'Something is not right: ' . print_r( $pageXmlstr, true ) );
-				$pageXml = simplexml_load_string ( $pageXmlstr );
 				
+				$pageXml = simplexml_load_string ( $pageXmlstr );
+				$ps_add_xml = "";
 				$pageName = (string)$pageXml->attributes()->name;
 				$text_4 .= 	'';
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
 				$text_4 .= '<p>Name of schema: <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
+				foreach ( $pageXml->children() as $template_xml ) {
+					if ( $template_xml->getName() != 'Template' ){				
+						$ps_add_xml .= (string)$template_xml->asXML();
+					}
+				}			
 				$text_4 .= '<p>Additional XML:
-				<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
+				<textarea rows=4 style="width: 100%" name="ps_add_xml" >'.$ps_add_xml.'</textarea> 
 				</p> ';
 				$text_4 .= '<div id="templatesList">';
-				$text_4 .= '<div class="templateBox" >';
-				$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';				
+				
 				$template_num = 0;
 				/*  index for template objects */								
 				foreach ( $pageXml->children() as $tag => $template_xml ) {
-					if ( $tag == 'Template' ) {
+					if ( $tag == 'Template' ){
+						$template_add_xml = "";
 						$template_num++;
 						if( count($template_xml->children()) > 0 ){
 							$templateName = (string) $template_xml->attributes()->name;
+							$text_4 .= '<div class="templateBox" >';
+							$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';				
 							$text_4 .= '<p>Name: <input type="text"  name="t_name_'.$template_num.'" value="'.$templateName.'" /></p> ';
 							if( ((string) $template_xml->attributes()->multiple) == "multiple" ) {												
 								$text_4 .= '<p><input type="checkbox" checked name="is_multiple_'.$template_num.'"/>  Allow multiple instances of this template</p> ';
 							}else{
 								$text_4 .= '<p><input type="checkbox" name="is_multiple_'.$template_num.'"/>  Allow multiple instances of this template</p> ';
+							}
+							foreach ( $template_xml->children() as $field_xml ) {
+								if ( $field_xml->getName() != 'Field' ){				
+									$template_add_xml .= (string)$field_xml->asXML();
+								}
 							}
 							foreach ($template_xml->children() as $field_xml) {
 								if ( $field_xml->getName() == "Field" ){
@@ -353,13 +365,13 @@ END;
 							$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
 								$text_4 .= '<hr /> 
 								<p>Additional XML:
-								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'"></textarea> 
+								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea> 
 								</p> 
 								<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
 							</fieldset> </div></div>';	
 												    
 						}
-					}				
+					}	
 			}
 				$add_template_button = Xml::element( 'input',
 								array(
