@@ -195,7 +195,11 @@ END;
 			$Xmltext .= $ps_add_xml;			
 			$fieldName = "";
 			$fieldNum= -1;
-			$templateNum = -1;			
+			$templateNum = -1;
+			$xml_text_extensions = array(); //This var. will save the xml text returned by the extensions
+			$js_extensions = array();
+			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xml_text_extensions ));
+			$indexGlobalField = 0 ;  //this variable is use to index the array returned by extensions for XML.
 			foreach ( $wgRequest->getValues() as $var => $val ) {			
 				if(substr($var,0,7) == 't_name_'){
 					$templateNum = substr($var,7,1);					
@@ -219,13 +223,11 @@ END;
 					}
 				}else if(substr($var,0,8) == 'f_label_'){
 					$Xmltext .= '<Label>'.$val.'</Label>';
-					//Get Xml parsed from extensions, 
-					$text_extensions = array(); //This var. will save the html text returned by the extensions
-					$js_extensions = array();
-					wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$text_extensions ));
-					foreach( $text_extensions as $text_ex ){					
-						$Xmltext .= $text_ex ;
+					//Get Xml parsed from extensions, 					
+					foreach( $xml_text_extensions as $xml_ex_array ){
+						$Xmltext .= $xml_ex_array[$indexGlobalField] ;						
 					}
+					$indexGlobalField++ ;
 				}else if(substr($var,0,10) == 'f_add_xml_'){
 					$Xmltext .= $val;
 					$Xmltext .= '</Field>';
@@ -278,7 +280,9 @@ END;
 			  if( ($row[1] == 'PageSchema') && ($row[2] != null )){
 				//Populate the form here with autocompleted values 
 				$pageXmlstr = $row[2];
-				$pageXml = simplexml_load_string ( $pageXmlstr );	
+				wfDebugLog( 'myextension', 'Something is not right: ' . print_r( $pageXmlstr, true ) );
+				$pageXml = simplexml_load_string ( $pageXmlstr );
+				
 				$pageName = (string)$pageXml->attributes()->name;
 				$text_4 .= 	'';
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
