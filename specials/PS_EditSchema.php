@@ -12,7 +12,7 @@ class EditSchema extends IncludableSpecialPage {
     }
     public static function addJavascript() {
 		global $wgOut;
-
+		
 		PageSchemas::addJavascriptAndCSS();
 
 		// TODO - this should be in a JS file
@@ -84,6 +84,7 @@ END;
 		$text_3 = '<p>This category exists,have a page schema. Edit schema:" </p>';
 		$text_4 = '';
 		self::addJavascript();
+		$pageSchemaObj = null;
 		$text_extensions = array(); //This var. will save the html text returned by the extensions
 		$js_extensions = array();
 		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
@@ -249,13 +250,13 @@ END;
 				$params = array();
 				$params['user_id'] = $wgUser->getId();
 				$params['page_text'] = $pageText.$Xmltext;
-				$jobs[] = new PSCreatePageJob( $title, $params );	
+				$jobs[] = new PSCreatePageJob( $title, $params );
 				Job::batchInsert( $jobs );
 			}			
 		}
 		else{
 		   if ( $category != "" ) {
-
+			$pageSchemaObj = new PSSchema( $category );
 			$title = Title::newFromText( $category, NS_CATEGORY );
 			$pageId = $title->getArticleID();			
 			$dbr = wfGetDB( DB_SLAVE );
@@ -303,6 +304,7 @@ END;
 					if ( $tag == 'Template' ){
 						$template_add_xml = "";
 						$template_num++;
+						$field_count = 0;
 						if( count($template_xml->children()) > 0 ){
 							$templateName = (string) $template_xml->attributes()->name;
 							$text_4 .= '<div class="templateBox" >';
@@ -317,7 +319,7 @@ END;
 								if ( $field_xml->getName() != 'Field' ){				
 									$template_add_xml .= (string)$field_xml->asXML();
 								}
-							}
+							}							
 							foreach ($template_xml->children() as $field_xml) {
 								if ( $field_xml->getName() == "Field" ){
 									$fieldName = (string)$field_xml->attributes()->name;
@@ -336,22 +338,32 @@ END;
 										}
 									}									
 								 	$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$template_num.'" value="'.$fieldName.'" >';
-		$text_4 .= 'Display label: <input size="15" name="f_label_'.$template_num.'" value="'.$fieldLabel.'" >
+		$text_4 .= 'Display label: <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
 		</p> ';
 									if($list_values){
 										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$template_num.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
-										$text_4 .= '<div class="delimiterInput"  style="display:"  ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$template_num.'" value="'.$delimiter.'" /> </p></div>';
+										$text_4 .= '<div class="delimiterInput"  style="display:"  ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" value="'.$delimiter.'" /> </p></div>';
 									}else{
-										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$template_num.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
-										$text_4 .= '<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$template_num.'" /> </p></div>';
+										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
+										$text_4 .= '<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" /> </p></div>';
 									}
-									$text_4 .= '<p>Additional XML:
-		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$template_num.'"></textarea> 
+									//Inserting HTML text from Extensions
+							$filled_html_text_extensions = array();
+							wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filled_html_text_extensions ));
+							foreach( $filled_html_text_extensions as $text_ex_array ){
+								if( $text_ex_array[$field_count] != null ){
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}						
+							$text_4 .= '<p>Additional XML:
+		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea> 
 		</p> 
 		<input type="button" value="Remove field" class="deleteField" /></fieldset>
 		</div>			
 		</div>	
 		';	
+						$field_count++;
 								}
 							
 							}
