@@ -46,6 +46,9 @@ function createAddTemplate() {
 	});
 	jQuery('#templatesList').append(newField);
 }
+function updateFieldNum(field_num){
+	fieldNum = field_num;
+}
 function addjQueryToCheckbox(){
 	jQuery('.isListCheckbox').click(function() {		
 			if (jQuery(this).is(":checked"))
@@ -252,7 +255,7 @@ END;
 				$params['page_text'] = $pageText.$Xmltext;
 				$jobs[] = new PSCreatePageJob( $title, $params );
 				Job::batchInsert( $jobs );
-			}			
+			}
 		}
 		else{
 		   if ( $category != "" ) {
@@ -320,10 +323,10 @@ END;
 									$template_add_xml .= (string)$field_xml->asXML();
 								}
 							}							
-							foreach ($template_xml->children() as $field_xml) {
+							$text_4 .= '<div id="fieldsList_'.$template_num.'">';
+							foreach ($template_xml->children() as $field_xml) {							
 								if ( $field_xml->getName() == "Field" ){
-									$fieldName = (string)$field_xml->attributes()->name;
-									$text_4 .= '<div id="fieldsList_'.$template_num.'">';
+									$fieldName = (string)$field_xml->attributes()->name;									
 									$text_4 .= '<div class="fieldBox" >';
 									$text_4 .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
 									if( ((string)$field_xml->attributes()->list) == "list") {
@@ -337,11 +340,11 @@ END;
 											$fieldLabel = (string)$child;
 										}
 									}									
-								 	$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$template_num.'" value="'.$fieldName.'" >';
+								 	$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" >';
 		$text_4 .= 'Display label: <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
 		</p> ';
 									if($list_values){
-										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$template_num.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
+										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
 										$text_4 .= '<div class="delimiterInput"  style="display:"  ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" value="'.$delimiter.'" /> </p></div>';
 									}else{
 										$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
@@ -355,23 +358,25 @@ END;
 									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
 									$text_4 .= $text_ex;
 								}
-							}						
+							}			
 							$text_4 .= '<p>Additional XML:
 		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea> 
 		</p> 
 		<input type="button" value="Remove field" class="deleteField" /></fieldset>
 		</div>			
-		</div>	
 		';	
 						$field_count++;
-								}
-							
+						$text_4 .= '<script type="text/javascript">
+						updateFieldNum('.$field_count.');
+						</script>';						
+								}						
 							}
+							$text_4 .= '</div>';
 							$add_field_button = Xml::element( 'input',
 							array(
 								'type' => 'button',
 								'value' => 'Add Field',
-								'onclick' => "createTemplateAddField(1)"
+								'onclick' => "createTemplateAddField($template_num)"
 							)
 							);
 							$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
@@ -380,7 +385,7 @@ END;
 								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea> 
 								</p> 
 								<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
-							</fieldset> </div></div>';	
+							</fieldset> </div>';	
 												    
 						}
 					}	
