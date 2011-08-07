@@ -21,7 +21,32 @@ class PageSchemas {
 		}
 		$output->addModules( 'jquery' );		
 	}
-	
+	public static function getCategoriesWithPSDefined(){
+		$cat_titles = array();		
+		$dbr = wfGetDB( DB_SLAVE );
+		//get the result set, query : slect page_props
+		$res = $dbr->select( 'page_props',
+			array(
+				'pp_page',
+				'pp_propname',
+				'pp_value'	
+			),
+			array(					
+				'pp_propname' => 'PageSchema'
+			)
+		);
+		while ( $row = $dbr->fetchRow( $res ) ) {
+			if( $row[2] != null ){
+				$page_id_cat = $row[0];
+				if( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY){
+					$cat_text = Title::newFromId($page_id_cat)->getText();
+					$cat_titles[] = $cat_text;
+				}
+			}
+		}
+		$dbr->freeResult( $res );
+		return $cat_titles;
+	}
 
 	/**
 	 * Includes the necessary Javascript and CSS files for the form
