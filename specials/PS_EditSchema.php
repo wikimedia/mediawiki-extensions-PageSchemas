@@ -49,6 +49,7 @@ function createAddTemplate() {
 function updateFieldNum(field_num){
 	fieldNum = field_num;
 }
+
 function addjQueryToCheckbox(){
 	jQuery('.isListCheckbox').click(function() {		
 			if (jQuery(this).is(":checked"))
@@ -98,7 +99,7 @@ END;
 		$text .= '<p>Name of schema: <input type="text" name="s_name"/> </p> ';
 		$text .= '<p>Additional XML:
 		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
-		</p> ';
+		</p> ';		
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
 		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
@@ -245,6 +246,8 @@ END;
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			$pageText = $categoryArticle->getContent();
+			$replaced_text = preg_replace('/<PageSchema>*<\/PageSchema>/', $Xmltext, $pageText );
+			wfDebugLog( 'myextension', 'Xmltext: ' . print_r( $replaced_text, true ) );
 			$jobs = array();
 			if( $wgRequest->getText('is_edit')=='true' ){
 				//Do some preg-replace magic
@@ -324,6 +327,7 @@ END;
 								}
 							}							
 							$text_4 .= '<div id="fieldsList_'.$template_num.'">';
+							$list_values =  false;
 							foreach ($template_xml->children() as $field_xml) {							
 								if ( $field_xml->getName() == "Field" ){
 									$fieldName = (string)$field_xml->attributes()->name;									
