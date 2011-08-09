@@ -177,7 +177,7 @@ END;
 			$text .= self::parseField($child);
 		}
 		return $text;
-	}		
+	}
 	static function parseField ( $field_xml ) {
 		$name = $field_xml->attributes()->name;
 		$text = self::tableRowHTML('paramAttr', 'Field', $name);
@@ -228,12 +228,12 @@ class PSSchema {
 		}else{
 			//retrievimg the third attribute which is pp_value 		
 			$pageXmlstr = $row[2];
-			$pageXml = simplexml_load_string ( $pageXmlstr );
-			$this->pageName = (string)$pageXml->attributes()->name;
+			$this->pageXml = simplexml_load_string ( $pageXmlstr );
+			$this->pageName = (string)$this->pageXml->attributes()->name;
 			/*  index for template objects */
 			$i = 0;
 			$inherited_templates = null ;
-			foreach ( $pageXml->children() as $tag => $child ) {
+			foreach ( $this->pageXml->children() as $tag => $child ) {
 				if ( $tag == 'InheritsFrom ' ) {
 					$schema_to_inherit = (string) $child->attributes()->schema;
 					if( $schema_to_inherit !=null ){
@@ -255,14 +255,7 @@ class PSSchema {
 							}
 						}
 					}
-				}
-				if ( $tag == 'Form' ) {
-					$this->formName = (string) $child->attributes()->name;
-					$this->formArray['name'] = (string) $child->attributes()->name;
-					foreach ($child->children() as $tag => $formelem) {
-						$this->formArray[(string)$tag] = (string)$formelem;
-					}
-				}
+				}								
 			}
 		}
 	}
@@ -272,7 +265,8 @@ class PSSchema {
 	}
 	/*return an array of PSTemplate Objects */
 	function getFormArray () {
-		return $this->formArray;	
+		$obj = $this->getObject('Form');
+		 return $obj['sf'];
 	}
 	/*return an array of PSTemplate Objects */
 	function isPSDefined () {
@@ -287,7 +281,13 @@ class PSSchema {
 		return $this->pageName;
     }
 	function getFormName(){
-		return $this->formName;
+		$form_array = $this->getFormArray();
+		return $form_array['name'];
+	}
+	function getObject( $objectName ) {
+		$object = array();
+		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->pageXml, &$object ) );		
+		return $object;
 	}
 	function getCategoryName(){		
 		return $this->categoryName;
