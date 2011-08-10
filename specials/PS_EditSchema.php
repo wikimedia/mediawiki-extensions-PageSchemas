@@ -191,9 +191,15 @@ END;
 			<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> This field can hold a list of values
 	&#160;&#160;</p>
 	<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>';
-	foreach( $text_extensions as $text_ex ){		
-		$starter_text .= $text_ex ;
+	if($text_extensions['smw'] != null){
+		$starter_text .= $text_extensions['smw'];
 	}
+	if($text_extensions['sf'] != null){
+		$starter_text .= $text_extensions['sf'];
+	}
+	if($text_extensions['sd'] != null){
+		$starter_text .= $text_extensions['sd'];
+	}	
 	$starter_text .= '<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea> 
 				</p> 
@@ -282,7 +288,7 @@ END;
 				$title = Title::newFromText( $category, NS_CATEGORY );
 				$params = array();
 				$params['user_id'] = $wgUser->getId();
-				$params['page_text'] = $pageText.$Xmltext;
+				$params['page_text'] = $Xmltext;
 				$jobs[] = new PSCreatePageJob( $title, $params );
 				Job::batchInsert( $jobs );
 			}
