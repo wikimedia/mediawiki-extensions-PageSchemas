@@ -90,9 +90,8 @@ END;
 		self::addJavascript();
 		$pageSchemaObj = null;
 		$text_extensions = array(); //This var. will save the html text returned by the extensions
-		$js_extensions = array();
-		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
-		
+		$js_extensions = array();		
+		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));		
 		$text = "";
 		$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
 		$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
@@ -100,6 +99,10 @@ END;
 		$text .= '<p>Additional XML:
 		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
 		</p> ';		
+		if($text_extensions['sf_form'] != null){
+			$text_ex = preg_replace('/starter/', '1', $text_extensions['sf_form']);
+			$text .= $text_ex;
+		}
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
 		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
@@ -115,10 +118,18 @@ END;
 		This field can hold a list of values
 		</p> 
 		<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_1" /> </p></div>';
-		foreach( $text_extensions as $text_ex ){
-			$text_ex = preg_replace('/starter/', '1', $text_ex);				
-			$text .= $text_ex ;
-		}
+		if($text_extensions['smw'] != null){
+			$text_ex = preg_replace('/starter/', '1', $text_extensions['smw']);
+			$text .= $text_ex;
+		}				
+		if($text_extensions['sf'] != null){
+			$text_ex = preg_replace('/starter/', '1', $text_extensions['sf']);
+			$text .= $text_ex;
+		}				
+		if($text_extensions['sd'] != null){
+			$text_ex = preg_replace('/starter/', '1', $text_extensions['sd']);
+			$text .= $text_ex;
+		}				
 		$text .= '<p>Additional XML:
 		<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea> 
 		</p> 
@@ -204,10 +215,13 @@ END;
 			$xml_text_extensions = array(); //This var. will save the xml text returned by the extensions
 			$js_extensions = array();
 			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xml_text_extensions ));
+			if( $xml_text_extensions['sf_form'] != null ){
+				$Xmltext .= $xml_text_extensions['sf_form'];
+			}
 			$indexGlobalField = 0 ;  //this variable is use to index the array returned by extensions for XML.
-			foreach ( $wgRequest->getValues() as $var => $val ) {			
+			foreach ( $wgRequest->getValues() as $var => $val ) {
 				if(substr($var,0,7) == 't_name_'){
-					$templateNum = substr($var,7,1);					
+					$templateNum = substr($var,7,1);
 					if($wgRequest->getCheck( 'is_multiple_'.$templateNum )){
 						$Xmltext .= '<Template name="'.$val.'" multiple="multiple">';
 					}else{
@@ -229,9 +243,24 @@ END;
 				}else if(substr($var,0,8) == 'f_label_'){
 					$Xmltext .= '<Label>'.$val.'</Label>';
 					//Get Xml parsed from extensions, 					
-					foreach( $xml_text_extensions as $xml_ex_array ){
-						$Xmltext .= $xml_ex_array[$indexGlobalField] ;						
+					if( $xml_text_extensions['smw'] != null ){
+						$xml_ex_array = $xml_text_extensions['smw'];
+						if($xml_ex_array[$indexGlobalField] != null){
+							$Xmltext .= $xml_ex_array[$indexGlobalField] ;
+						}						
 					}
+					if( $xml_text_extensions['sf'] != null ){
+						$xml_ex_array = $xml_text_extensions['sf'];
+						if($xml_ex_array[$indexGlobalField] != null){
+							$Xmltext .= $xml_ex_array[$indexGlobalField] ;
+						}						
+					}
+					if( $xml_text_extensions['sd'] != null ){
+						$xml_ex_array = $xml_text_extensions['sd'];
+						if($xml_ex_array[$indexGlobalField] != null){
+							$Xmltext .= $xml_ex_array[$indexGlobalField] ;
+						}
+					}				
 					$indexGlobalField++ ;
 				}else if(substr($var,0,10) == 'f_add_xml_'){
 					$Xmltext .= $val;
@@ -241,13 +270,11 @@ END;
 					$Xmltext .= '</Template>';
 				}
 			}
-			$Xmltext .= '</PageSchema>';
-			wfDebugLog( 'myextension', 'Xmltext: ' . print_r( $Xmltext, true ) );
+			$Xmltext .= '</PageSchema>';			
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			$pageText = $categoryArticle->getContent();
-			$replaced_text = preg_replace('/<PageSchema>*<\/PageSchema>/', $Xmltext, $pageText );
-			wfDebugLog( 'myextension', 'Xmltext: ' . print_r( $replaced_text, true ) );
+			//$replaced_text = preg_replace('/<PageSchema*<\/PageSchema>/', $Xmltext, $pageText );			
 			$jobs = array();
 			if( $wgRequest->getText('is_edit')=='true' ){
 				//Do some preg-replace magic
@@ -295,15 +322,21 @@ END;
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
 				$text_4 .= '<p>Name of schema: <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
 				foreach ( $pageXml->children() as $template_xml ) {
-					if ( $template_xml->getName() != 'Template' ){				
+					if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'Form') ){
 						$ps_add_xml .= (string)$template_xml->asXML();
 					}
 				}			
 				$text_4 .= '<p>Additional XML:
 				<textarea rows=4 style="width: 100%" name="ps_add_xml" >'.$ps_add_xml.'</textarea> 
 				</p> ';
-				$text_4 .= '<div id="templatesList">';
 				
+				$filled_html_text_extensions = array();
+				wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filled_html_text_extensions ));
+				if($filled_html_text_extensions['sf_form'] != null){
+				$text_ex = preg_replace('/starter/', '1', $filled_html_text_extensions['sf_form']);
+				$text_4 .= $text_ex;
+				}
+				$text_4 .= '<div id="templatesList">';				
 				$template_num = 0;
 				/*  index for template objects */								
 				foreach ( $pageXml->children() as $tag => $template_xml ) {
@@ -355,14 +388,29 @@ END;
 										$text_4 .= '<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" /> </p></div>';
 									}
 									//Inserting HTML text from Extensions
-							$filled_html_text_extensions = array();
-							wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filled_html_text_extensions ));
-							foreach( $filled_html_text_extensions as $text_ex_array ){
+							
+							if( $filled_html_text_extensions['smw'] != null ){
+								$text_ex_array = $filled_html_text_extensions['smw'];
 								if( $text_ex_array[$field_count] != null ){
 									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
 									$text_4 .= $text_ex;
 								}
-							}			
+							}
+							if( $filled_html_text_extensions['sf'] != null ){
+								$text_ex_array = $filled_html_text_extensions['sf'];
+								if( $text_ex_array[$field_count] != null ){
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}
+							if( $filled_html_text_extensions['sd'] != null ){
+								$text_ex_array = $filled_html_text_extensions['sd'];
+								if( $text_ex_array[$field_count] != null ){
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}
+							
 							$text_4 .= '<p>Additional XML:
 		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea> 
 		</p> 
