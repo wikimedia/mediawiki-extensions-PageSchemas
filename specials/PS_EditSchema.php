@@ -83,41 +83,45 @@ END;
 		global $wgRequest, $wgOut, $wgUser;
 		global $wgSkin;
         $this->setHeaders();		
-		$text_1 = '<p>This category does not exist yet. Create this category and its page schema: </p>';
-		$text_2 = '<p>This category exists, but does not have a page schema. Create schema:" </p>';
-		$text_3 = '<p>This category exists,have a page schema. Edit schema:" </p>';
+		$text_1 = '<p>'.wfMsg( 'page-desc-cat-not-exist' ).'</p>';
+		$text_2 = '<p>'.wfMsg( 'page-desc-ps-not-exist' ).'</p>';
+		$text_3 = '<p>'.wfMsg( 'page-desc-edit-schema' ).'</p>';
 		$text_4 = '';
 		self::addJavascript();
 		$pageSchemaObj = null;
 		$text_extensions = array(); //This var. will save the html text returned by the extensions
-		$js_extensions = array();		
-		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));		
-		$text = "";
-		$text .= '<p>This category does not exist yet. Create this category and its page schema: </p>';
+		$js_extensions = array();
+		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
+		$text = "";		
 		$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
-		$text .= '<p>Name of schema: <input type="text" name="s_name"/> </p> ';
-		$text .= '<p>Additional XML:
+		$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name"/> </p> ';
+		$text .= '<p>'.$add_xml_label.'
 		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
 		</p> ';		
 		if($text_extensions['sf_form'] != null){
 			$text_ex = preg_replace('/starter/', '1', $text_extensions['sf_form']);
 			$text .= $text_ex;
 		}
+		$delimeter_label = wfMsg('delimeter-label');
+		$multiple_temp_label = wfMsg('multiple-temp-label');
+		$field_list_label = wfMsg('field-list-label');
+		$add_xml_label = wfMsg('add-xml-label');
+		$schema_name_label = wfMsg('schema-name-label');
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
 		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
 		$text .= '<p>Name: <input type="text"  name="t_name_1"/></p> ';
-		$text .= '<p><input type="checkbox" name="is_multiple_1"/>  Allow multiple instances of this template</p> ';
+		$text .= '<p><input type="checkbox" name="is_multiple_1"/> '.$multiple_temp_label.'</p> ';
 		$text .= '<div id="fieldsList_1">';
 		$text .= '<div class="fieldBox" >';
 		$text .= '<fieldset style="background: #bbb;"><legend>Field</legend> 
 		<p>Field name: <input size="15" name="f_name_1">
 		Display label: <input size="15" name="f_label_1">
 		</p> 
-		<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" /> 				
-		This field can hold a list of values
+		<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" />'.
+		$field_list_label.'
 		</p> 
-		<div class="delimiterInput"  style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_1" /> </p></div>';
+		<div class="delimiterInput"  style="display: none" ><p>'.$delimeter_label.' <input type="text" name="f_delimiter_1" /> </p></div>';
 		if($text_extensions['smw'] != null){
 			$text_ex = preg_replace('/starter/', '1', $text_extensions['smw']);
 			$text .= $text_ex;
@@ -129,8 +133,9 @@ END;
 		if($text_extensions['sd'] != null){
 			$text_ex = preg_replace('/starter/', '1', $text_extensions['sd']);
 			$text .= $text_ex;
-		}				
-		$text .= '<p>Additional XML:
+		}
+		
+		$text .= '<p>'.$add_xml_label.'
 		<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea> 
 		</p> 
 		<input type="button" value="Remove field" class="deleteField" /></fieldset>
@@ -146,7 +151,7 @@ END;
 		);
 		$text .= Xml::tags( 'p', null, $add_field_button ) . "\n";
 			$text .= '<hr /> 
-			<p>Additional XML:
+			<p>'.$add_xml_label.'
 			<textarea rows=4 style="width: 100%" name="t_add_xml_1"></textarea> 
 			</p> 
 			<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
@@ -175,7 +180,7 @@ END;
 	<p><input type="button" value="Add Field" onclick="createTemplateAddField(starter)" /></p>
 
 <hr /> 
-	<p>Additional XML:
+	<p>'.$add_xml_label.'
 	<textarea rows=4 style="width: 100%" name="t_add_xml_starter"></textarea> 
 	</p> 
 	<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
@@ -200,7 +205,7 @@ END;
 	if($text_extensions['sd'] != null){
 		$starter_text .= $text_extensions['sd'];
 	}	
-	$starter_text .= '<p>Additional XML:
+	$starter_text .= '<p>'.$add_xml_label.'
 				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea> 
 				</p> 
 				<input type="button" value="Remove field" class="deleteField" />
@@ -293,7 +298,7 @@ END;
 				Job::batchInsert( $jobs );
 			}
 		}
-		else{
+		else{		
 		   if ( $category != "" ) {
 			$pageSchemaObj = new PSSchema( $category );
 			$title = Title::newFromText( $category, NS_CATEGORY );
@@ -326,13 +331,13 @@ END;
 				$pageName = (string)$pageXml->attributes()->name;
 				$text_4 .= 	'';
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
-				$text_4 .= '<p>Name of schema: <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
+				$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
 				foreach ( $pageXml->children() as $template_xml ) {
 					if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'Form') ){
 						$ps_add_xml .= (string)$template_xml->asXML();
 					}
 				}			
-				$text_4 .= '<p>Additional XML:
+				$text_4 .= '<p>'.$add_xml_label.'
 				<textarea rows=4 style="width: 100%" name="ps_add_xml" >'.$ps_add_xml.'</textarea> 
 				</p> ';
 				
@@ -417,7 +422,7 @@ END;
 								}
 							}
 							
-							$text_4 .= '<p>Additional XML:
+							$text_4 .= '<p>'.$add_xml_label.'
 		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea> 
 		</p> 
 		<input type="button" value="Remove field" class="deleteField" /></fieldset>
@@ -439,7 +444,7 @@ END;
 							);
 							$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
 								$text_4 .= '<hr /> 
-								<p>Additional XML:
+								<p>'.$add_xml_label.'
 								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea> 
 								</p> 
 								<p><input type="button" value="Remove template" class="deleteTemplate" /></p> 
