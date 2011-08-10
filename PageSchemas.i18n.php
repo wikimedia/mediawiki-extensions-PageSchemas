@@ -19,8 +19,17 @@ $messages['en'] = array(
     'pageschemas-header'				 => 'The XML definition for this template is:',
 	'ps-property-isproperty'             => 'This is a property of type $1.',
 	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
-	'ps-generate-pages'                  => 'Generate Pages',   
-	'ps-generate-pages-desc'             => 'Generate the following pages, based on this category\'s schema:',
+	'generatepages'                 	 => 'Generate pages',   
+	'generatepages-desc'                 => 'Generate the following pages, based on this category\'s schema:',
+	'page-desc-cat-not-exist'            => 'This category does not exist yet. Create this category and its page schema: ',
+	'page-desc-ps-not-exist'             => 'This category exists, but does not have a page schema. Create schema:',
+	'page-desc-edit-schema'              => 'This category exists,have a page schema. Edit schema:',
+	'delimeter-label'                    => 'Delimiter for values (default is ","): ',
+	'multiple-temp-label'				 => 'Allow multiple instances of this template',
+	'field-list-label'					 => 'This field can hold a list of values',
+	'add-xml-label'					     => 'Additional XML:',
+	'schema-name-label'				     => 'Name of schema:',
+											
 );
 
 /** Message documentation (Message documentation)
