@@ -138,9 +138,8 @@ END;
 		return $text;
 	}
 
-	static function parsePageSchemas($class_schema_xml) {
-	
-		global $wgTitle;		
+	static function parsePageSchemas($class_schema_xml) {	
+		global $wgTitle;
 		if($wgTitle->getNamespace() == NS_CATEGORY){
 		$text = "<p>Schema description:</p>\n";
 		$text .= "<table class=\"pageSchema\">\n";
@@ -159,7 +158,7 @@ END;
 		$text .= "</table>\n";
 		}else{
 		$text = "";
-		}			
+		}
 		return $text;		
 	}
 	static function parseFormElem( $form_xml ) {
