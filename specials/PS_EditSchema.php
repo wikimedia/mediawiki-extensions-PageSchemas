@@ -229,7 +229,7 @@ END;
 			if( $xml_text_extensions['sf_form'] != null ){
 				$Xmltext .= $xml_text_extensions['sf_form'];
 			}
-			$indexGlobalField = 0 ;  //this variable is use to index the array returned by extensions for XML.
+			$indexGlobalField = 0 ;  //this variable is use to index the array returned by extensions for XML.			
 			foreach ( $wgRequest->getValues() as $var => $val ) {
 				if(substr($var,0,7) == 't_name_'){
 					$templateNum = substr($var,7,1);
@@ -282,18 +282,24 @@ END;
 				}
 			}
 			$Xmltext .= '</PageSchema>';			
+			$pageSchemaObj = new PSSchema( $category );
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			$pageText = $categoryArticle->getContent();
-			//$replaced_text = preg_replace('/<PageSchema*<\/PageSchema>/', $Xmltext, $pageText );			
+			$title = Title::newFromText( $category, NS_CATEGORY );
 			$jobs = array();
-			if( $wgRequest->getText('is_edit')=='true' ){
+			$params = array();
+			if( $pageSchemaObj->isPSDefined() ){
 				//Do some preg-replace magic
-			}else{
-				$title = Title::newFromText( $category, NS_CATEGORY );
-				$params = array();
+				$tag = "PageSchema";
+				$replaced_text = preg_replace('{<'.$tag.'[^>]*>([^@]*?)</'.$tag.'>'.'}', $Xmltext  , $pageText);
 				$params['user_id'] = $wgUser->getId();
-				$params['page_text'] = $Xmltext;
+				$params['page_text'] = $replaced_text;
+				$jobs[] = new PSCreatePageJob( $title, $params );
+				Job::batchInsert( $jobs );
+			}else{
+				$params['user_id'] = $wgUser->getId();
+				$params['page_text'] = $Xmltext.$pageText;
 				$jobs[] = new PSCreatePageJob( $title, $params );
 				Job::batchInsert( $jobs );
 			}
@@ -426,7 +432,8 @@ END;
 		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea> 
 		</p> 
 		<input type="button" value="Remove field" class="deleteField" /></fieldset>
-		</div>			
+		</div>	
+		</div>	
 		';	
 						$field_count++;
 						$text_4 .= '<script type="text/javascript">
