@@ -15,20 +15,20 @@
 $messages = array();
 
 $messages['en'] = array(
-    'pageschemas-desc'					 => 'Supports templates defining their data structure via XML markup',
+    'ps-pageschemas-desc'					 => 'Supports templates defining their data structure via XML markup',
     'pageschemas-header'				 => 'The XML definition for this template is:',
 	'ps-property-isproperty'             => 'This is a property of type $1.',
 	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
-	'generatepages'                 	 => 'Generate pages',   
-	'generatepages-desc'                 => 'Generate the following pages, based on this category\'s schema:',
-	'page-desc-cat-not-exist'            => 'This category does not exist yet. Create this category and its page schema: ',
-	'page-desc-ps-not-exist'             => 'This category exists, but does not have a page schema. Create schema:',
-	'page-desc-edit-schema'              => 'This category exists,have a page schema. Edit schema:',
-	'delimeter-label'                    => 'Delimiter for values (default is ","): ',
-	'multiple-temp-label'				 => 'Allow multiple instances of this template',
-	'field-list-label'					 => 'This field can hold a list of values',
-	'add-xml-label'					     => 'Additional XML:',
-	'schema-name-label'				     => 'Name of schema:',
+	'ps-generatepages'                 	 => 'Generate pages',   
+	'ps-generatepages-desc'                 => 'Generate the following pages, based on this category\'s schema:',
+	'ps-page-desc-cat-not-exist'            => 'This category does not exist yet. Create this category and its page schema: ',
+	'ps-page-desc-ps-not-exist'             => 'This category exists, but does not have a page schema. Create schema:',
+	'ps-page-desc-edit-schema'              => 'This category exists,have a page schema. Edit schema:',
+	'ps-delimeter-label'                    => 'Delimiter for values (default is ","): ',
+	'ps-multiple-temp-label'				 => 'Allow multiple instances of this template',
+	'ps-field-list-label'					 => 'This field can hold a list of values',
+	'ps-add-xml-label'					     => 'Additional XML:',
+	'ps-schema-name-label'				     => 'Name of schema:',
 											
 );
 
@@ -36,7 +36,7 @@ $messages['en'] = array(
  * @author Ankit Garg 
  */
 $messages['qqq'] = array(
-	'pageschemas-desc' => '{{desc}}',
+	'ps-ps-pageschemas-desc' => '{{desc}}',
 	'pageschemas-header' => 'Header to display XML definition in template page',
 );
 
@@ -44,7 +44,7 @@ $messages['qqq'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'pageschemas-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is',
+	'ps-ps-pageschemas-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is',
 	'pageschemas-header' => 'Die XML-definisie vir die sjabloon is:',
 );
 
@@ -52,7 +52,7 @@ $messages['af'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'pageschemas-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML',
+	'ps-pageschemas-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML',
 	'pageschemas-header' => 'تعريف XML لهذا القالب هو:',
 );
 
@@ -61,7 +61,7 @@ $messages['ar'] = array(
  * @author Ghaly
  */
 $messages['arz'] = array(
-	'pageschemas-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
+	'ps-pageschemas-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
 	'pageschemas-header' => 'تعريف XML للقالب ده هو:',
 );
 
@@ -71,7 +71,7 @@ $messages['arz'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'pageschemas-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную будову зьвестак праз XML-разьметку',
+	'ps-pageschemas-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную будову зьвестак праз XML-разьметку',
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
@@ -83,7 +83,7 @@ $messages['be-tarask'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
-	'pageschemas-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
+	'ps-pageschemas-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
 	'pageschemas-header' => 'Setu an termenadur XML evit ar patrom-mañ :',
 );
 
@@ -91,7 +91,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'pageschemas-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika',
+	'ps-pageschemas-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika',
 	'pageschemas-header' => 'XML definicija za ovaj šablon je:',
 );
 
@@ -100,7 +100,7 @@ $messages['bs'] = array(
  * @author Kghbln
  */
 $messages['de'] = array(
-	'pageschemas-desc' => 'Ermöglicht Vorlagen, die ihre Datenstruktur über XML auszeichnen',
+	'ps-pageschemas-desc' => 'Ermöglicht Vorlagen, die ihre Datenstruktur über XML auszeichnen',
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
@@ -112,7 +112,7 @@ $messages['de'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'pageschemas-desc' => 'Pódpěra pśedłogi, kótarež definěruju datowu strukturu pśez XML-wobznamjenjenja',
+	'ps-pageschemas-desc' => 'Pódpěra pśedłogi, kótarež definěruju datowu strukturu pśez XML-wobznamjenjenja',
 	'pageschemas-header' => 'XML-definicija za toś tu pśedłogu jo:',
 );
 
@@ -120,7 +120,7 @@ $messages['dsb'] = array(
  * @author Περίεργος
  */
 $messages['el'] = array(
-	'pageschemas-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML',
+	'ps-pageschemas-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML',
 	'pageschemas-header' => 'Ο προσδιορισμός XML για αυτό το πρότυπο είναι:',
 );
 
@@ -128,7 +128,7 @@ $messages['el'] = array(
  * @author Translationista
  */
 $messages['es'] = array(
-	'pageschemas-desc' => 'Admite plantillas que definen su estructura de datos a través de XML',
+	'ps-pageschemas-desc' => 'Admite plantillas que definen su estructura de datos a través de XML',
 	'pageschemas-header' => 'La definición XML para esta plantilla es:',
 );
 
@@ -136,7 +136,7 @@ $messages['es'] = array(
  * @author Crt
  */
 $messages['fi'] = array(
-	'pageschemas-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
+	'ps-pageschemas-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
 	'pageschemas-header' => 'XML-määritelmä tälle mallineelle on:',
 );
 
@@ -144,7 +144,7 @@ $messages['fi'] = array(
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
-	'pageschemas-desc' => 'Supporte les modèle en définissant leur structure de données via des balises XML',
+	'ps-pageschemas-desc' => 'Supporte les modèle en définissant leur structure de données via des balises XML',
 	'pageschemas-header' => 'La définition XML pour ce modèle est :',
 );
 
@@ -152,7 +152,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'pageschemas-desc' => 'Recognêt los modèlos en dèfenéssent lor structura de balyês avouéc des balises XML.',
+	'ps-pageschemas-desc' => 'Recognêt los modèlos en dèfenéssent lor structura de balyês avouéc des balises XML.',
 	'pageschemas-header' => 'La dèfinicion XML por ceti modèlo est :',
 );
 
@@ -160,7 +160,7 @@ $messages['frp'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'pageschemas-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
+	'ps-pageschemas-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
 	'pageschemas-header' => 'A definición XML para este modelo é:',
 );
 
@@ -168,7 +168,7 @@ $messages['gl'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'pageschemas-desc' => 'Unterstitzt Vorlage, wu ihri Datestruktur iber XML-Markup definiere',
+	'ps-pageschemas-desc' => 'Unterstitzt Vorlage, wu ihri Datestruktur iber XML-Markup definiere',
 	'pageschemas-header' => 'D XML-Definition fir die Vorlag isch:',
 );
 
@@ -177,7 +177,7 @@ $messages['gsw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'pageschemas-desc' => 'תמיכה בתבניות שמגדירות את מבנה הנתונים שלהן דרך XML',
+	'ps-pageschemas-desc' => 'תמיכה בתבניות שמגדירות את מבנה הנתונים שלהן דרך XML',
 	'pageschemas-header' => 'הגדרת ה־XML עבור תבנית זו היא:',
 	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
@@ -189,7 +189,7 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'pageschemas-desc' => 'Podpěruje předłohi, kotrež datowu strukturu přez XML-woznamjenjenja definuja',
+	'ps-pageschemas-desc' => 'Podpěruje předłohi, kotrež datowu strukturu přez XML-woznamjenjenja definuja',
 	'pageschemas-header' => 'XML-definicija za tutu předłohu je:',
 );
 
@@ -197,7 +197,7 @@ $messages['hsb'] = array(
  * @author Dani
  */
 $messages['hu'] = array(
-	'pageschemas-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat',
+	'ps-pageschemas-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat',
 	'pageschemas-header' => 'A sablon XML-definíciója:',
 );
 
@@ -205,7 +205,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'pageschemas-desc' => 'Appoia patronos que defini lor structura de datos via marcation XML',
+	'ps-pageschemas-desc' => 'Appoia patronos que defini lor structura de datos via marcation XML',
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
@@ -217,7 +217,7 @@ $messages['ia'] = array(
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'pageschemas-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML',
+	'ps-pageschemas-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML',
 	'pageschemas-header' => 'Definisi XML untuk templat ini adalah:',
 );
 
@@ -225,7 +225,7 @@ $messages['id'] = array(
  * @author Ukabia
  */
 $messages['ig'] = array(
-	'pageschemas-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
+	'ps-pageschemas-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
 	'pageschemas-header' => 'Úchè XML maka mkpurụ ihü nka bu:',
 );
 
@@ -240,7 +240,7 @@ $messages['it'] = array(
  * @author Fryed-peach
  */
 $messages['ja'] = array(
-	'pageschemas-desc' => '自身のデータ構造を XML マークアップで定義するテンプレートをサポートする',
+	'ps-pageschemas-desc' => '自身のデータ構造を XML マークアップで定義するテンプレートをサポートする',
 	'pageschemas-header' => 'このテンプレートの XML 定義は以下のようになっています:',
 );
 
@@ -248,7 +248,7 @@ $messages['ja'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'pageschemas-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
+	'ps-pageschemas-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
 	'pageschemas-header' => 'Di Schablon met <i lang="en">XML</i> beschrevve:',
 );
 
@@ -256,7 +256,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'pageschemas-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
+	'ps-pageschemas-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
 	'ps-generate-pages' => 'Säite generéieren',
 );
@@ -265,7 +265,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'pageschemas-desc' => 'Поддржува шаблони со определување на нивниот податочнот состав користејќи XML-означување',
+	'ps-pageschemas-desc' => 'Поддржува шаблони со определување на нивниот податочнот состав користејќи XML-означување',
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
@@ -278,7 +278,7 @@ $messages['mk'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'pageschemas-desc' => 'Ondersteunt sjablonen die hun gegevensstructuur via XML-opmaak definiëren',
+	'ps-pageschemas-desc' => 'Ondersteunt sjablonen die hun gegevensstructuur via XML-opmaak definiëren',
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
 	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
 	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
@@ -290,7 +290,7 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
-	'pageschemas-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
+	'ps-pageschemas-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
 	'pageschemas-header' => 'XML-definisjonen til denne malen er:',
 );
 
@@ -298,7 +298,7 @@ $messages['nn'] = array(
  * @author Nghtwlkr
  */
 $messages['no'] = array(
-	'pageschemas-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
+	'ps-pageschemas-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
 	'pageschemas-header' => 'XML-definisjonen for denne malen er:',
 );
 
@@ -306,7 +306,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'pageschemas-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
+	'ps-pageschemas-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
 	'pageschemas-header' => 'La definicion XML per aqueste modèl es :',
 );
 
@@ -314,7 +314,7 @@ $messages['oc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'pageschemas-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
+	'ps-pageschemas-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
 	'pageschemas-header' => 'Definicja XML dla tego szablonu:',
 );
 
@@ -323,7 +323,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'pageschemas-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
+	'ps-pageschemas-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
 	'pageschemas-header' => "La definission XML për sto stamp-sì a l'é:",
 );
 
@@ -331,7 +331,7 @@ $messages['pms'] = array(
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'pageschemas-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
+	'ps-pageschemas-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
 	'pageschemas-header' => 'O modelo de dados em XML para esta predefinição é:',
 	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
@@ -343,7 +343,7 @@ $messages['pt'] = array(
  * @author Daemorris
  */
 $messages['pt-br'] = array(
-	'pageschemas-desc' => 'Suporta predefinições definindo suas estruturas de dados via marcação XML',
+	'ps-pageschemas-desc' => 'Suporta predefinições definindo suas estruturas de dados via marcação XML',
 	'pageschemas-header' => 'A definição XML para esta predefinição é:',
 );
 
@@ -351,7 +351,7 @@ $messages['pt-br'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'pageschemas-desc' => "Le template de supporte definiscene 'a struttura lore ausanne l'XML",
+	'ps-pageschemas-desc' => "Le template de supporte definiscene 'a struttura lore ausanne l'XML",
 	'pageschemas-header' => "'A definizione XML pe st'esembie jè:",
 	'ps-property-isproperty' => "Queste jè 'na probbietà de tipe $1.",
 	'ps-property-allowedvals' => "{{PLURAL:$1'U valore permesse pe sta probbietà jè|Le valore permesse pe ste probbietà sonde}}:",
@@ -363,7 +363,7 @@ $messages['roa-tara'] = array(
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'pageschemas-desc' => 'Поддерживает шаблоны с определением их структуры данных постредством XML-разметки',
+	'ps-pageschemas-desc' => 'Поддерживает шаблоны с определением их структуры данных постредством XML-разметки',
 	'pageschemas-header' => 'XML-определение этого шаблона:',
 );
 
@@ -371,7 +371,7 @@ $messages['ru'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
+	'ps-pageschemas-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
@@ -383,7 +383,7 @@ $messages['sl'] = array(
  * @author Rancher
  */
 $messages['sr-ec'] = array(
-	'pageschemas-desc' => 'Подршка шаблонима који дефинишу структуру података преко XML означавања',
+	'ps-pageschemas-desc' => 'Подршка шаблонима који дефинишу структуру података преко XML означавања',
 	'pageschemas-header' => 'XML дефиниција овог шаблона:',
 );
 
@@ -391,7 +391,7 @@ $messages['sr-ec'] = array(
  * @author Per
  */
 $messages['sv'] = array(
-	'pageschemas-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
+	'ps-pageschemas-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
 	'pageschemas-header' => 'XML-definitionen för denna mall är:',
 );
 
@@ -399,7 +399,7 @@ $messages['sv'] = array(
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'pageschemas-desc' => 'Tumatangkilik sa mga suleras na nagbibigay kahulugan sa kanilang kayarian ng dato sa pamamagitan ng pagmarkang XML',
+	'ps-pageschemas-desc' => 'Tumatangkilik sa mga suleras na nagbibigay kahulugan sa kanilang kayarian ng dato sa pamamagitan ng pagmarkang XML',
 	'pageschemas-header' => 'Ang kahulugang XML para sa suleras na ito ay:',
 );
 
@@ -407,7 +407,7 @@ $messages['tl'] = array(
  * @author Vito Genovese
  */
 $messages['tr'] = array(
-	'pageschemas-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler',
+	'ps-pageschemas-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler',
 	'pageschemas-header' => 'Bu şablon için XML tanımı şu şekilde:',
 );
 
@@ -417,7 +417,7 @@ $messages['tr'] = array(
  * @author Тест
  */
 $messages['uk'] = array(
-	'pageschemas-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML',
+	'ps-pageschemas-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML',
 	'pageschemas-header' => 'XML-визначення для цього шаблону:',
 );
 
@@ -425,7 +425,7 @@ $messages['uk'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'pageschemas-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
+	'ps-pageschemas-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
 	'pageschemas-header' => 'Định nghĩa XML của bản mẫu này là:',
 );
 
@@ -433,7 +433,7 @@ $messages['vi'] = array(
  * @author Chenxiaoqino
  */
 $messages['zh-hans'] = array(
-	'pageschemas-desc' => '支持的模版已将其数据结构用XML代码声明。',
+	'ps-pageschemas-desc' => '支持的模版已将其数据结构用XML代码声明。',
 	'pageschemas-header' => '此模版的XML定义是：',
 );
 
@@ -441,7 +441,7 @@ $messages['zh-hans'] = array(
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
-	'pageschemas-desc' => '支援的模版已將其資料結構用 XML 代碼聲明。',
+	'ps-pageschemas-desc' => '支援的模版已將其資料結構用 XML 代碼聲明。',
 	'pageschemas-header' => '此模版的 XML 定義是：',
 );
 
