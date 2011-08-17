@@ -50,6 +50,7 @@ $wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
 $wgAutoloadClasses['GeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
 $wgAutoloadClasses['EditSchema'] = $dir . 'specials/PS_EditSchema.php';
+$wgAutoloadClasses['PSTabs'] = $dir . 'PS_Tabs.php';
 // registering Special page 
 $wgSpecialPages['GeneratePages'] = 'GeneratePages'; 
 $wgSpecialPages['EditSchema'] = 'EditSchema'; 
@@ -60,3 +61,7 @@ $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 
 // Register page_props usage
 $wgPageProps['PageSchema'] = 'Content of &lt;PageSchema&gt; tag';
+
+$wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
+$wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTab';
+$wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTab2';

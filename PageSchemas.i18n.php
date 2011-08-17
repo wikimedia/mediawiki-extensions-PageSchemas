@@ -29,6 +29,9 @@ $messages['en'] = array(
 	'ps-field-list-label'					 => 'This field can hold a list of values',
 	'ps-add-xml-label'					     => 'Additional XML:',
 	'ps-schema-name-label'				     => 'Name of schema:',
+	'editschema' 							 => 'Edit schema',
+	'generatepages' 						 => 'Generate pages',
+	'createpages'                            => 'Create Pages' , 
 											
 );
 
