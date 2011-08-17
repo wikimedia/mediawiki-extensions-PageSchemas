@@ -55,6 +55,7 @@ class GeneratePages extends IncludableSpecialPage {
 			}
 			}
 		}
+		return true;
     }
 	function generate_pages ( $categoryName, $toGenPageList ) {
 		global $wgRequest, $wgOut;

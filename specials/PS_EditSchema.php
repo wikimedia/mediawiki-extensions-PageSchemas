@@ -511,5 +511,6 @@ END;
 			$wgOut->addHTML( $text );
 		}
 	  }
+	  return true;
 	}
 }
