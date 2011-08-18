@@ -325,7 +325,7 @@ END;
 			);
 			//first row of the result set 
 			$row = $dbr->fetchRow( $res );
-			if( $row == null ){			
+			if( $row == null && !$title->exists() ){			
 				//Create form here, Cat doesnt exist, create new cat with this text
 				$text_1 .= $text;
 				$wgOut->addHTML( $text_1 );
