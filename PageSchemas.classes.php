@@ -111,7 +111,7 @@ END;
 		// for now - this may change later
 		// hide parsing warnings
 		libxml_use_internal_errors(true);
-		$xml_success = simplexml_load_string($xmlDTD . $xml);
+		$xml_success = simplexml_load_string($xmlDTD.$xml);
 		$errors = libxml_get_errors();
 		$error_msg = $errors[0]->message;
 		return $xml_success;
@@ -144,8 +144,8 @@ END;
 		$text = "<p>Schema description:</p>\n";
 		$text .= "<table class=\"pageSchema\">\n";
 		$name = $class_schema_xml->attributes()->name;
-		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
-			foreach ( $class_schema_xml->children() as $tag => $child ) {
+		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);		
+			foreach ( $class_schema_xml->children() as $tag => $child ) {				
 				if ( $tag == 'Form' ){				
 					$text .= self::parseFormElem($child);
 				}

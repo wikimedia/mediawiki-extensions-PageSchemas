@@ -88,6 +88,9 @@ END;
 		$text_3 = '<p>'.wfMsg( 'ps-page-desc-edit-schema' ).'</p>';
 		$text_4 = '';
 		self::addJavascript();
+		$schema_name_label = wfMsg('ps-schema-name-label');
+		$add_xml_label = wfMsg('ps-add-xml-label');
+		
 		$pageSchemaObj = null;
 		$text_extensions = array(); //This var. will save the html text returned by the extensions
 		$js_extensions = array();
@@ -104,9 +107,8 @@ END;
 		}
 		$delimeter_label = wfMsg('ps-delimeter-label');
 		$multiple_temp_label = wfMsg('ps-multiple-temp-label');
-		$field_list_label = wfMsg('ps-field-list-label');
-		$add_xml_label = wfMsg('ps-add-xml-label');
-		$schema_name_label = wfMsg('ps-schema-name-label');
+		$field_list_label = wfMsg('ps-field-list-label');		
+		
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
 		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
@@ -145,7 +147,7 @@ END;
 		$add_field_button = Xml::element( 'input',
 		array(
 			'type' => 'button',
-			'value' => 'Add Field',
+			'value' => 'Add field',
 			'onclick' => "createTemplateAddField(1)"
 		)
 		);
@@ -160,7 +162,7 @@ END;
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
-				'value' => 'Add Template',
+				'value' => 'Add template',
 				'onclick' => "createAddTemplate()"
 			)
 		);
@@ -307,7 +309,7 @@ END;
 		else{		
 		   if ( $category != "" ) {
 			$pageSchemaObj = new PSSchema( $category );
-			$title = Title::newFromText( $category, NS_CATEGORY );
+			$title = Title::newFromText( $category, NS_CATEGORY );			
 			$pageId = $title->getArticleID();			
 			$dbr = wfGetDB( DB_SLAVE );
 			//get the result set, query : slect page_props
@@ -323,15 +325,14 @@ END;
 			);
 			//first row of the result set 
 			$row = $dbr->fetchRow( $res );
-			if( $row == null ){
+			if( $row == null ){			
 				//Create form here, Cat doesnt exist, create new cat with this text
 				$text_1 .= $text;
 				$wgOut->addHTML( $text_1 );
 			}else{
-			  if( ($row[1] == 'PageSchema') && ($row[2] != null )){
+			  if( ($row[1] == 'PageSchema') && ($row[2] != null  )){
 				//Populate the form here with autocompleted values 
-				$pageXmlstr = $row[2];
-				
+				$pageXmlstr = $row[2];				
 				$pageXml = simplexml_load_string ( $pageXmlstr );
 				$ps_add_xml = "";
 				$pageName = (string)$pageXml->attributes()->name;
@@ -445,7 +446,7 @@ END;
 							$add_field_button = Xml::element( 'input',
 							array(
 								'type' => 'button',
-								'value' => 'Add Field',
+								'value' => 'Add field',
 								'onclick' => "createTemplateAddField($template_num)"
 							)
 							);
@@ -463,7 +464,7 @@ END;
 				$add_template_button = Xml::element( 'input',
 								array(
 									'type' => 'button',
-									'value' => 'Add Template',
+									'value' => 'Add template',
 									'onclick' => "createAddTemplate()"
 								)
 							);

@@ -56,6 +56,7 @@ class PageSchemasHooks {
  		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
 			// Store XML in the page_props table
 			$parser->getOutput()->setProperty( 'PageSchema', $input );
+			wfDebugLog( 'myextension', 'input ' . print_r( $xml_object, true ) );
 			$text = PageSchemas::parsePageSchemas($xml_object);
 		} else {
 			// Store error message in the page_props table

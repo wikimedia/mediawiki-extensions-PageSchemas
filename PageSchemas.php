@@ -63,5 +63,5 @@ $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 $wgPageProps['PageSchema'] = 'Content of &lt;PageSchema&gt; tag';
 
 $wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
-$wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTab';
-$wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTab2';
+$wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
+$wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTabs2';

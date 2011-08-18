@@ -31,7 +31,7 @@ $messages['en'] = array(
 	'ps-schema-name-label'				     => 'Name of schema:',
 	'editschema' 							 => 'Edit schema',
 	'generatepages' 						 => 'Generate pages',
-	'createpages'                            => 'Create Pages' , 
+	'createpages'                            => 'Create schema' , 
 											
 );
 

@@ -5,17 +5,15 @@
  *
  * @since 0.1
  *
- * @file Push_Tab.php
- * @ingroup Push
+ * @file _Tab.php
+ * @ingroup 
  *
  * @author ankit
  */
  final class PSTabs {
 	
-	/**
-	 * Adds an "action" (i.e., a tab) to allow pushing the current article.
-	 */
-	public static function displayTab( $obj, &$content_actions ) {
+	
+	public static function displayTabs( $obj, &$content_actions ) {
 		global $wgUser;
 		
 		// Make sure that this is not a special page, the page has contents, and the user can push.
@@ -54,34 +52,30 @@
 	 * Function currently called only for the 'Vector' skin, added in
 	 * MW 1.16 - will possibly be called for additional skins later
 	 */
-	public static function displayTab2( $obj, &$links ) {
+	public static function displayTabs2( $obj, &$links ) {
 		// The old '$content_actions' array is thankfully just a sub-array of this one
 		$views_links = $links['actions'];
-		self::displayTab( $obj, $views_links );
+		self::displayTabs( $obj, $views_links );
 		$links['actions'] = $views_links;		
 		return true;
 	}
 
-	/**
-	 * Handle actions not known to MediaWiki. If the action is push,
-	 * display the push page by calling the displayPushPage method.
-	 *  
-	 * @param string $action
-	 * @param Article $article
+	/**	
 	 * 
 	 * @return true
 	 */
 	public static function onUnknownAction( $action, Article $article ) {
 		$title = $article->getTitle();
 		$category = $title->getText();		
-		if ( $action == 'generatepages' ) {
-			$gen_page  = new GeneratePages();
-			return $gen_page->execute($category);
-		}
-		else if( $action == 'editschema' ) {
-			$edit_schema = new EditSchema();
-			return $edit_schema->execute($category);
-		}
+		 if ( $action == 'generatepages' ) {
+            $gen_page  = new GeneratePages();
+            $gen_page->execute($category);
+            return false;
+         } elseif ( $action == 'editschema' ) {
+            $edit_schema = new EditSchema();
+            $edit_schema->execute($category);
+            return false;
+        }
 		return true;
 	}
 }
