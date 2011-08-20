@@ -17,7 +17,6 @@ class PageSchemasHooks {
 		// add the CSS
 		global $wgOut, $wgScriptPath;
 		$wgOut->addStyle($wgScriptPath . '/extensions/PageSchemas/PageSchemas.css');
-
 		// Continue
 		return true;
 	}
@@ -55,8 +54,7 @@ class PageSchemasHooks {
 
  		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
 			// Store XML in the page_props table
-			$parser->getOutput()->setProperty( 'PageSchema', $input );
-			wfDebugLog( 'myextension', 'input ' . print_r( $xml_object, true ) );
+			$parser->getOutput()->setProperty( 'PageSchema', $input );			
 			$text = PageSchemas::parsePageSchemas($xml_object);
 		} else {
 			// Store error message in the page_props table
