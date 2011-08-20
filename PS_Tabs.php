@@ -1,22 +1,17 @@
 <?php
 
 /**
- * Static class with methods to create and handle the push tab.
- *
- * @since 0.1
- *
- * @file _Tab.php
+ 
+* @file PSTabs.php
  * @ingroup 
  *
  * @author ankit
  */
  final class PSTabs {
 	
-	
 	public static function displayTabs( $obj, &$content_actions ) {
 		global $wgUser;
-		
-		// Make sure that this is not a special page, the page has contents, and the user can push.
+				
 		$title = $obj->getTitle();
 		if (
 			$title->getNamespace() == NS_CATEGORY
