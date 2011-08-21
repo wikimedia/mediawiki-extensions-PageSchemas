@@ -340,7 +340,7 @@ END;
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
 				$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
 				foreach ( $pageXml->children() as $template_xml ) {
-					if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'Form') ){
+					if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'semanticforms_Form') ){
 						$ps_add_xml .= (string)$template_xml->asXML();
 					}
 				}			
