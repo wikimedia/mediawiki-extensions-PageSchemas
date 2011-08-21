@@ -98,11 +98,11 @@ class PageSchemas {
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE PageSchema [
 <!ELEMENT PageSchema (Template*)>
-<!ELEMENT PageSchema (Form*)>
+<!ELEMENT PageSchema (semanticforms_Form*)>
 <!ATTLIST PageSchema name CDATA #REQUIRED>
 <!ELEMENT Template (Field*)>
 <!ATTLIST Template name CDATA #REQUIRED>
-<!ATTLIST Form name CDATA #REQUIRED>
+<!ATTLIST semanticforms_Form name CDATA #REQUIRED>
 <!ATTLIST Field name CDATA #REQUIRED>
 ]>
 
@@ -146,7 +146,7 @@ END;
 		$name = $class_schema_xml->attributes()->name;
 		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);		
 			foreach ( $class_schema_xml->children() as $tag => $child ) {				
-				if ( $tag == 'Form' ){				
+				if ( $tag == 'semanticforms_Form' ){				
 					$text .= self::parseFormElem($child);
 				}
 				else if ($tag == 'Template') {
@@ -264,7 +264,7 @@ class PSSchema {
 	}
 	/*return an array of PSTemplate Objects */
 	function getFormArray () {
-		$obj = $this->getObject('Form');
+		$obj = $this->getObject('semanticforms_Form');
 		 return $obj['sf'];
 	}
 	/*return an array of PSTemplate Objects */
