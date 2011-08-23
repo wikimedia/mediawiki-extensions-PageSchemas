@@ -97,7 +97,7 @@ END;
 		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
 		$text = "";		
 		$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
-		$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name"/> </p> ';
+		//$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name"/> </p> ';
 		$text .= '<p>'.$add_xml_label.'
 		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea> 
 		</p> ';		
@@ -218,8 +218,8 @@ END;
 		if ($save_page) {
 			//Generate the Xml from the Form elements
 			$Xmltext  = "";
-			$s_name = $wgRequest->getText('s_name');
-			$Xmltext .= '<PageSchema name="'.$s_name.'">';
+			//$s_name = $wgRequest->getText('s_name');
+			$Xmltext .= '<PageSchema>';
 			$ps_add_xml = $wgRequest->getText('ps_add_xml');
 			$Xmltext .= $ps_add_xml;			
 			$fieldName = "";
@@ -335,10 +335,10 @@ END;
 				$pageXmlstr = $row[2];				
 				$pageXml = simplexml_load_string ( $pageXmlstr );
 				$ps_add_xml = "";
-				$pageName = (string)$pageXml->attributes()->name;
+				//$pageName = (string)$pageXml->attributes()->name;
 				$text_4 .= 	'';
 				$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
-				$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
+				//$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
 				foreach ( $pageXml->children() as $template_xml ) {
 					if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'semanticforms_Form') ){
 						$ps_add_xml .= (string)$template_xml->asXML();

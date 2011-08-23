@@ -196,7 +196,7 @@ class PSSchema {
 	public $pageId=0;
 	public $pageXml=null;
 	public $pageXmlstr= "";
-	public $pageName="";
+	//public $pageName="";
     public $formName="";
 	public  $formArray = array();
   /* Stores the templte objects */
@@ -228,7 +228,7 @@ class PSSchema {
 			//retrievimg the third attribute which is pp_value 		
 			$pageXmlstr = $row[2];
 			$this->pageXml = simplexml_load_string ( $pageXmlstr );
-			$this->pageName = (string)$this->pageXml->attributes()->name;
+			//$this->pageName = (string)$this->pageXml->attributes()->name;
 			/*  index for template objects */
 			$i = 0;
 			$inherited_templates = null ;
@@ -274,11 +274,7 @@ class PSSchema {
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
 		return $this->PSTemplates;  	
-	}		
-	 /*returns the name of the PageSchema object */
-	function getName(){
-		return $this->pageName;
-    }
+	}	
 	function getFormName(){
 		$form_array = $this->getFormArray();
 		return $form_array['name'];
