@@ -61,11 +61,11 @@
 
 		$categoryName = $title->getText();
 		if ( $action == 'generatepages' ) {
-			$gen_page = new GeneratePages();
+			$gen_page = new PSGeneratePages();
 			$gen_page->execute( $categoryName );
 			return false;
 		} elseif ( $action == 'editschema' ) {
-			$edit_schema = new EditSchema();
+			$edit_schema = new PSEditSchema();
 			$edit_schema->execute( $categoryName );
 			return false;
 		}

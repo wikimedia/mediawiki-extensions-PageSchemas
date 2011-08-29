@@ -64,16 +64,12 @@ class PageSchemas {
 		if ( $namespace != '' ) {
 			$namespace .= ':';
 		}
-		if ( self::isCapitalized( $title ) ) {
+		if ( MWNamespace::isCapitalized( $title->getNamespace() ) ) {
 			global $wgContLang;
 			return $namespace . $wgContLang->ucfirst( $title->getText() );
 		} else {
 			return $namespace . $title->getText();
 		}
-	}
-
-	public static function isCapitalized( $title ) {
-		return MWNamespace::isCapitalized( $title->getNamespace() );
 	}
 
 	public static function validateXML( $xml, &$error_msg ) {

@@ -5,7 +5,7 @@
  * @author Ankit Garg
  */
 
-class EditSchema extends IncludableSpecialPage {
+class PSEditSchema extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'EditSchema' );
 	}

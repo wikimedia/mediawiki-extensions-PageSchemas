@@ -5,7 +5,7 @@
  * @author Ankit Garg
  */
 
-class GeneratePages extends IncludableSpecialPage {
+class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'GeneratePages' );
 	}
@@ -16,7 +16,7 @@ class GeneratePages extends IncludableSpecialPage {
 		$this->setHeaders();
 		$param = $wgRequest->getText('param');
 		if ( $param != "" && $category != "" ) {
-			$this->generatePages( $param, $_POST['page'] );
+			$this->generatePages( $param, $wgRequest->getValues( 'page' ) );
 			$text = '<p>All pages will be generated! </p>';
 			$wgOut->addHTML( $text );
 			return true;
@@ -66,7 +66,7 @@ class GeneratePages extends IncludableSpecialPage {
 		return true;
 	}
 
-	function generatePages ( $categoryName, $toGenPageList ) {
+	function generatePages( $categoryName, $toGenPageList ) {
 		$pageSchema = new PSSchema( $categoryName );
 		$pageSchema->generateAllPages( $toGenPageList );
 	}
