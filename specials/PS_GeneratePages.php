@@ -8,12 +8,10 @@
 class GeneratePages extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'GeneratePages' );
-		wfLoadExtensionMessages('GeneratePages');
 	}
 
 	function execute( $category ) {
 		global $wgRequest, $wgOut;
-		global $wgSkin;
 
 		$this->setHeaders();
 		$param = $wgRequest->getText('param');
@@ -57,7 +55,6 @@ class GeneratePages extends IncludableSpecialPage {
 		// the page to be created.
 		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
 		foreach( $pageList as $page ){
-			//$page_link = $wgSkin->link( $page );
 			$pageURL = $page->getFullUrl();
 			$pageName = PageSchemas::titleString( $page );
 			$pageLink = Html::element( 'a', array( 'href' => $pageURL ), $pageName );
@@ -70,7 +67,6 @@ class GeneratePages extends IncludableSpecialPage {
 	}
 
 	function generatePages ( $categoryName, $toGenPageList ) {
-		global $wgRequest, $wgOut;
 		$pageSchema = new PSSchema( $categoryName );
 		$pageSchema->generateAllPages( $toGenPageList );
 	}

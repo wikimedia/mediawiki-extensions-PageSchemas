@@ -8,7 +8,6 @@
 class EditSchema extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'EditSchema' );
-		wfLoadExtensionMessages('EditSchema');
 	}
 
 	public static function addJavascript() {
@@ -82,36 +81,22 @@ END;
 		$wgOut->addScript( $jsText );
 	}
 
-	function execute( $category ) {
-		global $wgRequest, $wgOut, $wgUser;
-		global $wgSkin;
-
-		$this->setHeaders();
-		$text_1 = '<p>'.wfMsg( 'ps-page-desc-cat-not-exist' ).'</p>';
-		$text_2 = '<p>'.wfMsg( 'ps-page-desc-ps-not-exist' ).'</p>';
-		$text_3 = '<p>'.wfMsg( 'ps-page-desc-edit-schema' ).'</p>';
-		$text_4 = '';
-		self::addJavascript();
-		$schema_name_label = wfMsg('ps-schema-name-label');
+	function blankFormHTML( $htmlFromExtensions ) {
+		//$schema_name_label = wfMsg('ps-schema-name-label');
 		$add_xml_label = wfMsg('ps-add-xml-label');
 
-		$pageSchemaObj = null;
-		$text_extensions = array(); //This var. will save the html text returned by the extensions
-		$js_extensions = array();
-		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$text_extensions ));
-		$text = "";
-		$text .= '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
+		$text = '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
 		//$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name"/> </p> ';
 		$text .= '<p>'.$add_xml_label.'
 		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea>
 		</p> ';
-		if ($text_extensions['sf_form'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $text_extensions['sf_form']);
+		if ( $htmlFromExtensions['sf_form'] != null ) {
+			$text_ex = preg_replace( '/starter/', '1', $htmlFromExtensions['sf_form'] );
 			$text .= $text_ex;
 		}
-		$delimeter_label = wfMsg('ps-delimeter-label');
-		$multiple_temp_label = wfMsg('ps-multiple-temp-label');
-		$field_list_label = wfMsg('ps-field-list-label');
+		$delimeter_label = wfMsg( 'ps-delimeter-label' );
+		$multiple_temp_label = wfMsg( 'ps-multiple-temp-label' );
+		$field_list_label = wfMsg( 'ps-field-list-label' );
 
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
@@ -128,16 +113,16 @@ END;
 		$field_list_label . '
 		</p>
 		<div class="delimiterInput" style="display: none" ><p>' . $delimeter_label . ' <input type="text" name="f_delimiter_1" /> </p></div>';
-		if ($text_extensions['smw'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $text_extensions['smw']);
+		if ( $htmlFromExtensions['smw'] != null ) {
+			$text_ex = preg_replace( '/starter/', '1', $htmlFromExtensions['smw'] );
 			$text .= $text_ex;
 		}
-		if ($text_extensions['sf'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $text_extensions['sf']);
+		if ($htmlFromExtensions['sf'] != null ) {
+			$text_ex = preg_replace('/starter/', '1', $htmlFromExtensions['sf']);
 			$text .= $text_ex;
 		}
-		if ($text_extensions['sd'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $text_extensions['sd']);
+		if ($htmlFromExtensions['sd'] != null ) {
+			$text_ex = preg_replace('/starter/', '1', $htmlFromExtensions['sd']);
 			$text .= $text_ex;
 		}
 
@@ -176,6 +161,11 @@ END;
 	<input type="submit" id="wpSave" name="wpSave" value="Save" />
 	</div>';
 		$text .= '	</form>';
+
+		return $text;
+	}
+
+	function starterFieldHTML( $htmlFromExtensions ) {
 		$starter_text = '<div class="templateBox" id="starterTemplate" style="display: none">
 <fieldset style="background: #ddd;">
 <legend>Template</legend>
@@ -202,14 +192,14 @@ END;
 			<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> This field can hold a list of values
 	&#160;&#160;</p>
 	<div class="delimiterInput" style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>';
-		if ($text_extensions['smw'] != null ) {
-			$starter_text .= $text_extensions['smw'];
+		if ($htmlFromExtensions['smw'] != null ) {
+			$starter_text .= $htmlFromExtensions['smw'];
 		}
-		if ($text_extensions['sf'] != null ) {
-			$starter_text .= $text_extensions['sf'];
+		if ($htmlFromExtensions['sf'] != null ) {
+			$starter_text .= $htmlFromExtensions['sf'];
 		}
-		if ($text_extensions['sd'] != null ) {
-			$starter_text .= $text_extensions['sd'];
+		if ($htmlFromExtensions['sd'] != null ) {
+			$starter_text .= $htmlFromExtensions['sd'];
 		}
 		$starter_text .= '<p>'.$add_xml_label.'
 				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea>
@@ -217,23 +207,36 @@ END;
 				<input type="button" value="Remove field" class="deleteField" />
 </fieldset>
 </div>';
-		$text .= $starter_text;
+		return $starter_text;
+	}
+
+	function execute( $category ) {
+		global $wgRequest, $wgOut, $wgUser;
+		global $wgSkin;
+
+		$this->setHeaders();
+		$text_3 = '<p>'.wfMsg( 'ps-page-desc-edit-schema' ).'</p>';
+		self::addJavascript();
+
+		$htmlFromExtensions = array(); //This var. will save the html text returned by the extensions
+		$js_extensions = array();
+		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$htmlFromExtensions ) );
+
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ( $save_page ) {
-			//Generate the Xml from the Form elements
+			//Generate the XML from the Form elements
 			$XMLtext = "";
 			//$s_name = $wgRequest->getText('s_name');
 			$XMLtext .= '<PageSchema>';
-			$ps_add_xml = $wgRequest->getText('ps_add_xml');
+			$ps_add_xml = $wgRequest->getText( 'ps_add_xml' );
 			$XMLtext .= $ps_add_xml;
 			$fieldName = "";
 			$fieldNum= -1;
 			$templateNum = -1;
-			$xml_text_extensions = array(); //This var. will save the xml text returned by the extensions
-			$js_extensions = array();
-			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xml_text_extensions ));
-			if ( $xml_text_extensions['sf_form'] != null ) {
-				$XMLtext .= $xml_text_extensions['sf_form'];
+			$xmlFromExtensions = array(); //This var. will save the xml text returned by the extensions
+			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xmlFromExtensions ));
+			if ( $xmlFromExtensions['sf_form'] != null ) {
+				$XMLtext .= $xmlFromExtensions['sf_form'];
 			}
 			$indexGlobalField = 0 ; //this variable is use to index the array returned by extensions for XML.
 			foreach ( $wgRequest->getValues() as $var => $val ) {
@@ -260,20 +263,20 @@ END;
 				} elseif (substr($var,0,8) == 'f_label_' ) {
 					$XMLtext .= '<Label>'.$val.'</Label>';
 					//Get XML parsed from extensions
-					if ( $xml_text_extensions['smw'] != null ) {
-						$xml_ex_array = $xml_text_extensions['smw'];
+					if ( $xmlFromExtensions['smw'] != null ) {
+						$xml_ex_array = $xmlFromExtensions['smw'];
 						if ($xml_ex_array[$indexGlobalField] != null ) {
 							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
 						}
 					}
-					if ( $xml_text_extensions['sf'] != null ) {
-						$xml_ex_array = $xml_text_extensions['sf'];
+					if ( $xmlFromExtensions['sf'] != null ) {
+						$xml_ex_array = $xmlFromExtensions['sf'];
 						if ($xml_ex_array[$indexGlobalField] != null ) {
 							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
 						}
 					}
-					if ( $xml_text_extensions['sd'] != null ) {
-						$xml_ex_array = $xml_text_extensions['sd'];
+					if ( $xmlFromExtensions['sd'] != null ) {
+						$xml_ex_array = $xmlFromExtensions['sd'];
 						if ($xml_ex_array[$indexGlobalField] != null ) {
 							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
 						}
@@ -292,7 +295,6 @@ END;
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			$pageText = $categoryArticle->getContent();
-			$title = Title::newFromText( $category, NS_CATEGORY );
 			$jobs = array();
 			$params = array();
 			if ( $pageSchemaObj->isPSDefined() ) {
@@ -304,197 +306,27 @@ END;
 				$params['page_text'] = $XMLtext . $pageText;
 			}
 			$params['user_id'] = $wgUser->getId();
-			$jobs[] = new PSCreatePageJob( $title, $params );
+			$jobs[] = new PSCreatePageJob( $categoryTitle, $params );
 			Job::batchInsert( $jobs );
-		} else {
-			if ( $category != "" ) {
-				$pageSchemaObj = new PSSchema( $category );
-				$title = Title::newFromText( $category, NS_CATEGORY );
-				$pageId = $title->getArticleID();
-				$dbr = wfGetDB( DB_SLAVE );
-				//get the result set, query : slect page_props
-				$res = $dbr->select( 'page_props',
-				array(
-					'pp_page',
-					'pp_propname',
-					'pp_value'
-				),
-				array(
-					'pp_page' => $pageId,
-					)
-				);
-				//first row of the result set
-				$row = $dbr->fetchRow( $res );
-				if ( $row == null && !$title->exists() ) {
-					//Create form here, Cat doesnt exist, create new cat with this text
-					$text_1 .= $text;
-					$wgOut->addHTML( $text_1 );
-				} else {
-					if ( ($row[1] == 'PageSchema') && ($row[2] != null ) ) {
-						//Populate the form here with autocompleted values
-						$pageXMLstr = $row[2];
-						$pageXML = simplexml_load_string ( $pageXMLstr );
-						$ps_add_xml = "";
-						//$pageName = (string)$pageXML->attributes()->name;
-						$text_4 .= 	'';
-						$text_4 .= '<form id="editPageSchemaForm" action="" method="post">' . "\n";
-						//$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
-						foreach ( $pageXML->children() as $template_xml ) {
-							if ( ($template_xml->getName() != 'Template') && ($template_xml->getName() != 'semanticforms_Form') ) {
-								$ps_add_xml .= (string)$template_xml->asXML();
-							}
-						}
-						$text_4 .= '<p>' . $add_xml_label . '
-				<textarea rows=4 style="width: 100%" name="ps_add_xml" >' . $ps_add_xml . '</textarea>
-				</p> ';
+			return true;
+		}
 
-						$filled_html_text_extensions = array();
-						wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filled_html_text_extensions ));
-						if ( $filled_html_text_extensions['sf_form'] != null ) {
-							$text_ex = preg_replace('/starter/', '1', $filled_html_text_extensions['sf_form']);
-							$text_4 .= $text_ex;
-						}
-						$text_4 .= '<div id="templatesList">';
-						$template_num = 0;
-						/* index for template objects */
-						foreach ( $pageXML->children() as $tag => $template_xml ) {
-							if ( $tag == 'Template' ) {
-								$template_add_xml = "";
-								$template_num++;
-								$field_count = 0;
-								if ( count($template_xml->children()) > 0 ) {
-									$templateName = (string) $template_xml->attributes()->name;
-									$text_4 .= '<div class="templateBox" >';
-									$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
-									$text_4 .= '<p>Name: <input type="text" name="t_name_'.$template_num.'" value="'.$templateName.'" /></p> ';
-									if ( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
-										$text_4 .= '<p><input type="checkbox" checked name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
-									} else {
-										$text_4 .= '<p><input type="checkbox" name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
-									}
-									foreach ( $template_xml->children() as $field_xml ) {
-										if ( $field_xml->getName() != 'Field' ) {
-											$template_add_xml .= (string)$field_xml->asXML();
-										}
-									}
-									$text_4 .= '<div id="fieldsList_'.$template_num.'">';
-									$list_values = false;
-									foreach ($template_xml->children() as $field_xml) {
-										if ( $field_xml->getName() == "Field" ) {
-											$fieldName = (string)$field_xml->attributes()->name;
-											$text_4 .= '<div class="fieldBox" >';
-											$text_4 .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
-											if ( ((string)$field_xml->attributes()->list) == "list") {
-												$list_values = true;
-											}
-											if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
-												$delimiter = (string)$field_xml->attributes()->delimiter;
-											}
-											foreach ($field_xml->children() as $tag => $child ) {
-												if ( $tag == 'Label' ) {
-													$fieldLabel = (string)$child;
-												}
-											}
-										 	$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" >';
-											$text_4 .= 'Display label: <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
-		</p> ';
-											if ($list_values ) {
-												$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
-												$text_4 .= '<div class="delimiterInput" style="display:"><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" value="'.$delimiter.'" /> </p></div>';
-											} else {
-												$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
-												$text_4 .= '<div class="delimiterInput" style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" /> </p></div>';
-											}
-											//Inserting HTML text from Extensions
-
-											if ( $filled_html_text_extensions['smw'] != null ) {
-												$text_ex_array = $filled_html_text_extensions['smw'];
-												if ( $text_ex_array[$field_count] != null ) {
-													$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-													$text_4 .= $text_ex;
-												}
-											}
-											if ( $filled_html_text_extensions['sf'] != null ) {
-												$text_ex_array = $filled_html_text_extensions['sf'];
-												if ( $text_ex_array[$field_count] != null ) {
-													$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-													$text_4 .= $text_ex;
-												}
-											}
-											if ( $filled_html_text_extensions['sd'] != null ) {
-												$text_ex_array = $filled_html_text_extensions['sd'];
-												if ( $text_ex_array[$field_count] != null ) {
-													$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-													$text_4 .= $text_ex;
-												}
-											}
-
-											$text_4 .= '<p>'.$add_xml_label.'
-		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea>
-		</p>
-		<input type="button" value="Remove field" class="deleteField" /></fieldset>
-		</div>
-		</div>
-		';
-											$field_count++;
-											$text_4 .= '<script type="text/javascript">
-						updateFieldNum('.$field_count.');
-						</script>';
-										}
-									}
-									$text_4 .= '</div>';
-									$add_field_button = Xml::element( 'input',
-									array(
-										'type' => 'button',
-										'value' => 'Add field',
-										'onclick' => "createTemplateAddField($template_num)"
-									)
-								);
-								$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
-								$text_4 .= '<hr />
-								<p>'.$add_xml_label.'
-								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
-								</p>
-								<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
-							</fieldset> </div>';
-							}
-						}
-					}
-					$add_template_button = Xml::element( 'input',
-						array(
-							'type' => 'button',
-							'value' => 'Add template',
-							'onclick' => "createAddTemplate()"
-						)
-					);
-					$text_4 .= Xml::tags( 'p', null, $add_template_button ) . "\n";
-					$text_4 .= '		<hr />
-				<div class="editButtons">
-				<input type="submit" id="wpSave" name="wpSave" value="Save" />
-				</div>';
-					$text_4 .= '	</form>';
-					$text_4 .= $starter_text;
-					$wgOut->addHTML($text_4);
-				} else {
-					$text_2 .= $text;
-					$wgOut->addHTML($text_2);
-				}
-			}
-		} else {
+		if ( $category == "" ) {
+			// No category was specified - show the list of categories with a page schema defined.
 			$cat_titles = array();
 			$count_title = 0;
 			$text = "";
 			$dbr = wfGetDB( DB_SLAVE );
 			//get the result set, query : slect page_props
 			$res = $dbr->select( 'page_props',
-			array(
-				'pp_page',
-				'pp_propname',
-				'pp_value'
-			),
-			array(
-				'pp_propname' => 'PageSchema'
-			)
+				array(
+					'pp_page',
+					'pp_propname',
+					'pp_value'
+				),
+				array(
+					'pp_propname' => 'PageSchema'
+				)
 			);
 			while ( $row = $dbr->fetchRow( $res ) ) {
 				if ( $row[2] != null ) {
@@ -509,8 +341,188 @@ END;
 			}
 			$dbr->freeResult( $res );
 			$wgOut->addHTML( $text );
+			return true;
 		}
-	}
-	return true;
+
+		// We have a category - show a form.
+		$formHTML = self::blankFormHTML( $htmlFromExtensions );
+		$formHTML .= self::starterFieldHTML( $htmlFromExtensions );
+
+		$pageSchemaObj = new PSSchema( $category );
+		$title = Title::newFromText( $category, NS_CATEGORY );
+		$pageId = $title->getArticleID();
+		$dbr = wfGetDB( DB_SLAVE );
+		//get the result set, query : select page_props
+		$res = $dbr->select( 'page_props',
+			array(
+				'pp_page',
+				'pp_propname',
+				'pp_value'
+			),
+			array(
+				'pp_page' => $pageId,
+			)
+		);
+
+		//first row of the result set
+		$row = $dbr->fetchRow( $res );
+		if ( $row == null && !$title->exists() ) {
+			//Create form here, Cat doesnt exist, create new cat with this text
+			$text = '<p>'.wfMsg( 'ps-page-desc-cat-not-exist' ).'</p>';
+			$text .= $formHTML;
+			$wgOut->addHTML( $text );
+			return true;
+		}
+
+		if ( ($row[1] != 'PageSchema') || ($row[2] == null ) ) {
+			$text = '<p>'.wfMsg( 'ps-page-desc-ps-not-exist' ).'</p>';
+			$text .= $formHTML;
+			$wgOut->addHTML($text );
+		}
+
+		// Populate the form here with autocompleted values
+		$pageXMLstr = $row[2];
+		$pageXML = simplexml_load_string( $pageXMLstr );
+		$ps_add_xml = "";
+		//$pageName = (string)$pageXML->attributes()->name;
+		$text_4 = '<form id="editPageSchemaForm" action="" method="post">' . "\n";
+		//$text_4 .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
+		foreach ( $pageXML->children() as $template_xml ) {
+			if ( ( $template_xml->getName() != 'Template') && ($template_xml->getName() != 'semanticforms_Form') ) {
+				$ps_add_xml .= (string)$template_xml->asXML();
+			}
+		}
+		$text_4 .= '<p>' . $add_xml_label . '
+				<textarea rows=4 style="width: 100%" name="ps_add_xml" >' . $ps_add_xml . '</textarea>
+				</p> ';
+
+		$filledHTMLFromExtensions = array();
+		wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filledHTMLFromExtensions ));
+		if ( $filledHTMLFromExtensions['sf_form'] != null ) {
+			$text_ex = preg_replace('/starter/', '1', $filledHTMLFromExtensions['sf_form']);
+			$text_4 .= $text_ex;
+		}
+		$text_4 .= '<div id="templatesList">';
+		$template_num = 0;
+		/* index for template objects */
+		foreach ( $pageXML->children() as $tag => $template_xml ) {
+			if ( $tag == 'Template' ) {
+				$template_add_xml = "";
+				$template_num++;
+				$field_count = 0;
+				if ( count($template_xml->children()) > 0 ) {
+					$templateName = (string) $template_xml->attributes()->name;
+					$text_4 .= '<div class="templateBox" >';
+					$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
+					$text_4 .= '<p>Name: <input type="text" name="t_name_'.$template_num.'" value="'.$templateName.'" /></p> ';
+					if ( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
+						$text_4 .= '<p><input type="checkbox" checked name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
+					} else {
+						$text_4 .= '<p><input type="checkbox" name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
+					}
+					foreach ( $template_xml->children() as $field_xml ) {
+						if ( $field_xml->getName() != 'Field' ) {
+							$template_add_xml .= (string)$field_xml->asXML();
+						}
+					}
+					$text_4 .= '<div id="fieldsList_'.$template_num.'">';
+					$list_values = false;
+					foreach ( $template_xml->children() as $field_xml ) {
+						if ( $field_xml->getName() == "Field" ) {
+							$fieldName = (string)$field_xml->attributes()->name;
+							$text_4 .= '<div class="fieldBox" >';
+							$text_4 .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
+							if ( ((string)$field_xml->attributes()->list) == "list") {
+								$list_values = true;
+							}
+							if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
+								$delimiter = (string)$field_xml->attributes()->delimiter;
+							}
+							foreach ($field_xml->children() as $tag => $child ) {
+								if ( $tag == 'Label' ) {
+									$fieldLabel = (string)$child;
+								}
+							}
+							$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" >';
+							$text_4 .= 'Display label: <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
+		</p> ';
+							if ($list_values ) {
+								$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
+								$text_4 .= '<div class="delimiterInput" style="display:"><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" value="'.$delimiter.'" /> </p></div>';
+							} else {
+								$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
+								$text_4 .= '<div class="delimiterInput" style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" /> </p></div>';
+							}
+							//Inserting HTML text from Extensions
+
+							if ( $filledHTMLFromExtensions['smw'] != null ) {
+								$text_ex_array = $filledHTMLFromExtensions['smw'];
+								if ( $text_ex_array[$field_count] != null ) {
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}
+							if ( $filledHTMLFromExtensions['sf'] != null ) {
+								$text_ex_array = $filledHTMLFromExtensions['sf'];
+								if ( $text_ex_array[$field_count] != null ) {
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}
+							if ( $filledHTMLFromExtensions['sd'] != null ) {
+								$text_ex_array = $filledHTMLFromExtensions['sd'];
+								if ( $text_ex_array[$field_count] != null ) {
+									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
+									$text_4 .= $text_ex;
+								}
+							}
+
+							$text_4 .= '<p>'.$add_xml_label.'
+		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea>
+		</p>
+		<input type="button" value="Remove field" class="deleteField" /></fieldset>
+		</div>
+		</div>
+		';
+							$field_count++;
+							$text_4 .= '<script type="text/javascript">
+						updateFieldNum('.$field_count.');
+						</script>';
+						}
+					}
+					$text_4 .= '</div>';
+					$add_field_button = Xml::element( 'input',
+						array(
+							'type' => 'button',
+							'value' => 'Add field',
+							'onclick' => "createTemplateAddField($template_num)"
+						)
+					);
+					$text_4 .= Xml::tags( 'p', null, $add_field_button ) . "\n";
+					$text_4 .= '<hr />
+								<p>'.$add_xml_label.'
+								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
+								</p>
+								<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
+							</fieldset> </div>';
+				}
+			}
+		}
+		$add_template_button = Xml::element( 'input',
+			array(
+				'type' => 'button',
+				'value' => 'Add template',
+				'onclick' => "createAddTemplate()"
+			)
+		);
+		$text_4 .= Xml::tags( 'p', null, $add_template_button ) . "\n";
+		$text_4 .= '		<hr />
+		<div class="editButtons">
+		<input type="submit" id="wpSave" name="wpSave" value="Save" />
+		</div>';
+		$text_4 .= '	</form>';
+		$text_4 .= self::starterFieldHTML( $htmlFromExtensions );
+		$wgOut->addHTML($text_4);
+		return true;
 	}
 }
