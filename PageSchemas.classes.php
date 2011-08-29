@@ -8,30 +8,17 @@
 
 class PageSchemas {
 
-	/* Functions */
-	//Copied from SFUtils
-	public static function loadJavascriptAndCSS( $parser = null ) {
-		// Handling depends on whether or not this form is embedded
-		// in another page.
-		if ( !is_null( $parser ) ) {
-			$output = $parser->getOutput();
-		} else {
-			global $wgOut;
-			$output = $wgOut;
-		}
-		$output->addModules( 'jquery' );		
-	}
 	public static function getCategoriesWithPSDefined(){
-		$cat_titles = array();		
+		$cat_titles = array();
 		$dbr = wfGetDB( DB_SLAVE );
 		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
 			array(
 				'pp_page',
 				'pp_propname',
-				'pp_value'	
+				'pp_value'
 			),
-			array(					
+			array(
 				'pp_propname' => 'PageSchema'
 			)
 		);
@@ -51,7 +38,7 @@ class PageSchemas {
 	/**
 	 * Includes the necessary Javascript and CSS files for the form
 	 * to display and work correctly.
-	 * 
+	 *
 	 * Accepts an optional Parser instance, or uses $wgOut if omitted.
 	 */
 	public static function addJavascriptAndCSS( $parser = null ) {
@@ -59,13 +46,17 @@ class PageSchemas {
 
 		if ( !$parser ) {
 			$wgOut->addMeta( 'robots', 'noindex,nofollow' );
-		}		
+		}
 
-		// MW 1.17 +
-		if ( class_exists( 'ResourceLoader' ) ) {
-			self::loadJavascriptAndCSS( $parser );
-			return;
-		}		
+		// Handling depends on whether or not this page is embedded
+		// in another page.
+		if ( !is_null( $parser ) ) {
+			$output = $parser->getOutput();
+		} else {
+			global $wgOut;
+			$output = $wgOut;
+		}
+		$output->addModules( 'jquery' );
 	}
 
 	public static function titleString( $title ) {
@@ -80,20 +71,12 @@ class PageSchemas {
 			return $namespace . $title->getText();
 		}
 	}
-	public static function isCapitalized( $title ) {
-		// Method was added in MW 1.16.
-		$realFunction = array( 'MWNamespace', 'isCapitalized' );
-		if ( is_callable( $realFunction ) ) {
-			return MWNamespace::isCapitalized( $title->getNamespace() );
-		} else {
-			global $wgCapitalLinks;
-			return $wgCapitalLinks;
-		}
 
+	public static function isCapitalized( $title ) {
+		return MWNamespace::isCapitalized( $title->getNamespace() );
 	}
+
 	public static function validateXML( $xml, &$error_msg ) {
-	
-	
 		$xmlDTD =<<<END
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE PageSchema [
@@ -107,6 +90,7 @@ class PageSchemas {
 ]>
 
 END;
+
 		// we are using the SimpleXML library to do the XML validation
 		// for now - this may change later
 		// hide parsing warnings
@@ -138,29 +122,30 @@ END;
 		return $text;
 	}
 
-	static function parsePageSchemas($class_schema_xml) {	
+	static function parsePageSchemas($class_schema_xml) {
 		global $wgTitle;
-		if($wgTitle->getNamespace() == NS_CATEGORY){
-		$text = "<p>Schema description:</p>\n";
-		$text .= "<table class=\"pageSchema\">\n";
-		$name = $class_schema_xml->attributes()->name;
-		$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);		
-			foreach ( $class_schema_xml->children() as $tag => $child ) {				
-				if ( $tag == 'semanticforms_Form' ){				
+
+		if ( $wgTitle->getNamespace() == NS_CATEGORY ){
+			$text = "<p>Schema description:</p>\n";
+			$text .= "<table class=\"pageSchema\">\n";
+			$name = $class_schema_xml->attributes()->name;
+			$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
+			foreach ( $class_schema_xml->children() as $tag => $child ) {
+				if ( $tag == 'semanticforms_Form' ) {
 					$text .= self::parseFormElem($child);
-				}
-				else if ($tag == 'Template') {
+				} elseif ($tag == 'Template') {
 					$text .= self::parseTemplate($child);
-				} else{
-					echo "Code to be added by other extension\n";
+				} else {
+					//echo "Code to be added by other extension\n";
 				}
 			}
-		$text .= "</table>\n";
-		}else{
-		$text = "";
+			$text .= "</table>\n";
+		} else {
+			$text = "";
 		}
-		return $text;		
+		return $text;
 	}
+
 	static function parseFormElem( $form_xml ) {
 		$name = $form_xml->attributes()->name;
 		$text = self::tableRowHTML('param', 'Form', $name);
@@ -169,7 +154,8 @@ END;
 		}
 		return $text;
 	}
-	static function parseTemplate ( $template_xml ) {		
+
+	static function parseTemplate ( $template_xml ) {
 		$name = $template_xml->attributes()->name;
 		$text = self::tableRowHTML('param', 'Template', $name);
 		foreach ($template_xml->children() as $child) {
@@ -181,7 +167,7 @@ END;
 		$name = $field_xml->attributes()->name;
 		$text = self::tableRowHTML('paramAttr', 'Field', $name);
 		$text_object = array(); //different extensions will fill the html parsed text in this array via hooks
-		wfRunHooks( 'PSParseFieldElements', array( $field_xml, &$text_object ) );		
+		wfRunHooks( 'PSParseFieldElements', array( $field_xml, &$text_object ) );
 		foreach( $text_object as $key => $value ) {
 			$text .= $value;
 		}
@@ -189,64 +175,62 @@ END;
 	}
 }
 
-/*class holds the PageScheme tag equivalent object */
+/*class holds the PageSchema tag equivalent object */
 
 class PSSchema {
-	public  $categoryName="";
-	public $pageId=0;
-	public $pageXml=null;
-	public $pageXmlstr= "";
-	//public $pageName="";
-    public $formName="";
-	public  $formArray = array();
-  /* Stores the templte objects */
+	public $categoryName = "";
+	public $pageID = 0;
+	public $pageXML = null;
+	public $pageXMLstr = "";
+	public $formName = "";
+	public $formArray = array();
+	/* Stores the template objects */
 	public $PSTemplates = array();
-    public $isPSDefined = true;
+	public $isPSDefined = true;
 	public $pp_value = "";
+
 	function __construct ( $category_name ) {
-		$this->categoryName = $category_name; 
+		$this->categoryName = $category_name;
 		$title = Title::newFromText( $category_name, NS_CATEGORY );
-		$this->pageId = $title->getArticleID(); 		
+		$this->pageID = $title->getArticleID();
 		$dbr = wfGetDB( DB_SLAVE );
-		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
-		array(
-			'pp_page',
-			'pp_propname',
-			'pp_value'
-		),
-		array(
-			'pp_page' => $this->pageId,
-			'pp_propname' => 'PageSchema'
-		)
+			array(
+				'pp_page',
+				'pp_propname',
+				'pp_value'
+			),
+			array(
+				'pp_page' => $this->pageID,
+				'pp_propname' => 'PageSchema'
+			)
 		);
-		//first row of the result set 
+		// first row of the result set
 		$row = $dbr->fetchRow( $res );
-		if( $row == null){
+		if ( $row == null) {
 			$this->isPSDefined = false;
-		}else{
-			//retrievimg the third attribute which is pp_value 		
-			$pageXmlstr = $row[2];
-			$this->pageXml = simplexml_load_string ( $pageXmlstr );
-			//$this->pageName = (string)$this->pageXml->attributes()->name;
-			/*  index for template objects */
+		} else {
+			// retrieve the third attribute, which is pp_value
+			$pageXMLstr = $row[2];
+			$this->pageXML = simplexml_load_string ( $pageXMLstr );
+			/* index for template objects */
 			$i = 0;
 			$inherited_templates = null ;
-			foreach ( $this->pageXml->children() as $tag => $child ) {
+			foreach ( $this->pageXML->children() as $tag => $child ) {
 				if ( $tag == 'InheritsFrom ' ) {
 					$schema_to_inherit = (string) $child->attributes()->schema;
 					if( $schema_to_inherit !=null ){
 						$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-						$inherited_templates = $inheritedSchemaObj->getTemplates();					
+						$inherited_templates = $inheritedSchemaObj->getTemplates();
 					}
 				}
 				if ( $tag == 'Template' ) {
 					$ignore = (string) $child->attributes()->ignore;
-					if( count($child->children()) > 0 ){
-						$templateObj =  new PSTemplate($child);					
+					if ( count($child->children()) > 0 ) {
+						$templateObj = new PSTemplate($child);
 						$this->PSTemplates[$i++]= $templateObj;
-					}else if( $ignore != "true" ) {
-						//Code  to Add Templates from Inherited templates
+					} elseif ( $ignore != "true" ) {
+						// Code to add templates from inherited templates
 						$temp_name = (string) $child->attributes()->name;
 						foreach( $inherited_templates as $inherited_template ) {
 							if( $temp_name == $inherited_template->getName() ){
@@ -254,80 +238,87 @@ class PSSchema {
 							}
 						}
 					}
-				}								
+				}
 			}
 		}
 	}
-	/* function to generate all pages based on the Xml contained in the page */
+
+	/* function to generate all pages based on the XML contained in the page */
 	function generateAllPages ( $toGenPageList ) {
-		wfRunHooks( 'PageSchemasGeneratePages', array( $this, $toGenPageList ));	
+		wfRunHooks( 'PageSchemasGeneratePages', array( $this, $toGenPageList ));
 	}
+
 	/*return an array of PSTemplate Objects */
 	function getFormArray () {
 		$obj = $this->getObject('semanticforms_Form');
 		 return $obj['sf'];
 	}
+
 	/*return an array of PSTemplate Objects */
 	function isPSDefined () {
-		return $this->isPSDefined;  	
-	}		
+		return $this->isPSDefined;
+	}
+
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
-		return $this->PSTemplates;  	
-	}	
+		return $this->PSTemplates;
+	}
+
 	function getFormName(){
 		$form_array = $this->getFormArray();
 		return $form_array['name'];
 	}
+
 	function getObject( $objectName ) {
 		$object = array();
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->pageXml, &$object ) );		
+		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->pageXML, &$object ) );
 		return $object;
 	}
-	function getCategoryName(){		
+
+	function getCategoryName() {
 		return $this->categoryName;
-    }
+	}
 }
-class PSTemplate { 
+class PSTemplate {
 	/* Stores the field objects */
-	public $PSFields = array(); 
+	public $PSFields = array();
 	public $templateName ="";
-	public $templateXml = null;
+	public $templateXML = null;
 	public $multiple_allowed = false;
 	private $label_name = null;
+
 	function __construct( $template_xml ) {
-		$this->templateXml = $template_xml;
+		$this->templateXML = $template_xml;
 		$this->templateName = (string) $template_xml->attributes()->name;
 		if( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
 			$this->multiple_allowed = true;
 		}
 		/*index for template objects */
 	 	$i = 0 ;
-		$inherited_fields = null ;		
-		foreach ($template_xml->children() as $child) {		
-			if ( $child->getName() == 'InheritsFrom' ) {			                           
+		$inherited_fields = array();
+		foreach ($template_xml->children() as $child) {
+			if ( $child->getName() == 'InheritsFrom' ) {
 				$schema_to_inherit = (string) $child->attributes()->schema;
-				$template_to_inherit = (string) $child->attributes()->template;				
+				$template_to_inherit = (string) $child->attributes()->template;
 				if( $schema_to_inherit !=null && $template_to_inherit != null ) {
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-					$inherited_templates = $inheritedSchemaObj->getTemplates();					
+					$inherited_templates = $inheritedSchemaObj->getTemplates();
 					foreach( $inherited_templates as $inherited_template ) {
 						if( $template_to_inherit == $inherited_template->getName() ){
-							$inherited_fields = $inherited_template->getFields();							
+							$inherited_fields = $inherited_template->getFields();
 						}
 					}
 				}
-			}
-			else if( $child->getName() == "Label" ) { //@TODO Label => sf:Label 
+			} elseif ( $child->getName() == "Label" ) { //@TODO Label => sf:Label
 				$this->label_name = (string)$child;
-			} else if ( $child->getName() == "Field" ){
+			} elseif ( $child->getName() == "Field" ){
 				$ignore = (string) $child->attributes()->ignore;
-			    if( count($child->children()) > 0 ){ //@TODO :Can be dealt more efficiently
-					$fieldObj =  new PSTemplateField($child);
+				if( count($child->children()) > 0 ){ //@TODO :Can be dealt more efficiently
+					$fieldObj = new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
-				}else if( $ignore != "true" ) {
-					//Code  to Add Templates from Inherited templates
-					$field_name = (string) $child->attributes()->name;					
+				} elseif ( $ignore != "true" ) {
+					//Code to Add Templates from Inherited templates
+					$field_name = (string) $child->attributes()->name;
 					foreach( $inherited_fields as $inherited_field ) {
 						if( $field_name == $inherited_field->getName() ){
 							$this->PSFields[$i++]= $inherited_field;
@@ -337,57 +328,66 @@ class PSTemplate {
 			}
 		}
 	}
-	function getName(){
-	return $this->templateName;
+
+	function getName() {
+		return $this->templateName;
 	}
-	function isMultiple(){
-	return $this->multiple_allowed;
+
+	function isMultiple() {
+		return $this->multiple_allowed;
 	}
-	public function getLabel(){
-	return $this->label_name;
-	}	
-	function getFields(){    
-	return $this->PSFields;
+
+	public function getLabel() {
+		return $this->label_name;
+	}
+
+	function getFields() {
+		return $this->PSFields;
 	}
 }
 
 class PSTemplateField {
-	
 	public $fieldName ="";
-	public $fieldXml= null;
-    public $fieldLabel = "";
+	public $fieldXML = null;
+	public $fieldLabel = "";
 	private $list_values = false;
-	private $delimiter=null;
+	private $delimiter = null;
+
 	function __construct( $field_xml ) {
-		$this->fieldXml = $field_xml; 
-		$this->fieldName = (string)$this->fieldXml->attributes()->name;
-		if( ((string)$this->fieldXml->attributes()->list) == "list") {
+		$this->fieldXML = $field_xml;
+		$this->fieldName = (string)$this->fieldXML->attributes()->name;
+		if( ((string)$this->fieldXML->attributes()->list) == "list") {
 			$this->list_values = true;
 		}
-		if( ((string)$this->fieldXml->attributes()->delimiter) != null || ((string)$this->fieldXml->attributes()->delimiter) != '' ){
-			$this->delimiter = (string)$this->fieldXml->attributes()->delimiter;
+		if( ((string)$this->fieldXML->attributes()->delimiter) != null || ((string)$this->fieldXML->attributes()->delimiter) != '' ){
+			$this->delimiter = (string)$this->fieldXML->attributes()->delimiter;
 		}
-		foreach ($this->fieldXml->children() as $tag => $child ) {
+		foreach ($this->fieldXML->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
 				$this->fieldLabel = (string)$child;
-			}		
-		}	
+			}
+		}
 	}
+
 	public function getDelimiter(){
 		return $this->delimiter;
-	}	
+	}
+
 	function getName(){
 		return $this->fieldName;
 	}
+
 	function getLabel(){
 		return $this->fieldLabel;
 	}
+
 	public function isList(){
 		return $this->list_values;
 	}
+
 	function getObject( $objectName ) {
 		$object = array();
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->fieldXml, &$object ) );		
+		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->fieldXML, &$object ) );
 		return $object;
 	}
 }

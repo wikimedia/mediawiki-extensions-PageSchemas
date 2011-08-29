@@ -1,17 +1,14 @@
 <?php
 /**
- * PageSchemas extension
+ * Page Schemas extension
  *
  * @file
  * @ingroup Extensions
  *
- * This file contains the main include file for the PageSchemas extension of
- * MediaWiki.
+ * This is the main include file for the Page Schemas MediaWiki extension.
  *
  * Usage: Add the following line in LocalSettings.php:
  * require_once( "$IP/extensions/PageSchemas/PageSchemas.php" );
- *
- * @version 0.0.1
  */
 
 // Check environment
@@ -26,8 +23,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
 	'name'			=> 'Page Schemas',
-	'author'		=> array( 'Ankit Garg' ),
-	'version'		=> '0.0.1',
+	'author'		=> array( 'Ankit Garg', 'Yaron Koren' ),
+	'version'		=> '0.1',
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:PageSchemas',
 	'descriptionmsg'	=> 'pageschemas-desc',
 );
@@ -60,7 +57,7 @@ $wgSpecialPageGroups['EditSchema'] = 'other';
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 
 // Register page_props usage
-$wgPageProps['PageSchema'] = 'Content of &lt;PageSchema&gt; tag';
+$wgPageProps['PageSchema'] = 'Contents of &lt;PageSchema&gt; tag';
 
 $wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
 $wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
