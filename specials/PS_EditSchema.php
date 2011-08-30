@@ -117,7 +117,7 @@ END;
 	}
 
 	function starterFieldHTML( $htmlFromExtensions ) {
-		$template_label = wfMsg( 'pageschemas-template' );
+		$template_label = wfMsg( 'ps-template' );
 		$delimiter_label = wfMsg( 'ps-delimiter-label' );
 		$multiple_temp_label = wfMsg( 'ps-multiple-temp-label' );
 		$add_xml_label = wfMsg('ps-add-xml-label');
@@ -154,8 +154,8 @@ END;
 <hr />
 
 END;
-		$field_label = wfMsg( 'pageschemas-field' );
-		$display_label = wfMsg( 'pageschemas-displaylabel' );
+		$field_label = wfMsg( 'ps-field' );
+		$display_label = wfMsg( 'ps-displaylabel' );
 		$starter_text .= <<<END
 <div class="fieldBox" id="starterField" style="display: none">
 	<fieldset style="background: #bbb;"><legend>$field_label</legend>

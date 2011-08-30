@@ -26,7 +26,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'author'		=> array( 'Ankit Garg', 'Yaron Koren' ),
 	'version'		=> '0.1',
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:PageSchemas',
-	'descriptionmsg'	=> 'pageschemas-desc',
+	'descriptionmsg'	=> 'ps-desc',
 );
 
 // Shortcut to this extension directory

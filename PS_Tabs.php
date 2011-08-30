@@ -19,7 +19,7 @@
 		global $wgRequest;
 
 		$content_actions['editschema'] = array(
-			'text' => wfMsg( 'editschema' ),
+			'text' => wfMsg( 'ps-editschema' ),
 			'class' => $wgRequest->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=editschema' )
 		);
@@ -28,7 +28,7 @@
 		$pageSchemaObj = new PSSchema( $category );
 		if ( $pageSchemaObj->isPSDefined() ) {
 			$content_actions['generatepages'] = array(
-				'text' => wfMsg( 'generatepages' ),
+				'text' => wfMsg( 'ps-generatepages' ),
 				'class' => $wgRequest->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 				'href' => $title->getLocalURL( 'action=generatepages' )
 			);
