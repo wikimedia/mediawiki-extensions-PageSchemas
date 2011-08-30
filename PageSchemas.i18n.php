@@ -22,7 +22,7 @@ $messages['en'] = array(
 
 	'ps-property-isproperty'        => 'This is a property of type $1.',
 	'ps-property-allowedvals'       => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
-	'ps-generatepages'             	=> 'Generate pages',   
+	'generatepages'             	=> 'Generate pages',   
 	'ps-generatepages-desc'         => 'Generate the following pages, based on this category\'s schema:',
 	'ps-page-desc-cat-not-exist'    => 'This category does not exist yet. Create this category and its page schema: ',
 	'ps-page-desc-ps-not-exist'     => 'This category exists, but does not have a page schema. Create schema:',
@@ -39,7 +39,7 @@ $messages['en'] = array(
 	'ps-remove-field'		=> 'Remove field',
 	'ps-add-xml-label'		=> 'Additional XML:',
 	'ps-schema-name-label'		=> 'Name of schema:',
-	'ps-editschema'                 => 'Edit schema',
+	'editschema'                 => 'Edit schema',
 );
 
 /** Message documentation (Message documentation)
