@@ -56,7 +56,7 @@
 
 		// These tabs should only exist for category pages
 		if ( $title->getNamespace() != NS_CATEGORY ) {
-			return false;
+			return true;
 		}
 
 		$categoryName = $title->getText();
