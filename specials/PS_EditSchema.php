@@ -231,17 +231,17 @@ END;
 			}
 			$indexGlobalField = 0 ; //this variable is use to index the array returned by extensions for XML.
 			foreach ( $wgRequest->getValues() as $var => $val ) {
-				if (substr($var,0,7) == 't_name_' ) {
+				if ( substr( $var, 0, 7 ) == 't_name_' ) {
 					$templateNum = substr($var,7,1);
 					if ($wgRequest->getCheck( 'is_multiple_'.$templateNum ) ) {
 						$XMLtext .= '<Template name="'.$val.'" multiple="multiple">';
 					} else {
 						$XMLtext .= '<Template name="'.$val.'">';
 					}
-				} elseif (substr($var,0,7) == 'f_name_' ) {
+				} elseif ( substr( $var, 0, 7 ) == 'f_name_' ) {
 					$fieldName = $val;
 					$fieldNum = substr($var,7,1);
-					if ($wgRequest->getCheck( 'f_is_list_'.$fieldNum ) ) {
+					if ( $wgRequest->getCheck( 'f_is_list_'.$fieldNum ) ) {
 						if ( $wgRequest->getText('f_delimiter_'.$fieldNum) != '' ) {
 							$delimiter = $wgRequest->getText('f_delimiter_'.$fieldNum);
 							$XMLtext .= '<Field name="'.$fieldName.'" list="list" delimiter="'.$delimiter.'">';
@@ -476,9 +476,8 @@ END;
 							);
 							$text_4 .= $removeFieldButton;
 							$text_4 .= <<<END
-		</fieldset>
-		</div>
-		</div>
+		</fieldset><!-- for fields -->
+		</div><!-- fieldBox -->
 
 END;
 							$field_count++;
@@ -487,7 +486,7 @@ END;
 						</script>';
 						}
 					}
-					$text_4 .= '</div>';
+					$text_4 .= '</div><!-- fieldsList -->';
 					$add_field_button = Xml::element( 'input',
 						array(
 							'type' => 'button',
@@ -501,7 +500,7 @@ END;
 								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
 								</p>
 								<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
-							</fieldset> </div>';
+							</fieldset><!-- for template --> </div><!-- templateBox-->';
 				}
 			}
 		}
@@ -512,8 +511,11 @@ END;
 				'onclick' => "createAddTemplate()"
 			)
 		);
+		$text_4 .= '
+		</div><!-- templatesList -->';
 		$text_4 .= Xml::tags( 'p', null, $add_template_button ) . "\n";
-		$text_4 .= '		<hr />
+		$text_4 .= '
+		<hr />
 		<div class="editButtons">
 		<input type="submit" id="wpSave" name="wpSave" value="Save" />
 		</div>';
