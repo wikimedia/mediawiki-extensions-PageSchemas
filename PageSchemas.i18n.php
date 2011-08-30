@@ -22,8 +22,11 @@ $messages['en'] = array(
 
 	'ps-property-isproperty'        => 'This is a property of type $1.',
 	'ps-property-allowedvals'       => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
+	'ps-schema-description'		=> 'Schema description:',
 	'generatepages'             	=> 'Generate pages',   
 	'ps-generatepages-desc'         => 'Generate the following pages, based on this category\'s schema:',
+	'ps-generatepages-success'	=> 'Pages will be generated.',
+	'ps-generatepages-noschema'	=> 'Error: there is no page schema defined for this category',
 	'ps-page-desc-cat-not-exist'    => 'This category does not exist yet. Create this category and its page schema:',
 	'ps-page-desc-ps-not-exist'     => 'This category exists, but does not have a page schema. Create schema:',
 	'ps-page-desc-edit-schema'      => 'Edit the page schema for this category:',
