@@ -212,18 +212,22 @@ END;
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ( $save_page ) {
 			//Generate the XML from the Form elements
-			$XMLtext = "";
 			//$s_name = $wgRequest->getText('s_name');
-			$XMLtext .= '<PageSchema>';
+			$XMLtext = '<PageSchema>';
 			$ps_add_xml = $wgRequest->getText( 'ps_add_xml' );
 			$XMLtext .= $ps_add_xml;
 			$fieldName = "";
 			$fieldNum = -1;
 			$templateNum = -1;
-			$xmlFromExtensions = array(); //This var. will save the xml text returned by the extensions
-			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xmlFromExtensions ));
-			if ( $xmlFromExtensions['sf_form'] != null ) {
-				$XMLtext .= $xmlFromExtensions['sf_form'];
+			//This var. will save the xml text returned by the extensions
+			$schemaXMLFromExtensions = array();
+			$fieldXMLFromExtensions = array();
+			wfRunHooks( 'PageSchemasGetSchemaXML', array( $wgRequest, &$schemaXMLFromExtensions ));
+			wfRunHooks( 'PageSchemasGetFieldXML', array( $wgRequest, &$fieldXMLFromExtensions ));
+			foreach ( $schemaXMLFromExtensions as $extensionName => $xml ) {
+				if ( !empty( $xml ) ) {
+					$XMLtext .= $xml;
+				}
 			}
 			$indexGlobalField = 0 ; //this variable is use to index the array returned by extensions for XML.
 			foreach ( $wgRequest->getValues() as $var => $val ) {
@@ -249,23 +253,11 @@ END;
 					}
 				} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
 					$XMLtext .= '<Label>'.$val.'</Label>';
-					//Get XML parsed from extensions
-					if ( $xmlFromExtensions['smw'] != null ) {
-						$xml_ex_array = $xmlFromExtensions['smw'];
-						if ($xml_ex_array[$indexGlobalField] != null ) {
-							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
-						}
-					}
-					if ( $xmlFromExtensions['sf'] != null ) {
-						$xml_ex_array = $xmlFromExtensions['sf'];
-						if ($xml_ex_array[$indexGlobalField] != null ) {
-							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
-						}
-					}
-					if ( $xmlFromExtensions['sd'] != null ) {
-						$xml_ex_array = $xmlFromExtensions['sd'];
-						if ($xml_ex_array[$indexGlobalField] != null ) {
-							$XMLtext .= $xml_ex_array[$indexGlobalField] ;
+
+					// Get XML created by extensions
+					foreach ( $fieldXMLFromExtensions as $extensionName => $xmlPerField ) {
+						if ( !empty( $xmlPerField[$indexGlobalField] ) ) {
+							$XMLtext .= $xmlPerField[$indexGlobalField];
 						}
 					}
 					$indexGlobalField++ ;
@@ -334,6 +326,8 @@ END;
 		// We have a category - show a form.
 		$formHTML = self::blankFormHTML( $htmlFromExtensions );
 		$formHTML .= self::starterFieldHTML( $htmlFromExtensions );
+
+		$add_xml_label = wfMsg('ps-add-xml-label');
 
 		$pageSchemaObj = new PSSchema( $category );
 		$title = Title::newFromText( $category, NS_CATEGORY );
@@ -431,9 +425,9 @@ END;
 									$fieldLabel = (string)$child;
 								}
 							}
-							$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" >';
+							$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" />';
 							$display_label = wfMsg( 'pageschemas-displaylabel' );
-							$text_4 .= $display_label . ' <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
+							$text_4 .= $display_label . ' <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" />
 		</p> ';
 							$attrs = array();
 							$pAttrs = array( 'class' => 'delimiterInput' );
