@@ -11,7 +11,7 @@ class PageSchemas {
 	public static function getCategoriesWithPSDefined(){
 		$cat_titles = array();
 		$dbr = wfGetDB( DB_SLAVE );
-		//get the result set, query : slect page_props
+		//get the result set, query : select page_props
 		$res = $dbr->select( 'page_props',
 			array(
 				'pp_page',
@@ -86,10 +86,11 @@ class PageSchemas {
 ]>
 
 END;
+		// <? - this little tag is here to restore syntax highlighting in vi
 
-		// we are using the SimpleXML library to do the XML validation
-		// for now - this may change later
-		// hide parsing warnings
+		// We are using the SimpleXML library to do the XML validation
+		// for now - this may change later.
+		// Hide parsing warnings.
 		libxml_use_internal_errors(true);
 		$xml_success = simplexml_load_string($xmlDTD.$xml);
 		$errors = libxml_get_errors();
@@ -99,7 +100,7 @@ END;
 
 	static function tableRowHTML($css_class, $data_type, $value = null) {
 		$data_type = htmlspecialchars($data_type);
-		if (is_null($value)) {
+		if ( is_null( $value ) ) {
 			$content = $data_type;
 		} else {
 			$content = "$data_type: " . HTML::element('span', array('class' => 'rowValue'), $value);
@@ -121,18 +122,17 @@ END;
 	static function parsePageSchemas($class_schema_xml) {
 		global $wgTitle;
 
-		if ( $wgTitle->getNamespace() == NS_CATEGORY ){
-			$text = "<p>Schema description:</p>\n";
+		if ( $wgTitle->getNamespace() == NS_CATEGORY ) {
+			$text = Html::element( 'p', null, wfMsg( 'ps-schema-description' ) ) . "\n";
 			$text .= "<table class=\"pageSchema\">\n";
 			$name = $class_schema_xml->attributes()->name;
 			$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
 			foreach ( $class_schema_xml->children() as $tag => $child ) {
+				// TODO - need a hook call right here
 				if ( $tag == 'semanticforms_Form' ) {
 					$text .= self::parseFormElem($child);
 				} elseif ($tag == 'Template') {
 					$text .= self::parseTemplate($child);
-				} else {
-					//echo "Code to be added by other extension\n";
 				}
 			}
 			$text .= "</table>\n";
@@ -142,26 +142,29 @@ END;
 		return $text;
 	}
 
+	/**
+	 * @TODO - this should move into Semantic Forms, via a hook
+	 */
 	static function parseFormElem( $form_xml ) {
 		$name = $form_xml->attributes()->name;
 		$text = self::tableRowHTML('param', 'Form', $name);
 		foreach ($form_xml->children() as $key => $value ) {
-			$text .= self::tableMessageRowHTML("paramAttrMsg", (string)$key, (string)$value );
+			$text .= self::tableMessageRowHTML( "paramAttrMsg", (string)$key, (string)$value );
 		}
 		return $text;
 	}
 
 	static function parseTemplate ( $template_xml ) {
 		$name = $template_xml->attributes()->name;
-		$text = self::tableRowHTML('param', 'Template', $name);
-		foreach ($template_xml->children() as $child) {
-			$text .= self::parseField($child);
+		$text = self::tableRowHTML( 'param', 'Template', $name );
+		foreach ( $template_xml->children() as $child ) {
+			$text .= self::parseField( $child );
 		}
 		return $text;
 	}
 	static function parseField ( $field_xml ) {
 		$name = $field_xml->attributes()->name;
-		$text = self::tableRowHTML('paramAttr', 'Field', $name);
+		$text = self::tableRowHTML( 'paramAttr', 'Field', $name );
 		$text_object = array(); //different extensions will fill the html parsed text in this array via hooks
 		wfRunHooks( 'PSParseFieldElements', array( $field_xml, &$text_object ) );
 		foreach( $text_object as $key => $value ) {
@@ -171,15 +174,14 @@ END;
 	}
 }
 
-/*class holds the PageSchema tag equivalent object */
-
+/**
+ * Holds the data contained within the <PageSchema> XML tag.
+ */
 class PSSchema {
 	public $categoryName = "";
 	public $pageID = 0;
 	public $pageXML = null;
 	public $pageXMLstr = "";
-	public $formName = "";
-	public $formArray = array();
 	/* Stores the template objects */
 	public $PSTemplates = array();
 	public $isPSDefined = true;
@@ -245,12 +247,6 @@ class PSSchema {
 	}
 
 	/*return an array of PSTemplate Objects */
-	function getFormArray () {
-		$obj = $this->getObject('semanticforms_Form');
-		 return $obj['sf'];
-	}
-
-	/*return an array of PSTemplate Objects */
 	function isPSDefined () {
 		return $this->isPSDefined;
 	}
@@ -258,11 +254,6 @@ class PSSchema {
 	/*return an array of PSTemplate Objects */
 	function getTemplates () {
 		return $this->PSTemplates;
-	}
-
-	function getFormName(){
-		$form_array = $this->getFormArray();
-		return $form_array['name'];
 	}
 
 	function getObject( $objectName ) {
@@ -307,9 +298,9 @@ class PSTemplate {
 				}
 			} elseif ( $child->getName() == "Label" ) { //@TODO Label => sf:Label
 				$this->label_name = (string)$child;
-			} elseif ( $child->getName() == "Field" ){
+			} elseif ( $child->getName() == "Field" ) {
 				$ignore = (string) $child->attributes()->ignore;
-				if( count($child->children()) > 0 ){ //@TODO :Can be dealt more efficiently
+				if ( count($child->children()) > 0 ) { //@TODO :Can be dealt more efficiently
 					$fieldObj = new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
 				} elseif ( $ignore != "true" ) {
@@ -346,14 +337,14 @@ class PSTemplateField {
 	public $fieldName ="";
 	public $fieldXML = null;
 	public $fieldLabel = "";
-	private $list_values = false;
+	private $isList = false;
 	private $delimiter = null;
 
 	function __construct( $field_xml ) {
 		$this->fieldXML = $field_xml;
 		$this->fieldName = (string)$this->fieldXML->attributes()->name;
 		if( ((string)$this->fieldXML->attributes()->list) == "list") {
-			$this->list_values = true;
+			$this->isList = true;
 		}
 		if( ((string)$this->fieldXML->attributes()->delimiter) != null || ((string)$this->fieldXML->attributes()->delimiter) != '' ){
 			$this->delimiter = (string)$this->fieldXML->attributes()->delimiter;
@@ -378,7 +369,7 @@ class PSTemplateField {
 	}
 
 	public function isList(){
-		return $this->list_values;
+		return $this->isList;
 	}
 
 	function getObject( $objectName ) {
