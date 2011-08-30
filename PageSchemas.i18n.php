@@ -114,8 +114,33 @@ $messages['de'] = array(
 	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
 	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
-	'ps-generate-pages' => 'Seiten generieren',
-	'ps-generate-pages-desc' => 'Generiere die folgenden Seiten auf Basis des Schemas dieser Kategorie:',
+	'generatepages' => 'Seiten generieren',
+	'ps-generatepages-desc' => 'Die folgenden Seiten auf Basis des Schemas dieser Kategorie generieren:',
+	'ps-page-desc-cat-not-exist' => 'Diese Kategorie ist noch nicht vorhanden. Erstelle diese Kategorie und ihr Schema:',
+	'ps-page-desc-ps-not-exist' => 'Diese Kategorie ist vorhanden, verfügt aber noch nicht über ein Schema. Erstelle das Schema:',
+	'ps-page-desc-edit-schema' => 'Bearbeite das Schema dieser Kategorie:',
+	'ps-delimiter-label' => 'Trennzeichen für Werte (Standardwert ist „,“):',
+	'ps-multiple-temp-label' => 'Diese Vorlage für mehrere Instanzen freigeben',
+	'ps-field-list-label' => 'Dieses Feld kann eine Liste von Werten enthalten',
+	'ps-template' => 'Vorlage',
+	'ps-add-template' => 'Vorlage hinzufügen',
+	'ps-remove-template' => 'Vorlage entfernen',
+	'ps-field' => 'Feld',
+	'ps-displaylabel' => 'Anzuzeigender Feldname:',
+	'ps-add-field' => 'Feld hinzufügen',
+	'ps-remove-field' => 'Feld entfernen',
+	'ps-add-xml-label' => 'Zusätzliches XML:',
+	'ps-schema-name-label' => 'Name des Schemas:',
+	'editschema' => 'Schema bearbeiten',
+);
+
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
+ * @author Kghbln
+ */
+$messages['de-formal'] = array(
+	'ps-page-desc-cat-not-exist' => 'Diese Kategorie ist noch nicht vorhanden. Erstellen Sie diese Kategorie und ihr Schema:',
+	'ps-page-desc-ps-not-exist' => 'Diese Kategorie ist vorhanden, verfügt aber noch nicht über ein Schema. Erstellen Sie das Schema:',
+	'ps-page-desc-edit-schema' => 'Bearbeiten Sie das Schema dieser Kategorie:',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -151,11 +176,32 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
 	'ps-desc' => 'Supporte les modèle en définissant leur structure de données via des balises XML',
 	'pageschemas-header' => 'La définition XML pour ce modèle est :',
+	'ps-property-isproperty' => 'Cette propriété est de type $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|La valeur autorisée pour cette propriété est|Les valeurs autorisées pour cette propriété sont}}:',
+	'generatepages' => 'Générer les pages',
+	'ps-generatepages-desc' => "Générer les pages suivantes, d'après le schéma de cette catégorie:",
+	'ps-page-desc-cat-not-exist' => "Cette catégorie n'existe pas encore. Créez-la avec son schéma de page:",
+	'ps-page-desc-ps-not-exist' => "Cette catégorie existe, mais n'a pas de schéma de page. Créez le schéma:",
+	'ps-page-desc-edit-schema' => 'Éditez le schéma de page pour cette catégorie:',
+	'ps-delimiter-label' => 'Délimiteur pour les valeurs ("," par défaut):',
+	'ps-multiple-temp-label' => 'Permet plusieurs instances de ce modèle',
+	'ps-field-list-label' => 'Ce champ peut contenir une liste de valeurs',
+	'ps-template' => 'Modèle',
+	'ps-add-template' => 'Ajouter un modèle',
+	'ps-remove-template' => 'Supprimer un modèle',
+	'ps-field' => 'Champ',
+	'ps-displaylabel' => 'Afficher le libellé:',
+	'ps-add-field' => 'Ajouter un champ',
+	'ps-remove-field' => 'Supprimer un champ',
+	'ps-add-xml-label' => 'XML supplémentaire:',
+	'ps-schema-name-label' => 'Nom du schéma:',
+	'editschema' => 'Modifier le schéma',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -268,7 +314,19 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'ps-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
-	'ps-generate-pages' => 'Säite generéieren',
+	'generatepages' => 'Säite generéieren',
+	'ps-page-desc-edit-schema' => 'De Säite-Schema fir dës Kategorie änneren:',
+	'ps-field-list-label' => 'An dësem Feld kann eng Lëscht vu Wäerter stoen',
+	'ps-template' => 'Schabloun',
+	'ps-add-template' => 'Schabloun derbäisetzen',
+	'ps-remove-template' => 'Schablon ewechhuelen',
+	'ps-field' => 'Feld',
+	'ps-displaylabel' => 'Etiquette weisen:',
+	'ps-add-field' => 'Feld derbäisetzen',
+	'ps-remove-field' => 'Feld ewechhuelen',
+	'ps-add-xml-label' => 'Zousätzlechen XML:',
+	'ps-schema-name-label' => 'Numm vum Schema:',
+	'editschema' => 'Schema änneren',
 );
 
 /** Macedonian (Македонски)
@@ -279,8 +337,24 @@ $messages['mk'] = array(
 	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
 	'ps-property-isproperty' => 'Ова е својство од типот $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
-	'ps-generate-pages' => 'Создај страници',
-	'ps-generate-pages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
+	'generatepages' => 'Создај страници',
+	'ps-generatepages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
+	'ps-page-desc-cat-not-exist' => 'Оваа категорија сè уште не постои. Создај ја категоријата и нејзината шема на страници:',
+	'ps-page-desc-ps-not-exist' => 'Оваа категорија постои, но нема шема на страници. Создај шема:',
+	'ps-page-desc-edit-schema' => 'Уреди ја шемата на страници за оваа категорија:',
+	'ps-delimiter-label' => 'Одделвач за вредности (стандардниот е „,“):',
+	'ps-multiple-temp-label' => 'Дозволи повеќе примероци на овој шаблон',
+	'ps-field-list-label' => 'Ова поле може да содржи список на вредности',
+	'ps-template' => 'Шаблон',
+	'ps-add-template' => 'Додај шаблон',
+	'ps-remove-template' => 'Отстрани шаблон',
+	'ps-field' => 'Поле',
+	'ps-displaylabel' => 'Натпис за приказ:',
+	'ps-add-field' => 'Додај поле',
+	'ps-remove-field' => 'Отстрани поле',
+	'ps-add-xml-label' => 'Дополнителен XML:',
+	'ps-schema-name-label' => 'Име на шемата:',
+	'editschema' => 'Уреди шема',
 );
 
 /** Dutch (Nederlands)
@@ -292,8 +366,16 @@ $messages['nl'] = array(
 	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
 	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
 	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
-	'ps-generate-pages' => "Pagina's aanmaken",
-	'ps-generate-pages-desc' => "De volgende pagina's aanmaken, gebaseerd op dit categorieschema:",
+	'ps-template' => 'Sjabloon',
+	'ps-add-template' => 'Sjabloon toevoegen',
+	'ps-remove-template' => 'Sjabloon verwijderen',
+	'ps-field' => 'Veld',
+	'ps-displaylabel' => 'Label weergeven:',
+	'ps-add-field' => 'Veld toevoegen',
+	'ps-remove-field' => 'Veld verwijderen',
+	'ps-add-xml-label' => 'Extra XML:',
+	'ps-schema-name-label' => 'Schemanaam:',
+	'editschema' => 'Schema bewerken',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
