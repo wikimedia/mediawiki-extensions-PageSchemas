@@ -5,6 +5,7 @@
  * @author Ankit Garg
  */
 
+
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'GeneratePages' );
@@ -15,9 +16,10 @@ class PSGeneratePages extends IncludableSpecialPage {
 
 		$this->setHeaders();
 		$param = $wgRequest->getText('param');
-		if ( $param != "" && $category != "" ) {
-			$this->generatePages( $param, $wgRequest->getValues( 'page' ) );
-			$text = '<p>All pages will be generated! </p>';
+		if ( !empty( $param ) && !empty( $category ) ) {
+			// Generate the pages!
+			$this->generatePages( $param, $wgRequest->getArray( 'page' ) );
+			$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-success' ) );
 			$wgOut->addHTML( $text );
 			return true;
 		}
@@ -40,14 +42,14 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// Check for a valid category, with a page schema defined.
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			$text = "<p>Error: there is no page schema defined for that category in the wiki. </p>";
+			$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-noschema' ) );
 			$wgOut->addHTML( $text );
 			return true;
 		}
 
 		$generate_page_desc = wfMsg( 'ps-generatepages-desc' );
 		$text = "<p>$generate_page_desc</p>\n";
-		$text = '<form method="post"><input type="hidden" name="param" value="'.$category.'" /><br />';
+		$text = '<form method="post"><input type="hidden" name="param" value="'.$category.'" /><br />' . "\n";
 		//add code to generate a list of check-box for pages to be generated.
 		$pageList = array();
 
@@ -58,9 +60,10 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$pageURL = $page->getFullUrl();
 			$pageName = PageSchemas::titleString( $page );
 			$pageLink = Html::element( 'a', array( 'href' => $pageURL ), $pageName );
-			$text .= '<input type="checkbox" name="page[]" value="' . $pageName . '" checked="checked" />' . $pageLink . ' <br />';
+			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
+			$text .= "\n" . $pageLink . "<br />\n";
 		}
-		$generate_page_text = wfMsg( 'ps-generatepages' );
+		$generate_page_text = wfMsg( 'generatepages' );
 		$text .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> <br /> <br /></form>';
 		$wgOut->addHTML( $text );
 		return true;
