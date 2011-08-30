@@ -15,31 +15,37 @@
 $messages = array();
 
 $messages['en'] = array(
-    'ps-pageschemas-desc'					 => 'Supports templates defining their data structure via XML markup',
-    'pageschemas-header'				 => 'The XML definition for this template is:',
-	'ps-property-isproperty'             => 'This is a property of type $1.',
-	'ps-property-allowedvals'            => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
-	'ps-generatepages'                 	 => 'Generate pages',   
-	'ps-generatepages-desc'                 => 'Generate the following pages, based on this category\'s schema:',
-	'ps-page-desc-cat-not-exist'            => 'This category does not exist yet. Create this category and its page schema: ',
-	'ps-page-desc-ps-not-exist'             => 'This category exists, but does not have a page schema. Create schema:',
-	'ps-page-desc-edit-schema'              => 'This category exists,have a page schema. Edit schema:',
-	'ps-delimeter-label'                    => 'Delimiter for values (default is ","): ',
-	'ps-multiple-temp-label'				 => 'Allow multiple instances of this template',
-	'ps-field-list-label'					 => 'This field can hold a list of values',
-	'ps-add-xml-label'					     => 'Additional XML:',
-	'ps-schema-name-label'				     => 'Name of schema:',
-	'editschema' 							 => 'Edit schema',
-	'generatepages' 						 => 'Generate pages',
-	'createpages'                            => 'Create schema' , 
-											
+	'ps-pageschemas-desc'		=> 'Supports templates defining their data structure via XML markup',
+	'pageschemas-header'		=> 'The XML definition for this template is:',
+	'ps-property-isproperty'        => 'This is a property of type $1.',
+	'ps-property-allowedvals'       => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
+	'ps-generatepages'             	=> 'Generate pages',   
+	'ps-generatepages-desc'         => 'Generate the following pages, based on this category\'s schema:',
+	'ps-page-desc-cat-not-exist'    => 'This category does not exist yet. Create this category and its page schema: ',
+	'ps-page-desc-ps-not-exist'     => 'This category exists, but does not have a page schema. Create schema:',
+	'ps-page-desc-edit-schema'      => 'Edit the page schema for this category:',
+	'ps-delimiter-label'            => 'Delimiter for values (default is ","): ',
+	'ps-multiple-temp-label'	=> 'Allow multiple instances of this template',
+	'ps-field-list-label'		=> 'This field can hold a list of values',
+	'pageschemas-template'		=> 'Template',
+	'ps-add-template'		=> 'Add template',
+	'ps-remove-template'		=> 'Remove template',
+	'pageschemas-field'		=> 'Field',
+	'pageschemas-displaylabel'	=> 'Display label:',
+	'ps-add-field'			=> 'Add field',
+	'ps-remove-field'		=> 'Remove field',
+	'ps-add-xml-label'		=> 'Additional XML:',
+	'ps-schema-name-label'		=> 'Name of schema:',
+	'editschema' 			=> 'Edit schema',
+	'createschema'                  => 'Create schema', 
+	'generatepages' 		=> 'Generate pages',
 );
 
 /** Message documentation (Message documentation)
  * @author Ankit Garg 
  */
 $messages['qqq'] = array(
-	'ps-ps-pageschemas-desc' => '{{desc}}',
+	'ps-pageschemas-desc' => '{{desc}}',
 	'pageschemas-header' => 'Header to display XML definition in template page',
 );
 
