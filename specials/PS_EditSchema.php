@@ -94,64 +94,15 @@ END;
 			$text_ex = preg_replace( '/starter/', '1', $htmlFromExtensions['sf_form'] );
 			$text .= $text_ex;
 		}
-		$delimeter_label = wfMsg( 'ps-delimeter-label' );
-		$multiple_temp_label = wfMsg( 'ps-multiple-temp-label' );
-		$field_list_label = wfMsg( 'ps-field-list-label' );
 
 		$text .= '<div id="templatesList">';
 		$text .= '<div class="templateBox" >';
-		$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
-		$text .= '<p>Name: <input type="text" name="t_name_1"/></p> ';
-		$text .= '<p><input type="checkbox" name="is_multiple_1"/> '.$multiple_temp_label.'</p> ';
-		$text .= '<div id="fieldsList_1">';
-		$text .= '<div class="fieldBox" >';
-		$text .= '<fieldset style="background: #bbb;"><legend>Field</legend>
-		<p>Field name: <input size="15" name="f_name_1">
-		Display label: <input size="15" name="f_label_1">
-		</p>
-		<p><input type="checkbox" name="f_is_list_1" class="isListCheckbox" />'.
-		$field_list_label . '
-		</p>
-		<div class="delimiterInput" style="display: none" ><p>' . $delimeter_label . ' <input type="text" name="f_delimiter_1" /> </p></div>';
-		if ( $htmlFromExtensions['smw'] != null ) {
-			$text_ex = preg_replace( '/starter/', '1', $htmlFromExtensions['smw'] );
-			$text .= $text_ex;
-		}
-		if ($htmlFromExtensions['sf'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $htmlFromExtensions['sf']);
-			$text .= $text_ex;
-		}
-		if ($htmlFromExtensions['sd'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $htmlFromExtensions['sd']);
-			$text .= $text_ex;
-		}
-
-		$text .= '<p>' . $add_xml_label . '
-		<textarea rows=4 style="width: 100%" name="f_add_xml_1"></textarea>
-		</p>
-		<input type="button" value="Remove field" class="deleteField" /></fieldset>
-		</div>
-		</div>
-		';
-		$add_field_button = Xml::element( 'input',
-			array(
-				'type' => 'button',
-				'value' => 'Add field',
-				'onclick' => "createTemplateAddField(1)"
-			)
-		);
-		$text .= Xml::tags( 'p', null, $add_field_button ) . "\n";
-		$text .= '<hr />
-			<p>'.$add_xml_label.'
-			<textarea rows=4 style="width: 100%" name="t_add_xml_1"></textarea>
-			</p>
-			<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
-		</fieldset> </div></div>';
+		$text .= '</div></div>';
 
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
-				'value' => 'Add template',
+				'value' => wfMsg( 'ps-add-template' ),
 				'onclick' => "createAddTemplate()"
 			)
 		);
@@ -166,32 +117,59 @@ END;
 	}
 
 	function starterFieldHTML( $htmlFromExtensions ) {
-		$starter_text = '<div class="templateBox" id="starterTemplate" style="display: none">
-<fieldset style="background: #ddd;">
-<legend>Template</legend>
-<p>Name: <input type="text" name="t_name_starter"/></p>
-<p><input type="checkbox" name="is_multiple_starter"/>Allow multiple instances of this template</p>
-<div id="fieldsList_starter">
-</div>
-	<p><input type="button" value="Add Field" onclick="createTemplateAddField(starter)" /></p>
+		$template_label = wfMsg( 'pageschemas-template' );
+		$delimiter_label = wfMsg( 'ps-delimiter-label' );
+		$multiple_temp_label = wfMsg( 'ps-multiple-temp-label' );
+		$add_xml_label = wfMsg('ps-add-xml-label');
+		$field_list_label = wfMsg( 'ps-field-list-label' );
 
-<hr />
-	<p>'.$add_xml_label.'
-	<textarea rows=4 style="width: 100%" name="t_add_xml_starter"></textarea>
-	</p>
-	<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
+		$starter_text = <<<END
+<div class="templateBox" id="starterTemplate" style="display: none">
+	<fieldset style="background: #ddd;">
+		<legend>$template_label</legend>
+		<p>Name: <input type="text" name="t_name_starter"/></p>
+		<p><input type="checkbox" name="is_multiple_starter"/>$multiple_temp_label</p>
+		<div id="fieldsList_starter">
+		</div>
+
+END;
+		$addFieldButton = Html::input( 'add-field', wfMsg( 'ps-add-field' ), 'button',
+			array( 'onclick' => 'createTemplateAddField(starter)' )
+		);
+		$starter_text .= Html::rawElement( 'p', null, $addFieldButton );
+		$starter_text .= <<<END
+		<hr />
+		<p>$add_xml_label
+			<textarea rows=4 style="width: 100%" name="t_add_xml_starter"></textarea>
+		</p>
+
+END;
+		$removeTemplateButton = Html::input( 'remove-template', wfMsg( 'ps-remove-template' ), 'button',
+			array( 'class' => 'deleteTemplate' )
+		);
+		$starter_text .= Html::rawElement( 'p', null, $removeTemplateButton );
+		$starter_text .= <<<END
 	</fieldset>
-	</div>
-		<hr /> ';
-		$starter_text .= '<div class="fieldBox" id="starterField" style="display: none">
-				<fieldset style="background: #bbb;"><legend>Field</legend>
-				<p>
-				<input size="15" name="f_name_starter">
-				Display label: <input size="15" name="f_label_starter">
-				</p>
-			<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> This field can hold a list of values
-	&#160;&#160;</p>
-	<div class="delimiterInput" style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_starter" /> </p></div>';
+</div>
+<hr />
+
+END;
+		$field_label = wfMsg( 'pageschemas-field' );
+		$display_label = wfMsg( 'pageschemas-displaylabel' );
+		$starter_text .= <<<END
+<div class="fieldBox" id="starterField" style="display: none">
+	<fieldset style="background: #bbb;"><legend>$field_label</legend>
+		<p>
+			Field name: <input size="15" name="f_name_starter">
+			$display_label <input size="15" name="f_label_starter">
+		</p>
+		<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> $field_list_label
+		&#160;&#160;</p>
+		<p class="delimiterInput" style="display: none" >
+			$delimiter_label <input type="text" name="f_delimiter_starter" />
+		</p>
+
+END;
 		if ($htmlFromExtensions['smw'] != null ) {
 			$starter_text .= $htmlFromExtensions['smw'];
 		}
@@ -201,12 +179,21 @@ END;
 		if ($htmlFromExtensions['sd'] != null ) {
 			$starter_text .= $htmlFromExtensions['sd'];
 		}
-		$starter_text .= '<p>'.$add_xml_label.'
-				<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea>
-				</p>
-				<input type="button" value="Remove field" class="deleteField" />
-</fieldset>
-</div>';
+		$starter_text .= <<<END
+		<p>$add_xml_label
+			<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea>
+		</p>
+
+END;
+		$removeFieldButton = Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
+			array( 'class' => 'deleteField' )
+		);
+		$starter_text .= $removeFieldButton;
+		$starter_text .= <<<END
+	</fieldset>
+</div>
+
+END;
 		return $starter_text;
 	}
 
@@ -231,7 +218,7 @@ END;
 			$ps_add_xml = $wgRequest->getText( 'ps_add_xml' );
 			$XMLtext .= $ps_add_xml;
 			$fieldName = "";
-			$fieldNum= -1;
+			$fieldNum = -1;
 			$templateNum = -1;
 			$xmlFromExtensions = array(); //This var. will save the xml text returned by the extensions
 			wfRunHooks( 'getXmlTextForFieldInputs', array( $wgRequest, &$xmlFromExtensions ));
@@ -252,15 +239,15 @@ END;
 					$fieldNum = substr($var,7,1);
 					if ($wgRequest->getCheck( 'f_is_list_'.$fieldNum ) ) {
 						if ( $wgRequest->getText('f_delimiter_'.$fieldNum) != '' ) {
-							$delimeter = $wgRequest->getText('f_delimiter_'.$fieldNum);
-							$XMLtext .= '<Field name="'.$fieldName.'" list="list" delimiter="'.$delimeter.'">';
+							$delimiter = $wgRequest->getText('f_delimiter_'.$fieldNum);
+							$XMLtext .= '<Field name="'.$fieldName.'" list="list" delimiter="'.$delimiter.'">';
 						} else {
 							$XMLtext .= '<Field name="'.$fieldName.'" list="list">';
 						}
 					} else {
 						$XMLtext .= '<Field name="'.$fieldName.'">';
 					}
-				} elseif (substr($var,0,8) == 'f_label_' ) {
+				} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
 					$XMLtext .= '<Label>'.$val.'</Label>';
 					//Get XML parsed from extensions
 					if ( $xmlFromExtensions['smw'] != null ) {
@@ -282,10 +269,10 @@ END;
 						}
 					}
 					$indexGlobalField++ ;
-				} elseif (substr($var,0,10) == 'f_add_xml_' ) {
+				} elseif ( substr( $var, 0, 10 ) == 'f_add_xml_' ) {
 					$XMLtext .= $val;
 					$XMLtext .= '</Field>';
-				} elseif (substr($var,0,10) == 't_add_xml_' ) {
+				} elseif ( substr( $var, 0, 10 ) == 't_add_xml_' ) {
 					$XMLtext .= $val;
 					$XMLtext .= '</Template>';
 				}
@@ -328,14 +315,14 @@ END;
 					'pp_propname' => 'PageSchema'
 				)
 			);
+			$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
 			while ( $row = $dbr->fetchRow( $res ) ) {
 				if ( $row[2] != null ) {
 					$page_id_cat = $row[0];
 					if ( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY ) {
 						$cat_text = Title::newFromId($page_id_cat)->getText();
-						$generatePagesPage = SpecialPage::getTitleFor( 'EditSchema' );
-						$url = $generatePagesPage ->getFullURL() . '/' . $cat_text;
-						$text .= '<a href='.$url.'>' . $cat_text . '</a> <br /> ';
+						$url = $editSchemaPage ->getFullURL() . '/' . $cat_text;
+						$text .= Html::element( 'a', array( 'href' => $url ), $cat_text ) . '<br />';
 					}
 				}
 			}
@@ -367,7 +354,7 @@ END;
 		//first row of the result set
 		$row = $dbr->fetchRow( $res );
 		if ( $row == null && !$title->exists() ) {
-			//Create form here, Cat doesnt exist, create new cat with this text
+			// Category doesn't exist.
 			$text = '<p>'.wfMsg( 'ps-page-desc-cat-not-exist' ).'</p>';
 			$text .= $formHTML;
 			$wgOut->addHTML( $text );
@@ -375,12 +362,15 @@ END;
 		}
 
 		if ( ($row[1] != 'PageSchema') || ($row[2] == null ) ) {
+			// Category exists, but has no page schema.
 			$text = '<p>'.wfMsg( 'ps-page-desc-ps-not-exist' ).'</p>';
 			$text .= $formHTML;
 			$wgOut->addHTML($text );
+			return true;
 		}
 
-		// Populate the form here with autocompleted values
+		// If we're here, it's a category with an existing page schema - populate the
+		// form with its values.
 		$pageXMLstr = $row[2];
 		$pageXML = simplexml_load_string( $pageXMLstr );
 		$ps_add_xml = "";
@@ -411,30 +401,28 @@ END;
 				$template_num++;
 				$field_count = 0;
 				if ( count($template_xml->children()) > 0 ) {
-					$templateName = (string) $template_xml->attributes()->name;
 					$text_4 .= '<div class="templateBox" >';
 					$text_4 .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
-					$text_4 .= '<p>Name: <input type="text" name="t_name_'.$template_num.'" value="'.$templateName.'" /></p> ';
+					$templateName = (string) $template_xml->attributes()->name;
+					$templateNameInput = Html::input( 't_name_' . $template_num, $templateName, 'text' );
+					$text_4 .= '<p>Name: ' . $templateNameInput . '</p> ';
+					$attrs = array();
 					if ( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
-						$text_4 .= '<p><input type="checkbox" checked name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
-					} else {
-						$text_4 .= '<p><input type="checkbox" name="is_multiple_'.$template_num.'"/> Allow multiple instances of this template</p> ';
+						$attrs['checked'] = 'checked';
 					}
+					$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
+					$text_4 .= Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
 					foreach ( $template_xml->children() as $field_xml ) {
 						if ( $field_xml->getName() != 'Field' ) {
 							$template_add_xml .= (string)$field_xml->asXML();
 						}
 					}
 					$text_4 .= '<div id="fieldsList_'.$template_num.'">';
-					$list_values = false;
 					foreach ( $template_xml->children() as $field_xml ) {
 						if ( $field_xml->getName() == "Field" ) {
 							$fieldName = (string)$field_xml->attributes()->name;
 							$text_4 .= '<div class="fieldBox" >';
 							$text_4 .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
-							if ( ((string)$field_xml->attributes()->list) == "list") {
-								$list_values = true;
-							}
 							if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
 								$delimiter = (string)$field_xml->attributes()->delimiter;
 							}
@@ -444,15 +432,21 @@ END;
 								}
 							}
 							$text_4 .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" >';
-							$text_4 .= 'Display label: <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
+							$display_label = wfMsg( 'pageschemas-displaylabel' );
+							$text_4 .= $display_label . ' <input size="15" name="f_label_'.$field_count.'" value="'.$fieldLabel.'" >
 		</p> ';
-							if ($list_values ) {
-								$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" checked class="isListCheckbox" /> This field can hold a list of values</p> ';
-								$text_4 .= '<div class="delimiterInput" style="display:"><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" value="'.$delimiter.'" /> </p></div>';
+							$attrs = array();
+							$pAttrs = array( 'class' => 'delimiterInput' );
+							if ( ((string)$field_xml->attributes()->list) == "list" ) {
+								$attrs['checked'] = 'checked';
 							} else {
-								$text_4 .= '<p><input type="checkbox" name="f_is_list_'.$field_count.'" class="isListCheckbox" /> This field can hold a list of values</p> ';
-								$text_4 .= '<div class="delimiterInput" style="display: none" ><p>Delimiter for values (default is ","): <input type="text" name="f_delimiter_'.$field_count.'" /> </p></div>';
+								$pAttrs['style'] = 'display: none';
 							}
+							$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $attrs );
+							$text_4 .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
+							$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', null );
+							$text_4 .= Html::rawElement( 'p', $pAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+
 							//Inserting HTML text from Extensions
 
 							if ( $filledHTMLFromExtensions['smw'] != null ) {
@@ -477,13 +471,22 @@ END;
 								}
 							}
 
-							$text_4 .= '<p>'.$add_xml_label.'
-		<textarea rows=4 style="width: 100%" name="f_add_xml_'.$field_count.'"></textarea>
+							$text_4 .= <<<END
+		<p>$add_xml_label
+		<textarea rows=4 style="width: 100%" name="f_add_xml_$field_count"></textarea>
 		</p>
-		<input type="button" value="Remove field" class="deleteField" /></fieldset>
+
+END;
+							$removeFieldButton = Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
+								array( 'class' => 'deleteField' )
+							);
+							$text_4 .= $removeFieldButton;
+							$text_4 .= <<<END
+		</fieldset>
 		</div>
 		</div>
-		';
+
+END;
 							$field_count++;
 							$text_4 .= '<script type="text/javascript">
 						updateFieldNum('.$field_count.');
@@ -494,7 +497,7 @@ END;
 					$add_field_button = Xml::element( 'input',
 						array(
 							'type' => 'button',
-							'value' => 'Add field',
+							'value' => wfMsg( 'ps-add-field' ),
 							'onclick' => "createTemplateAddField($template_num)"
 						)
 					);
@@ -511,7 +514,7 @@ END;
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
-				'value' => 'Add template',
+				'value' => wfMsg( 'ps-add-template' ),
 				'onclick' => "createAddTemplate()"
 			)
 		);
