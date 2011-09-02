@@ -88,8 +88,10 @@ $messages['be-tarask'] = array(
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
-	'ps-generate-pages' => 'Стварыць старонкі',
-	'ps-generate-pages-desc' => 'Стварае старонкі, зыходзячы са схемы катэгорыі:',
+	'ps-schema-description' => 'Апісаньне схемы:',
+	'generatepages' => 'Стварыць старонкі',
+	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
+	'ps-generatepages-success' => 'Старонкі будуць створаныя.',
 );
 
 /** Breton (Brezhoneg)
