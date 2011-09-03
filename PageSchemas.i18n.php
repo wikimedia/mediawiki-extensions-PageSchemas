@@ -81,6 +81,7 @@ $messages['arz'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Renessaince
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -92,6 +93,23 @@ $messages['be-tarask'] = array(
 	'generatepages' => 'Стварыць старонкі',
 	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
 	'ps-generatepages-success' => 'Старонкі будуць створаныя.',
+	'ps-generatepages-noschema' => 'Памылка: для гэтае катэгорыі не апісаная схема старонкі.',
+	'ps-page-desc-cat-not-exist' => 'Гэтая катэгорыя яшчэ не існуе. Стварыць яе і ейную схему старонкі:',
+	'ps-page-desc-ps-not-exist' => 'Гэтая катэгорыя існуе, аднак ня мае схемы старонкі. Стварыць схему:',
+	'ps-page-desc-edit-schema' => 'Рэдагаваць схему для гэтай катэгорыі:',
+	'ps-delimiter-label' => 'Разьдзяляльнік для значэньняў (дапомна ","):',
+	'ps-multiple-temp-label' => 'Дазволіць некалькі варыянтаў гэтага шаблёну',
+	'ps-field-list-label' => 'Гэтае поле можа зьмяшчаць набор значэньняў',
+	'ps-template' => 'Шаблён',
+	'ps-add-template' => 'Дадаць шаблён',
+	'ps-remove-template' => 'Выдаліць шаблён',
+	'ps-field' => 'Поле',
+	'ps-displaylabel' => 'Адлюстраваць пазнаку:',
+	'ps-add-field' => 'Дадаць поле',
+	'ps-remove-field' => 'Выдаліць поле',
+	'ps-add-xml-label' => 'Дадатковы XML:',
+	'ps-schema-name-label' => 'Назва схемы:',
+	'editschema' => 'Рэдагаваць схему',
 );
 
 /** Breton (Brezhoneg)
@@ -276,8 +294,21 @@ $messages['ia'] = array(
 	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
 	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
 	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
-	'ps-generate-pages' => 'Generar paginas',
-	'ps-generate-pages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
+	'ps-schema-description' => 'Description del schema:',
+	'generatepages' => 'Generar paginas',
+	'ps-generatepages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
+	'ps-generatepages-success' => 'Le paginas essera generate.',
+	'ps-generatepages-noschema' => 'Error: Il non ha un schema de pagina definite pro iste categoria.',
+	'ps-page-desc-cat-not-exist' => 'Iste categoria non existe ancora. Crea iste categoria e su schema de pagina:',
+	'ps-page-desc-ps-not-exist' => 'Iste categoria existe, ma non ha un schema de pagina. Crea le schema:',
+	'ps-page-desc-edit-schema' => 'Modifica le schema de pagina pro iste categoria:',
+	'ps-delimiter-label' => 'Delimitator pro valores (predefinition es ","):',
+	'ps-multiple-temp-label' => 'Permitter plure instantias de iste patrono',
+	'ps-field-list-label' => 'Iste campo pote tener un lista de valores',
+	'ps-template' => 'Patrono',
+	'ps-add-template' => 'Adder patrono',
+	'ps-remove-template' => 'Remover patrono',
+	'ps-field' => 'Campo',
 );
 
 /** Indonesian (Bahasa Indonesia)
