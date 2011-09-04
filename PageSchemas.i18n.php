@@ -242,11 +242,13 @@ $messages['frp'] = array(
 );
 
 /** Galician (Galego)
+ * @author MetalBrasil
  * @author Toliño
  */
 $messages['gl'] = array(
 	'ps-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
 	'pageschemas-header' => 'A definición XML para este modelo é:',
+	'ps-property-isproperty' => 'Esta é unha propriedade de clase $1.',
 );
 
 /** Swiss German (Alemannisch)
