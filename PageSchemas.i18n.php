@@ -311,6 +311,12 @@ $messages['ia'] = array(
 	'ps-add-template' => 'Adder patrono',
 	'ps-remove-template' => 'Remover patrono',
 	'ps-field' => 'Campo',
+	'ps-displaylabel' => 'Etiquetta pro monstrar:',
+	'ps-add-field' => 'Adder campo',
+	'ps-remove-field' => 'Remover campo',
+	'ps-add-xml-label' => 'Additional XML:',
+	'ps-schema-name-label' => 'Nomine del schema:',
+	'editschema' => 'Modificar schema',
 );
 
 /** Indonesian (Bahasa Indonesia)
