@@ -239,6 +239,18 @@ $messages['fr'] = array(
 $messages['frp'] = array(
 	'ps-desc' => 'Recognêt los modèlos en dèfenéssent lor structura de balyês avouéc des balises XML.',
 	'pageschemas-header' => 'La dèfinicion XML por ceti modèlo est :',
+	'ps-schema-description' => 'Dèscripcion du plan :',
+	'generatepages' => 'Fâre les pâges',
+	'ps-template' => 'Modèlo',
+	'ps-add-template' => 'Apondre un modèlo',
+	'ps-remove-template' => 'Enlevar un modèlo',
+	'ps-field' => 'Champ',
+	'ps-displaylabel' => 'Ètiquèta por la visualisacion :',
+	'ps-add-field' => 'Apondre un champ',
+	'ps-remove-field' => 'Enlevar un champ',
+	'ps-add-xml-label' => 'XML de ples :',
+	'ps-schema-name-label' => 'Nom du plan :',
+	'editschema' => 'Changiér lo plan',
 );
 
 /** Galician (Galego)
@@ -248,7 +260,8 @@ $messages['frp'] = array(
 $messages['gl'] = array(
 	'ps-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
 	'pageschemas-header' => 'A definición XML para este modelo é:',
-	'ps-property-isproperty' => 'Esta é unha propriedade de clase $1.',
+	'ps-property-isproperty' => 'Esta é unha propiedade de clase $1.',
+	'ps-field' => 'Campo',
 );
 
 /** Swiss German (Alemannisch)
