@@ -378,10 +378,34 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Fryed-peach
+ * @author Schu
  */
 $messages['ja'] = array(
-	'ps-desc' => '自身のデータ構造を XML マークアップで定義するテンプレートをサポートする',
+	'ps-desc' => 'XML マークアップによってデータ構造を定義するテンプレートをサポートします。',
 	'pageschemas-header' => 'このテンプレートの XML 定義は以下のようになっています:',
+	'ps-property-isproperty' => 'これはタイプ $1 のプロパティです。',
+	'ps-property-allowedvals' => '{{PLURAL:$1|このプロパティの値が|このプロパティの値が}}許可されています：',
+	'ps-schema-description' => 'スキーマの説明：',
+	'generatepages' => 'ページを生成',
+	'ps-generatepages-desc' => 'このカテゴリのスキーマに基づいて、次のページを生成',
+	'ps-generatepages-success' => 'ページが生成されます。',
+	'ps-generatepages-noschema' => 'エラー：このカテゴリに定義されているページのスキーマはありません。',
+	'ps-page-desc-cat-not-exist' => 'このカテゴリはまだ存在しません。このカテゴリとそのページのスキーマを作成します。',
+	'ps-page-desc-ps-not-exist' => 'このカテゴリは存在しますが、ページのスキーマを持っていません。スキーマを作成：',
+	'ps-page-desc-edit-schema' => 'このカテゴリのページのスキーマを編集：',
+	'ps-delimiter-label' => '値の区切り文字 (デフォルトは "," )：',
+	'ps-multiple-temp-label' => 'このテンプレートの複数のインスタンスを許可',
+	'ps-field-list-label' => 'このフィールドは、値のリストを保持することができます',
+	'ps-template' => 'テンプレート',
+	'ps-add-template' => 'テンプレートを追加',
+	'ps-remove-template' => 'テンプレートを削除',
+	'ps-field' => 'フィールド',
+	'ps-displaylabel' => '表示ラベル：',
+	'ps-add-field' => 'フィールドを追加',
+	'ps-remove-field' => 'フィールドを削除',
+	'ps-add-xml-label' => '追加のXML：',
+	'ps-schema-name-label' => 'スキーマの名前：',
+	'editschema' => 'スキーマを編集',
 );
 
 /** Colognian (Ripoarisch)
