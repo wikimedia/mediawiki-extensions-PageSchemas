@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays an interface to let users create all pages based on xml
+ * Displays an interface to let users create and edit the <PageSchema> XML.
  *
  * @author Ankit Garg
  */
@@ -19,12 +19,13 @@ class PSEditSchema extends IncludableSpecialPage {
 		$template_name_error_str = wfMsg( 'sf_blank_error' );
 		$jsText =<<<END
 <script type="text/javascript">
-var fieldNum = 1;
-var templateNum = 1;
-function createTemplateAddField(template_num) {
+var fieldNum = 0;
+var templateNum = 0;
+// TODO - this function should be a jQuery 'fn' instead
+function psAddField(template_num) {
 	fieldNum++;
 	newField = jQuery('#starterField').clone().css('display', '').removeAttr('id');
-	newHTML = newField.html().replace(/starter/g, fieldNum);
+	newHTML = newField.html().replace(/fnum/g, fieldNum);
 	newField.html(newHTML);
 	newField.find(".deleteField").click( function() {
 		// Remove the encompassing div for this instance.
@@ -35,10 +36,10 @@ function createTemplateAddField(template_num) {
 	addjQueryToCheckbox();
 }
 
-function createAddTemplate() {
+function psAddTemplate() {
 	templateNum++;
 	newField = jQuery('#starterTemplate').clone().css('display', '').removeAttr('id');
-	newHTML = newField.html().replace(/starter/g, templateNum);
+	newHTML = newField.html().replace(/tnum/g, templateNum);
 	newField.html(newHTML);
 	newField.find(".deleteTemplate").click( function() {
 		// Remove the encompassing div for this instance.
@@ -48,7 +49,7 @@ function createAddTemplate() {
 	jQuery('#templatesList').append(newField);
 }
 
-function updateFieldNum(field_num ) {
+function updateFieldNum(field_num) {
 	fieldNum = field_num;
 }
 
@@ -74,6 +75,10 @@ jQuery(document).ready(function() {
 			.fadeOut('fast', function() { jQuery(this).remove(); });
 	});
 	addjQueryToCheckbox();
+	jQuery('#editPageSchemaForm').submit( function() {
+		jQuery('#starterTemplate').find("input, select, textarea").attr('disabled', 'disabled');
+		return true;
+	} );
 });
 </script>
 
@@ -81,122 +86,10 @@ END;
 		$wgOut->addScript( $jsText );
 	}
 
-	function blankFormHTML( $htmlFromExtensions ) {
-		//$schema_name_label = wfMsg('ps-schema-name-label');
-		$add_xml_label = wfMsg('ps-add-xml-label');
-
-		$text = '	<form id="createPageSchemaForm" action="" method="post">' . "\n";
-		//$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name"/> </p> ';
-		$text .= '<p>'.$add_xml_label.'
-		<textarea rows=4 style="width: 100%" name="ps_add_xml"></textarea>
-		</p> ';
-		if ( $htmlFromExtensions['sf_form'] != null ) {
-			$text_ex = preg_replace( '/starter/', '1', $htmlFromExtensions['sf_form'] );
-			$text .= $text_ex;
-		}
-
-		$text .= '<div id="templatesList">';
-		$text .= '<div class="templateBox" >';
-		$text .= '</div></div>';
-
-		$add_template_button = Xml::element( 'input',
-			array(
-				'type' => 'button',
-				'value' => wfMsg( 'ps-add-template' ),
-				'onclick' => "createAddTemplate()"
-			)
-		);
-		$text .= Xml::tags( 'p', null, $add_template_button ) . "\n";
-		$text .= '		<hr />
-		<div class="editButtons">
-	<input type="submit" id="wpSave" name="wpSave" value="Save" />
-	</div>';
-		$text .= '	</form>';
-
-		return $text;
-	}
-
-	function starterFieldHTML( $htmlFromExtensions ) {
-		$template_label = wfMsg( 'ps-template' );
-		$delimiter_label = wfMsg( 'ps-delimiter-label' );
-		$multiple_temp_label = wfMsg( 'ps-multiple-temp-label' );
-		$add_xml_label = wfMsg('ps-add-xml-label');
-		$field_list_label = wfMsg( 'ps-field-list-label' );
-
-		$starter_text = <<<END
-<div class="templateBox" id="starterTemplate" style="display: none">
-	<fieldset style="background: #ddd;">
-		<legend>$template_label</legend>
-		<p>Name: <input type="text" name="t_name_starter"/></p>
-		<p><input type="checkbox" name="is_multiple_starter"/>$multiple_temp_label</p>
-		<div id="fieldsList_starter">
-		</div>
-
-END;
-		$addFieldButton = Html::input( 'add-field', wfMsg( 'ps-add-field' ), 'button',
-			array( 'onclick' => 'createTemplateAddField(starter)' )
-		);
-		$starter_text .= Html::rawElement( 'p', null, $addFieldButton );
-		$starter_text .= <<<END
-		<hr />
-		<p>$add_xml_label
-			<textarea rows=4 style="width: 100%" name="t_add_xml_starter"></textarea>
-		</p>
-
-END;
-		$removeTemplateButton = Html::input( 'remove-template', wfMsg( 'ps-remove-template' ), 'button',
-			array( 'class' => 'deleteTemplate' )
-		);
-		$starter_text .= Html::rawElement( 'p', null, $removeTemplateButton );
-		$starter_text .= <<<END
-	</fieldset>
-</div>
-<hr />
-
-END;
-		$field_label = wfMsg( 'ps-field' );
-		$display_label = wfMsg( 'ps-displaylabel' );
-		$starter_text .= <<<END
-<div class="fieldBox" id="starterField" style="display: none">
-	<fieldset style="background: #bbb;"><legend>$field_label</legend>
-		<p>
-			Field name: <input size="15" name="f_name_starter">
-			$display_label <input size="15" name="f_label_starter">
-		</p>
-		<p><input type="checkbox" name="f_is_list_starter" class="isListCheckbox" /> $field_list_label
-		&#160;&#160;</p>
-		<p class="delimiterInput" style="display: none" >
-			$delimiter_label <input type="text" name="f_delimiter_starter" />
-		</p>
-
-END;
-		if ($htmlFromExtensions['smw'] != null ) {
-			$starter_text .= $htmlFromExtensions['smw'];
-		}
-		if ($htmlFromExtensions['sf'] != null ) {
-			$starter_text .= $htmlFromExtensions['sf'];
-		}
-		if ($htmlFromExtensions['sd'] != null ) {
-			$starter_text .= $htmlFromExtensions['sd'];
-		}
-		$starter_text .= <<<END
-		<p>$add_xml_label
-			<textarea rows=4 style="width: 100%" name="f_add_xml_starter"></textarea>
-		</p>
-
-END;
-		$removeFieldButton = Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
-			array( 'class' => 'deleteField' )
-		);
-		$starter_text .= $removeFieldButton;
-		$starter_text .= <<<END
-	</fieldset>
-</div>
-
-END;
-		return $starter_text;
-	}
-
+	/**
+	 * Creates full <PageSchema> XML text, based on what was passed in by
+	 * the form.
+	 */
 	static function pageSchemaXMLFromRequest() {
 		global $wgRequest;
 
@@ -220,28 +113,30 @@ END;
 		}
 		$indexGlobalField = 0 ; //this variable is use to index the array returned by extensions for XML.
 		foreach ( $wgRequest->getValues() as $var => $val ) {
+			$suffix = substr( $var, -3 );
+			// Ignore fields from the hidden/starter div
 			if ( substr( $var, 0, 7 ) == 't_name_' ) {
-				$templateNum = substr($var,7,1);
-				if ($wgRequest->getCheck( 'is_multiple_'.$templateNum ) ) {
+				$templateNum = substr( $var, 7 );
+				if ( $wgRequest->getCheck( 'is_multiple_' . $templateNum ) ) {
 					$psXML .= '<Template name="'.$val.'" multiple="multiple">';
 				} else {
 					$psXML .= '<Template name="'.$val.'">';
 				}
 			} elseif ( substr( $var, 0, 7 ) == 'f_name_' ) {
+				$fieldNum = substr( $var, 7 );
 				$fieldName = $val;
-				$fieldNum = substr($var,7,1);
-				if ( $wgRequest->getCheck( 'f_is_list_'.$fieldNum ) ) {
-					if ( $wgRequest->getText('f_delimiter_'.$fieldNum) != '' ) {
-						$delimiter = $wgRequest->getText('f_delimiter_'.$fieldNum);
-						$psXML .= '<Field name="'.$fieldName.'" list="list" delimiter="'.$delimiter.'">';
+				if ( $wgRequest->getCheck( 'f_is_list_' . $fieldNum ) ) {
+					if ( $wgRequest->getText( 'f_delimiter_' . $fieldNum ) != '' ) {
+						$delimiter = $wgRequest->getText( 'f_delimiter_' . $fieldNum );
+						$psXML .= '<Field name="'.$fieldName . '" list="list" delimiter="' . $delimiter . '">';
 					} else {
-						$psXML .= '<Field name="'.$fieldName.'" list="list">';
+						$psXML .= '<Field name="'.$fieldName . '" list="list">';
 					}
 				} else {
-					$psXML .= '<Field name="'.$fieldName.'">';
+					$psXML .= '<Field name="' . $fieldName . '">';
 				}
 			} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
-				$psXML .= '<Label>'.$val.'</Label>';
+				$psXML .= '<Label>' . $val . '</Label>';
 
 				// Get XML created by extensions
 				foreach ( $fieldXMLFromExtensions as $extensionName => $xmlPerField ) {
@@ -262,91 +157,16 @@ END;
 		return $psXML;
 	}
 
-	function execute( $category ) {
-		global $wgRequest, $wgOut, $wgUser;
-		global $wgSkin;
-
-		$this->setHeaders();
-		$text_3 = '<p>'.wfMsg( 'ps-page-desc-edit-schema' ).'</p>';
-		self::addJavascript();
-
-		$htmlFromExtensions = array(); //This var. will save the html text returned by the extensions
-		$js_extensions = array();
-		wfRunHooks( 'getHtmlTextForFieldInputs', array( &$js_extensions, &$htmlFromExtensions ) );
-
-		$save_page = $wgRequest->getCheck( 'wpSave' );
-		if ( $save_page ) {
-			$psXML = self::pageSchemaXMLFromRequest();
-			$pageSchemaObj = new PSSchema( $category );
-			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			$categoryArticle = new Article( $categoryTitle );
-			$pageText = $categoryArticle->getContent();
-			if ( $pageSchemaObj->isPSDefined() ) {
-				//Do some preg-replace magic
-				$tag = "PageSchema";
-				$pageText = preg_replace('{<'.$tag.'[^>]*>([^@]*?)</'.$tag.'>'.'}', $psXML, $pageText);
-			} else {
-				$pageText = $psXML . $pageText;
-			}
-			$editSummary = $wgRequest->getVal( 'wpSummary' );
-			$categoryArticle->doEdit( $pageText, $editSummary );
-			$redirectURL = $categoryTitle->getLocalURL();
-			$text .= <<<END
-		<script type="text/javascript">
-		window.onload = function() {
-			window.location="$redirectURL";
-		}
-		</script>
-
-END;
-			$wgOut->addHTML( $text );
-			return true;
-		}
-
-		if ( $category == "" ) {
-			// No category was specified - show the list of categories with a page schema defined.
-			$cat_titles = array();
-			$count_title = 0;
-			$text = "";
-			$dbr = wfGetDB( DB_SLAVE );
-			//get the result set, query : slect page_props
-			$res = $dbr->select( 'page_props',
-				array(
-					'pp_page',
-					'pp_propname',
-					'pp_value'
-				),
-				array(
-					'pp_propname' => 'PageSchema'
-				)
-			);
-			$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
-			while ( $row = $dbr->fetchRow( $res ) ) {
-				if ( $row[2] != null ) {
-					$page_id_cat = $row[0];
-					if ( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY ) {
-						$cat_text = Title::newFromId($page_id_cat)->getText();
-						$url = $editSchemaPage ->getFullURL() . '/' . $cat_text;
-						$text .= Html::element( 'a', array( 'href' => $url ), $cat_text ) . '<br />';
-					}
-				}
-			}
-			$dbr->freeResult( $res );
-			$wgOut->addHTML( $text );
-			return true;
-		}
-
-		// We have a category - show a form.
-		$formHTML = self::blankFormHTML( $htmlFromExtensions );
-		$formHTML .= self::starterFieldHTML( $htmlFromExtensions );
-
-		$add_xml_label = wfMsg('ps-add-xml-label');
-
-		$pageSchemaObj = new PSSchema( $category );
-		$title = Title::newFromText( $category, NS_CATEGORY );
-		$pageId = $title->getArticleID();
+	/**
+	 * Displays a list of links to categories that have a page schema
+	 * defined; for use in Special:EditSchema, if no category is specified.
+	 */
+	static function showLinksToCategories() {
+		$cat_titles = array();
+		$count_title = 0;
+		$text = "";
 		$dbr = wfGetDB( DB_SLAVE );
-		//get the result set, query : select page_props
+		//get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
 			array(
 				'pp_page',
@@ -354,177 +174,235 @@ END;
 				'pp_value'
 			),
 			array(
-				'pp_page' => $pageId,
+				'pp_propname' => 'PageSchema'
 			)
 		);
-
-		//first row of the result set
-		$row = $dbr->fetchRow( $res );
-		if ( $row == null && !$title->exists() ) {
-			// Category doesn't exist.
-			$text = '<p>'.wfMsg( 'ps-page-desc-cat-not-exist' ).'</p>';
-			$text .= $formHTML;
-			$wgOut->addHTML( $text );
-			return true;
-		}
-
-		if ( ($row[1] != 'PageSchema') || ($row[2] == null ) ) {
-			// Category exists, but has no page schema.
-			$text = '<p>'.wfMsg( 'ps-page-desc-ps-not-exist' ).'</p>';
-			$text .= $formHTML;
-			$wgOut->addHTML($text );
-			return true;
-		}
-
-		// If we're here, it's a category with an existing page schema - populate the
-		// form with its values.
-		$pageXMLstr = $row[2];
-		$pageXML = simplexml_load_string( $pageXMLstr );
-		$ps_add_xml = "";
-		//$pageName = (string)$pageXML->attributes()->name;
-		$text = '<form id="editPageSchemaForm" action="" method="post">' . "\n";
-		//$text .= '<p>'.$schema_name_label.' <input type="text" name="s_name" value="'.$pageName.'" /> </p> ';
-		foreach ( $pageXML->children() as $template_xml ) {
-			if ( ( $template_xml->getName() != 'Template') && ($template_xml->getName() != 'semanticforms_Form') ) {
-				$ps_add_xml .= (string)$template_xml->asXML();
+		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
+		while ( $row = $dbr->fetchRow( $res ) ) {
+			if ( $row[2] != null ) {
+				$page_id_cat = $row[0];
+				if ( Title::newFromId( $page_id_cat )->getNamespace() == NS_CATEGORY ) {
+					$cat_text = Title::newFromId( $page_id_cat )->getText();
+					$url = $editSchemaPage ->getFullURL() . '/' . $cat_text;
+					$text .= Html::element( 'a', array( 'href' => $url ), $cat_text ) . '<br />';
+				}
 			}
 		}
-		$text .= '<p>' . $add_xml_label . '
-				<textarea rows=4 style="width: 100%" name="ps_add_xml" >' . $ps_add_xml . '</textarea>
-				</p> ';
+		$dbr->freeResult( $res );
+		return $text;
+	}
 
-		$filledHTMLFromExtensions = array();
-		wfRunHooks( 'getFilledHtmlTextForFieldInputs', array( $pageSchemaObj, &$filledHTMLFromExtensions ));
-		if ( $filledHTMLFromExtensions['sf_form'] != null ) {
-			$text_ex = preg_replace('/starter/', '1', $filledHTMLFromExtensions['sf_form']);
-			$text .= $text_ex;
+	/*
+	 * Returns the HTML for one section of the EditSchema form.
+	 */
+	static function printFormSection( $label, $topColor, $html, $bgColor = 'white' ) {
+		return  "<div style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n" .
+			"<div style=\"font-weight: bold; background: $topColor; padding: 4px 7px; border-bottom: 1px #bbb solid;\">$label</div>\n" .
+			"<div style=\"padding: 5px 15px;\">$html</div>\n" .
+			"</div>\n";
+	}
+
+	/*
+	 * Returns the HTML for a form section coming from a specific extension.
+	 */
+	static function printFieldHTMLForExtension( $valuesFromExtension ) {
+		list( $label, $color, $html ) = $valuesFromExtension;
+		return self::printFormSection( $label, $color, $html );
+	}
+
+	/**
+	 * Returns the HTML for a section of the form comprising one
+	 * template field.
+	 */
+	static function printFieldSection( $field_xml = null, $pageSchemaField = null, $field_count = 'fnum' ) {
+		$fieldName = '';
+		$delimiter = '';
+		$fieldLabel = '';
+		$attrs = array();
+		$pAttrs = array( 'class' => 'delimiterInput' );
+		if ( is_null( $field_xml ) ) {
+			$text = '<div class="fieldBox" id="starterField" style="display: none" >';
+		} else {
+			$text = '<div class="fieldBox" >';
+			$fieldName = (string)$field_xml->attributes()->name;
+			if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
+				$delimiter = (string)$field_xml->attributes()->delimiter;
+			}
+			foreach ( $field_xml->children() as $tag => $child ) {
+				if ( $tag == 'Label' ) {
+					$fieldLabel = (string)$child;
+				}
+			}
+			if ( ((string)$field_xml->attributes()->list) == "list" ) {
+				$attrs['checked'] = 'checked';
+			} else {
+				$pAttrs['style'] = 'display: none';
+			}
 		}
-		$text .= '<div id="templatesList">';
-		$template_num = 0;
-		/* index for template objects */
-		foreach ( $pageXML->children() as $tag => $template_xml ) {
-			if ( $tag == 'Template' ) {
-				$template_add_xml = "";
-				$template_num++;
-				$field_count = 0;
-				if ( count($template_xml->children()) > 0 ) {
-					$text .= '<div class="templateBox" >';
-					$text .= '<fieldset style="background: #ddd;"><legend>Template</legend> ';
-					$templateName = (string) $template_xml->attributes()->name;
-					$templateNameInput = Html::input( 't_name_' . $template_num, $templateName, 'text' );
-					$text .= '<p>Name: ' . $templateNameInput . '</p> ';
-					$attrs = array();
-					if ( ((string) $template_xml->attributes()->multiple) == "multiple" ) {
-						$attrs['checked'] = 'checked';
-					}
-					$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
-					$text .= Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
-					foreach ( $template_xml->children() as $field_xml ) {
-						if ( $field_xml->getName() != 'Field' ) {
-							$template_add_xml .= (string)$field_xml->asXML();
-						}
-					}
-					$text .= '<div id="fieldsList_'.$template_num.'">';
-					foreach ( $template_xml->children() as $field_xml ) {
-						if ( $field_xml->getName() == "Field" ) {
-							$fieldName = (string)$field_xml->attributes()->name;
-							$text .= '<div class="fieldBox" >';
-							$text .= '<fieldset style="background: #bbb;"><legend>Field</legend> ';
-							if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
-								$delimiter = (string)$field_xml->attributes()->delimiter;
-							}
-							foreach ($field_xml->children() as $tag => $child ) {
-								if ( $tag == 'Label' ) {
-									$fieldLabel = (string)$child;
-								}
-							}
-							$text .= '<p>Field name: <input size="15" name="f_name_'.$field_count.'" value="'.$fieldName.'" />';
-							$display_label = wfMsg( 'ps-displaylabel' );
-							$text .= $display_label . ' ' . Html::input( 'f_label_'.$field_count, $fieldLabel, 'text', array( 'size' => 15 ) );
-							$text .= "\t\t</p>\n";
-							$attrs = array();
-							$pAttrs = array( 'class' => 'delimiterInput' );
-							if ( ((string)$field_xml->attributes()->list) == "list" ) {
-								$attrs['checked'] = 'checked';
-							} else {
-								$pAttrs['style'] = 'display: none';
-							}
-							$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $attrs );
-							$text .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
-							$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', null );
-							$text .= Html::rawElement( 'p', $pAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+		$fieldHTML = '<p>Field name: ';
+		$fieldHTML .= Html::input( 'f_name_' . $field_count, $fieldName, 'text', array( 'size' => 15 ) ) . ' ';
+		$fieldHTML .= wfMsg( 'ps-displaylabel' ) . ' ';
+		$fieldHTML .= Html::input( 'f_label_' . $field_count, $fieldLabel, 'text', array( 'size' => 15 ) );
+		$fieldHTML .= "\t\t</p>\n";
+		$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $attrs );
+		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
+		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', null );
+		$fieldHTML .= Html::rawElement( 'p', $pAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
 
-							// Insert HTML text from extensions
-							if ( $filledHTMLFromExtensions['smw'] != null ) {
-								$text_ex_array = $filledHTMLFromExtensions['smw'];
-								if ( $text_ex_array[$field_count] != null ) {
-									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-									$text .= $text_ex;
-								}
-							}
-							if ( $filledHTMLFromExtensions['sf'] != null ) {
-								$text_ex_array = $filledHTMLFromExtensions['sf'];
-								if ( $text_ex_array[$field_count] != null ) {
-									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-									$text .= $text_ex;
-								}
-							}
-							if ( $filledHTMLFromExtensions['sd'] != null ) {
-								$text_ex_array = $filledHTMLFromExtensions['sd'];
-								if ( $text_ex_array[$field_count] != null ) {
-									$text_ex = preg_replace('/starter/', $field_count, $text_ex_array[$field_count]);
-									$text .= $text_ex;
-								}
-							}
+		// Insert HTML text from extensions
+		$htmlFromExtensions = array();
+		wfRunHooks( 'PageSchemasGetFieldHTML', array( $pageSchemaField, &$htmlFromExtensions ) );
+		foreach ( $htmlFromExtensions as $valuesFromExtension ) {
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension );
+			// We use 'num' here, instead of 'fnum', to distinguish
+			// between field names from Page Schemas (which get
+			// their number set via Javascript) and field names from
+			// other extensions (which get their number set via PHP).
+			// Is this important to do? Probably not.
+			$fieldHTML .= str_replace( 'num', $field_count, $html );
+		}
 
-							$text .= <<<END
+		$add_xml_label = wfMsg('ps-add-xml-label');
+		$fieldHTML .= <<<END
 		<p>$add_xml_label
 		<textarea rows=4 style="width: 100%" name="f_add_xml_$field_count"></textarea>
 		</p>
 
 END;
-							$removeFieldButton = Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
-								array( 'class' => 'deleteField' )
-							);
-							$text .= $removeFieldButton;
-							$text .= <<<END
-		</fieldset><!-- for fields -->
-		</div><!-- fieldBox -->
+		$fieldHTML .= Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
+			array( 'class' => 'deleteField' )
+		);
+		$text .= self::printFormSection( wfMsg( 'ps-field' ), '#AAA', $fieldHTML, '#CCC' );
+		$text .= "\t</div><!-- fieldBox -->\n";
+		return $text;
+	}
+
+	/**
+	 * Returns the HTML for a section of the form comprising one template.
+	 */
+	static function printTemplateSection( $template_num = 'tnum', $template_xml = null, $pageSchemaTemplate = null ) {
+		if ( is_null( $pageSchemaTemplate ) ) {
+			$pageSchemaTemplateFields = array();
+		} else {
+			$pageSchemaTemplateFields = $pageSchemaTemplate->getFields();
+		}
+		$attrs = array();
+		if ( is_null( $template_xml ) ) {
+			$text = '<div class="templateBox" id="starterTemplate" style="display: none">';
+			$templateName = '';
+			$fields_xml_array = array( null );
+		} else {
+			$text = '<div class="templateBox" >';
+			$templateName = (string) $template_xml->attributes()->name;
+			if ( ( (string)$template_xml->attributes()->multiple ) == "multiple" ) {
+				$attrs['checked'] = 'checked';
+			}
+			$fields_xml_array = $template_xml->children();
+		}
+		$templateNameInput = Html::input( 't_name_' . $template_num, $templateName, 'text' );
+		$templateHTML = '<p>Name: ' . $templateNameInput . '</p> ';
+		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
+		$templateHTML .= Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
+		$template_add_xml = "";
+		foreach ( $fields_xml_array as $field_xml ) {
+			if ( !empty( $field_xml ) && $field_xml->getName() != 'Field' ) {
+				$template_add_xml .= (string)$field_xml->asXML();
+			}
+		}
+		$templateHTML .= '<div id="fieldsList_'.$template_num.'">';
+		$field_count = 0;
+		foreach ( $fields_xml_array as $field_xml ) {
+			if ( empty( $field_xml ) ) {
+				$templateHTML .= self::printFieldSection();
+			} elseif ( $field_xml->getName() == "Field" ) {
+				$pageSchemaField = $pageSchemaTemplateFields[$field_count];
+				$templateHTML .= self::printFieldSection( $field_xml, $pageSchemaField, $field_count );
+				$field_count++;
+			}
+		}
+		$templateHTML .= "\t</div><!-- fieldsList -->\n";
+		$templateHTML .=<<<END
+<script type="text/javascript">
+	$(document).ready(function() {
+		updateFieldNum($field_count);
+	});
+</script>
 
 END;
-							$field_count++;
-							$text .= '<script type="text/javascript">
-			updateFieldNum('.$field_count.');
-		</script>';
-						}
-					}
-					$text .= '</div><!-- fieldsList -->';
-					$add_field_button = Xml::element( 'input',
-						array(
-							'type' => 'button',
-							'value' => wfMsg( 'ps-add-field' ),
-							'onclick' => "createTemplateAddField($template_num)"
-						)
-					);
-					$text .= Xml::tags( 'p', null, $add_field_button ) . "\n";
-					$text .= '<hr />
-								<p>'.$add_xml_label.'
-								<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
-								</p>
-								<p><input type="button" value="Remove template" class="deleteTemplate" /></p>
-							</fieldset><!-- for template --> </div><!-- templateBox-->';
-				}
+		$add_field_button = Xml::element( 'input',
+			array(
+				'type' => 'button',
+				'value' => wfMsg( 'ps-add-field' ),
+				'onclick' => "psAddField($template_num)"
+			)
+		);
+		$templateHTML .= Xml::tags( 'p', null, $add_field_button ) . "\n";
+		$templateHTML .= '<hr />
+					<p>'. wfMsg('ps-add-xml-label') .'
+						<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
+					</p>';
+		$templateHTML .= '<p>' . Html::input( 'remove-template', 'Remove template', 'button', array( 'class' => 'deleteTemplate' ) ) . "</p>\n";
+		$text .= self::printFormSection( wfMsg( 'ps-template' ), '#CCC', $templateHTML, '#EEE' );
+		$text .= "	</div><!-- templateBox-->";
+		return $text;
+	}
+
+	/**
+	 * Returns the HTML to display an entire form.
+	 */
+	static function printForm( $pageSchemaObj = null, $pageXML = null ) {
+		$htmlForSchema = array();
+		wfRunHooks( 'PageSchemasGetSchemaHTML', array( $pageSchemaObj, &$htmlForSchema ) );
+
+		if ( is_null( $pageSchemaObj ) ) {
+			$template_all = array();
+		} else {
+			$template_all = $pageSchemaObj->getTemplates();
+		}
+
+		if ( is_null( $pageXML ) ) {
+			$pageXMLChildren = array();
+		} else {
+			$pageXMLChildren = $pageXML->children();
+		}
+
+		foreach ( $pageXMLChildren as $template_xml ) {
+			if ( ( $template_xml->getName() != 'Template') && ( $template_xml->getName() != 'semanticforms_Form' ) ) {
+				$ps_add_xml .= (string)$template_xml->asXML();
+			}
+		}
+
+		$text = '<form id="editPageSchemaForm" action="" method="post">' . "\n";
+		$text .= '<p>' . wfMsg('ps-add-xml-label') . '
+				<textarea rows=4 style="width: 100%" name="ps_add_xml" >' . $ps_add_xml . '</textarea>
+				</p> ';
+
+		foreach ( $htmlForSchema as $valuesFromExtension ) {
+			$text .= self::printFieldHTMLForExtension( $valuesFromExtension );
+		}
+
+		$text .= '<div id="templatesList">';
+
+		$template_num = 0;
+		$pageSchemaTemplate = $template_all[$template_num];
+
+		// Add 'starter', hidden template section.
+		$text .= self::printTemplateSection();
+		/* index for template objects */
+		foreach ( $pageXMLChildren as $tag => $template_xml ) {
+			if ( $tag == 'Template' ) {
+				$template_num++;
+				$text .= self::printTemplateSection( $template_num, $template_xml, $pageSchemaTemplate );
 			}
 		}
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
 				'value' => wfMsg( 'ps-add-template' ),
-				'onclick' => "createAddTemplate()"
+				'onclick' => "psAddTemplate()"
 			)
 		);
-		$text .= '
-		</div><!-- templatesList -->';
+		$text .= "\t</div><!-- templatesList -->\n";
 		$text .= Xml::tags( 'p', null, $add_template_button ) . "\n";
 		$text .= "\t\t<hr />\n";
 		$label = wfMsg( 'summary' );
@@ -543,9 +421,93 @@ END;
 		$saveButton = Html::input( 'wpSave', wfMsg( 'savearticle' ), 'submit', $attr );
 		$text .= "\t\t" . Html::rawElement( 'div', array( 'class' => 'editButtons' ),
 			$saveButton ) . "\n";
-		$text .= '	</form>';
-		$text .= self::starterFieldHTML( $htmlFromExtensions );
-		$wgOut->addHTML($text);
+		$text .= "\t</form>\n";
+
+		return $text;
+	}
+
+	function execute( $category ) {
+		global $wgRequest, $wgOut, $wgUser;
+		global $wgSkin;
+
+		$this->setHeaders();
+		$text = '<p>' . wfMsg( 'ps-page-desc-edit-schema' ) . '</p>';
+		self::addJavascript();
+
+		$save_page = $wgRequest->getCheck( 'wpSave' );
+		if ( $save_page ) {
+			$psXML = self::pageSchemaXMLFromRequest();
+			$pageSchemaObj = new PSSchema( $category );
+			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
+			$categoryArticle = new Article( $categoryTitle );
+			$pageText = $categoryArticle->getContent();
+			if ( $pageSchemaObj->isPSDefined() ) {
+				// Do some preg_replace magic.
+				// This is necessary if the <PageSchema> tag
+				// accepts any attributes - which it currently
+				// does not, but it may well in the future.
+				$tag = "PageSchema";
+				$pageText = preg_replace( '{<' . $tag . '[^>]*>([^@]*?)</' . $tag . '>' . '}', $psXML, $pageText );
+			} else {
+				$pageText = $psXML . $pageText;
+			}
+			$editSummary = $wgRequest->getVal( 'wpSummary' );
+			$categoryArticle->doEdit( $pageText, $editSummary );
+			$redirectURL = $categoryTitle->getLocalURL();
+			$text = <<<END
+		<script type="text/javascript">
+		window.onload = function() {
+			window.location="$redirectURL";
+		}
+		</script>
+
+END;
+			$wgOut->addHTML( $text );
+			return true;
+		}
+
+		if ( $category == "" ) {
+			// No category was specified - show the list of
+			// categories with a page schema defined.
+			$text = self::showLinksToCategories();
+			$wgOut->addHTML( $text );
+			return true;
+		}
+
+		// We have a category - show a form.
+		// See if a page schema has already been defined for this category.
+		$title = Title::newFromText( $category, NS_CATEGORY );
+		$pageId = $title->getArticleID();
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'page_props',
+			array(
+				'pp_page',
+				'pp_propname',
+				'pp_value'
+			),
+			array(
+				'pp_page' => $pageId,
+			)
+		);
+
+		$row = $dbr->fetchRow( $res );
+		if ( $row == null && !$title->exists() ) {
+			// Category doesn't exist.
+			$text = '<p>' . wfMsg( 'ps-page-desc-cat-not-exist' ) . '</p>';
+			$text .= self::printForm();
+		} elseif ( ( $row[1] != 'PageSchema' ) || ( $row[2] == null ) ) {
+			// Category exists, but has no page schema.
+			$text = '<p>' . wfMsg( 'ps-page-desc-ps-not-exist' ) . '</p>';
+			$text .= self::printForm();
+		} else {
+			// It's a category with an existing page schema -
+			// populate the form with its values.
+			$pageSchemaObj = new PSSchema( $category );
+			$pageXMLstr = $row[2];
+			$pageXML = simplexml_load_string( $pageXMLstr );
+			$text = self::printForm( $pageSchemaObj, $pageXML );
+		}
+		$wgOut->addHTML( $text );
 		return true;
 	}
 }
