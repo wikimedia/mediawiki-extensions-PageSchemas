@@ -422,6 +422,7 @@ $messages['ksh'] = array(
 $messages['lb'] = array(
 	'ps-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
 	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
+	'ps-property-isproperty' => 'Dëst ass eng Eegeschaft vum Typ $1.',
 	'ps-schema-description' => 'Beschreiwung vum Schema:',
 	'generatepages' => 'Säite generéieren',
 	'ps-generatepages-desc' => 'Dës Säiten op der Basis vum Schema vun dëser Kategorie generéieren:',
