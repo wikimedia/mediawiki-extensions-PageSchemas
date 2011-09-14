@@ -3,6 +3,7 @@
  * Displays an interface to let users create and edit the <PageSchema> XML.
  *
  * @author Ankit Garg
+ * @author Yaron Koren
  */
 
 class PSEditSchema extends IncludableSpecialPage {
@@ -33,7 +34,7 @@ function psAddField(template_num) {
 			.fadeOut('fast', function() { jQuery(this).remove(); });
 	});
 	jQuery('#fieldsList_'+template_num).append(newField);
-	addjQueryToCheckbox();
+	addjQueryToCheckboxes();
 }
 
 function psAddTemplate() {
@@ -53,7 +54,14 @@ function updateFieldNum(field_num) {
 	fieldNum = field_num;
 }
 
-function addjQueryToCheckbox( ) {
+function addjQueryToCheckboxes() {
+	jQuery('.isListCheckbox').each(function() {
+		if (jQuery(this).is(":checked")) {
+			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', '');
+		} else {
+			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', 'none');
+		}
+	});
 	jQuery('.isListCheckbox').click(function() {
 		if (jQuery(this).is(":checked")) {
 			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', '');
@@ -74,7 +82,7 @@ jQuery(document).ready(function() {
 		jQuery(this).closest(".templateBox")
 			.fadeOut('fast', function() { jQuery(this).remove(); });
 	});
-	addjQueryToCheckbox();
+	addjQueryToCheckboxes();
 	jQuery('#editPageSchemaForm').submit( function() {
 		jQuery('#starterTemplate').find("input, select, textarea").attr('disabled', 'disabled');
 		return true;
@@ -218,8 +226,8 @@ END;
 		$fieldName = '';
 		$delimiter = '';
 		$fieldLabel = '';
-		$attrs = array();
-		$pAttrs = array( 'class' => 'delimiterInput' );
+		$isListAttrs = array( 'class' => 'isListCheckbox' );
+		$delimiterAttrs = array( 'class' => 'delimiterInput' );
 		if ( is_null( $field_xml ) ) {
 			$text = '<div class="fieldBox" id="starterField" style="display: none" >';
 		} else {
@@ -234,9 +242,7 @@ END;
 				}
 			}
 			if ( ((string)$field_xml->attributes()->list) == "list" ) {
-				$attrs['checked'] = 'checked';
-			} else {
-				$pAttrs['style'] = 'display: none';
+				$isListAttrs['checked'] = 'checked';
 			}
 		}
 		$fieldHTML = '<p>Field name: ';
@@ -244,10 +250,10 @@ END;
 		$fieldHTML .= wfMsg( 'ps-displaylabel' ) . ' ';
 		$fieldHTML .= Html::input( 'f_label_' . $field_count, $fieldLabel, 'text', array( 'size' => 15 ) );
 		$fieldHTML .= "\t\t</p>\n";
-		$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $attrs );
+		$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $isListAttrs );
 		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
-		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', null );
-		$fieldHTML .= Html::rawElement( 'p', $pAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', array( 'size' => 3 ) );
+		$fieldHTML .= Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
 
 		// Insert HTML text from extensions
 		$htmlFromExtensions = array();
@@ -366,6 +372,7 @@ END;
 			$pageXMLChildren = $pageXML->children();
 		}
 
+		$ps_add_xml = '';
 		foreach ( $pageXMLChildren as $template_xml ) {
 			if ( ( $template_xml->getName() != 'Template') && ( $template_xml->getName() != 'semanticforms_Form' ) ) {
 				$ps_add_xml .= (string)$template_xml->asXML();
@@ -384,15 +391,15 @@ END;
 		$text .= '<div id="templatesList">';
 
 		$template_num = 0;
-		$pageSchemaTemplate = $template_all[$template_num];
 
 		// Add 'starter', hidden template section.
 		$text .= self::printTemplateSection();
 		/* index for template objects */
 		foreach ( $pageXMLChildren as $tag => $template_xml ) {
 			if ( $tag == 'Template' ) {
-				$template_num++;
+				$pageSchemaTemplate = $template_all[$template_num];
 				$text .= self::printTemplateSection( $template_num, $template_xml, $pageSchemaTemplate );
+				$template_num++;
 			}
 		}
 		$add_template_button = Xml::element( 'input',
@@ -437,19 +444,23 @@ END;
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ( $save_page ) {
 			$psXML = self::pageSchemaXMLFromRequest();
-			$pageSchemaObj = new PSSchema( $category );
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
-			$pageText = $categoryArticle->getContent();
-			if ( $pageSchemaObj->isPSDefined() ) {
-				// Do some preg_replace magic.
-				// This is necessary if the <PageSchema> tag
-				// accepts any attributes - which it currently
-				// does not, but it may well in the future.
-				$tag = "PageSchema";
-				$pageText = preg_replace( '{<' . $tag . '[^>]*>([^@]*?)</' . $tag . '>' . '}', $psXML, $pageText );
+			if ( $categoryTitle->exists() ) {
+				$pageText = $categoryArticle->getContent();
+				$pageSchemaObj = new PSSchema( $category );
+				if ( $pageSchemaObj->isPSDefined() ) {
+					// Do some preg_replace magic.
+					// This is necessary if the <PageSchema> tag
+					// accepts any attributes - which it currently
+					// does not, but it may well in the future.
+					$tag = "PageSchema";
+					$pageText = preg_replace( '{<' . $tag . '[^>]*>([^@]*?)</' . $tag . '>' . '}', $psXML, $pageText );
+				} else {
+					$pageText = $psXML . $pageText;
+				}
 			} else {
-				$pageText = $psXML . $pageText;
+				$pageText = $psXML;
 			}
 			$editSummary = $wgRequest->getVal( 'wpSummary' );
 			$categoryArticle->doEdit( $pageText, $editSummary );
