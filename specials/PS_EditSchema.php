@@ -69,6 +69,20 @@ function addjQueryToCheckboxes() {
 			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', 'none');
 		}
 	});
+	jQuery('.sectionCheckbox').each(function() {
+		if (jQuery(this).is(":checked")) {
+			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', '').removeClass('hiddenSection');
+		} else {
+			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', 'none').addClass('hiddenSection');
+		}
+	});
+	jQuery('.sectionCheckbox').click(function() {
+		if (jQuery(this).is(":checked")) {
+			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', '').removeClass('hiddenSection');
+		} else {
+			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', 'none').addClass('hiddenSection');
+		}
+	});
 }
 
 jQuery(document).ready(function() {
@@ -85,6 +99,7 @@ jQuery(document).ready(function() {
 	addjQueryToCheckboxes();
 	jQuery('#editPageSchemaForm').submit( function() {
 		jQuery('#starterTemplate').find("input, select, textarea").attr('disabled', 'disabled');
+		jQuery('.hiddenSection').find("input, select, textarea").attr('disabled', 'disabled');
 		return true;
 	} );
 });
@@ -109,7 +124,7 @@ END;
 		$fieldName = "";
 		$fieldNum = -1;
 		$templateNum = -1;
-		//This var. will save the xml text returned by the extensions
+		// Arrays to store the extension-specific XML entered in the form
 		$schemaXMLFromExtensions = array();
 		$fieldXMLFromExtensions = array();
 		wfRunHooks( 'PageSchemasGetSchemaXML', array( $wgRequest, &$schemaXMLFromExtensions ));
@@ -203,19 +218,28 @@ END;
 	/*
 	 * Returns the HTML for one section of the EditSchema form.
 	 */
-	static function printFormSection( $label, $topColor, $html, $bgColor = 'white' ) {
-		return  "<div style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n" .
-			"<div style=\"font-weight: bold; background: $topColor; padding: 4px 7px; border-bottom: 1px #bbb solid;\">$label</div>\n" .
-			"<div style=\"padding: 5px 15px;\">$html</div>\n" .
-			"</div>\n";
+	static function printFormSection( $label, $topColor, $html, $bgColor = 'white', $isCollapsible = false, $hasExistingValues = true ) {
+		$className = $isCollapsible ? 'sectionBox' : '';
+		$text =  "<div class=\"$className\" style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n";
+		$text .= "<div style=\"font-weight: bold; background: $topColor; padding: 4px 7px; border-bottom: 1px #bbb solid;\">";
+		if ( $isCollapsible ) {
+			$checkboxAttrs =  array( 'class' => 'sectionCheckbox' );
+			if ( $hasExistingValues ) {
+				$checkboxAttrs['checked'] = true;
+			}
+			$text .= " " . Html::input( 'show_section', null, 'checkbox', $checkboxAttrs );
+		}
+		$className = $isCollapsible ? 'extensionInputs' : '';
+		$text .= "$label</div>" . "<div class=\"$className\" style=\"padding: 5px 15px;\">$html</div>\n" . "</div>\n";
+		return $text;
 	}
 
 	/*
 	 * Returns the HTML for a form section coming from a specific extension.
 	 */
 	static function printFieldHTMLForExtension( $valuesFromExtension ) {
-		list( $label, $color, $html ) = $valuesFromExtension;
-		return self::printFormSection( $label, $color, $html );
+		list( $label, $color, $html, $hasExistingValues ) = $valuesFromExtension;
+		return self::printFormSection( $label, $color, $html, 'white', true, $hasExistingValues );
 	}
 
 	/**
