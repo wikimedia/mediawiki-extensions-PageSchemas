@@ -25,14 +25,14 @@ class PSGeneratePages extends IncludableSpecialPage {
 		}
 
 		if ( $category == "") {
-			// No category listed - show a list of links to all categories with a page
-			// schema defined.
+			// No category listed - show a list of links to all
+			// categories with a page schema defined.
 			$text = "";
-			$cat_titles = PageSchemas::getCategoriesWithPSDefined();
-			foreach( $cat_titles as $cat_text ) {
-				$generatePagesPage = SpecialPage::getTitleFor( 'GeneratePages' );
-				$url = $generatePagesPage->getFullURL() . '/' . $cat_text;
-				$text .= '<a href="' . $url . '">' . $cat_text . '</a> <br /> ';
+			$categoryNames = PageSchemas::getCategoriesWithPSDefined();
+			$generatePagesPage = SpecialPage::getTitleFor( 'GeneratePages' );
+			foreach( $categoryNames as $categoryName ) {
+				$url = $generatePagesPage->getFullURL() . '/' . $categoryName;
+				$text .= '<a href="' . $url . '">' . $categoryName . '</a> <br /> ';
 			}
 			$wgOut->addHTML( $text );
 			return true;
@@ -47,24 +47,22 @@ class PSGeneratePages extends IncludableSpecialPage {
 			return true;
 		}
 
-		$generate_page_desc = wfMsg( 'ps-generatepages-desc' );
-		$text = "<p>$generate_page_desc</p>\n";
-		$text = '<form method="post"><input type="hidden" name="param" value="'.$category.'" /><br />' . "\n";
-		//add code to generate a list of check-box for pages to be generated.
+		$text = Html::element( 'p', null,  wfMsg( 'ps-generatepages-desc' ) ) . "\n";
+		$text .= '<form method="post"><input type="hidden" name="param" value="'.$category.'" />' . "\n";
+		// Display a list of checkboxes for pages to be generated.
 		$pageList = array();
 
-		// This hook will return an array of strings, with each value as a title of
-		// the page to be created.
+		// This hook will set an array of strings, with each value
+		// as a title of a page to be created.
 		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
+		$skin = $this->getSkin();
 		foreach( $pageList as $page ){
-			$pageURL = $page->getFullUrl();
 			$pageName = PageSchemas::titleString( $page );
-			$pageLink = Html::element( 'a', array( 'href' => $pageURL ), $pageName );
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
-			$text .= "\n" . $pageLink . "<br />\n";
+			$text .= "\n" . $skin->link( $page ) . "<br />\n";
 		}
 		$generate_page_text = wfMsg( 'generatepages' );
-		$text .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> <br /> <br /></form>';
+		$text .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> </form>';
 		$wgOut->addHTML( $text );
 		return true;
 	}
