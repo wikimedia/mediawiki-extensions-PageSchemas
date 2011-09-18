@@ -42,6 +42,7 @@ $messages['en'] = array(
 	'ps-remove-field' => 'Remove field',
 	'ps-add-xml-label' => 'Additional XML:',
 	'ps-schema-name-label' => 'Name of schema:',
+	'ps-optional-name' => 'Name (leave blank to set to field name):',
 	'editschema' => 'Edit schema',
 );
 
