@@ -158,6 +158,7 @@ $messages['de'] = array(
 	'ps-remove-field' => 'Feld entfernen',
 	'ps-add-xml-label' => 'Zusätzliches XML:',
 	'ps-schema-name-label' => 'Name des Schemas:',
+	'ps-optional-name' => 'Name (leer lassen, um den Feldnamen zu verwenden):',
 	'editschema' => 'Schema bearbeiten',
 );
 
@@ -351,6 +352,7 @@ $messages['ia'] = array(
 	'ps-remove-field' => 'Remover campo',
 	'ps-add-xml-label' => 'Additional XML:',
 	'ps-schema-name-label' => 'Nomine del schema:',
+	'ps-optional-name' => 'Nomine (lassar vacue pro definir como le nomine del campo):',
 	'editschema' => 'Modificar schema',
 );
 
@@ -598,8 +600,21 @@ $messages['sl'] = array(
 	'pageschemas-header' => 'Opredelitev XML predloge je:',
 	'ps-property-isproperty' => 'To je lastnost vrste $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
-	'ps-generate-pages' => 'Ustvarjajte strani',
-	'ps-generate-pages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
+	'generatepages' => 'Ustvari strani',
+	'ps-generatepages-success' => 'Strani bodo ustvarjene.',
+	'ps-delimiter-label' => 'Ločilo vrednosti (privzeto je »,«):',
+	'ps-multiple-temp-label' => 'Dovoli več primerkov predloge',
+	'ps-field-list-label' => 'Polje lahko vsebuje seznam vrednosti',
+	'ps-template' => 'Predloga',
+	'ps-add-template' => 'Dodaj predlogo',
+	'ps-remove-template' => 'Odstrani predlogo',
+	'ps-field' => 'Polje',
+	'ps-displaylabel' => 'Prikaži oznako:',
+	'ps-add-field' => 'Dodaj polje',
+	'ps-remove-field' => 'Odstrani polje',
+	'ps-add-xml-label' => 'Dodatni XML:',
+	'ps-schema-name-label' => 'Ime sheme:',
+	'editschema' => 'Uredi shemo',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
