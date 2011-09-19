@@ -48,10 +48,14 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Ankit Garg
+ * @author EugeneZelenko
+ * @author Raymond
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc}}',
 	'pageschemas-header' => 'Header to display XML definition in template page',
+	'ps-template' => '{{Identical|Template}}',
+	'ps-field' => '{{Identical|Field}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -86,7 +90,7 @@ $messages['arz'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'ps-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную будову зьвестак праз XML-разьметку',
+	'ps-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную структуру зьвестак праз XML-разьметку',
 	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
 	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
 	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
@@ -94,18 +98,18 @@ $messages['be-tarask'] = array(
 	'generatepages' => 'Стварыць старонкі',
 	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
 	'ps-generatepages-success' => 'Старонкі будуць створаныя.',
-	'ps-generatepages-noschema' => 'Памылка: для гэтае катэгорыі не апісаная схема старонкі.',
-	'ps-page-desc-cat-not-exist' => 'Гэтая катэгорыя яшчэ не існуе. Стварыць яе і ейную схему старонкі:',
+	'ps-generatepages-noschema' => 'Памылка: для гэтай катэгорыі ня вызначаная схема старонкі.',
+	'ps-page-desc-cat-not-exist' => 'Гэтая катэгорыя яшчэ не існуе. Стварыць яе са схемай старонкі:',
 	'ps-page-desc-ps-not-exist' => 'Гэтая катэгорыя існуе, аднак ня мае схемы старонкі. Стварыць схему:',
-	'ps-page-desc-edit-schema' => 'Рэдагаваць схему для гэтай катэгорыі:',
-	'ps-delimiter-label' => 'Разьдзяляльнік для значэньняў (дапомна ","):',
+	'ps-page-desc-edit-schema' => 'Рэдагаваць схему старонак для гэтай катэгорыі:',
+	'ps-delimiter-label' => 'Разьдзяляльнік для значэньняў (па змоўчваньні «,»):',
 	'ps-multiple-temp-label' => 'Дазволіць некалькі варыянтаў гэтага шаблёну',
 	'ps-field-list-label' => 'Гэтае поле можа зьмяшчаць набор значэньняў',
 	'ps-template' => 'Шаблён',
 	'ps-add-template' => 'Дадаць шаблён',
 	'ps-remove-template' => 'Выдаліць шаблён',
 	'ps-field' => 'Поле',
-	'ps-displaylabel' => 'Адлюстраваць пазнаку:',
+	'ps-displaylabel' => 'Паказваць пазнаку:',
 	'ps-add-field' => 'Дадаць поле',
 	'ps-remove-field' => 'Выдаліць поле',
 	'ps-add-xml-label' => 'Дадатковы XML:',
@@ -284,6 +288,7 @@ $messages['gl'] = array(
 	'ps-remove-field' => 'Eliminar un campo',
 	'ps-add-xml-label' => 'XML adicional:',
 	'ps-schema-name-label' => 'Nome do esquema:',
+	'ps-optional-name' => 'Nome (déixeo en branco para definir o nome do campo):',
 	'editschema' => 'Editar o esquema',
 );
 
@@ -445,6 +450,7 @@ $messages['lb'] = array(
 	'ps-remove-field' => 'Feld ewechhuelen',
 	'ps-add-xml-label' => 'Zousätzlechen XML:',
 	'ps-schema-name-label' => 'Numm vum Schema:',
+	'ps-optional-name' => 'Numm (eidel loosse fir den Numm vum Feld ze benotzen):',
 	'editschema' => 'Schema änneren',
 );
 
@@ -476,6 +482,7 @@ $messages['mk'] = array(
 	'ps-remove-field' => 'Отстрани поле',
 	'ps-add-xml-label' => 'Дополнителен XML:',
 	'ps-schema-name-label' => 'Име на шемата:',
+	'ps-optional-name' => 'Име (оставете празно за да биде како името на полето):',
 	'editschema' => 'Уреди шема',
 );
 
@@ -508,6 +515,7 @@ $messages['nl'] = array(
 	'ps-remove-field' => 'Veld verwijderen',
 	'ps-add-xml-label' => 'Extra XML:',
 	'ps-schema-name-label' => 'Schemanaam:',
+	'ps-optional-name' => 'Naam (laat leeg om in te stellen op de veldnaam):',
 	'editschema' => 'Schema bewerken',
 );
 
