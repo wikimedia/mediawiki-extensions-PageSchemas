@@ -159,7 +159,9 @@ END;
 					$psXML .= '<Field name="' . $fieldName . '">';
 				}
 			} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
-				$psXML .= '<Label>' . $val . '</Label>';
+				if ( !empty( $val ) ) {
+					$psXML .= '<Label>' . $val . '</Label>';
+				}
 
 				// Get XML created by extensions
 				foreach ( $fieldXMLFromExtensions as $extensionName => $xmlPerField ) {
