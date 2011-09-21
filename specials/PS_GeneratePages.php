@@ -1,8 +1,10 @@
 <?php
 /**
- * Displays an interface to let users create all pages based on the Page Schemas XML
+ * Displays an interface to let users create all pages based on the
+ * Page Schemas XML.
  *
  * @author Ankit Garg
+ * @author Yaron Koren
  */
 
 
@@ -47,16 +49,16 @@ class PSGeneratePages extends IncludableSpecialPage {
 			return true;
 		}
 
-		$text = Html::element( 'p', null,  wfMsg( 'ps-generatepages-desc' ) ) . "\n";
-		$text .= '<form method="post"><input type="hidden" name="param" value="'.$category.'" />' . "\n";
-		// Display a list of checkboxes for pages to be generated.
-		$pageList = array();
+		$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-desc' ) ) . "\n";
+		$text .= '<form method="post">';
+		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
+		$pageList = array();
 		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
 		// SpecialPage::getSkin() was added in MW 1.18
-		if ( is_callable( 'SpecialPage', 'getSkin' ) {
+		if ( is_callable( 'SpecialPage', 'getSkin' ) ) {
 			$skin = $this->getSkin();
 		} else {
 			global $wgUser;
@@ -67,8 +69,9 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
 			$text .= "\n" . $skin->link( $page ) . "<br />\n";
 		}
-		$generate_page_text = wfMsg( 'generatepages' );
-		$text .= '<br /> <input type="submit" value="'.$generate_page_text.'" /> </form>';
+		$text .= "<br />\n";
+		$text .= Html::input( null, wfMsg( 'generatepages' ), 'submit' );
+		$text .= "\n</form>";
 		$wgOut->addHTML( $text );
 		return true;
 	}
