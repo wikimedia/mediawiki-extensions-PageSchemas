@@ -27,16 +27,8 @@ class PSGeneratePages extends IncludableSpecialPage {
 		}
 
 		if ( $category == "") {
-			// No category listed - show a list of links to all
-			// categories with a page schema defined.
-			$text = "";
-			$categoryNames = PageSchemas::getCategoriesWithPSDefined();
-			$generatePagesPage = SpecialPage::getTitleFor( 'GeneratePages' );
-			foreach( $categoryNames as $categoryName ) {
-				$url = $generatePagesPage->getFullURL() . '/' . $categoryName;
-				$text .= '<a href="' . $url . '">' . $categoryName . '</a> <br /> ';
-			}
-			$wgOut->addHTML( $text );
+			// No category listed.
+			// TODO - show an error message.
 			return true;
 		}
 
@@ -58,13 +50,13 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$pageList = array();
 		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
 		// SpecialPage::getSkin() was added in MW 1.18
-		if ( is_callable( 'SpecialPage', 'getSkin' ) ) {
+		if ( is_callable( $this, 'getSkin' ) ) {
 			$skin = $this->getSkin();
 		} else {
 			global $wgUser;
 			$skin = $wgUser->getSkin();
 		}
-		foreach( $pageList as $page ){
+		foreach ( $pageList as $page ) {
 			$pageName = PageSchemas::titleString( $page );
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
 			$text .= "\n" . $skin->link( $page ) . "<br />\n";
@@ -76,8 +68,18 @@ class PSGeneratePages extends IncludableSpecialPage {
 		return true;
 	}
 
+	/**
+	 * Creates all the pages that the user specified.
+	 */
 	function generatePages( $categoryName, $toGenPageList ) {
 		$pageSchema = new PSSchema( $categoryName );
 		$pageSchema->generateAllPages( $toGenPageList );
+	}
+
+	/**
+	 * Don't list this in Special:SpecialPages.
+	 */
+	function isListed() {
+		return false;
 	}
 }
