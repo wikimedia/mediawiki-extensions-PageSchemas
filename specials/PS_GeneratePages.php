@@ -55,7 +55,13 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
 		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
-		$skin = $this->getSkin();
+		// SpecialPage::getSkin() was added in MW 1.18
+		if ( is_callable( 'SpecialPage', 'getSkin' ) {
+			$skin = $this->getSkin();
+		} else {
+			global $wgUser;
+			$skin = $wgUser->getSkin();
+		}
 		foreach( $pageList as $page ){
 			$pageName = PageSchemas::titleString( $page );
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
