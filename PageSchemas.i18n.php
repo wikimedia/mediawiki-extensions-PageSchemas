@@ -422,11 +422,15 @@ $messages['ja'] = array(
 $messages['ksh'] = array(
 	'ps-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
 	'pageschemas-header' => 'Di Schablon met <i lang="en">XML</i> beschrevve:',
+	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un dä ier Siggg:
+',
 	'ps-template' => 'Schabloon',
 	'ps-add-template' => 'Donn en Schabloon dobei',
 	'ps-remove-template' => 'Maach de Schabloon fott
 ',
 	'ps-field' => 'Väld',
+	'ps-add-field' => 'E Feld dobei donn',
+	'ps-remove-field' => 'E Feld fottnämme',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
