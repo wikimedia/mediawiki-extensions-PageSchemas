@@ -119,10 +119,18 @@ $messages['be-tarask'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'ps-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
 	'pageschemas-header' => 'Setu an termenadur XML evit ar patrom-mañ :',
+	'ps-template' => 'Patrom',
+	'ps-add-template' => 'Ouzhpennañ ur patrom',
+	'ps-remove-template' => 'Lemel ur patrom',
+	'ps-field' => 'Maezienn',
+	'ps-displaylabel' => 'Tikedenn diskwel :',
+	'ps-add-field' => 'Ouzhpennañ ur vaezienn',
+	'ps-remove-field' => 'Lemel ar vaezienn',
 );
 
 /** Bosnian (Bosanski)
