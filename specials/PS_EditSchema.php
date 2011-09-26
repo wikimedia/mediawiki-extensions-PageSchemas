@@ -530,11 +530,13 @@ END;
 		$row = $dbr->fetchRow( $res );
 		if ( $row == null && !$title->exists() ) {
 			// Category doesn't exist.
+			$wgOut->setPageTitle( wfMsg( 'createschema' ) );
 			$text = '<p>' . wfMsg( 'ps-page-desc-cat-not-exist' ) . '</p>';
 			$text .= self::printForm();
 		} elseif ( ( $row[1] != 'PageSchema' ) || ( $row[2] == null ) ) {
 			// Category exists, but has no page schema.
 			$text = '<p>' . wfMsg( 'ps-page-desc-ps-not-exist' ) . '</p>';
+			$wgOut->setPageTitle( wfMsg( 'createschema' ) );
 			$text .= self::printForm();
 		} else {
 			// It's a category with an existing page schema -

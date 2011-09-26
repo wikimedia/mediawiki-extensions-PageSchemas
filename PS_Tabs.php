@@ -16,17 +16,19 @@
 			return true;
 		}
 
+		$category = $title->getText();
+		$pageSchemaObj = new PSSchema( $category );
+		$isPSDefined = $pageSchemaObj->isPSDefined();
+
 		global $wgRequest;
 
 		$content_actions['editschema'] = array(
-			'text' => wfMsg( 'editschema' ),
+			'text' => ( $isPSDefined ) ? wfMsg( 'editschema' ) : wfMsg( 'createschema' ),
 			'class' => $wgRequest->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=editschema' )
 		);
 
-		$category = $title->getText();
-		$pageSchemaObj = new PSSchema( $category );
-		if ( $pageSchemaObj->isPSDefined() ) {
+		if ( $isPSDefined ) {
 			$content_actions['generatepages'] = array(
 				'text' => wfMsg( 'generatepages' ),
 				'class' => $wgRequest->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
