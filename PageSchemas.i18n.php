@@ -44,6 +44,7 @@ $messages['en'] = array(
 	'ps-schema-name-label' => 'Name of schema:',
 	'ps-optional-name' => 'Name (leave blank to set to field name):',
 	'editschema' => 'Edit schema',
+	'createschema' => 'Create schema',
 );
 
 /** Message documentation (Message documentation)
