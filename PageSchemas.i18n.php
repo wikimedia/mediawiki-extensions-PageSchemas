@@ -173,6 +173,7 @@ $messages['de'] = array(
 	'ps-schema-name-label' => 'Name des Schemas:',
 	'ps-optional-name' => 'Name (leer lassen, um den Feldnamen zu verwenden):',
 	'editschema' => 'Schema bearbeiten',
+	'createschema' => 'Schema erstellen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -299,6 +300,7 @@ $messages['gl'] = array(
 	'ps-schema-name-label' => 'Nome do esquema:',
 	'ps-optional-name' => 'Nome (déixeo en branco para definir o nome do campo):',
 	'editschema' => 'Editar o esquema',
+	'createschema' => 'Crear o esquema',
 );
 
 /** Swiss German (Alemannisch)
@@ -368,6 +370,7 @@ $messages['ia'] = array(
 	'ps-schema-name-label' => 'Nomine del schema:',
 	'ps-optional-name' => 'Nomine (lassar vacue pro definir como le nomine del campo):',
 	'editschema' => 'Modificar schema',
+	'createschema' => 'Crear schema',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -502,6 +505,7 @@ $messages['mk'] = array(
 	'ps-schema-name-label' => 'Име на шемата:',
 	'ps-optional-name' => 'Име (оставете празно за да биде како името на полето):',
 	'editschema' => 'Уреди шема',
+	'createschema' => 'Создај шема',
 );
 
 /** Dutch (Nederlands)
