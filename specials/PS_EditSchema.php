@@ -110,6 +110,22 @@ END;
 	}
 
 	/**
+	 * Returns a nicely-formatted version of the XML passed in.
+	 *
+	 * Code based on
+	 * http://coffeecoders.de/2011/03/how-to-pretty-print-a-simplexmlobject-in-php/
+	 */
+	static function prettyPrintXML( $xml ){
+		// Turn the XML string into a DOMDocument object, and then
+		// back again, to have it displayed nicely.
+		$domDocument = new DOMDocument('1.0');
+		$domDocument->preserveWhiteSpace = false;
+		$domDocument->formatOutput = true;
+		$domDocument->loadXML( $xml );
+		return $domDocument->saveXML( $domDocument->documentElement );
+	}
+
+	/**
 	 * Creates full <PageSchema> XML text, based on what was passed in by
 	 * the form.
 	 */
@@ -179,6 +195,7 @@ END;
 			}
 		}
 		$psXML .= '</PageSchema>';
+		$psXML = self::prettyPrintXML( $psXML );
 		return $psXML;
 	}
 
@@ -222,10 +239,10 @@ END;
 	 */
 	static function printFormSection( $label, $topColor, $html, $bgColor = 'white', $isCollapsible = false, $hasExistingValues = true ) {
 		$className = $isCollapsible ? 'sectionBox' : '';
-		$text =  "<div class=\"$className\" style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n";
+		$text = "<div class=\"$className\" style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n";
 		$text .= "<div style=\"font-weight: bold; background: $topColor; padding: 4px 7px; border-bottom: 1px #bbb solid;\">";
 		if ( $isCollapsible ) {
-			$checkboxAttrs =  array( 'class' => 'sectionCheckbox' );
+			$checkboxAttrs = array( 'class' => 'sectionCheckbox' );
 			if ( $hasExistingValues ) {
 				$checkboxAttrs['checked'] = true;
 			}
