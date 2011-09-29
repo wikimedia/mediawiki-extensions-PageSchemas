@@ -434,15 +434,19 @@ $messages['ja'] = array(
 $messages['ksh'] = array(
 	'ps-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
 	'pageschemas-header' => 'Di Schablon met <i lang="en">XML</i> beschrevve:',
-	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un dä ier Siggg:
-',
+	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un e Schema för dä ier Siggg:',
+	'ps-field-list-label' => 'En däm Feld kann en Leß met Wääte shtonn',
 	'ps-template' => 'Schabloon',
 	'ps-add-template' => 'Donn en Schabloon dobei',
-	'ps-remove-template' => 'Maach de Schabloon fott
-',
+	'ps-remove-template' => 'Maach di Schabloon fott',
 	'ps-field' => 'Väld',
-	'ps-add-field' => 'E Feld dobei donn',
-	'ps-remove-field' => 'E Feld fottnämme',
+	'ps-add-field' => 'Donn e Feld dobei',
+	'ps-remove-field' => 'Nemm dat  Feld fott',
+	'ps-add-xml-label' => 'Zohsäzlesh XML:',
+	'ps-schema-name-label' => 'Dä Name vun dämm XML-Schema:',
+	'ps-optional-name' => 'Dä Name — kam_mer läddesch lohße, dann ess_et automattesch dä Name vun däm Feld:',
+	'editschema' => 'Et Schema ändere',
+	'createschema' => 'E XML-Schema aanlääje',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
