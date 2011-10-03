@@ -50,6 +50,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Ankit Garg
  * @author EugeneZelenko
+ * @author Purodha
  * @author Raymond
  */
 $messages['qqq'] = array(
@@ -57,6 +58,8 @@ $messages['qqq'] = array(
 	'pageschemas-header' => 'Header to display XML definition in template page',
 	'ps-template' => '{{Identical|Template}}',
 	'ps-field' => '{{Identical|Field}}',
+	'editschema' => 'This is a special page name.',
+	'createschema' => 'This is a special page name.',
 );
 
 /** Afrikaans (Afrikaans)
@@ -246,7 +249,9 @@ $messages['fr'] = array(
 	'ps-remove-field' => 'Supprimer un champ',
 	'ps-add-xml-label' => 'XML supplémentaire:',
 	'ps-schema-name-label' => 'Nom du schéma:',
+	'ps-optional-name' => 'Nom (laisser blanc pour mettre le nom du champ):',
 	'editschema' => 'Modifier le schéma',
+	'createschema' => 'Créer le schéma',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -434,7 +439,16 @@ $messages['ja'] = array(
 $messages['ksh'] = array(
 	'ps-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
 	'pageschemas-header' => 'Di Schablon met <i lang="en">XML</i> beschrevve:',
+	'ps-property-isproperty' => 'Dat ess_en Eijeschaff vun dä Zoot $1.',
+	'ps-property-allowedvals' => '{{PLURAL:$1|Dä einzijje müjjelesche Wäät för di Eijeschaff es:|De müjjelesche Wääte för di Eijeschaff sin:|Mer han kein müjjelesche Wääte för di Eijeschaff.}}',
+	'ps-schema-description' => 'Dat XML-Schema beschrevve:',
+	'generatepages' => 'Sigge automattesch aanlääje',
+	'ps-generatepages-desc' => 'Donn de Sigge en dä Leß heh automattesch aanlääje, noh dämm XML-Schema för di Saachjropp:',
+	'ps-generatepages-success' => 'Di Sigge wääde automattesch aanjelaat.',
+	'ps-generatepages-noschema' => 'Fähler: Mer han kei XML-Schema för di Saachjropp.',
 	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un e Schema för dä ier Siggg:',
+	'ps-page-desc-ps-not-exist' => 'Heh di Saachjropp jidd_et, ävver se hät kei XML-Schema. Donn ein aanlääje:',
+	'ps-page-desc-edit-schema' => 'Donn dat XML-Schema för di Saachjropp ändere:',
 	'ps-field-list-label' => 'En däm Feld kann en Leß met Wääte shtonn',
 	'ps-template' => 'Schabloon',
 	'ps-add-template' => 'Donn en Schabloon dobei',
@@ -477,6 +491,7 @@ $messages['lb'] = array(
 	'ps-schema-name-label' => 'Numm vum Schema:',
 	'ps-optional-name' => 'Numm (eidel loosse fir den Numm vum Feld ze benotzen):',
 	'editschema' => 'Schema änneren',
+	'createschema' => 'Schema uleeën',
 );
 
 /** Macedonian (Македонски)
