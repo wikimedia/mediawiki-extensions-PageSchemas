@@ -558,6 +558,7 @@ $messages['nl'] = array(
 	'ps-schema-name-label' => 'Schemanaam:',
 	'ps-optional-name' => 'Naam (laat leeg om in te stellen op de veldnaam):',
 	'editschema' => 'Schema bewerken',
+	'createschema' => 'Schema aanmaken',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
