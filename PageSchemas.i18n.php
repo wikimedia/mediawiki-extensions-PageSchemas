@@ -667,11 +667,11 @@ $messages['sl'] = array(
 	'editschema' => 'Uredi shemo',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
-	'ps-desc' => 'Подршка шаблонима који дефинишу структуру података преко XML означавања',
+	'ps-desc' => 'Подржава шаблоне који одређују њихову структуру података преко XML означавања',
 	'pageschemas-header' => 'XML дефиниција овог шаблона:',
 );
 
