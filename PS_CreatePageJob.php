@@ -8,24 +8,24 @@
 class PSCreatePageJob extends Job {
 
 	function __construct( $title, $params = '', $id = 0 ) {
-		parent::__construct( 'createPage', $title, $params, $id );
+		parent::__construct( 'pageSchemasCreatePage', $title, $params, $id );
 	}
 
 	/**
-	 * Run a createPage job
+	 * Run a pageSchemasCreatePage job
 	 * @return boolean success
 	 */
 	function run() {
 		wfProfileIn( __METHOD__ );
 
 		if ( is_null( $this->title ) ) {
-			$this->error = "createPage: Invalid title";
+			$this->error = "pageSchemasCreatePage: Invalid title";
 			wfProfileOut( __METHOD__ );
 			return false;
 		}
 		$article = new Article( $this->title );
 		if ( !$article ) {
-			$this->error = 'createPage: Article not found "' . $this->title->getPrefixedDBkey() . '"';
+			$this->error = 'pageSchemasCreatePage: Article not found "' . $this->title->getPrefixedDBkey() . '"';
 			wfProfileOut( __METHOD__ );
 			return false;
 		}
