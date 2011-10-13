@@ -57,6 +57,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$skin = $wgUser->getSkin();
 		}
 		foreach ( $pageList as $page ) {
+			if ( !( $page instanceof Title ) ) { continue; }
 			$pageName = PageSchemas::titleString( $page );
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
 			$text .= "\n" . $skin->link( $page ) . "<br />\n";
