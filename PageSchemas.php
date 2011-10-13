@@ -24,8 +24,8 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
 	'name'			=> 'Page Schemas',
 	'author'		=> array( 'Ankit Garg', 'Yaron Koren' ),
-	'version'		=> '0.2-alpha',
-	'url'			=> 'http://www.mediawiki.org/wiki/Extension:PageSchemas',
+	'version'		=> '0.2',
+	'url'			=> 'http://www.mediawiki.org/wiki/Extension:Page_Schemas',
 	'descriptionmsg'	=> 'ps-desc',
 );
 
