@@ -24,7 +24,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
 	'name'			=> 'Page Schemas',
 	'author'		=> array( 'Ankit Garg', 'Yaron Koren' ),
-	'version'		=> '0.1',
+	'version'		=> '0.2-alpha',
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:PageSchemas',
 	'descriptionmsg'	=> 'ps-desc',
 );
@@ -36,9 +36,8 @@ $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 
 //Job classes
-$wgJobClasses['createPage'] = 'PSCreatePageJob';
+$wgJobClasses['pageSchemasCreatePage'] = 'PSCreatePageJob';
 $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
-
 
 // Register auto load for the special page class
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
@@ -62,3 +61,25 @@ $wgPageProps['PageSchema'] = 'Contents of &lt;PageSchema&gt; tag';
 $wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
 $wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTabs2';
+
+// Register client-side modules
+$pageSchemasResourceTemplate = array(
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'PageSchemas'
+);
+$wgResourceModules += array(
+	'ext.pageschemas.main' => $pageSchemasResourceTemplate + array(
+		'scripts' => array(
+			'PageSchemas.js',
+		),
+		'styles' => array(
+			'PageSchemas.css',
+		),
+		'dependencies' => array(
+			'jquery',
+		),
+	),
+);
+
+// Page Schemas global variables
+$wgPageSchemasFieldNum = 0;

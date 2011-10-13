@@ -10,17 +10,16 @@ class PageSchemasHooks {
 
 	// Initialization
 	public static function register( &$parser ) {
-		global $wgOut, $wgScriptPath;
-
 		// Register the hook with the parser
 		$parser->setHook( 'PageSchema', array( 'PageSchemasHooks', 'render' ) );
-		// add the CSS
-		$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/PageSchemas.css' );
 		return true;
 	}
 
 	// Render the displayed XML, if any
 	public static function render( $input, $args, $parser, $frame ) {
+		// Disable cache so that CSS will get loaded
+		$parser->disableCache();
+
 		// If this call is contained in a transcluded page or template,
 		// or if the input is empty, display nothing.
 		if ( !$frame->title->equals( $parser->getTitle() ) || $input == '' ) {
@@ -38,7 +37,10 @@ class PageSchemasHooks {
  		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
 			// Store the XML in the page_props table
 			$parser->getOutput()->setProperty( 'PageSchema', $input );
-			$text = PageSchemas::parsePageSchemas( $xml_object );
+			// Display the schema on the screen
+			global $wgOut, $wgScriptPath;
+			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/PageSchemas.css' );
+			$text = PageSchemas::displaySchema( $xml_object );
 		} else {
 			// Store error message in the page_props table
 			$parser->getOutput()->setProperty( 'PageSchema', $error_msg );

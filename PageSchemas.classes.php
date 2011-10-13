@@ -56,7 +56,7 @@ class PageSchemas {
 			global $wgOut;
 			$output = $wgOut;
 		}
-		$output->addModules( 'jquery' );
+		$output->addModules( 'ext.pageschemas.main' );
 	}
 
 	public static function titleString( $title ) {
@@ -98,41 +98,57 @@ END;
 		return $xml_success;
 	}
 
-	static function tableRowHTML($css_class, $data_type, $value = null) {
-		$data_type = htmlspecialchars($data_type);
-		if ( is_null( $value ) ) {
+	static function tableRowHTML( $css_class, $data_type, $value = null, $bgColor = null ) {
+		$data_type = htmlspecialchars( $data_type );
+		if ( !is_null( $bgColor ) ) {
+			// We don't actually use the passed-in background color, except as an indicator
+			// that this is a header row for extension data, and thus should have special
+			// display.
+			// In the future, the background color may get used, though.
+			$data_type =  HTML::element( 'span', array( 'style' => "color: #993333;" ), $data_type );
+		}
+		if ( $value == '' ) {
 			$content = $data_type;
 		} else {
-			$content = "$data_type: " . HTML::element('span', array('class' => 'rowValue'), $value);
+			$content = "$data_type: " . HTML::element( 'span', array( 'class' => 'rowValue' ), $value );
 		}
-		$cell = HTML::rawElement('td', array('colspan' => 2, 'class' => $css_class), $content);
-		$text = HTML::rawElement('tr', null, $cell);
+		$cellAttrs = array( 'colspan' => 2, 'class' => $css_class );
+		$cell = HTML::rawElement( 'td', $cellAttrs, $content );
+		//$cell = "<td colspan=2><span style=\"background: white; min-width; 20px;\">.</span><span style=\"background: $bgColor;\">$content</span></td>";
+		$text = HTML::rawElement( 'tr', array( 'style' => 'border: 1px black solid; margin: 10px;' ), $cell );
 		$text .= "\n";
 		return $text;
 	}
 
-	static function tableMessageRowHTML( $css_class, $name, $value ) {
-		$cell1 = HTML::element('td', array('class' => $css_class), $name);
-		$cell2 = HTML::element('td', array('class' => 'msg'), $value);
-		$text = HTML::rawElement('tr', null, $cell1 . "\n" . $cell2);
+	static function attrRowHTML( $cssClass, $fieldName, $value ) {
+		$fieldNameAttrs = array( 'class' => $cssClass, 'style' => 'font-weight: normal;' );
+		$fieldNameCell = HTML::rawElement( 'td', $fieldNameAttrs, $fieldName );
+		$valueCell = HTML::element( 'td', array( 'class' => 'msg', 'style' => 'font-weight: bold;' ), $value );
+		$text = HTML::rawElement( 'tr', null, $fieldNameCell . "\n" . $valueCell );
 		$text .= "\n";
 		return $text;
 	}
 
-	static function parsePageSchemas($class_schema_xml) {
+	static function displaySchema($schema_xml) {
 		global $wgTitle;
 
 		if ( $wgTitle->getNamespace() == NS_CATEGORY ) {
-			$text = Html::element( 'p', null, wfMsg( 'ps-schema-description' ) ) . "\n";
-			$text .= "<table class=\"pageSchema\">\n";
-			$name = $class_schema_xml->attributes()->name;
-			$text .= self::tableRowHTML('paramGroup', 'PageSchema', $name);
-			foreach ( $class_schema_xml->children() as $tag => $child ) {
-				// TODO - need a hook call right here
-				if ( $tag == 'semanticforms_Form' ) {
-					$text .= self::parseFormElem($child);
-				} elseif ($tag == 'Template') {
-					$text .= self::parseTemplate($child);
+			//$text = Html::element( 'p', null, wfMsg( 'ps-schema-description' ) ) . "\n";
+			$text = "<table class=\"pageSchema mw-collapsible mw-collapsed\">\n";
+			$name = $schema_xml->attributes()->name;
+			$text .= self::tableRowHTML( 'pageSchemaHeader', 'Page schema' );
+			$displayInfoFromExtensions = array();
+			wfRunHooks( 'PageSchemasGetSchemaDisplayInfo', array( $schema_xml, &$displayInfoFromExtensions ) );
+			foreach( $displayInfoFromExtensions as $displayInfo ) {
+				list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+				$text .= self::tableRowHTML( 'schemaExtensionRow', $label, $elementName, $bgColor );
+				foreach ( $values as $fieldName => $value ) {
+					$text .= self::attrRowHTML( 'schemaAttrRow', $fieldName, $value );
+				}
+			}
+			foreach ( $schema_xml->children() as $tag => $child ) {
+				if ( $tag == 'Template') {
+					$text .= self::displayTemplate($child);
 				}
 			}
 			$text .= "</table>\n";
@@ -142,33 +158,51 @@ END;
 		return $text;
 	}
 
-	/**
-	 * @TODO - this should move into Semantic Forms, via a hook
-	 */
-	static function parseFormElem( $form_xml ) {
-		$name = $form_xml->attributes()->name;
-		$text = self::tableRowHTML('param', 'Form', $name);
-		foreach ($form_xml->children() as $key => $value ) {
-			$text .= self::tableMessageRowHTML( "paramAttrMsg", (string)$key, (string)$value );
+	static function displayTemplate ( $templateXML ) {
+		$name = $templateXML->attributes()->name;
+		$text = self::tableRowHTML( 'templateRow', 'Template', $name );
+		$multiple = $templateXML->attributes()->multiple;
+		if ( $multiple == 'multiple' ) {
+			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
+		}
+		$displayInfoFromExtensions = array();
+		wfRunHooks( 'PageSchemasGetTemplateDisplayInfo', array( $templateXML, &$displayInfoFromExtensions ) );
+		foreach( $displayInfoFromExtensions as $displayInfo ) {
+			list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
+			foreach ( $values as $fieldName => $value ) {
+				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
+			}
+		}
+		foreach ( $templateXML->children() as $child ) {
+			$text .= self::displayField( $child );
 		}
 		return $text;
 	}
 
-	static function parseTemplate ( $template_xml ) {
-		$name = $template_xml->attributes()->name;
-		$text = self::tableRowHTML( 'param', 'Template', $name );
-		foreach ( $template_xml->children() as $child ) {
-			$text .= self::parseField( $child );
+	static function displayField ( $fieldXML ) {
+		$name = $fieldXML->attributes()->name;
+		$text = self::tableRowHTML( 'fieldRow', 'Field', $name );
+
+		if( ((string) $fieldXML->attributes()->list) == "list" ) {
+			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
 		}
-		return $text;
-	}
-	static function parseField ( $field_xml ) {
-		$name = $field_xml->attributes()->name;
-		$text = self::tableRowHTML( 'paramAttr', 'Field', $name );
-		$text_object = array(); //different extensions will fill the html parsed text in this array via hooks
-		wfRunHooks( 'PSParseFieldElements', array( $field_xml, &$text_object ) );
-		foreach( $text_object as $key => $value ) {
-			$text .= $value;
+		foreach ( $fieldXML->children() as $tag => $child ) {
+			if ( $tag == 'Label' ) {
+				$text .= self::attrRowHTML( 'fieldAttrRow', 'Label', $child );
+			}
+		}
+
+		// Let extensions that store data within the Page Schemas XML each
+		// handle displaying their data, by adding to this array.
+		$displayInfoFromExtensions = array();
+		wfRunHooks( 'PageSchemasGetFieldDisplayInfo', array( $fieldXML, &$displayInfoFromExtensions ) );
+		foreach( $displayInfoFromExtensions as $displayInfo ) {
+			list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
+			foreach ( $values as $fieldName => $value ) {
+				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
+			}
 		}
 		return $text;
 	}
@@ -213,7 +247,7 @@ class PSSchema {
 			$this->pageXML = simplexml_load_string ( $pageXMLstr );
 			/* index for template objects */
 			$i = 0;
-			$inherited_templates = null ;
+			$inherited_templates = array();
 			foreach ( $this->pageXML->children() as $tag => $child ) {
 				if ( $tag == 'InheritsFrom ' ) {
 					$schema_to_inherit = (string) $child->attributes()->schema;
@@ -266,13 +300,13 @@ class PSSchema {
 		return $this->categoryName;
 	}
 }
+
 class PSTemplate {
 	/* Stores the field objects */
 	public $PSFields = array();
 	public $templateName ="";
 	public $templateXML = null;
 	public $multiple_allowed = false;
-	private $label_name = null;
 
 	function __construct( $template_xml ) {
 		$this->templateXML = $template_xml;
@@ -296,15 +330,13 @@ class PSTemplate {
 						}
 					}
 				}
-			} elseif ( $child->getName() == "Label" ) { //@TODO Label => sf:Label
-				$this->label_name = (string)$child;
 			} elseif ( $child->getName() == "Field" ) {
 				$ignore = (string) $child->attributes()->ignore;
 				if ( count($child->children()) > 0 ) { //@TODO :Can be dealt more efficiently
 					$fieldObj = new PSTemplateField($child);
 					$this->PSFields[$i++]= $fieldObj;
 				} elseif ( $ignore != "true" ) {
-					//Code to Add Templates from Inherited templates
+					// Code to add fields from inherited templates
 					$field_name = (string) $child->attributes()->name;
 					foreach( $inherited_fields as $inherited_field ) {
 						if( $field_name == $inherited_field->getName() ){
@@ -324,8 +356,10 @@ class PSTemplate {
 		return $this->multiple_allowed;
 	}
 
-	public function getLabel() {
-		return $this->label_name;
+	function getObject( $objectName ) {
+		$object = array();
+		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->templateXML, &$object ) );
+		return $object;
 	}
 
 	function getFields() {

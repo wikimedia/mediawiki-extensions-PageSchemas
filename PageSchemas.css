@@ -1,4 +1,11 @@
-.pageSchema td {
+/**
+ * Used to display page schema information directly on the category page.
+ */
+table.pageSchema {
+	border: 1px solid #ccc;
+}
+
+table.pageSchema td {
 	padding-right: 5px;
 }
 
@@ -7,96 +14,92 @@ body.rtl .pageSchema td {
 	padding-left: 5px;
 }
 
-.pageSchema .paramGroup {
-	background: #bbaa88;
+table.pageSchema .pageSchemaHeader {
 	padding-left: 5px;
 }
 
-body.rtl .pageSchema .paramGroup {
+body.rtl .pageSchema .pageSchemaHeader {
 	padding-left: auto;
 	padding-right: 5px;
 }
 
-.pageSchema .paramGroup span.rowValue {
+table.pageSchema .pageSchemaHeader span.rowValue {
 	font-weight: bold;
 }
 
-.pageSchema .param {
+.pageSchema .schemaExtensionRow {
+	padding-left: 5px;
+}
+
+body.rtl .pageSchema .schemaExtensionRow {
+	padding-left: auto;
+	padding-right: 5px;
+}
+
+.pageSchema .schemaAttrRow {
+	padding-left: 25px;
+	background: white;
+	font-weight: bold;
+}
+
+body.rtl .pageSchema .schemaAttrRow {
+	padding-left: auto;
+	padding-left: 25px;
+}
+
+table.pageSchema .templateRow {
 	background: #d3c2a0;
-	padding-left: 20px;
+	padding-left: 5px;
 }
 
-body.rtl .pageSchema .param {
+body.rtl .pageSchema .templaterow {
 	padding-left: auto;
-	padding-right: 20px;
+	padding-right: 5px;
 }
 
-.pageSchema .param span.rowValue {
+.pageSchema span.rowValue {
 	font-weight: bold;
 }
 
-.pageSchema .paramAttr {
+.pageSchema .fieldRow {
 	background: #eeddbb;
-	padding-left: 35px;
+	padding-left: 25px;
 }
 
-body.rtl .pageSchema .paramAttr {
+body.rtl .pageSchema .fieldRow {
 	padding-left: auto;
-	padding-right: 35px;
+	padding-right: 25px;
 }
 
-.pageSchema .paramAttrMsg {
-	background: #ffeecc;
-	padding-left: 50px;
+.pageSchema .fieldExtensionRow {
+	padding-left: 26px;
+	border-top: 1px solid #ddd;
 }
 
-body.rtl .pageSchema .paramAttrMsg {
+body.rtl .pageSchema .fieldExtensionRow {
 	padding-left: auto;
-	padding-right: 50px;
+	padding-right: 26px;
 }
 
-.pageSchema .paramOptions {
-	padding-left: 20px;
-	background: #ffff77;
-}
-
-body.rtl .pageSchema .paramOptions {
-	padding-left: auto;
-	padding-right: 20px;
-}
-
-.pageSchema .paramOption {
-	padding-left: 35px;
-	background: #ffff99;
-}
-
-body.rtl .pageSchema .paramOption {
-	padding-left: auto;
-	padding-right: 35px;
-}
-
-.pageSchema .paramOption span.rowValue {
+.pageSchema .fieldAttrRow {
+	padding-left: 45px;
+	background: white;
 	font-weight: bold;
 }
 
-.pageSchema .paramOptionMsg {
-	padding-left: 50px;
-	background: #ffffbb;
-}
-
-body.rtl .pageSchema .paramOptionMsg {
+body.rtl .pageSchema .fieldAttrRow {
 	padding-left: auto;
-	padding-right: 50px;
+	padding-left: 45px;
 }
 
 .pageSchema .paramData {
-	padding-left: 20px;
+	padding-left: 5px;
 	background: #77dd77;
 }
 
 body.rtl .pageSchema .paramData {
 	padding-left: auto;
-	padding-right: 20px;
+	padding-right: 5px;
 }
 
 .pageSchema .paramData span.rowValue {
@@ -121,4 +124,29 @@ body.rtl .pageSchema .paramDataField {
 body.rtl .pageSchema .msg {
 	padding-left: auto;
 	padding-right: 5px;
+}
+
+/**
+ * Used in Special:EditSchema
+ */
+div.editSchemaSection {
+	 border: 1px #999 solid;
+	 background: white;
+	 padding: 0px;
+	 margin-bottom: 10px;
+	 margin-top: 10px;
+}
+div.editSchemaTemplateSection {
+	background: #EEE;
+}
+div.editSchemaFieldSection {
+	background: #CCC;
+}
+div.editSchemaSection .sectionHeader {
+	font-weight: bold;
+	padding: 4px 7px;
+	border-bottom: 1px #bbb solid;
+}
+div.editSchemaSection .sectionBody {
+	padding: 5px 15px;
 }

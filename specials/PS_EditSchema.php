@@ -11,104 +11,6 @@ class PSEditSchema extends IncludableSpecialPage {
 		parent::__construct( 'EditSchema' );
 	}
 
-	public static function addJavascript() {
-		global $wgOut;
-
-		PageSchemas::addJavascriptAndCSS();
-
-		// TODO - this should be in a JS file
-		$template_name_error_str = wfMsg( 'sf_blank_error' );
-		$jsText =<<<END
-<script type="text/javascript">
-var fieldNum = 0;
-var templateNum = 0;
-// TODO - this function should be a jQuery 'fn' instead
-function psAddField(template_num) {
-	fieldNum++;
-	newField = jQuery('#starterField').clone().css('display', '').removeAttr('id');
-	newHTML = newField.html().replace(/fnum/g, fieldNum);
-	newField.html(newHTML);
-	newField.find(".deleteField").click( function() {
-		// Remove the encompassing div for this instance.
-		jQuery(this).closest(".fieldBox")
-			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});
-	jQuery('#fieldsList_'+template_num).append(newField);
-	addjQueryToCheckboxes();
-}
-
-function psAddTemplate() {
-	templateNum++;
-	newField = jQuery('#starterTemplate').clone().css('display', '').removeAttr('id');
-	newHTML = newField.html().replace(/tnum/g, templateNum);
-	newField.html(newHTML);
-	newField.find(".deleteTemplate").click( function() {
-		// Remove the encompassing div for this instance.
-		jQuery(this).closest(".templateBox")
-			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});
-	jQuery('#templatesList').append(newField);
-}
-
-function updateFieldNum(field_num) {
-	fieldNum = field_num;
-}
-
-function addjQueryToCheckboxes() {
-	jQuery('.isListCheckbox').each(function() {
-		if (jQuery(this).is(":checked")) {
-			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', '');
-		} else {
-			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', 'none');
-		}
-	});
-	jQuery('.isListCheckbox').click(function() {
-		if (jQuery(this).is(":checked")) {
-			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', '');
-		} else {
-			jQuery(this).closest('.fieldBox').find('.delimiterInput').css('display', 'none');
-		}
-	});
-	jQuery('.sectionCheckbox').each(function() {
-		if (jQuery(this).is(":checked")) {
-			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', '').removeClass('hiddenSection');
-		} else {
-			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', 'none').addClass('hiddenSection');
-		}
-	});
-	jQuery('.sectionCheckbox').click(function() {
-		if (jQuery(this).is(":checked")) {
-			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', '').removeClass('hiddenSection');
-		} else {
-			jQuery(this).closest('.sectionBox').find('.extensionInputs').css('display', 'none').addClass('hiddenSection');
-		}
-	});
-}
-
-jQuery(document).ready(function() {
-	jQuery(".deleteField").click( function() {
-		// Remove the encompassing div for this instance.
-		jQuery(this).closest(".fieldBox")
-			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});
-	jQuery(".deleteTemplate").click( function() {
-		// Remove the encompassing div for this instance.
-		jQuery(this).closest(".templateBox")
-			.fadeOut('fast', function() { jQuery(this).remove(); });
-	});
-	addjQueryToCheckboxes();
-	jQuery('#editPageSchemaForm').submit( function() {
-		jQuery('#starterTemplate').find("input, select, textarea").attr('disabled', 'disabled');
-		jQuery('.hiddenSection').find("input, select, textarea").attr('disabled', 'disabled');
-		return true;
-	} );
-});
-</script>
-
-END;
-		$wgOut->addScript( $jsText );
-	}
-
 	/**
 	 * Returns a nicely-formatted version of the XML passed in.
 	 *
@@ -132,8 +34,7 @@ END;
 	static function pageSchemaXMLFromRequest() {
 		global $wgRequest;
 
-		//Generate the XML from the Form elements
-		//$s_name = $wgRequest->getText('s_name');
+		// Generate the XML from the form elements.
 		$psXML = '<PageSchema>';
 		$additionalXML = $wgRequest->getText( 'ps_add_xml' );
 		$psXML .= $additionalXML;
@@ -142,17 +43,17 @@ END;
 		$templateNum = -1;
 		// Arrays to store the extension-specific XML entered in the form
 		$schemaXMLFromExtensions = array();
+		$templateXMLFromExtensions = array();
 		$fieldXMLFromExtensions = array();
 		wfRunHooks( 'PageSchemasGetSchemaXML', array( $wgRequest, &$schemaXMLFromExtensions ));
+		wfRunHooks( 'PageSchemasGetTemplateXML', array( $wgRequest, &$templateXMLFromExtensions ));
 		wfRunHooks( 'PageSchemasGetFieldXML', array( $wgRequest, &$fieldXMLFromExtensions ));
 		foreach ( $schemaXMLFromExtensions as $extensionName => $xml ) {
 			if ( !empty( $xml ) ) {
 				$psXML .= $xml;
 			}
 		}
-		$indexGlobalField = 0 ; //this variable is use to index the array returned by extensions for XML.
 		foreach ( $wgRequest->getValues() as $var => $val ) {
-			$suffix = substr( $var, -3 );
 			// Ignore fields from the hidden/starter div
 			if ( substr( $var, 0, 7 ) == 't_name_' ) {
 				$templateNum = substr( $var, 7 );
@@ -160,6 +61,13 @@ END;
 					$psXML .= '<Template name="'.$val.'" multiple="multiple">';
 				} else {
 					$psXML .= '<Template name="'.$val.'">';
+				}
+
+				// Get XML created by extensions for this template
+				foreach ( $templateXMLFromExtensions as $extensionName => $xmlPerTemplate ) {
+					if ( !empty( $xmlPerTemplate[$templateNum] ) ) {
+						$psXML .= $xmlPerTemplate[$templateNum];
+					}
 				}
 			} elseif ( substr( $var, 0, 7 ) == 'f_name_' ) {
 				$fieldNum = substr( $var, 7 );
@@ -179,13 +87,12 @@ END;
 					$psXML .= '<Label>' . $val . '</Label>';
 				}
 
-				// Get XML created by extensions
+				// Get XML created by extensions for this field
 				foreach ( $fieldXMLFromExtensions as $extensionName => $xmlPerField ) {
-					if ( !empty( $xmlPerField[$indexGlobalField] ) ) {
-						$psXML .= $xmlPerField[$indexGlobalField];
+					if ( !empty( $xmlPerField[$fieldNum] ) ) {
+						$psXML .= $xmlPerField[$fieldNum];
 					}
 				}
-				$indexGlobalField++ ;
 			} elseif ( substr( $var, 0, 10 ) == 'f_add_xml_' ) {
 				$psXML .= $val;
 				$psXML .= '</Field>';
@@ -220,16 +127,23 @@ END;
 			)
 		);
 		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
+		$text .= "<ul>\n";
 		while ( $row = $dbr->fetchRow( $res ) ) {
-			if ( $row[2] != null ) {
-				$page_id_cat = $row[0];
-				if ( Title::newFromId( $page_id_cat )->getNamespace() == NS_CATEGORY ) {
-					$cat_text = Title::newFromId( $page_id_cat )->getText();
-					$url = $editSchemaPage ->getFullURL() . '/' . $cat_text;
-					$text .= Html::element( 'a', array( 'href' => $url ), $cat_text ) . '<br />';
-				}
+			if ( $row[2] == null ) {
+				continue;
 			}
+			$catTitle = Title::newFromID( $row[0] );
+			if ( $catTitle->getNamespace() !== NS_CATEGORY ) {
+				continue;
+			}
+			$catName = $catTitle->getText();
+			$url = $catTitle->getFullURL( 'action=editschema' );
+			$text .= Html::rawElement( 'li',
+				null,
+				Html::element( 'a', array( 'href' => $url ), $catName )
+			);
 		}
+		$text .= "</ul>\n";
 		$dbr->freeResult( $res );
 		return $text;
 	}
@@ -237,19 +151,28 @@ END;
 	/*
 	 * Returns the HTML for one section of the EditSchema form.
 	 */
-	static function printFormSection( $label, $topColor, $html, $bgColor = 'white', $isCollapsible = false, $hasExistingValues = true ) {
-		$className = $isCollapsible ? 'sectionBox' : '';
-		$text = "<div class=\"$className\" style=\"background: $bgColor; border: 1px #999 solid; padding: 0px; margin-bottom: 10px; margin-top: 10px;\">\n";
-		$text .= "<div style=\"font-weight: bold; background: $topColor; padding: 4px 7px; border-bottom: 1px #bbb solid;\">";
-		if ( $isCollapsible ) {
+	static function printFormSection( $label, $headerColor, $mainHTML, $sectionClass, $hasExistingValues = true ) {
+		// Section header
+		$headerContents = '';
+		if ( empty( $sectionClass ) ) {
 			$checkboxAttrs = array( 'class' => 'sectionCheckbox' );
 			if ( $hasExistingValues ) {
 				$checkboxAttrs['checked'] = true;
 			}
-			$text .= " " . Html::input( 'show_section', null, 'checkbox', $checkboxAttrs );
+			$headerContents .= "\n\t\t" . Html::input( 'show_section', null, 'checkbox', $checkboxAttrs ) . ' ';
 		}
-		$className = $isCollapsible ? 'extensionInputs' : '';
-		$text .= "$label</div>" . "<div class=\"$className\" style=\"padding: 5px 15px;\">$html</div>\n" . "</div>\n";
+		$headerContents .= $label . "\n";
+		$sectionHTML = "\n\t\t\t\t\t" . Html::rawElement( 'div', array(
+			'class' => 'sectionHeader',
+			'style' => "background: $headerColor;"
+		), $headerContents );
+
+		// Body of section, with all the inputs.
+		$sectionHTML .= "\n\t" . Html::rawElement( 'div', array( 'class' => 'sectionBody' ), "\n" . $mainHTML );
+
+		// Wrapper around the whole thing.
+		$className = "editSchemaSection $sectionClass";
+		$text = "\n\t\t\t\t" . Html::rawElement( 'div', array( 'class' => $className ), $sectionHTML ) . "\n";
 		return $text;
 	}
 
@@ -258,23 +181,32 @@ END;
 	 */
 	static function printFieldHTMLForExtension( $valuesFromExtension ) {
 		list( $label, $color, $html, $hasExistingValues ) = $valuesFromExtension;
-		return self::printFormSection( $label, $color, $html, 'white', true, $hasExistingValues );
+		return self::printFormSection( $label, $color, $html, null, $hasExistingValues );
 	}
 
 	/**
 	 * Returns the HTML for a section of the form comprising one
 	 * template field.
 	 */
-	static function printFieldSection( $field_xml = null, $pageSchemaField = null, $field_count = 'fnum' ) {
+	static function printFieldSection( $field_xml = null, $pageSchemaField = null ) {
+		if ( is_null( $field_xml ) ) {
+			$fieldNum = 'fnum';
+		} else {
+			global $wgPageSchemasFieldNum;
+			$fieldNum = $wgPageSchemasFieldNum;
+			$wgPageSchemasFieldNum++;
+		}
+
 		$fieldName = '';
 		$delimiter = '';
 		$fieldLabel = '';
 		$isListAttrs = array( 'class' => 'isListCheckbox' );
 		$delimiterAttrs = array( 'class' => 'delimiterInput' );
+		$text = "\n\t\t\t";
 		if ( is_null( $field_xml ) ) {
-			$text = '<div class="fieldBox" id="starterField" style="display: none" >';
+			$text .= '<div class="fieldBox" id="starterField" style="display: none" >';
 		} else {
-			$text = '<div class="fieldBox" >';
+			$text .= '<div class="fieldBox" >';
 			$fieldName = (string)$field_xml->attributes()->name;
 			if ( ((string)$field_xml->attributes()->delimiter) != null || ((string)$field_xml->attributes()->delimiter) != '' ) {
 				$delimiter = (string)$field_xml->attributes()->delimiter;
@@ -288,15 +220,15 @@ END;
 				$isListAttrs['checked'] = 'checked';
 			}
 		}
-		$fieldHTML = '<p>Field name: ';
-		$fieldHTML .= Html::input( 'f_name_' . $field_count, $fieldName, 'text', array( 'size' => 15 ) ) . ' ';
+		$fieldHTML = wfMsg( 'ps-namelabel' ) . ' ';
+		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 15 ) ) . ' ';
 		$fieldHTML .= wfMsg( 'ps-displaylabel' ) . ' ';
-		$fieldHTML .= Html::input( 'f_label_' . $field_count, $fieldLabel, 'text', array( 'size' => 15 ) );
-		$fieldHTML .= "\t\t</p>\n";
-		$fieldIsListInput = Html::input( 'f_is_list_' . $field_count, null, 'checkbox', $isListAttrs );
+		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', array( 'size' => 15 ) );
+		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
+		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
 		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
-		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $field_count, $delimiter, 'text', array( 'size' => 3 ) );
-		$fieldHTML .= Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
+		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
 
 		// Insert HTML text from extensions
 		$htmlFromExtensions = array();
@@ -308,20 +240,17 @@ END;
 			// their number set via Javascript) and field names from
 			// other extensions (which get their number set via PHP).
 			// Is this important to do? Probably not.
-			$fieldHTML .= str_replace( 'num', $field_count, $html );
+			$fieldHTML .= str_replace( 'num', $fieldNum, $html );
 		}
 
-		$add_xml_label = wfMsg('ps-add-xml-label');
-		$fieldHTML .= <<<END
-		<p>$add_xml_label
-		<textarea rows=4 style="width: 100%" name="f_add_xml_$field_count"></textarea>
-		</p>
-
-END;
+		// TODO - this needs to get set.
+		$field_add_xml = null;
+		$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
+		$fieldHTML .= "<p>" . wfMsg('ps-add-xml-label') . $additionalXMLInput . "</p>\n";
 		$fieldHTML .= Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
 			array( 'class' => 'deleteField' )
 		);
-		$text .= self::printFormSection( wfMsg( 'ps-field' ), '#AAA', $fieldHTML, '#CCC' );
+		$text .= "\n" . self::printFormSection( wfMsg( 'ps-field' ), '#AAA', $fieldHTML, 'editSchemaFieldSection' );
 		$text .= "\t</div><!-- fieldBox -->\n";
 		return $text;
 	}
@@ -336,63 +265,72 @@ END;
 			$pageSchemaTemplateFields = $pageSchemaTemplate->getFields();
 		}
 		$attrs = array();
+		$templateXMLElements = array();
+		$text = "\t";
 		if ( is_null( $template_xml ) ) {
-			$text = '<div class="templateBox" id="starterTemplate" style="display: none">';
+			$text .= '<div class="templateBox" id="starterTemplate" style="display: none">' . "\n";
 			$templateName = '';
-			$fields_xml_array = array( null );
 		} else {
-			$text = '<div class="templateBox" >';
+			$text .= '<div class="templateBox" >' . "\n";
 			$templateName = (string) $template_xml->attributes()->name;
 			if ( ( (string)$template_xml->attributes()->multiple ) == "multiple" ) {
 				$attrs['checked'] = 'checked';
 			}
-			$fields_xml_array = $template_xml->children();
+			$templateXMLElements = $template_xml->children();
 		}
-		$templateNameInput = Html::input( 't_name_' . $template_num, $templateName, 'text' );
-		$templateHTML = '<p>Name: ' . $templateNameInput . '</p> ';
+		$templateNameInput = wfMsg( 'ps-namelabel' ) . ' ';
+		$templateNameInput .= Html::input( 't_name_' . $template_num, $templateName, 'text' );
+		$templateHTML = "\t\t" . Html::rawElement( 'p', null, $templateNameInput ) . "\n";
 		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
-		$templateHTML .= Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
+		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
 		$template_add_xml = "";
-		foreach ( $fields_xml_array as $field_xml ) {
-			if ( !empty( $field_xml ) && $field_xml->getName() != 'Field' ) {
-				$template_add_xml .= (string)$field_xml->asXML();
+		// TODO - set this correctly.
+		/*
+		foreach ( $templateXMLElements as $templateXMLElement ) {
+			if ( !empty( $templateXMLElement ) && $templateXMLElement->getName() != 'Field' ) {
+				$template_add_xml .= (string)$templateXMLElement->asXML();
 			}
 		}
-		$templateHTML .= '<div id="fieldsList_'.$template_num.'">';
-		$field_count = 0;
-		foreach ( $fields_xml_array as $field_xml ) {
-			if ( empty( $field_xml ) ) {
-				$templateHTML .= self::printFieldSection();
-			} elseif ( $field_xml->getName() == "Field" ) {
-				$pageSchemaField = $pageSchemaTemplateFields[$field_count];
-				$templateHTML .= self::printFieldSection( $field_xml, $pageSchemaField, $field_count );
-				$field_count++;
+		 */
+
+		$htmlForTemplate = array();
+		wfRunHooks( 'PageSchemasGetTemplateHTML', array( $pageSchemaTemplate, &$htmlForTemplate ) );
+		foreach ( $htmlForTemplate as $valuesFromExtension ) {
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension );
+			$templateHTML .= str_replace( 'num', $template_num, $html );
+		}
+
+		$templateHTML .= "\n\t\t" . '<div class="fieldsList">';
+		$fieldNumInTemplate = 0;
+		// If this is a "starter" template, create the starter
+		// field HTML.
+		if ( is_null( $pageSchemaTemplate ) ) {
+			$templateHTML .= self::printFieldSection();
+		}
+		foreach ( $templateXMLElements as $templateXMLElement ) {
+			if ( empty( $templateXMLElement ) ) {
+				// Do nothing (?)
+			} elseif ( $templateXMLElement->getName() == "Field" ) {
+				$pageSchemaField = $pageSchemaTemplateFields[$fieldNumInTemplate];
+				$templateHTML .= self::printFieldSection( $templateXMLElement, $pageSchemaField );
+				$fieldNumInTemplate++;
 			}
 		}
 		$templateHTML .= "\t</div><!-- fieldsList -->\n";
-		$templateHTML .=<<<END
-<script type="text/javascript">
-	$(document).ready(function() {
-		updateFieldNum($field_count);
-	});
-</script>
-
-END;
 		$add_field_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
+				'class' => 'editSchemaAddField',
 				'value' => wfMsg( 'ps-add-field' ),
-				'onclick' => "psAddField($template_num)"
 			)
 		);
 		$templateHTML .= Xml::tags( 'p', null, $add_field_button ) . "\n";
-		$templateHTML .= '<hr />
-					<p>'. wfMsg('ps-add-xml-label') .'
-						<textarea rows=4 style="width: 100%" name="t_add_xml_'.$template_num.'">'.$template_add_xml.'</textarea>
-					</p>';
+		$templateHTML .= "<hr />\n";
+		$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
+		$templateHTML .= "\n<p>" . wfMsg('ps-add-xml-label') . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
 		$templateHTML .= '<p>' . Html::input( 'remove-template', 'Remove template', 'button', array( 'class' => 'deleteTemplate' ) ) . "</p>\n";
-		$text .= self::printFormSection( wfMsg( 'ps-template' ), '#CCC', $templateHTML, '#EEE' );
-		$text .= "	</div><!-- templateBox-->";
+		$text .= self::printFormSection( wfMsg( 'ps-template' ), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
+		$text .= "\t</div><!-- templateBox-->\n";
 		return $text;
 	}
 
@@ -416,22 +354,24 @@ END;
 		}
 
 		$ps_add_xml = '';
+		// TODO - set this correctly.
+		/*
 		foreach ( $pageXMLChildren as $template_xml ) {
-			if ( ( $template_xml->getName() != 'Template') && ( $template_xml->getName() != 'semanticforms_Form' ) ) {
+			if ( $template_xml->getName() != 'Template') {
 				$ps_add_xml .= (string)$template_xml->asXML();
 			}
 		}
+		 */
 
-		$text = '<form id="editPageSchemaForm" action="" method="post">' . "\n";
-		$text .= '<p>' . wfMsg('ps-add-xml-label') . '
-				<textarea rows=4 style="width: 100%" name="ps_add_xml" >' . $ps_add_xml . '</textarea>
-				</p> ';
+		$text = '<form id="editSchemaForm" action="" method="post">' . "\n";
+		$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( 'ps_add_xml', $ps_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
+		$text .= '<p>' . wfMsg('ps-add-xml-label') . $additionalXMLInput . "\n</p>";
 
 		foreach ( $htmlForSchema as $valuesFromExtension ) {
 			$text .= self::printFieldHTMLForExtension( $valuesFromExtension );
 		}
 
-		$text .= '<div id="templatesList">';
+		$text .= '<div id="templatesList">' . "\n";
 
 		$template_num = 0;
 
@@ -448,8 +388,8 @@ END;
 		$add_template_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
+				'class' => 'editSchemaAddTemplate',
 				'value' => wfMsg( 'ps-add-template' ),
-				'onclick' => "psAddTemplate()"
 			)
 		);
 		$text .= "\t</div><!-- templatesList -->\n";
@@ -482,7 +422,7 @@ END;
 
 		$this->setHeaders();
 		$text = '<p>' . wfMsg( 'ps-page-desc-edit-schema' ) . '</p>';
-		self::addJavascript();
+		PageSchemas::addJavascriptAndCSS();
 
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ( $save_page ) {
