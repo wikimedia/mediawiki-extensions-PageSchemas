@@ -63,12 +63,12 @@
 
 		$categoryName = $title->getText();
 		if ( $action == 'generatepages' ) {
-			$gen_page = new PSGeneratePages();
-			$gen_page->execute( $categoryName );
+			$generatePagesPage = new PSGeneratePages();
+			$generatePagesPage->execute( $categoryName );
 			return false;
 		} elseif ( $action == 'editschema' ) {
-			$edit_schema = new PSEditSchema();
-			$edit_schema->execute( $categoryName );
+			$editSchemaPage = new PSEditSchema();
+			$editSchemaPage->execute( $categoryName );
 			return false;
 		}
 		return true;
