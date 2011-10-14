@@ -258,25 +258,25 @@ class PSEditSchema extends IncludableSpecialPage {
 	/**
 	 * Returns the HTML for a section of the form comprising one template.
 	 */
-	static function printTemplateSection( $template_num = 'tnum', $template_xml = null, $pageSchemaTemplate = null ) {
-		if ( is_null( $pageSchemaTemplate ) ) {
-			$pageSchemaTemplateFields = array();
+	static function printTemplateSection( $template_num = 'tnum', $templateXML = null, $psTemplate = null ) {
+		if ( is_null( $psTemplate ) ) {
+			$psTemplateFields = array();
 		} else {
-			$pageSchemaTemplateFields = $pageSchemaTemplate->getFields();
+			$psTemplateFields = $psTemplate->getFields();
 		}
 		$attrs = array();
 		$templateXMLElements = array();
 		$text = "\t";
-		if ( is_null( $template_xml ) ) {
+		if ( is_null( $templateXML ) ) {
 			$text .= '<div class="templateBox" id="starterTemplate" style="display: none">' . "\n";
 			$templateName = '';
 		} else {
 			$text .= '<div class="templateBox" >' . "\n";
-			$templateName = (string) $template_xml->attributes()->name;
-			if ( ( (string)$template_xml->attributes()->multiple ) == "multiple" ) {
+			$templateName = (string) $templateXML->attributes()->name;
+			if ( ( (string)$templateXML->attributes()->multiple ) == "multiple" ) {
 				$attrs['checked'] = 'checked';
 			}
-			$templateXMLElements = $template_xml->children();
+			$templateXMLElements = $templateXML->children();
 		}
 		$templateNameInput = wfMsg( 'ps-namelabel' ) . ' ';
 		$templateNameInput .= Html::input( 't_name_' . $template_num, $templateName, 'text' );
@@ -294,7 +294,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		 */
 
 		$htmlForTemplate = array();
-		wfRunHooks( 'PageSchemasGetTemplateHTML', array( $pageSchemaTemplate, &$htmlForTemplate ) );
+		wfRunHooks( 'PageSchemasGetTemplateHTML', array( $psTemplate, &$htmlForTemplate ) );
 		foreach ( $htmlForTemplate as $valuesFromExtension ) {
 			$html = self::printFieldHTMLForExtension( $valuesFromExtension );
 			$templateHTML .= str_replace( 'num', $template_num, $html );
@@ -304,15 +304,15 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldNumInTemplate = 0;
 		// If this is a "starter" template, create the starter
 		// field HTML.
-		if ( is_null( $pageSchemaTemplate ) ) {
+		if ( is_null( $psTemplate ) ) {
 			$templateHTML .= self::printFieldSection();
 		}
 		foreach ( $templateXMLElements as $templateXMLElement ) {
 			if ( empty( $templateXMLElement ) ) {
 				// Do nothing (?)
 			} elseif ( $templateXMLElement->getName() == "Field" ) {
-				$pageSchemaField = $pageSchemaTemplateFields[$fieldNumInTemplate];
-				$templateHTML .= self::printFieldSection( $templateXMLElement, $pageSchemaField );
+				$psTemplateField = $psTemplateFields[$fieldNumInTemplate];
+				$templateHTML .= self::printFieldSection( $templateXMLElement, $psTemplateField );
 				$fieldNumInTemplate++;
 			}
 		}
@@ -342,9 +342,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		wfRunHooks( 'PageSchemasGetSchemaHTML', array( $pageSchemaObj, &$htmlForSchema ) );
 
 		if ( is_null( $pageSchemaObj ) ) {
-			$template_all = array();
+			$psTemplates = array();
 		} else {
-			$template_all = $pageSchemaObj->getTemplates();
+			$psTemplates = $pageSchemaObj->getTemplates();
 		}
 
 		if ( is_null( $pageXML ) ) {
@@ -373,16 +373,16 @@ class PSEditSchema extends IncludableSpecialPage {
 
 		$text .= '<div id="templatesList">' . "\n";
 
-		$template_num = 0;
+		$templateNum = 0;
 
 		// Add 'starter', hidden template section.
 		$text .= self::printTemplateSection();
 		/* index for template objects */
-		foreach ( $pageXMLChildren as $tag => $template_xml ) {
+		foreach ( $pageXMLChildren as $tag => $pageXMLChild ) {
 			if ( $tag == 'Template' ) {
-				$pageSchemaTemplate = $template_all[$template_num];
-				$text .= self::printTemplateSection( $template_num, $template_xml, $pageSchemaTemplate );
-				$template_num++;
+				$psTemplate = $psTemplates[$templateNum];
+				$text .= self::printTemplateSection( $templateNum, $pageXMLChild, $psTemplate );
+				$templateNum++;
 			}
 		}
 		$add_template_button = Xml::element( 'input',
