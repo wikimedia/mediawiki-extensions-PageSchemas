@@ -309,11 +309,20 @@ $messages['gl'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
 	'ps-desc' => 'Unterstitzt Vorlage, wu ihri Datestruktur iber XML-Markup definiere',
 	'pageschemas-header' => 'D XML-Definition fir die Vorlag isch:',
+	'ps-template' => 'Vorlag',
+	'ps-add-template' => 'Vorlag zuefiege',
+	'ps-remove-template' => 'Vorlag usenee',
+	'ps-field' => 'Fäld',
+	'ps-namelabel' => 'Name:',
+	'ps-add-field' => 'Fieg Fäld yy',
+	'ps-remove-field' => 'Fäld uusenee',
+	'ps-add-xml-label' => 'Zuesätzlichs XML:',
 );
 
 /** Hebrew (עברית)
