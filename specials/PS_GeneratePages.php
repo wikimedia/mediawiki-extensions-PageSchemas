@@ -14,7 +14,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 	}
 
 	function execute( $category ) {
-		global $wgRequest, $wgOut;
+		global $wgRequest, $wgOut, $wgPageSchemasHandlerClasses;
 
 		$this->setHeaders();
 		$param = $wgRequest->getText('param');
@@ -48,7 +48,12 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
 		$pageList = array();
-		wfRunHooks( 'PageSchemasGetPageList', array( $pageSchemaObj, &$pageList ) );
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$pagesFromHandler = call_user_func( array( $psHandlerClass, "getPagesToGenerate" ), $pageSchemaObj );
+			foreach ( $pagesFromHandler as $page ) {
+				$pageList[] = $page;
+			}
+		}
 		// SpecialPage::getSkin() was added in MW 1.18
 		if ( is_callable( $this, 'getSkin' ) ) {
 			$skin = $this->getSkin();
@@ -72,9 +77,9 @@ class PSGeneratePages extends IncludableSpecialPage {
 	/**
 	 * Creates all the pages that the user specified.
 	 */
-	function generatePages( $categoryName, $toGenPageList ) {
+	function generatePages( $categoryName, $selectedPageList ) {
 		$pageSchema = new PSSchema( $categoryName );
-		$pageSchema->generateAllPages( $toGenPageList );
+		$pageSchema->generateAllPages( $selectedPageList );
 	}
 
 	/**

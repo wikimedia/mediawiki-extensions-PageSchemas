@@ -134,7 +134,7 @@ END;
 	// TODO - this should be a non-static method of the PSSchema class,
 	// instead of taking in XML.
 	static function displaySchema( $schemaXML ) {
-		global $wgTitle;
+		global $wgTitle, $wgPageSchemasHandlerClasses;
 
 		if ( $wgTitle->getNamespace() != NS_CATEGORY ) {
 			return '';
@@ -143,10 +143,13 @@ END;
 		$name = $schemaXML->attributes()->name;
 		$text .= self::tableRowHTML( 'pageSchemaHeader', 'Page schema' );
 
-		$displayInfoFromExtensions = array();
-		wfRunHooks( 'PageSchemasGetSchemaDisplayInfo', array( $schemaXML, &$displayInfoFromExtensions ) );
-		foreach ( $displayInfoFromExtensions as $displayInfo ) {
-			list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getSchemaDisplayValues' ), $schemaXML );
+			if ( is_null( $elementName ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, 'getSchemaDisplayString' ) );
+			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'schemaExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'schemaAttrRow', $fieldName, $value );
@@ -162,6 +165,8 @@ END;
 	}
 
 	static function displayTemplate ( $templateXML ) {
+		global $wgPageSchemasHandlerClasses;
+
 		$name = $templateXML->attributes()->name;
 		$text = self::tableRowHTML( 'templateRow', 'Template', $name );
 		$multiple = $templateXML->attributes()->multiple;
@@ -169,10 +174,13 @@ END;
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
 		}
 
-		$displayInfoFromExtensions = array();
-		wfRunHooks( 'PageSchemasGetTemplateDisplayInfo', array( $templateXML, &$displayInfoFromExtensions ) );
-		foreach( $displayInfoFromExtensions as $displayInfo ) {
-			list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
+			if ( is_null( $elementName ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, 'getTemplateDisplayString' ) );
+			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
@@ -185,6 +193,8 @@ END;
 	}
 
 	static function displayField ( $fieldXML ) {
+		global $wgPageSchemasHandlerClasses;
+
 		$name = $fieldXML->attributes()->name;
 		$text = self::tableRowHTML( 'fieldRow', 'Field', $name );
 
@@ -197,18 +207,30 @@ END;
 			}
 		}
 
-		// Let extensions that store data within the Page Schemas XML each
-		// handle displaying their data, by adding to this array.
-		$displayInfoFromExtensions = array();
-		wfRunHooks( 'PageSchemasGetFieldDisplayInfo', array( $fieldXML, &$displayInfoFromExtensions ) );
-		foreach( $displayInfoFromExtensions as $displayInfo ) {
-			list( $label, $elementName, $bgColor, $values ) = $displayInfo;
+		// Let extensions that store data within the Page Schemas XML
+		// each handle displaying their data, by adding to this array.
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getFieldDisplayValues' ), $fieldXML );
+			if ( is_null( $elementName ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, 'getFieldDisplayString' ) );
+			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
 			}
 		}
 		return $text;
+	}
+
+	public static function getValueFromObject( $object, $key ) {
+		if ( is_null( $object ) ) {
+			return null;
+		} elseif ( !array_key_exists( $key, $object ) ) {
+			return null;
+		}
+		return $object[$key];
 	}
 }
 
@@ -245,7 +267,7 @@ class PSSchema {
 			// retrieve the third attribute, which is pp_value
 			$pageXMLstr = $row[2];
 			$this->mPageXML = simplexml_load_string ( $pageXMLstr );
-			/* index for template objects */
+			// index for template objects
 			$i = 0;
 			$inherited_templates = array();
 			foreach ( $this->mPageXML->children() as $tag => $child ) {
@@ -279,7 +301,10 @@ class PSSchema {
 	 * Generates all pages selected by the user, based on the Page Schemas XML.
 	 */
 	public function generateAllPages ( $selectedPageList ) {
-		wfRunHooks( 'PageSchemasGeneratePages', array( $this, $selectedPageList ));
+		global $wgPageSchemasHandlerClasses;
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			call_user_func( array( $psHandlerClass, 'generatePages' ), $this, $selectedPageList );
+		}
 	}
 
 	public function getCategoryName() {
@@ -302,9 +327,14 @@ class PSSchema {
 	}
 
 	public function getObject( $objectName ) {
-		$object = array();
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->mPageXML, &$object ) );
-		return $object;
+		global $wgPageSchemasHandlerClasses;
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mPageXML );
+			if ( !is_null( $object ) ) {
+				return $object;
+			}
+		}
+		return null;
 	}
 }
 
@@ -320,14 +350,14 @@ class PSTemplate {
 		if( ((string) $templateXML->attributes()->multiple) == "multiple" ) {
 			$this->mMultipleAllowed = true;
 		}
-		/*index for template objects */
+		// Index for template objects
 		$i = 0 ;
 		$inherited_fields = array();
 		foreach ($templateXML->children() as $child) {
 			if ( $child->getName() == 'InheritsFrom' ) {
 				$schema_to_inherit = (string) $child->attributes()->schema;
 				$template_to_inherit = (string) $child->attributes()->template;
-				if( $schema_to_inherit !=null && $template_to_inherit != null ) {
+				if ( $schema_to_inherit != null && $template_to_inherit != null ) {
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
 					$inherited_templates = $inheritedSchemaObj->getTemplates();
 					foreach( $inherited_templates as $inherited_template ) {
@@ -339,13 +369,13 @@ class PSTemplate {
 			} elseif ( $child->getName() == "Field" ) {
 				$ignore = (string) $child->attributes()->ignore;
 				if ( count($child->children()) > 0 ) { //@TODO :Can be dealt more efficiently
-					$fieldObj = new PSTemplateField($child);
+					$fieldObj = new PSTemplateField( $child );
 					$this->mFields[$i++]= $fieldObj;
 				} elseif ( $ignore != "true" ) {
 					// Code to add fields from inherited templates
 					$field_name = (string) $child->attributes()->name;
-					foreach( $inherited_fields as $inherited_field ) {
-						if( $field_name == $inherited_field->getName() ){
+					foreach ( $inherited_fields as $inherited_field ) {
+						if ( $field_name == $inherited_field->getName() ) {
 							$this->mFields[$i++]= $inherited_field;
 						}
 					}
@@ -354,25 +384,30 @@ class PSTemplate {
 		}
 	}
 
-	function getName() {
+	public function getName() {
 		return $this->mTemplateName;
 	}
 
-	function getXML() {
+	public function getXML() {
 		return $this->mTemplateXML;
 	}
 
-	function isMultiple() {
+	public function isMultiple() {
 		return $this->mMultipleAllowed;
 	}
 
-	function getObject( $objectName ) {
-		$object = array();
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->mTemplateXML, &$object ) );
-		return $object;
+	public function getObject( $objectName ) {
+		global $wgPageSchemasHandlerClasses;
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mTemplateXML );
+			if ( !empty( $object ) ) {
+				return $object;
+			}
+		}
+		return null;
 	}
 
-	function getFields() {
+	public function getFields() {
 		return $this->mFields;
 	}
 }
@@ -400,25 +435,31 @@ class PSTemplateField {
 		}
 	}
 
-	public function getDelimiter(){
+	public function getDelimiter() {
 		return $this->mDelimiter;
 	}
 
-	public function getName(){
+	public function getName() {
 		return $this->mFieldName;
 	}
 
-	public function getLabel(){
+	public function getLabel() {
 		return $this->mFieldLabel;
 	}
 
-	public function isList(){
+	public function isList() {
 		return $this->mIsList;
 	}
 
 	public function getObject( $objectName ) {
-		$object = array();
-		wfRunHooks( 'PageSchemasGetObject', array( $objectName, $this->mFieldXML, &$object ) );
-		return $object;
+		global $wgPageSchemasHandlerClasses;
+
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mFieldXML );
+			if ( !is_null( $object ) ) {
+				return $object;
+			}
+		}
+		return null;
 	}
 }

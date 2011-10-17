@@ -33,6 +33,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 */
 	static function pageSchemaXMLFromRequest() {
 		global $wgRequest;
+		global $wgPageSchemasHandlerClasses;
 
 		// Generate the XML from the form elements.
 		$psXML = '<PageSchema>';
@@ -45,10 +46,12 @@ class PSEditSchema extends IncludableSpecialPage {
 		$schemaXMLFromExtensions = array();
 		$templateXMLFromExtensions = array();
 		$fieldXMLFromExtensions = array();
-		wfRunHooks( 'PageSchemasGetSchemaXML', array( $wgRequest, &$schemaXMLFromExtensions ));
-		wfRunHooks( 'PageSchemasGetTemplateXML', array( $wgRequest, &$templateXMLFromExtensions ));
-		wfRunHooks( 'PageSchemasGetFieldXML', array( $wgRequest, &$fieldXMLFromExtensions ));
-		foreach ( $schemaXMLFromExtensions as $extensionName => $xml ) {
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$schemaXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getSchemaXML' ) );
+			$templateXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getTemplateXML' ) );
+			$fieldXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getFieldXML' ) );
+		}
+		foreach ( $schemaXMLFromExtensions as $xml ) {
 			if ( !empty( $xml ) ) {
 				$psXML .= $xml;
 			}
@@ -102,8 +105,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 		}
 		$psXML .= '</PageSchema>';
-		$psXML = self::prettyPrintXML( $psXML );
-		return $psXML;
+		return self::prettyPrintXML( $psXML );
 	}
 
 	/**
@@ -179,8 +181,8 @@ class PSEditSchema extends IncludableSpecialPage {
 	/*
 	 * Returns the HTML for a form section coming from a specific extension.
 	 */
-	static function printFieldHTMLForExtension( $valuesFromExtension ) {
-		list( $label, $color, $html, $hasExistingValues ) = $valuesFromExtension;
+	static function printFieldHTMLForExtension( $valuesFromExtension, $label, $color ) {
+		list( $html, $hasExistingValues ) = $valuesFromExtension;
 		return self::printFormSection( $label, $color, $html, null, $hasExistingValues );
 	}
 
@@ -188,7 +190,9 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Returns the HTML for a section of the form comprising one
 	 * template field.
 	 */
-	static function printFieldSection( $field_xml = null, $pageSchemaField = null ) {
+	static function printFieldSection( $field_xml = null, $psField = null ) {
+		global $wgPageSchemasHandlerClasses;
+
 		if ( is_null( $field_xml ) ) {
 			$fieldNum = 'fnum';
 		} else {
@@ -221,9 +225,9 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 		}
 		$fieldHTML = wfMsg( 'ps-namelabel' ) . ' ';
-		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 15 ) ) . ' ';
+		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 25 ) ) . ' ';
 		$fieldHTML .= wfMsg( 'ps-displaylabel' ) . ' ';
-		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', array( 'size' => 15 ) );
+		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', array( 'size' => 25 ) );
 		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
 		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
 		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
@@ -231,10 +235,14 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
 
 		// Insert HTML text from extensions
-		$htmlFromExtensions = array();
-		wfRunHooks( 'PageSchemasGetFieldHTML', array( $pageSchemaField, &$htmlFromExtensions ) );
-		foreach ( $htmlFromExtensions as $valuesFromExtension ) {
-			$html = self::printFieldHTMLForExtension( $valuesFromExtension );
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getFieldEditingHTML" ), $psField );
+			if ( is_null( $valuesFromExtension ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, "getFieldDisplayString" ) );
+			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
 			// We use 'num' here, instead of 'fnum', to distinguish
 			// between field names from Page Schemas (which get
 			// their number set via Javascript) and field names from
@@ -259,6 +267,8 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Returns the HTML for a section of the form comprising one template.
 	 */
 	static function printTemplateSection( $template_num = 'tnum', $templateXML = null, $psTemplate = null ) {
+		global $wgPageSchemasHandlerClasses;
+
 		if ( is_null( $psTemplate ) ) {
 			$psTemplateFields = array();
 		} else {
@@ -293,10 +303,14 @@ class PSEditSchema extends IncludableSpecialPage {
 		}
 		 */
 
-		$htmlForTemplate = array();
-		wfRunHooks( 'PageSchemasGetTemplateHTML', array( $psTemplate, &$htmlForTemplate ) );
-		foreach ( $htmlForTemplate as $valuesFromExtension ) {
-			$html = self::printFieldHTMLForExtension( $valuesFromExtension );
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getTemplateEditingHTML" ), $psTemplate );
+			if ( is_null( $valuesFromExtension ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, "getTemplateDisplayString" ) );
+			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
 			$templateHTML .= str_replace( 'num', $template_num, $html );
 		}
 
@@ -338,8 +352,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Returns the HTML to display an entire form.
 	 */
 	static function printForm( $pageSchemaObj = null, $pageXML = null ) {
-		$htmlForSchema = array();
-		wfRunHooks( 'PageSchemasGetSchemaHTML', array( $pageSchemaObj, &$htmlForSchema ) );
+		global $wgPageSchemasHandlerClasses;
 
 		if ( is_null( $pageSchemaObj ) ) {
 			$psTemplates = array();
@@ -367,8 +380,15 @@ class PSEditSchema extends IncludableSpecialPage {
 		$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( 'ps_add_xml', $ps_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
 		$text .= '<p>' . wfMsg('ps-add-xml-label') . $additionalXMLInput . "\n</p>";
 
-		foreach ( $htmlForSchema as $valuesFromExtension ) {
-			$text .= self::printFieldHTMLForExtension( $valuesFromExtension );
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getSchemaEditingHTML" ), $pageSchemaObj );
+			if ( is_null( $valuesFromExtension ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, "getSchemaDisplayString" ) );
+			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
+			$text .= str_replace( 'num', $fieldNum, $html );
 		}
 
 		$text .= '<div id="templatesList">' . "\n";

@@ -35,11 +35,11 @@ $dir = dirname( __FILE__ ) . '/';
 // Internationalization
 $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 
-//Job classes
+// Job classes
 $wgJobClasses['pageSchemasCreatePage'] = 'PSCreatePageJob';
 $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
-// Register auto load for the special page class
+// Register page classes
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
 $wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
@@ -47,7 +47,9 @@ $wgAutoloadClasses['ApiQueryPageSchemas'] = $dir . 'ApiQueryPageSchemas.php';
 $wgAutoloadClasses['PSGeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
 $wgAutoloadClasses['PSEditSchema'] = $dir . 'specials/PS_EditSchema.php';
 $wgAutoloadClasses['PSTabs'] = $dir . 'PS_Tabs.php';
-// registering Special page 
+$wgAutoloadClasses['PSExtensionHandler'] = $dir . 'PS_ExtensionHandler.php';
+
+// Register special pages
 $wgSpecialPages['GeneratePages'] = 'PSGeneratePages'; 
 $wgSpecialPages['EditSchema'] = 'PSEditSchema'; 
 $wgSpecialPageGroups['GeneratePages'] = 'other';
@@ -83,3 +85,4 @@ $wgResourceModules += array(
 
 // Page Schemas global variables
 $wgPageSchemasFieldNum = 0;
+$wgPageSchemasHandlerClasses = array();
