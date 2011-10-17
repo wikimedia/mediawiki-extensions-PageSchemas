@@ -31,9 +31,8 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Creates full <PageSchema> XML text, based on what was passed in by
 	 * the form.
 	 */
-	static function pageSchemaXMLFromRequest() {
-		global $wgRequest;
-		global $wgPageSchemasHandlerClasses;
+	static function createPageSchemaXMLFromForm() {
+		global $wgRequest, $wgPageSchemasHandlerClasses;
 
 		// Generate the XML from the form elements.
 		$psXML = '<PageSchema>';
@@ -47,9 +46,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateXMLFromExtensions = array();
 		$fieldXMLFromExtensions = array();
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$schemaXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getSchemaXML' ) );
-			$templateXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getTemplateXML' ) );
-			$fieldXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'getFieldXML' ) );
+			$schemaXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createSchemaXMLFromForm' ) );
+			$templateXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createTemplateXMLFromForm' ) );
+			$fieldXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createFieldXMLFromForm' ) );
 		}
 		foreach ( $schemaXMLFromExtensions as $xml ) {
 			if ( !empty( $xml ) ) {
@@ -60,11 +59,11 @@ class PSEditSchema extends IncludableSpecialPage {
 			// Ignore fields from the hidden/starter div
 			if ( substr( $var, 0, 7 ) == 't_name_' ) {
 				$templateNum = substr( $var, 7 );
+				$templateAttrs = array( 'name' => $val );
 				if ( $wgRequest->getCheck( 'is_multiple_' . $templateNum ) ) {
-					$psXML .= '<Template name="'.$val.'" multiple="multiple">';
-				} else {
-					$psXML .= '<Template name="'.$val.'">';
+					$templateAttrs['multiple'] = 'multiple';
 				}
+				$psXML .= Xml::openElement( 'Template', $templateAttrs );
 
 				// Get XML created by extensions for this template
 				foreach ( $templateXMLFromExtensions as $extensionName => $xmlPerTemplate ) {
@@ -75,16 +74,19 @@ class PSEditSchema extends IncludableSpecialPage {
 			} elseif ( substr( $var, 0, 7 ) == 'f_name_' ) {
 				$fieldNum = substr( $var, 7 );
 				$fieldName = $val;
+				$fieldAttrs = array( 'name' => $fieldName );
 				if ( $wgRequest->getCheck( 'f_is_list_' . $fieldNum ) ) {
-					if ( $wgRequest->getText( 'f_delimiter_' . $fieldNum ) != '' ) {
-						$delimiter = $wgRequest->getText( 'f_delimiter_' . $fieldNum );
-						$psXML .= '<Field name="'.$fieldName . '" list="list" delimiter="' . $delimiter . '">';
-					} else {
-						$psXML .= '<Field name="'.$fieldName . '" list="list">';
+					$fieldAttrs['list'] = 'list';
+					$delimiter = $wgRequest->getText( 'f_delimiter_' . $fieldNum );
+					if ( $delimiter != '' ) {
+						$fieldAttrs['delimiter'] = $delimiter;
 					}
-				} else {
-					$psXML .= '<Field name="' . $fieldName . '">';
 				}
+				$fieldDisplay = $wgRequest->getText( 'f_display_' . $fieldNum );
+				if ( $fieldDisplay != 'show' ) {
+					$fieldAttrs['display'] = $fieldDisplay;
+				}
+				$psXML .= Xml::openElement( 'Field', $fieldAttrs );
 			} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
 				if ( !empty( $val ) ) {
 					$psXML .= '<Label>' . $val . '</Label>';
@@ -223,6 +225,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			if ( ((string)$field_xml->attributes()->list) == "list" ) {
 				$isListAttrs['checked'] = 'checked';
 			}
+			$fieldDisplay = (string)$field_xml->attributes()->display;
 		}
 		$fieldHTML = wfMsg( 'ps-namelabel' ) . ' ';
 		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 25 ) ) . ' ';
@@ -233,6 +236,23 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
 		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
 		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+		// Create radiobutton for display of field
+		$displayShownAttrs = array();
+		$displayIfNonEmptyAttrs = array();
+		$displayHiddenAttrs = array();
+		// Now set which of the values should be checked
+		if ( $fieldDisplay == '' ) {
+			$displayShownAttrs['checked'] = true;
+		} elseif ( $fieldDisplay == 'nonempty' ) {
+			$displayIfNonEmptyAttrs['checked'] = true;
+		} elseif ( $fieldDisplay == 'hidden' ) {
+			$displayHiddenAttrs['checked'] = true;
+		}
+		$groupName = 'f_display_' . $fieldNum;
+		$fieldDisplayShownInput = Html::input( $groupName, 'show', 'radio', $displayShownAttrs );
+		$fieldDisplayIfNonEmptyInput = Html::input( $groupName, 'nonempty', 'radio', $displayIfNonEmptyAttrs );
+		$fieldDisplayHiddenInput = Html::input( $groupName, 'hidden', 'radio', $displayHiddenAttrs );
+		$fieldHTML .= Html::rawElement( 'p', null, $fieldDisplayShownInput . ' ' . "Display this field always" . ' ' . $fieldDisplayIfNonEmptyInput . ' ' . "Display if not empty" . ' ' . $fieldDisplayHiddenInput . ' ' . "Hide" );
 
 		// Insert HTML text from extensions
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
@@ -446,7 +466,7 @@ END;
 
 		$save_page = $wgRequest->getCheck( 'wpSave' );
 		if ( $save_page ) {
-			$psXML = self::pageSchemaXMLFromRequest();
+			$psXML = self::createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryArticle = new Article( $categoryTitle );
 			if ( $categoryTitle->exists() ) {

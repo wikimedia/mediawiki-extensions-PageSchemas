@@ -201,6 +201,10 @@ END;
 		if( ((string) $fieldXML->attributes()->list) == "list" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
 		}
+		$fieldDisplay = (string) $fieldXML->attributes()->display;
+		if( $fieldDisplay != "" ) {
+			$text .= self::attrRowHTML( 'fieldAttrRow', 'Display', $fieldDisplay );
+		}
 		foreach ( $fieldXML->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', 'Label', $child );
@@ -418,6 +422,7 @@ class PSTemplateField {
 	private $mFieldLabel = "";
 	private $mIsList = false;
 	private $mDelimiter = null;
+	private $mDisplay = null;
 
 	function __construct( $fieldXML ) {
 		$this->mFieldXML = $fieldXML;
@@ -425,9 +430,8 @@ class PSTemplateField {
 		if ( ((string)$fieldXML->attributes()->list) == "list") {
 			$this->mIsList = true;
 		}
-		if ( ((string)$fieldXML->attributes()->delimiter) != null || ((string)$fieldXML->attributes()->delimiter) != '' ) {
-			$this->mDelimiter = (string)$fieldXML->attributes()->delimiter;
-		}
+		$this->mDelimiter = (string)$fieldXML->attributes()->delimiter;
+		$this->mDisplay = (string)$fieldXML->attributes()->display;
 		foreach ( $fieldXML->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
 				$this->mFieldLabel = (string)$child;
@@ -437,6 +441,10 @@ class PSTemplateField {
 
 	public function getDelimiter() {
 		return $this->mDelimiter;
+	}
+
+	public function getDisplay() {
+		return $this->mDisplay;
 	}
 
 	public function getName() {

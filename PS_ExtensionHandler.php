@@ -1,15 +1,14 @@
 <?php
 /**
+ * PSExtensionHandler - meant to be subclassed by the Page Schemas handler
+ * class for each extension.
+ *
  * @author Yaron Koren
  * @file
  * @ingroup SF
  */
 
 class PSExtensionHandler {
-
-	public static function getDisplayColor() {
-		return 'white';
-	}
 
 	/**
 	 * Creates an object to hold form-wide information, based on an XML
@@ -19,43 +18,29 @@ class PSExtensionHandler {
 		return array();
 	}
 
-	public static function getSchemaDisplayValues( $schemaXML ) {
-		return null;
-	}
-
-	/**
-	 * Displays form details for one template in the Page Schemas XML.
-	 */
-	public static function getTemplateDisplayValues( $templateXML ) {
-		return null;
-	}
-
-	/**
-	 * Displays data on a single form input in the Page Schemas XML.
-	 */
-	public static function getFieldDisplayValues( $fieldXML ) {
-		return null;
-	}
-
 	/**
 	 * Creates Page Schemas XML for form-wide information.
 	 */
-	public static function getSchemaXML() {
+	public static function createSchemaXMLFromForm() {
 		return null;
 	}
 
 	/**
 	 * Creates Page Schemas XML for form information on templates.
 	 */
-	public static function getTemplateXML() {
+	public static function createTemplateXMLFromForm() {
 		return null;
 	}
 
 	/**
 	 * Creates Page Schemas XML for form fields.
 	 */
-	public static function getFieldXML() {
+	public static function createFieldXMLFromForm() {
 		return null;
+	}
+
+	public static function getDisplayColor() {
+		return 'white';
 	}
 
 	public static function getSchemaDisplayString() {
@@ -102,5 +87,23 @@ class PSExtensionHandler {
 	 * Generate pages (form and templates) specified in the list.
 	 */
 	public static function generatePages( $psSchemaObj, $selectedPages ) {
+	}
+
+	public static function getSchemaDisplayValues( $schemaXML ) {
+		return null;
+	}
+
+	/**
+	 * Displays form details for one template in the Page Schemas XML.
+	 */
+	public static function getTemplateDisplayValues( $templateXML ) {
+		return null;
+	}
+
+	/**
+	 * Displays data on a single form input in the Page Schemas XML.
+	 */
+	public static function getFieldDisplayValues( $fieldXML ) {
+		return null;
 	}
 }
