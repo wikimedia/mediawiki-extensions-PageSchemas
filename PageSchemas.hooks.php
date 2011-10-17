@@ -12,6 +12,8 @@ class PageSchemasHooks {
 	public static function register( &$parser ) {
 		// Register the hook with the parser
 		$parser->setHook( 'PageSchema', array( 'PageSchemasHooks', 'render' ) );
+		// Initialize the global array of "handler" classes
+		wfRunHooks( 'PageSchemasRegisterHandlers' );
 		return true;
 	}
 
