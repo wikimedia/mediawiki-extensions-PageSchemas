@@ -27,6 +27,7 @@ $messages['en'] = array(
 	'ps-generatepages-desc' => 'Generate the following pages, based on this category\'s schema:',
 	'ps-generatepages-success' => 'The selected pages will be generated.',
 	'ps-generatepages-noschema' => 'Error: There is no page schema defined for this category.',
+	'ps-generatepages-editsummary' => 'Generated from page schema',
 	'ps-page-desc-cat-not-exist' => 'This category does not exist yet. Create this category and its page schema:',
 	'ps-page-desc-ps-not-exist' => 'This category exists, but does not have a page schema. Create schema:',
 	'ps-page-desc-edit-schema' => 'Edit the page schema for this category:',
