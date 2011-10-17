@@ -208,6 +208,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldLabel = '';
 		$isListAttrs = array( 'class' => 'isListCheckbox' );
 		$delimiterAttrs = array( 'class' => 'delimiterInput' );
+		$fieldDisplay = '';
 		$text = "\n\t\t\t";
 		if ( is_null( $field_xml ) ) {
 			$text .= '<div class="fieldBox" id="starterField" style="display: none" >';
@@ -407,8 +408,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 			$label = call_user_func( array( $psHandlerClass, "getSchemaDisplayString" ) );
 			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
-			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
-			$text .= str_replace( 'num', $fieldNum, $html );
+			$text .= self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
 		}
 
 		$text .= '<div id="templatesList">' . "\n";
