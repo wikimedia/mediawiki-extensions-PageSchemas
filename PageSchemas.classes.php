@@ -144,10 +144,11 @@ END;
 		$text .= self::tableRowHTML( 'pageSchemaHeader', 'Page schema' );
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getSchemaDisplayValues' ), $schemaXML );
-			if ( is_null( $elementName ) ) {
+			$returnVals = call_user_func( array( $psHandlerClass, 'getSchemaDisplayValues' ), $schemaXML );
+			if ( count( $returnVals ) != 2 ) {
 				continue;
 			}
+			list( $elementName, $values ) = $returnVals;
 			$label = call_user_func( array( $psHandlerClass, 'getSchemaDisplayString' ) );
 			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'schemaExtensionRow', $label, $elementName, $bgColor );
@@ -175,10 +176,11 @@ END;
 		}
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
-			if ( is_null( $elementName ) ) {
+			$returnVals = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
+			if ( count( $returnVals ) != 2 ) {
 				continue;
 			}
+			list( $elementName, $values ) = $returnVals;
 			$label = call_user_func( array( $psHandlerClass, 'getTemplateDisplayString' ) );
 			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
@@ -214,10 +216,11 @@ END;
 		// Let extensions that store data within the Page Schemas XML
 		// each handle displaying their data, by adding to this array.
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			list( $elementName, $values ) = call_user_func( array( $psHandlerClass, 'getFieldDisplayValues' ), $fieldXML );
-			if ( is_null( $elementName ) ) {
+			$returnVals = call_user_func( array( $psHandlerClass, 'getFieldDisplayValues' ), $fieldXML );
+			if ( count( $returnVals ) != 2 ) {
 				continue;
 			}
+			list( $elementName, $values ) = $returnVals;
 			$label = call_user_func( array( $psHandlerClass, 'getFieldDisplayString' ) );
 			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
