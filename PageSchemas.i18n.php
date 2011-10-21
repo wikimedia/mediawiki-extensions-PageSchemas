@@ -553,6 +553,7 @@ $messages['nl'] = array(
 	'ps-generatepages-desc' => "Maak de volgende pagina's aan, gebaseerd op dit categorieschema:",
 	'ps-generatepages-success' => "De geselecteerde pagina's worden aangemaakt.",
 	'ps-generatepages-noschema' => 'Fout: Er is geen paginaschema voor deze categorie.',
+	'ps-generatepages-editsummary' => 'Aangemaakt vanuit een paginaschema',
 	'ps-page-desc-cat-not-exist' => 'Deze categorie bestaat nog niet. Maak deze categorie en het bijbehorende paginaschema aan:',
 	'ps-page-desc-ps-not-exist' => 'Deze categorie bestaat, maar heeft geen paginaschema. Maak het paginaschema aan:',
 	'ps-page-desc-edit-schema' => 'Bewerkt het paginaschema voor deze categorie:',
