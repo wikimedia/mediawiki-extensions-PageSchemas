@@ -15,13 +15,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'ps-desc' => 'Supports templates defining their data structure via XML markup',
-
-	# FIXME: Is 'pageschemas-header' used anywhere? If not, please delete it from this file.
-	'pageschemas-header' => 'The XML definition for this template is:',
-
-	'ps-property-isproperty' => 'This is a property of type $1.',
-	'ps-property-allowedvals' => 'The allowed {{PLURAL:$1|value for this property is|values for this property are}}:',
+	'ps-desc' => 'Defines the data structure for all pages in a category using XML',
 	'ps-schema-description' => 'Page schema',
 	'generatepages' => 'Generate pages',
 	'ps-generatepages-desc' => 'Generate the following pages, based on this category\'s schema:',
@@ -56,9 +50,9 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc}}',
-	'pageschemas-header' => 'Header to display XML definition in template page',
-	'ps-template' => '{{Identical|Template}}',
-	'ps-field' => '{{Identical|Field}}',
+	'ps-template' => 'A MediaWiki template',
+	'ps-field' => 'A "field" here is both a template parameter and a form field',
+	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'editschema' => 'This is a special page name.',
 	'createschema' => 'This is a special page name.',
 );
@@ -68,7 +62,6 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'ps-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is',
-	'pageschemas-header' => 'Die XML-definisie vir die sjabloon is:',
 );
 
 /** Arabic (العربية)
@@ -76,7 +69,6 @@ $messages['af'] = array(
  */
 $messages['ar'] = array(
 	'ps-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML',
-	'pageschemas-header' => 'تعريف XML لهذا القالب هو:',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -85,7 +77,6 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
-	'pageschemas-header' => 'تعريف XML للقالب ده هو:',
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
@@ -96,9 +87,6 @@ $messages['arz'] = array(
  */
 $messages['be-tarask'] = array(
 	'ps-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную структуру зьвестак праз XML-разьметку',
-	'pageschemas-header' => 'XML-вызначэньне гэтага шаблёну:',
-	'ps-property-isproperty' => 'Гэта ўласьцівасьць тыпу $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|Дазволенае значэньне|Дазволеныя значэньні}} для гэтай уласьцівасьці:',
 	'ps-schema-description' => 'Апісаньне схемы:',
 	'generatepages' => 'Стварыць старонкі',
 	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
@@ -127,7 +115,6 @@ $messages['be-tarask'] = array(
  */
 $messages['br'] = array(
 	'ps-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
-	'pageschemas-header' => 'Setu an termenadur XML evit ar patrom-mañ :',
 	'ps-schema-description' => 'Chema ar bajenn',
 	'generatepages' => 'Genel ar pajennoù',
 	'ps-template' => 'Patrom',
@@ -147,7 +134,6 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika',
-	'pageschemas-header' => 'XML definicija za ovaj šablon je:',
 );
 
 /** German (Deutsch)
@@ -156,9 +142,6 @@ $messages['bs'] = array(
  */
 $messages['de'] = array(
 	'ps-desc' => 'Ermöglicht Vorlagen, die ihre Datenstruktur über XML auszeichnen',
-	'pageschemas-header' => 'Die XML-Definition für diese Vorlage ist:',
-	'ps-property-isproperty' => 'Dies ist ein Attribut vom Datentyp $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|Der zulässige Wert für dieses Attribut lautet|Die zulässigen Werte für dieses Attribut lauten}}:',
 	'ps-schema-description' => 'Seitenschema:',
 	'generatepages' => 'Seiten generieren',
 	'ps-generatepages-desc' => 'Die folgenden Seiten auf Basis des Schemas dieser Kategorie generieren:',
@@ -199,7 +182,6 @@ $messages['de-formal'] = array(
  */
 $messages['dsb'] = array(
 	'ps-desc' => 'Pódpěra pśedłogi, kótarež definěruju datowu strukturu pśez XML-wobznamjenjenja',
-	'pageschemas-header' => 'XML-definicija za toś tu pśedłogu jo:',
 );
 
 /** Greek (Ελληνικά)
@@ -207,7 +189,6 @@ $messages['dsb'] = array(
  */
 $messages['el'] = array(
 	'ps-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML',
-	'pageschemas-header' => 'Ο προσδιορισμός XML για αυτό το πρότυπο είναι:',
 );
 
 /** Spanish (Español)
@@ -215,7 +196,6 @@ $messages['el'] = array(
  */
 $messages['es'] = array(
 	'ps-desc' => 'Admite plantillas que definen su estructura de datos a través de XML',
-	'pageschemas-header' => 'La definición XML para esta plantilla es:',
 );
 
 /** Finnish (Suomi)
@@ -223,7 +203,6 @@ $messages['es'] = array(
  */
 $messages['fi'] = array(
 	'ps-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
-	'pageschemas-header' => 'XML-määritelmä tälle mallineelle on:',
 );
 
 /** French (Français)
@@ -233,9 +212,6 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'ps-desc' => 'Supporte les modèle en définissant leur structure de données via des balises XML',
-	'pageschemas-header' => 'La définition XML pour ce modèle est :',
-	'ps-property-isproperty' => 'Cette propriété est de type $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|La valeur autorisée pour cette propriété est|Les valeurs autorisées pour cette propriété sont}}:',
 	'ps-schema-description' => 'Schéma de la page',
 	'generatepages' => 'Générer les pages',
 	'ps-generatepages-desc' => "Générer les pages suivantes, d'après le schéma de cette catégorie:",
@@ -267,7 +243,6 @@ $messages['fr'] = array(
  */
 $messages['frp'] = array(
 	'ps-desc' => 'Recognêt los modèlos en dèfenéssent lor structura de balyês avouéc des balises XML.',
-	'pageschemas-header' => 'La dèfinicion XML por ceti modèlo est :',
 	'ps-schema-description' => 'Plan de la pâge',
 	'generatepages' => 'Fâre les pâges',
 	'ps-template' => 'Modèlo',
@@ -288,9 +263,6 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'ps-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
-	'pageschemas-header' => 'A definición XML para este modelo é:',
-	'ps-property-isproperty' => 'Esta é unha propiedade de clase $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido|Os valores permitidos}} para esta propiedade {{PLURAL:$1|é|son}}:',
 	'ps-schema-description' => 'Esquema da páxina',
 	'generatepages' => 'Xerar as páxinas',
 	'ps-generatepages-desc' => 'Xerar as seguintes páxinas, segundo o esquema desta categoría:',
@@ -323,7 +295,6 @@ $messages['gl'] = array(
  */
 $messages['gsw'] = array(
 	'ps-desc' => 'Unterstitzt Vorlage, wu ihri Datestruktur iber XML-Markup definiere',
-	'pageschemas-header' => 'D XML-Definition fir die Vorlag isch:',
 	'ps-template' => 'Vorlag',
 	'ps-add-template' => 'Vorlag zuefiege',
 	'ps-remove-template' => 'Vorlag usenee',
@@ -340,9 +311,6 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'ps-desc' => 'תמיכה בתבניות שמגדירות את מבנה הנתונים שלהן דרך XML',
-	'pageschemas-header' => 'הגדרת ה־XML עבור תבנית זו היא:',
-	'ps-property-isproperty' => 'זהו מאפיין מסוג $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|הערך התקין למאפיין הזה הוא|הערכים התקינים למאפיין הזה הם}}:',
 	'ps-generate-pages' => 'יצירת דפים',
 	'ps-generate-pages-desc' => 'לחולל את דפי הוויקי הבאים, לפי הסכֵמה של הקטגוריה הזאת:',
 );
@@ -352,7 +320,6 @@ $messages['he'] = array(
  */
 $messages['hsb'] = array(
 	'ps-desc' => 'Podpěruje předłohi, kotrež datowu strukturu přez XML-woznamjenjenja definuja',
-	'pageschemas-header' => 'XML-definicija za tutu předłohu je:',
 );
 
 /** Hungarian (Magyar)
@@ -360,7 +327,6 @@ $messages['hsb'] = array(
  */
 $messages['hu'] = array(
 	'ps-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat',
-	'pageschemas-header' => 'A sablon XML-definíciója:',
 );
 
 /** Interlingua (Interlingua)
@@ -368,9 +334,6 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'ps-desc' => 'Appoia patronos que defini lor structura de datos via marcation XML',
-	'pageschemas-header' => 'Le definition XML pro iste patrono es:',
-	'ps-property-isproperty' => 'Isto es un proprietate del typo $1.',
-	'ps-property-allowedvals' => 'Le {{PLURAL:$1|valor|valores}} permittite pro iste proprietate es:',
 	'ps-schema-description' => 'Schema de pagina',
 	'generatepages' => 'Generar paginas',
 	'ps-generatepages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
@@ -402,7 +365,6 @@ $messages['ia'] = array(
  */
 $messages['id'] = array(
 	'ps-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML',
-	'pageschemas-header' => 'Definisi XML untuk templat ini adalah:',
 );
 
 /** Igbo (Igbo)
@@ -410,14 +372,12 @@ $messages['id'] = array(
  */
 $messages['ig'] = array(
 	'ps-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
-	'pageschemas-header' => 'Úchè XML maka mkpurụ ihü nka bu:',
 );
 
 /** Italian (Italiano)
  * @author Beta16
  */
 $messages['it'] = array(
-	'pageschemas-header' => 'La definizione XML per questo template è:',
 );
 
 /** Japanese (日本語)
@@ -426,9 +386,6 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'ps-desc' => 'XML マークアップによってデータ構造を定義するテンプレートをサポートします。',
-	'pageschemas-header' => 'このテンプレートの XML 定義は以下のようになっています:',
-	'ps-property-isproperty' => 'これはタイプ $1 のプロパティです。',
-	'ps-property-allowedvals' => '{{PLURAL:$1|このプロパティの値が|このプロパティの値が}}許可されています：',
 	'ps-schema-description' => 'スキーマの説明：',
 	'generatepages' => 'ページを生成',
 	'ps-generatepages-desc' => 'このカテゴリのスキーマに基づいて、次のページを生成',
@@ -456,9 +413,6 @@ $messages['ja'] = array(
  */
 $messages['ksh'] = array(
 	'ps-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
-	'pageschemas-header' => 'Di Schablon met <i lang="en">XML</i> beschrevve:',
-	'ps-property-isproperty' => 'Dat ess_en Eijeschaff vun dä Zoot $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|Dä einzijje müjjelesche Wäät för di Eijeschaff es:|De müjjelesche Wääte för di Eijeschaff sin:|Mer han kein müjjelesche Wääte för di Eijeschaff.}}',
 	'ps-schema-description' => 'Dat XML-Schema beschrevve:',
 	'generatepages' => 'Sigge automattesch aanlääje',
 	'ps-generatepages-desc' => 'Donn de Sigge en dä Leß heh automattesch aanlääje, noh dämm XML-Schema för di Saachjropp:',
@@ -485,8 +439,6 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'ps-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
-	'pageschemas-header' => "D'XML-Definitioun fir dës Schabloun ass:",
-	'ps-property-isproperty' => 'Dëst ass eng Eegeschaft vum Typ $1.',
 	'ps-schema-description' => 'Schema vun der Säit',
 	'generatepages' => 'Säite generéieren',
 	'ps-generatepages-desc' => 'Dës Säiten op der Basis vum Schema vun dëser Kategorie generéieren:',
@@ -516,9 +468,6 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'ps-desc' => 'Поддржува шаблони со определување на нивниот податочнот состав користејќи XML-означување',
-	'pageschemas-header' => 'XML-определбата за овој шаблон е:',
-	'ps-property-isproperty' => 'Ова е својство од типот $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|Допуштената вредност за ова својство е|Допуштените вредности за ова својство се}}:',
 	'ps-schema-description' => 'Шемата на страници',
 	'generatepages' => 'Создај страници',
 	'ps-generatepages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
@@ -551,9 +500,6 @@ $messages['mk'] = array(
  */
 $messages['nl'] = array(
 	'ps-desc' => 'Ondersteunt sjablonen die hun gegevensstructuur via XML-opmaak definiëren',
-	'pageschemas-header' => 'De XML-definitie voor dit sjabloon luidt als volgt:',
-	'ps-property-isproperty' => 'Dit is een eigenschap van type $1.',
-	'ps-property-allowedvals' => 'De toegelaten {{PLURAL:$1|waarde voor deze eigenschap is|waarden voor deze eigenschap zijn}}:',
 	'ps-schema-description' => 'Paginaschema',
 	'generatepages' => "Pagina's aanmaken",
 	'ps-generatepages-desc' => "Maak de volgende pagina's aan, gebaseerd op dit categorieschema:",
@@ -585,7 +531,6 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'ps-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
-	'pageschemas-header' => 'XML-definisjonen til denne malen er:',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -593,7 +538,6 @@ $messages['nn'] = array(
  */
 $messages['no'] = array(
 	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
-	'pageschemas-header' => 'XML-definisjonen for denne malen er:',
 );
 
 /** Occitan (Occitan)
@@ -601,7 +545,6 @@ $messages['no'] = array(
  */
 $messages['oc'] = array(
 	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
-	'pageschemas-header' => 'La definicion XML per aqueste modèl es :',
 );
 
 /** Polish (Polski)
@@ -609,7 +552,6 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'ps-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
-	'pageschemas-header' => 'Definicja XML dla tego szablonu:',
 );
 
 /** Piedmontese (Piemontèis)
@@ -618,7 +560,6 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
-	'pageschemas-header' => "La definission XML për sto stamp-sì a l'é:",
 );
 
 /** Portuguese (Português)
@@ -626,9 +567,6 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
-	'pageschemas-header' => 'O modelo de dados em XML para esta predefinição é:',
-	'ps-property-isproperty' => 'Esta é uma propriedade do tipo $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|O valor permitido para esta propriedade é|Os valores permitidos para esta propriedade são}}:',
 	'ps-generate-pages' => 'Gerar Páginas',
 	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no modelo de dados desta categoria:',
 );
@@ -638,7 +576,6 @@ $messages['pt'] = array(
  */
 $messages['pt-br'] = array(
 	'ps-desc' => 'Suporta predefinições definindo suas estruturas de dados via marcação XML',
-	'pageschemas-header' => 'A definição XML para esta predefinição é:',
 );
 
 /** Tarandíne (Tarandíne)
@@ -646,9 +583,6 @@ $messages['pt-br'] = array(
  */
 $messages['roa-tara'] = array(
 	'ps-desc' => "Le template de supporte definiscene 'a struttura lore ausanne l'XML",
-	'pageschemas-header' => "'A definizione XML pe st'esembie jè:",
-	'ps-property-isproperty' => "Queste jè 'na probbietà de tipe $1.",
-	'ps-property-allowedvals' => "{{PLURAL:$1'U valore permesse pe sta probbietà jè|Le valore permesse pe ste probbietà sonde}}:",
 	'ps-generate-pages' => 'Genera pàggene',
 	'ps-generate-pages-desc' => 'Genere le pàggene ca seguene, basate sus a stu schema de categorije:',
 );
@@ -658,7 +592,6 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'ps-desc' => 'Поддерживает шаблоны с определением их структуры данных постредством XML-разметки',
-	'pageschemas-header' => 'XML-определение этого шаблона:',
 );
 
 /** Slovenian (Slovenščina)
@@ -666,9 +599,6 @@ $messages['ru'] = array(
  */
 $messages['sl'] = array(
 	'ps-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
-	'pageschemas-header' => 'Opredelitev XML predloge je:',
-	'ps-property-isproperty' => 'To je lastnost vrste $1.',
-	'ps-property-allowedvals' => '{{PLURAL:$1|Dovoljena vrednost te lastnosti je|Dovoljeni vrednosti te lastnosti sta|Dovoljene vrednosti te lastnosti so}}:',
 	'ps-schema-description' => 'Shema strani',
 	'generatepages' => 'Ustvari strani',
 	'ps-generatepages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
@@ -699,7 +629,6 @@ $messages['sl'] = array(
  */
 $messages['sr-ec'] = array(
 	'ps-desc' => 'Подржава шаблоне који одређују њихову структуру података преко XML означавања',
-	'pageschemas-header' => 'XML дефиниција овог шаблона:',
 );
 
 /** Swedish (Svenska)
@@ -707,7 +636,6 @@ $messages['sr-ec'] = array(
  */
 $messages['sv'] = array(
 	'ps-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
-	'pageschemas-header' => 'XML-definitionen för denna mall är:',
 );
 
 /** Tagalog (Tagalog)
@@ -715,7 +643,6 @@ $messages['sv'] = array(
  */
 $messages['tl'] = array(
 	'ps-desc' => 'Tumatangkilik sa mga suleras na nagbibigay kahulugan sa kanilang kayarian ng dato sa pamamagitan ng pagmarkang XML',
-	'pageschemas-header' => 'Ang kahulugang XML para sa suleras na ito ay:',
 );
 
 /** Turkish (Türkçe)
@@ -723,7 +650,6 @@ $messages['tl'] = array(
  */
 $messages['tr'] = array(
 	'ps-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler',
-	'pageschemas-header' => 'Bu şablon için XML tanımı şu şekilde:',
 );
 
 /** Ukrainian (Українська)
@@ -733,7 +659,6 @@ $messages['tr'] = array(
  */
 $messages['uk'] = array(
 	'ps-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML',
-	'pageschemas-header' => 'XML-визначення для цього шаблону:',
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -741,7 +666,6 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'ps-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
-	'pageschemas-header' => 'Định nghĩa XML của bản mẫu này là:',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
@@ -749,7 +673,6 @@ $messages['vi'] = array(
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '支持的模版已将其数据结构用XML代码声明。',
-	'pageschemas-header' => '此模版的XML定义是：',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -757,6 +680,5 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'ps-desc' => '支援的模版已將其資料結構用 XML 代碼聲明。',
-	'pageschemas-header' => '此模版的 XML 定義是：',
 );
 
