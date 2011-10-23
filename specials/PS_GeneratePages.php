@@ -10,11 +10,16 @@
 
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
-		parent::__construct( 'GeneratePages' );
+		parent::__construct( 'GeneratePages', 'generatepages' );
 	}
 
 	function execute( $category ) {
-		global $wgRequest, $wgOut, $wgPageSchemasHandlerClasses;
+		global $wgUser, $wgRequest, $wgOut, $wgPageSchemasHandlerClasses;
+
+		if ( ! $wgUser->isAllowed( 'generatepages' ) ) {
+			$wgOut->permissionRequired( 'generatepages' );
+			return;
+		}
 
 		$this->setHeaders();
 		$param = $wgRequest->getText('param');

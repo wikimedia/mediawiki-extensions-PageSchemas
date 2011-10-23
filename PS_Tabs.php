@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @file PSTabs.php
+ * @file PS_Tabs.php
  * @ingroup
  *
- * @author ankit
+ * @author Ankit Garg
+ * @author Yaron Koren
  */
- final class PSTabs {
+final class PSTabs {
 
 	public static function displayTabs( $obj, &$content_actions ) {
 		global $wgUser;
@@ -28,7 +29,7 @@
 			'href' => $title->getLocalURL( 'action=editschema' )
 		);
 
-		if ( $isPSDefined ) {
+		if ( $isPSDefined && $wgUser->isAllowed( 'generatepages' ) ) {
 			$content_actions['generatepages'] = array(
 				'text' => wfMsg( 'generatepages' ),
 				'class' => $wgRequest->getVal( 'action' ) == 'generatepages' ? 'selected' : '',

@@ -19,12 +19,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
+define( 'PAGE_SCHEMAS_VERSION', '0.2' );
+
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
 	'name'			=> 'Page Schemas',
 	'author'		=> array( 'Ankit Garg', 'Yaron Koren' ),
-	'version'		=> '0.2',
+	'version'		=> PAGE_SCHEMAS_VERSION,
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:Page_Schemas',
 	'descriptionmsg'	=> 'ps-desc',
 );
@@ -63,6 +65,10 @@ $wgPageProps['PageSchema'] = 'Contents of &lt;PageSchema&gt; tag';
 $wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
 $wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTabs2';
+
+// User right for viewing the 'Generate pages' page
+$wgAvailableRights[] = 'generatepages';
+$wgGroupPermissions['sysop']['generatepages'] = true;
 
 // Register client-side modules
 $pageSchemasResourceTemplate = array(
