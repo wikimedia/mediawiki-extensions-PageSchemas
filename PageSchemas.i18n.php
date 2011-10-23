@@ -128,13 +128,18 @@ $messages['be-tarask'] = array(
 $messages['br'] = array(
 	'ps-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
 	'pageschemas-header' => 'Setu an termenadur XML evit ar patrom-mañ :',
+	'ps-schema-description' => 'Chema ar bajenn',
+	'generatepages' => 'Genel ar pajennoù',
 	'ps-template' => 'Patrom',
 	'ps-add-template' => 'Ouzhpennañ ur patrom',
 	'ps-remove-template' => 'Lemel ur patrom',
 	'ps-field' => 'Maezienn',
+	'ps-namelabel' => 'Anv :',
 	'ps-displaylabel' => 'Tikedenn diskwel :',
 	'ps-add-field' => 'Ouzhpennañ ur vaezienn',
 	'ps-remove-field' => 'Lemel ar vaezienn',
+	'editschema' => 'Kemmañ ar chema',
+	'createschema' => 'Krouiñ ur chema',
 );
 
 /** Bosnian (Bosanski)
@@ -496,6 +501,7 @@ $messages['lb'] = array(
 	'ps-add-template' => 'Schabloun derbäisetzen',
 	'ps-remove-template' => 'Schablon ewechhuelen',
 	'ps-field' => 'Feld',
+	'ps-namelabel' => 'Numm:',
 	'ps-displaylabel' => 'Etiquette weisen:',
 	'ps-add-field' => 'Feld derbäisetzen',
 	'ps-remove-field' => 'Feld ewechhuelen',
