@@ -56,7 +56,7 @@ $messages['qqq'] = array(
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'editschema' => 'This is a special page name.',
 	'createschema' => 'This is a special page name.',
-	'right-generatepages' => '{{doc-right|edit}}',
+	'right-generatepages' => '{{doc-right|generatepages}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -143,7 +143,7 @@ $messages['bs'] = array(
  * @author Kghbln
  */
 $messages['de'] = array(
-	'ps-desc' => 'Ermöglicht Vorlagen, die ihre Datenstruktur über XML auszeichnen',
+	'ps-desc' => 'Ermöglicht, unter Verwendung von XML, das Definieren einer Datenstruktur für alle Seiten in einer Kategorie',
 	'ps-schema-description' => 'Seitenschema:',
 	'generatepages' => 'Seiten generieren',
 	'ps-generatepages-desc' => 'Die folgenden Seiten auf Basis des Schemas dieser Kategorie generieren:',
@@ -168,6 +168,7 @@ $messages['de'] = array(
 	'ps-optional-name' => 'Name (leer lassen, um den Feldnamen zu verwenden):',
 	'editschema' => 'Schema bearbeiten',
 	'createschema' => 'Schema erstellen',
+	'right-generatepages' => 'Den Reiter „Seiten generieren“ sowie die entsprechende Seite sehen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -312,9 +313,8 @@ $messages['gsw'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'ps-desc' => 'תמיכה בתבניות שמגדירות את מבנה הנתונים שלהן דרך XML',
-	'ps-generate-pages' => 'יצירת דפים',
-	'ps-generate-pages-desc' => 'לחולל את דפי הוויקי הבאים, לפי הסכֵמה של הקטגוריה הזאת:',
+	'ps-desc' => 'הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML',
+	'generatepages' => 'יצירת דפים',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -469,7 +469,7 @@ $messages['lb'] = array(
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
-	'ps-desc' => 'Поддржува шаблони со определување на нивниот податочнот состав користејќи XML-означување',
+	'ps-desc' => 'Ја определува податочната структура на сите страници во една категорија користејќи XML',
 	'ps-schema-description' => 'Шемата на страници',
 	'generatepages' => 'Создај страници',
 	'ps-generatepages-desc' => 'Создај ги следниве страници врз основа на шемата на категоријата:',
@@ -494,6 +494,7 @@ $messages['mk'] = array(
 	'ps-optional-name' => 'Име (оставете празно за да биде како името на полето):',
 	'editschema' => 'Уреди шема',
 	'createschema' => 'Создај шема',
+	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
 );
 
 /** Dutch (Nederlands)
@@ -569,8 +570,6 @@ $messages['pms'] = array(
  */
 $messages['pt'] = array(
 	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
-	'ps-generate-pages' => 'Gerar Páginas',
-	'ps-generate-pages-desc' => 'Gerar as seguintes páginas, com base no modelo de dados desta categoria:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -584,9 +583,12 @@ $messages['pt-br'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'ps-desc' => "Le template de supporte definiscene 'a struttura lore ausanne l'XML",
-	'ps-generate-pages' => 'Genera pàggene',
-	'ps-generate-pages-desc' => 'Genere le pàggene ca seguene, basate sus a stu schema de categorije:',
+	'ps-desc' => "Definisce le strutture de le date pe tutte le pàggene jndr'à 'na categorije ausanne l'XML",
+	'ps-schema-description' => "Schema d'a pàgene",
+	'ps-template' => 'Template',
+	'ps-add-template' => "Aggiunge 'u template",
+	'ps-remove-template' => "Live 'u template",
+	'ps-field' => 'Cambe',
 );
 
 /** Russian (Русский)
