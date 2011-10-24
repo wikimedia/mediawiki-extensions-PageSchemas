@@ -40,6 +40,7 @@ $messages['en'] = array(
 	'ps-optional-name' => 'Name (leave blank to set to field name):',
 	'editschema' => 'Edit schema',
 	'createschema' => 'Create schema',
+	'right-generatepages' => 'View "Generate pages" tab and page',
 );
 
 /** Message documentation (Message documentation)
@@ -55,6 +56,7 @@ $messages['qqq'] = array(
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'editschema' => 'This is a special page name.',
 	'createschema' => 'This is a special page name.',
+	'right-generatepages' => '{{doc-right|edit}}',
 );
 
 /** Afrikaans (Afrikaans)
