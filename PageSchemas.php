@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
-define( 'PAGE_SCHEMAS_VERSION', '0.2' );
+define( 'PAGE_SCHEMAS_VERSION', '0.3' );
 
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
