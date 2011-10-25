@@ -21,13 +21,15 @@ final class PSTabs {
 		$pageSchemaObj = new PSSchema( $category );
 		$isPSDefined = $pageSchemaObj->isPSDefined();
 
-		global $wgRequest;
+		global $wgTitle, $wgRequest;
 
-		$content_actions['editschema'] = array(
-			'text' => ( $isPSDefined ) ? wfMsg( 'editschema' ) : wfMsg( 'createschema' ),
-			'class' => $wgRequest->getVal( 'action' ) == 'editschema' ? 'selected' : '',
-			'href' => $title->getLocalURL( 'action=editschema' )
-		);
+		if ( $wgUser->isAllowed( 'edit' ) && $wgTitle->userCan( 'edit' ) ) {
+			$content_actions['editschema'] = array(
+				'text' => ( $isPSDefined ) ? wfMsg( 'editschema' ) : wfMsg( 'createschema' ),
+				'class' => $wgRequest->getVal( 'action' ) == 'editschema' ? 'selected' : '',
+				'href' => $title->getLocalURL( 'action=editschema' )
+			);
+		}
 
 		if ( $isPSDefined && $wgUser->isAllowed( 'generatepages' ) ) {
 			$content_actions['generatepages'] = array(

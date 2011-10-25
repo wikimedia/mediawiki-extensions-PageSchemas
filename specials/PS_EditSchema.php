@@ -8,7 +8,7 @@
 
 class PSEditSchema extends IncludableSpecialPage {
 	function __construct() {
-		parent::__construct( 'EditSchema' );
+		parent::__construct( 'EditSchema', 'edit' );
 	}
 
 	/**
@@ -457,8 +457,15 @@ END;
 	}
 
 	function execute( $category ) {
-		global $wgRequest, $wgOut, $wgUser;
-		global $wgSkin;
+		global $wgRequest, $wgOut, $wgUser, $wgTitle;
+
+		// Only display this page if user is allowed to edit the
+		// category page.
+		if ( !$wgUser->isAllowed( 'edit' ) || !$wgTitle->userCan( 'edit' ) ) {
+			$wgOut->permissionRequired( 'edit' );
+			return;
+		}
+
 
 		$this->setHeaders();
 		$text = '<p>' . wfMsg( 'ps-page-desc-edit-schema' ) . '</p>';
