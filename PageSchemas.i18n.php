@@ -214,7 +214,7 @@ $messages['fi'] = array(
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
-	'ps-desc' => 'Supporte les modèle en définissant leur structure de données via des balises XML',
+	'ps-desc' => 'Définit la structure des données pour toutes les pages dans une catégorie en utilisant XML',
 	'ps-schema-description' => 'Schéma de la page',
 	'generatepages' => 'Générer les pages',
 	'ps-generatepages-desc' => "Générer les pages suivantes, d'après le schéma de cette catégorie:",
@@ -239,13 +239,14 @@ $messages['fr'] = array(
 	'ps-optional-name' => 'Nom (laisser blanc pour mettre le nom du champ):',
 	'editschema' => 'Modifier le schéma',
 	'createschema' => 'Créer le schéma',
+	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page',
 );
 
 /** Franco-Provençal (Arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'ps-desc' => 'Recognêt los modèlos en dèfenéssent lor structura de balyês avouéc des balises XML.',
+	'ps-desc' => 'Dèfenét la structura de les balyês por totes les pâges dens una catègorie en utilisent XML.',
 	'ps-schema-description' => 'Plan de la pâge',
 	'generatepages' => 'Fâre les pâges',
 	'ps-template' => 'Modèlo',
@@ -265,7 +266,7 @@ $messages['frp'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'ps-desc' => 'Soporta modelos que definen a súa estrutura de datos a través do formato XML',
+	'ps-desc' => 'Define a estrutura de datos de todas as páxinas dunha categoría mediante formato XML',
 	'ps-schema-description' => 'Esquema da páxina',
 	'generatepages' => 'Xerar as páxinas',
 	'ps-generatepages-desc' => 'Xerar as seguintes páxinas, segundo o esquema desta categoría:',
@@ -290,6 +291,7 @@ $messages['gl'] = array(
 	'ps-optional-name' => 'Nome (déixeo en branco para definir o nome do campo):',
 	'editschema' => 'Editar o esquema',
 	'createschema' => 'Crear o esquema',
+	'right-generatepages' => 'Ollar a lapela e a páxina "Xerar as páxinas"',
 );
 
 /** Swiss German (Alemannisch)
@@ -440,7 +442,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'ps-desc' => 'Ënnerstëtzt Schablounen déi hir Date-Struktur per XML definéieren',
+	'ps-desc' => "Definéiert d'Date-Struktur per XML fir all Säiten an enger Kategorie",
 	'ps-schema-description' => 'Schema vun der Säit',
 	'generatepages' => 'Säite generéieren',
 	'ps-generatepages-desc' => 'Dës Säiten op der Basis vum Schema vun dëser Kategorie generéieren:',
@@ -502,7 +504,7 @@ $messages['mk'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'ps-desc' => 'Ondersteunt sjablonen die hun gegevensstructuur via XML-opmaak definiëren',
+	'ps-desc' => "Bepaalt de gegevensstructuur van alle pagina's in een categorie via XML",
 	'ps-schema-description' => 'Paginaschema',
 	'generatepages' => "Pagina's aanmaken",
 	'ps-generatepages-desc' => "Maak de volgende pagina's aan, gebaseerd op dit categorieschema:",
@@ -527,6 +529,7 @@ $messages['nl'] = array(
 	'ps-optional-name' => 'Naam (laat leeg om in te stellen op de veldnaam):',
 	'editschema' => 'Schema bewerken',
 	'createschema' => 'Schema aanmaken',
+	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -602,12 +605,13 @@ $messages['ru'] = array(
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'ps-desc' => 'Podpira predloge, ki opredelujejo svojo zgradbo podatkov preko označevanja XML',
+	'ps-desc' => 'Opredeljuje zgradbo podatkov vseh strani v kategoriji z uporabo XML',
 	'ps-schema-description' => 'Shema strani',
 	'generatepages' => 'Ustvari strani',
 	'ps-generatepages-desc' => 'Ustvari naslednje strani, temelječe na shemi te kategorije:',
 	'ps-generatepages-success' => 'Ustvarjene bodo naslednje strani.',
 	'ps-generatepages-noschema' => 'Napaka: Kategorija nima določene sheme strani.',
+	'ps-generatepages-editsummary' => 'Ustvarjeno iz sheme strani',
 	'ps-page-desc-cat-not-exist' => 'Ta kategorija še ne obstaja. Ustvarite kategorijo in njeno shemo strani:',
 	'ps-page-desc-ps-not-exist' => 'Ta kategorija obstaja, vendar nima sheme strani. Ustvarite shemo:',
 	'ps-page-desc-edit-schema' => 'Uredi shemo strani te kategorije:',
@@ -626,6 +630,7 @@ $messages['sl'] = array(
 	'ps-optional-name' => 'Ime (pustite prazno, da nastavite na ime polje):',
 	'editschema' => 'Uredi shemo',
 	'createschema' => 'Ustvarite shemo',
+	'right-generatepages' => 'Ogled zavihka in strani »Ustvari strani«',
 );
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
