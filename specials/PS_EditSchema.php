@@ -152,7 +152,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		return $text;
 	}
 
-	/*
+	/**
 	 * Returns the HTML for one section of the EditSchema form.
 	 */
 	static function printFormSection( $label, $headerColor, $mainHTML, $sectionClass, $hasExistingValues = true ) {
@@ -180,7 +180,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		return $text;
 	}
 
-	/*
+	/**
 	 * Returns the HTML for a form section coming from a specific extension.
 	 */
 	static function printFieldHTMLForExtension( $valuesFromExtension, $label, $color ) {
