@@ -323,7 +323,7 @@ $messages['he'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'ps-desc' => 'Podpěruje předłohi, kotrež datowu strukturu přez XML-woznamjenjenja definuja',
+	'ps-desc' => 'Definuje datowu strukturu za wšě strony w kategoriji z pomocu XML',
 );
 
 /** Hungarian (Magyar)
@@ -555,9 +555,19 @@ $messages['oc'] = array(
 
 /** Polish (Polski)
  * @author Sp5uhe
+ * @author Woytecr
  */
 $messages['pl'] = array(
 	'ps-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
+	'ps-delimiter-label' => 'Separator wartości (domyślnie ","):',
+	'ps-template' => 'Szablon',
+	'ps-add-template' => 'Dodaj szablon',
+	'ps-remove-template' => 'Usuń szablon',
+	'ps-field' => 'Pole',
+	'ps-namelabel' => 'Nazwa:',
+	'ps-displaylabel' => 'Wyświetlana etykieta:',
+	'ps-add-field' => 'Dodaj pole',
+	'ps-remove-field' => 'Usuń pole',
 );
 
 /** Piedmontese (Piemontèis)
