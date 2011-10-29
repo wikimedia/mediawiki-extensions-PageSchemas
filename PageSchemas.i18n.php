@@ -299,7 +299,14 @@ $messages['gl'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'ps-desc' => 'Unterstitzt Vorlage, wu ihri Datestruktur iber XML-Markup definiere',
+	'ps-desc' => 'Definiert d Datestruktur für alli Syte inere Kategori, wo XML bruuche',
+	'ps-schema-description' => 'Syteschema:',
+	'generatepages' => 'Syte generiere',
+	'ps-generatepages-desc' => 'Die Syte, wo folge, uff Basis vum Schema vo dere Kategori generiere',
+	'ps-generatepages-success' => 'Die Syte, wo ussgwäält sin, werde generiert.',
+	'ps-generatepages-noschema' => 'Fääler: Für die Kategori isch kei Schema definiert.',
+	'ps-generatepages-editsummary' => 'Uff Basis vum Schema, wo folgt, generiert',
+	'ps-page-desc-cat-not-exist' => "Die Kategorie git's no nit. Die Kategori un ihr Schema erstelle:",
 	'ps-template' => 'Vorlag',
 	'ps-add-template' => 'Vorlag zuefiege',
 	'ps-remove-template' => 'Vorlag usenee',
@@ -559,13 +566,13 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'ps-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
-	'ps-delimiter-label' => 'Separator wartości (domyślnie ","):',
+	'ps-delimiter-label' => 'Separator wartości (domyślnie „,”)',
 	'ps-template' => 'Szablon',
 	'ps-add-template' => 'Dodaj szablon',
 	'ps-remove-template' => 'Usuń szablon',
 	'ps-field' => 'Pole',
-	'ps-namelabel' => 'Nazwa:',
-	'ps-displaylabel' => 'Wyświetlana etykieta:',
+	'ps-namelabel' => 'Nazwa',
+	'ps-displaylabel' => 'Wyświetlana etykieta',
 	'ps-add-field' => 'Dodaj pole',
 	'ps-remove-field' => 'Usuń pole',
 );
