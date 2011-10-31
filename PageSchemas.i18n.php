@@ -344,7 +344,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'ps-desc' => 'Appoia patronos que defini lor structura de datos via marcation XML',
+	'ps-desc' => 'Defini le structura de datos pro tote le paginas in un categoria usante XML',
 	'ps-schema-description' => 'Schema de pagina',
 	'generatepages' => 'Generar paginas',
 	'ps-generatepages-desc' => 'Generar le sequente paginas a base del schema de iste categoria:',
@@ -369,6 +369,7 @@ $messages['ia'] = array(
 	'ps-optional-name' => 'Nomine (lassar vacue pro definir como le nomine del campo):',
 	'editschema' => 'Modificar schema',
 	'createschema' => 'Crear schema',
+	'right-generatepages' => 'Vider le scheda e pagina "Generar paginas"',
 );
 
 /** Indonesian (Bahasa Indonesia)
