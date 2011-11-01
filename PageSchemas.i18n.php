@@ -456,6 +456,7 @@ $messages['lb'] = array(
 	'ps-generatepages-desc' => 'Dës Säiten op der Basis vum Schema vun dëser Kategorie generéieren:',
 	'ps-generatepages-success' => 'Déi erausgesichte Säite gi generéiert.',
 	'ps-generatepages-noschema' => 'Feeler: et ass kee Säite-Schema fir dës Kategorie definéiert',
+	'ps-generatepages-editsummary' => 'Generéiert op Basis vum Säite-Schema',
 	'ps-page-desc-cat-not-exist' => 'Dës Kategorie gëtt et nach net. Leet dës Kategorie an hire Säite-Schema un:',
 	'ps-page-desc-ps-not-exist' => 'Dës Kategorie gëtt et, awer si huet nach kee Säite-Schema. Leet de Schema un:',
 	'ps-page-desc-edit-schema' => 'De Säite-Schema fir dës Kategorie änneren:',
