@@ -249,6 +249,7 @@ $messages['frp'] = array(
 	'ps-desc' => 'Dèfenét la structura de les balyês por totes les pâges dens una catègorie en utilisent XML.',
 	'ps-schema-description' => 'Plan de la pâge',
 	'generatepages' => 'Fâre les pâges',
+	'ps-generatepages-editsummary' => 'Fêt dês lo plan de pâge',
 	'ps-template' => 'Modèlo',
 	'ps-add-template' => 'Apondre un modèlo',
 	'ps-remove-template' => 'Enlevar un modèlo',
@@ -259,6 +260,7 @@ $messages['frp'] = array(
 	'ps-remove-field' => 'Enlevar un champ',
 	'ps-add-xml-label' => 'XML de ples :',
 	'editschema' => 'Changiér lo plan',
+	'createschema' => 'Fâre lo plan',
 );
 
 /** Galician (Galego)
