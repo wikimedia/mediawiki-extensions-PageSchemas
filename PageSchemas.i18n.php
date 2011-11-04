@@ -184,7 +184,7 @@ $messages['de-formal'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'ps-desc' => 'Pódpěra pśedłogi, kótarež definěruju datowu strukturu pśez XML-wobznamjenjenja',
+	'ps-desc' => 'Definěrujo strukturu datow za wšykne boki w kategoriji z pomocu XML',
 );
 
 /** Greek (Ελληνικά)
