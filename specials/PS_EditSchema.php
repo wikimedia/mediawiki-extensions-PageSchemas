@@ -459,9 +459,10 @@ END;
 	function execute( $category ) {
 		global $wgRequest, $wgOut, $wgUser, $wgTitle;
 
-		// Only display this page if user is allowed to edit the
-		// category page.
-		if ( !$wgUser->isAllowed( 'edit' ) || !$wgTitle->userCan( 'edit' ) ) {
+		// If a category has been selected (i.e., it's not just
+		// Special:EditSchema), only display this if the user is
+		// allowed to edit the category page.
+		if ( !is_null( $category ) && ( !$wgUser->isAllowed( 'edit' ) || !$wgTitle->userCan( 'edit' ) ) ) {
 			$wgOut->permissionRequired( 'edit' );
 			return;
 		}
