@@ -388,12 +388,6 @@ $messages['ig'] = array(
 	'ps-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
 );
 
-/** Italian (Italiano)
- * @author Beta16
- */
-$messages['it'] = array(
-);
-
 /** Japanese (日本語)
  * @author Fryed-peach
  * @author Schu
