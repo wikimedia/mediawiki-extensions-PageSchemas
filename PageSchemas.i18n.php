@@ -41,6 +41,7 @@ $messages['en'] = array(
 	'editschema' => 'Edit schema',
 	'createschema' => 'Create schema',
 	'right-generatepages' => 'View "Generate pages" tab and page',
+	'action-generatepages' => 'view the "Generate pages" tab and page',
 );
 
 /** Message documentation (Message documentation)
@@ -57,6 +58,7 @@ $messages['qqq'] = array(
 	'editschema' => 'This is a special page name.',
 	'createschema' => 'This is a special page name.',
 	'right-generatepages' => '{{doc-right|generatepages}}',
+	'action-generatepages' => '{{doc-action|generatepages}}',
 );
 
 /** Afrikaans (Afrikaans)
