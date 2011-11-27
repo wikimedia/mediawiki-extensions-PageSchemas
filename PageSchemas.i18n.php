@@ -171,6 +171,7 @@ $messages['de'] = array(
 	'editschema' => 'Schema bearbeiten',
 	'createschema' => 'Schema erstellen',
 	'right-generatepages' => 'Den Reiter „Seiten generieren“ sowie die entsprechende Seite sehen',
+	'action-generatepages' => 'den Reiter „Seiten generieren“ sowie die entsprechende Seite zu sehen',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
@@ -214,6 +215,7 @@ $messages['fi'] = array(
  * @author Gomoko
  * @author IAlex
  * @author PieRRoMaN
+ * @author Zebulon84
  */
 $messages['fr'] = array(
 	'ps-desc' => 'Définit la structure des données pour toutes les pages dans une catégorie en utilisant XML',
@@ -242,6 +244,7 @@ $messages['fr'] = array(
 	'editschema' => 'Modifier le schéma',
 	'createschema' => 'Créer le schéma',
 	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page',
+	'action-generatepages' => "afficher la page ou l'onglet « Générer les pages »",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -296,6 +299,7 @@ $messages['gl'] = array(
 	'editschema' => 'Editar o esquema',
 	'createschema' => 'Crear o esquema',
 	'right-generatepages' => 'Ollar a lapela e a páxina "Xerar as páxinas"',
+	'action-generatepages' => 'ollar a lapela e a páxina "Xerar as páxinas"',
 );
 
 /** Swiss German (Alemannisch)
@@ -504,6 +508,7 @@ $messages['mk'] = array(
 	'editschema' => 'Уреди шема',
 	'createschema' => 'Создај шема',
 	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
+	'action-generatepages' => 'приказ на јазичето „Создај страници“ и неговата страница',
 );
 
 /** Dutch (Nederlands)
@@ -648,6 +653,7 @@ $messages['sl'] = array(
 	'editschema' => 'Uredi shemo',
 	'createschema' => 'Ustvarite shemo',
 	'right-generatepages' => 'Ogled zavihka in strani »Ustvari strani«',
+	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«',
 );
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
