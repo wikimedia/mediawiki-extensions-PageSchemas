@@ -543,6 +543,7 @@ $messages['nl'] = array(
 	'editschema' => 'Schema bewerken',
 	'createschema' => 'Schema aanmaken',
 	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
+	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
