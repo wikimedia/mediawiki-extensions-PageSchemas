@@ -13,7 +13,7 @@ final class PSTabs {
 		global $wgUser;
 
 		$title = $obj->getTitle();
-		if ( $title->getNamespace() != NS_CATEGORY || !$title->exists() ){
+		if ( $title->getNamespace() != NS_CATEGORY ){
 			return true;
 		}
 
