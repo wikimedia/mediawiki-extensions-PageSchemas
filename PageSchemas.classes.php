@@ -433,11 +433,11 @@ class PSTemplateField {
 		if ( ((string)$fieldXML->attributes()->list) == "list") {
 			$this->mIsList = true;
 		}
-		$this->mDelimiter = (string)$fieldXML->attributes()->delimiter;
-		$this->mDisplay = (string)$fieldXML->attributes()->display;
+		$this->mDelimiter = $fieldXML->attributes()->delimiter;
+		$this->mDisplay = $fieldXML->attributes()->display;
 		foreach ( $fieldXML->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
-				$this->mFieldLabel = (string)$child;
+				$this->mFieldLabel = $child;
 			}
 		}
 	}
