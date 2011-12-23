@@ -665,6 +665,11 @@ $messages['sr-ec'] = array(
 	'ps-desc' => 'Одређује структуру података за све странице у категорији користећи XML',
 );
 
+/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+$messages['sr-el'] = array(
+	'ps-desc' => 'Određuje strukturu podataka za sve stranice u kategoriji koristeći XML',
+);
+
 /** Swedish (Svenska)
  * @author Per
  */
