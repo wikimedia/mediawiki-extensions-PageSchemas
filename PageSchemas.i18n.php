@@ -512,6 +512,13 @@ $messages['mk'] = array(
 	'action-generatepages' => 'приказ на јазичето „Создај страници“ и неговата страница',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
@@ -551,13 +558,6 @@ $messages['nl'] = array(
  */
 $messages['nn'] = array(
 	'ps-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
 );
 
 /** Occitan (Occitan)
@@ -619,10 +619,13 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Eleferen
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'ps-desc' => 'Поддерживает шаблоны с определением их структуры данных постредством XML-разметки',
+	'ps-desc' => 'Определяет структуру данных для всех страниц в категории с помощью XML',
+	'ps-schema-description' => 'Схема страницы',
+	'generatepages' => 'Создание страниц',
 );
 
 /** Slovenian (Slovenščina)
