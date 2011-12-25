@@ -556,7 +556,7 @@ $messages['nn'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
 );
 
