@@ -339,6 +339,32 @@ $messages['he'] = array(
  */
 $messages['hsb'] = array(
 	'ps-desc' => 'Definuje datowu strukturu za wšě strony w kategoriji z pomocu XML',
+	'ps-schema-description' => 'Šema strony',
+	'generatepages' => 'Strony wutworić',
+	'ps-generatepages-desc' => 'Slědowace strony na zakładźe šemy tuteje kategorije wutworić:',
+	'ps-generatepages-success' => 'Wubrane strony so wutworja.',
+	'ps-generatepages-noschema' => 'Zmylk: Njeje žana šema strony za tutu kategoriju definowana.',
+	'ps-generatepages-editsummary' => 'Ze šemy strony wutworjeny',
+	'ps-page-desc-cat-not-exist' => 'Tuta kategorija hišće njeeksistuje. Wutwor tutu kategoriju a jeje šemu strony:',
+	'ps-page-desc-ps-not-exist' => 'Tuta kategorija eksistuje, ale nima šemu strony. Wutwor šemu:',
+	'ps-page-desc-edit-schema' => 'Wobdźěł šemu strony za tutu kategoriju:',
+	'ps-delimiter-label' => 'Dźělatko za hódnoty (standard je "2,"):',
+	'ps-multiple-temp-label' => 'Wjacore instancy tuteje předłohi zmóžnić',
+	'ps-field-list-label' => 'Tute polo móže lisćinu hódnotow wobsahować',
+	'ps-template' => 'Předłoha',
+	'ps-add-template' => 'Předłohu přidać',
+	'ps-remove-template' => 'Předłohu wotstronić',
+	'ps-field' => 'Polo',
+	'ps-namelabel' => 'Mjeno:',
+	'ps-displaylabel' => 'Polowe mjeno, kotrež ma so pokazać:',
+	'ps-add-field' => 'Polo přidać',
+	'ps-remove-field' => 'Polo wotstronić',
+	'ps-add-xml-label' => 'Přidatny XML:',
+	'ps-optional-name' => 'Mjeno (prózdne wostajić, zo by pólne mjeno wužił)',
+	'editschema' => 'Šemu wobdźěłać',
+	'createschema' => 'Šemu wutworić',
+	'right-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
+	'action-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
 );
 
 /** Hungarian (Magyar)
