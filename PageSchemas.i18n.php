@@ -90,12 +90,13 @@ $messages['arz'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'ps-desc' => 'Падтрымлівае шаблёны, якія вызначаюць уласную структуру зьвестак праз XML-разьметку',
-	'ps-schema-description' => 'Апісаньне схемы:',
+	'ps-desc' => 'Вызначае структуру зьвестак на старонках праз XML-разьметку',
+	'ps-schema-description' => 'Схема старонкі',
 	'generatepages' => 'Стварыць старонкі',
 	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
-	'ps-generatepages-success' => 'Старонкі будуць створаныя.',
+	'ps-generatepages-success' => 'Будуць створаныя выбраныя старонкі.',
 	'ps-generatepages-noschema' => 'Памылка: для гэтай катэгорыі ня вызначаная схема старонкі.',
+	'ps-generatepages-editsummary' => 'Створаная са схемы старонкі',
 	'ps-page-desc-cat-not-exist' => 'Гэтая катэгорыя яшчэ не існуе. Стварыць яе са схемай старонкі:',
 	'ps-page-desc-ps-not-exist' => 'Гэтая катэгорыя існуе, аднак ня мае схемы старонкі. Стварыць схему:',
 	'ps-page-desc-edit-schema' => 'Рэдагаваць схему старонак для гэтай катэгорыі:',
@@ -106,11 +107,13 @@ $messages['be-tarask'] = array(
 	'ps-add-template' => 'Дадаць шаблён',
 	'ps-remove-template' => 'Выдаліць шаблён',
 	'ps-field' => 'Поле',
+	'ps-namelabel' => 'Назва:',
 	'ps-displaylabel' => 'Паказваць пазнаку:',
 	'ps-add-field' => 'Дадаць поле',
 	'ps-remove-field' => 'Выдаліць поле',
 	'ps-add-xml-label' => 'Дадатковы XML:',
 	'editschema' => 'Рэдагаваць схему',
+	'createschema' => 'Стварэньне схемы',
 );
 
 /** Breton (Brezhoneg)
