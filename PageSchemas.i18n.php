@@ -54,6 +54,7 @@ $messages['qqq'] = array(
 	'ps-desc' => '{{desc}}',
 	'ps-template' => 'A MediaWiki template',
 	'ps-field' => 'A "field" here is both a template parameter and a form field',
+	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'editschema' => 'This is a special page name.',
 	'createschema' => 'This is a special page name.',
@@ -90,7 +91,7 @@ $messages['arz'] = array(
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
-	'ps-desc' => 'Вызначае структуру зьвестак на старонках праз XML-разьметку',
+	'ps-desc' => 'Вызначае структуру зьвестак для ўсіх старонак катэгорыі з дапамогай разьметкі XML',
 	'ps-schema-description' => 'Схема старонкі',
 	'generatepages' => 'Стварыць старонкі',
 	'ps-generatepages-desc' => 'Стварае наступныя старонкі, зыходзячы са схемы катэгорыі:',
@@ -113,7 +114,7 @@ $messages['be-tarask'] = array(
 	'ps-remove-field' => 'Выдаліць поле',
 	'ps-add-xml-label' => 'Дадатковы XML:',
 	'editschema' => 'Рэдагаваць схему',
-	'createschema' => 'Стварэньне схемы',
+	'createschema' => 'Стварыць схему',
 );
 
 /** Breton (Brezhoneg)
