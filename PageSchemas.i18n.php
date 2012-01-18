@@ -507,6 +507,8 @@ $messages['lb'] = array(
 	'ps-optional-name' => 'Numm (eidel loosse fir den Numm vum Feld ze benotzen):',
 	'editschema' => 'Schema änneren',
 	'createschema' => 'Schema uleeën',
+	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn',
+	'action-generatepages' => 'den Onglet an d\'Säit "Säite generéieren" gesinn',
 );
 
 /** Macedonian (Македонски)
