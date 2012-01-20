@@ -117,6 +117,13 @@ $messages['be-tarask'] = array(
 	'createschema' => 'Стварыць схему',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'ps-namelabel' => 'Име:',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D
