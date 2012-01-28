@@ -633,9 +633,14 @@ $messages['pms'] = array(
 
 /** Portuguese (Português)
  * @author Hamilton Abreu
+ * @author Luckas Blade
  */
 $messages['pt'] = array(
 	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
+	'ps-template' => 'Predefinição',
+	'ps-add-template' => 'Adicionar predefinição',
+	'ps-remove-template' => 'Remover predefinição',
+	'ps-namelabel' => 'Nome:',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
