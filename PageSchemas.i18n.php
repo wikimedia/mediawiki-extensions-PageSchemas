@@ -608,11 +608,12 @@ $messages['oc'] = array(
 );
 
 /** Polish (Polski)
+ * @author BeginaFelicysym
  * @author Sp5uhe
  * @author Woytecr
  */
 $messages['pl'] = array(
-	'ps-desc' => 'Obsługa definiowania struktury szablonów z wykorzystaniem znaczników XML',
+	'ps-desc' => 'Definiuje strukturę danych dla wszystkich stron w kategorii z wykorzystaniem XML',
 	'ps-delimiter-label' => 'Separator wartości (domyślnie „,”)',
 	'ps-template' => 'Szablon',
 	'ps-add-template' => 'Dodaj szablon',
