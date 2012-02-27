@@ -6,8 +6,8 @@
  */
 
 
-var fieldNum = jQuery('.fieldBox:visible').length;
-var templateNum = jQuery('.templateBox:visible').length;
+var fieldNum;
+var templateNum;
 
 jQuery.fn.editSchemaMakeTemplateDeleter = function() {
 	jQuery(this).click( function() {
@@ -80,6 +80,9 @@ jQuery.fn.editSchemaToggleSectionDisplay = function() {
 }
 
 jQuery(document).ready(function() {
+	fieldNum = jQuery('.fieldBox:visible').length;
+	templateNum = jQuery('.templateBox:visible').length;
+
 	// Add and delete buttons
 	jQuery(".deleteTemplate").editSchemaMakeTemplateDeleter();
 	jQuery(".editSchemaAddTemplate").editSchemaMakeTemplateAdder();
