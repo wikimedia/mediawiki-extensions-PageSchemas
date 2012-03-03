@@ -209,10 +209,37 @@ $messages['el'] = array(
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Translationista
  */
 $messages['es'] = array(
-	'ps-desc' => 'Admite plantillas que definen su estructura de datos a través de XML',
+	'ps-desc' => 'Define la estrutura de datos de todas las páginas de una categoría mediante formato XML',
+	'ps-schema-description' => 'Esquema de la página',
+	'generatepages' => 'Generar las páginas',
+	'ps-generatepages-desc' => 'Generar las siguientes páginas, según el esquema de esta categoría:',
+	'ps-generatepages-success' => 'Las páginas seleccionadas van a ser generadas.',
+	'ps-generatepages-noschema' => 'Erro: No hay ningún esquema de página definido para esta categoría.',
+	'ps-generatepages-editsummary' => 'Generado a partir del esquema de página',
+	'ps-page-desc-cat-not-exist' => 'Esta categoría aun no existe. Cree esta categoría y su esquema de página:',
+	'ps-page-desc-ps-not-exist' => 'Esta categoría existe, pero no tiene un esquema de página. Cree el esquema:',
+	'ps-page-desc-edit-schema' => 'Edite el esquema de página de esta categoría:',
+	'ps-delimiter-label' => 'Delimitador para los valores (por defecto es ","):',
+	'ps-multiple-temp-label' => 'Permitir varios ejemplos de esta plantilla',
+	'ps-field-list-label' => 'Este campo puede contener una lista de valores',
+	'ps-template' => 'Plantilla',
+	'ps-add-template' => 'Agregar plantilla:',
+	'ps-remove-template' => 'Eliminar plantilla',
+	'ps-field' => 'Campo',
+	'ps-namelabel' => 'Nombre:',
+	'ps-displaylabel' => 'Mostrar etiqueta:',
+	'ps-add-field' => 'Agregar campo',
+	'ps-remove-field' => 'Eliminar campo',
+	'ps-add-xml-label' => 'XML adicional:',
+	'ps-optional-name' => 'Nombre (déjelo en blanco para definir el nombre del campo):',
+	'editschema' => 'Editar el esquema',
+	'createschema' => 'Crear el esquema',
+	'right-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
+	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
 );
 
 /** Finnish (Suomi)
@@ -614,7 +641,18 @@ $messages['oc'] = array(
  */
 $messages['pl'] = array(
 	'ps-desc' => 'Definiuje strukturę danych dla wszystkich stron w kategorii z wykorzystaniem XML',
-	'ps-delimiter-label' => 'Separator wartości (domyślnie „,”)',
+	'ps-schema-description' => 'Schemat stron',
+	'generatepages' => 'Wygeneruj strony',
+	'ps-generatepages-desc' => 'Generuj następujące strony na podstawie schematu tej kategorii:',
+	'ps-generatepages-success' => 'Zostaną wygenerowane wybrane strony.',
+	'ps-generatepages-noschema' => 'Błąd: Nie zdefiniowano schematu strony dla tej kategorii.',
+	'ps-generatepages-editsummary' => 'Wygenerowane na podstawie schematu strony',
+	'ps-page-desc-cat-not-exist' => 'Ta kategoria jeszcze nie istnieje. Utwórz tą kategorię i jej schemat stron:',
+	'ps-page-desc-ps-not-exist' => 'Ta kategoria istnieje, ale nie posiada schematu strony. Utwórz schemat:',
+	'ps-page-desc-edit-schema' => 'Edytuj schemat stron dla tej kategorii:',
+	'ps-delimiter-label' => 'Separator wartości (domyślnie ","):',
+	'ps-multiple-temp-label' => 'Zezwalaj na wiele wystąpień tego szablonu',
+	'ps-field-list-label' => 'To pole może zawierać listę wartości',
 	'ps-template' => 'Szablon',
 	'ps-add-template' => 'Dodaj szablon',
 	'ps-remove-template' => 'Usuń szablon',
@@ -623,6 +661,12 @@ $messages['pl'] = array(
 	'ps-displaylabel' => 'Wyświetlana etykieta',
 	'ps-add-field' => 'Dodaj pole',
 	'ps-remove-field' => 'Usuń pole',
+	'ps-add-xml-label' => 'Dodatkowy XML:',
+	'ps-optional-name' => 'Nazwa (pozostaw puste aby ustawić nazwę pola):',
+	'editschema' => 'Edytuj schemat',
+	'createschema' => 'Utwórz schemat',
+	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
+	'action-generatepages' => 'wyświetl kartę i stronę "Generuj strony"',
 );
 
 /** Piedmontese (Piemontèis)
