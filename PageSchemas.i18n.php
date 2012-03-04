@@ -129,9 +129,10 @@ $messages['bg'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
-	'ps-desc' => 'Skorañ a ra ar patromoù dre dermeniñ o framm roadennoù gant balizennoù XML',
+	'ps-desc' => 'Termeniñ a ra framm ar roadennoù evit holl bajennoù ur rummad bennak en ur ober gant XML',
 	'ps-schema-description' => 'Chema ar bajenn',
 	'generatepages' => 'Genel ar pajennoù',
+	'ps-multiple-temp-label' => 'Aotren meur a eilad eus ar patrom-mañ',
 	'ps-template' => 'Patrom',
 	'ps-add-template' => 'Ouzhpennañ ur patrom',
 	'ps-remove-template' => 'Lemel ur patrom',
