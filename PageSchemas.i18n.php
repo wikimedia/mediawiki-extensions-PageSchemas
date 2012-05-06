@@ -463,29 +463,34 @@ $messages['ig'] = array(
 /** Japanese (日本語)
  * @author Fryed-peach
  * @author Schu
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'ps-desc' => 'XML マークアップによってデータ構造を定義するテンプレートをサポートします。',
-	'ps-schema-description' => 'スキーマの説明：',
+	'ps-desc' => 'XML を使用して、カテゴリ内のすべてのページのデータ構造を定義する',
+	'ps-schema-description' => 'ページのスキーマ',
 	'generatepages' => 'ページを生成',
 	'ps-generatepages-desc' => 'このカテゴリのスキーマに基づいて、次のページを生成',
-	'ps-generatepages-success' => 'ページが生成されます。',
+	'ps-generatepages-success' => '選択したページが生成されます。',
 	'ps-generatepages-noschema' => 'エラー：このカテゴリに定義されているページのスキーマはありません。',
 	'ps-page-desc-cat-not-exist' => 'このカテゴリはまだ存在しません。このカテゴリとそのページのスキーマを作成します。',
 	'ps-page-desc-ps-not-exist' => 'このカテゴリは存在しますが、ページのスキーマを持っていません。スキーマを作成：',
 	'ps-page-desc-edit-schema' => 'このカテゴリのページのスキーマを編集：',
-	'ps-delimiter-label' => '値の区切り文字 (デフォルトは "," )：',
+	'ps-delimiter-label' => '値の区切り文字（既定は ","）：',
 	'ps-multiple-temp-label' => 'このテンプレートの複数のインスタンスを許可',
 	'ps-field-list-label' => 'このフィールドは、値のリストを保持することができます',
 	'ps-template' => 'テンプレート',
 	'ps-add-template' => 'テンプレートを追加',
 	'ps-remove-template' => 'テンプレートを削除',
 	'ps-field' => 'フィールド',
+	'ps-namelabel' => '名前：',
 	'ps-displaylabel' => '表示ラベル：',
 	'ps-add-field' => 'フィールドを追加',
 	'ps-remove-field' => 'フィールドを削除',
 	'ps-add-xml-label' => '追加のXML：',
 	'editschema' => 'スキーマを編集',
+	'createschema' => 'スキーマを作成',
+	'right-generatepages' => '「ページを生成」タブとページを閲覧',
+	'action-generatepages' => '「ページを生成」タブとページを表示',
 );
 
 /** Colognian (Ripoarisch)
