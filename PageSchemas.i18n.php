@@ -195,6 +195,13 @@ $messages['de-formal'] = array(
 	'ps-page-desc-edit-schema' => 'Bearbeiten Sie das Schema dieser Kategorie:',
 );
 
+/** Zazaki (Zazaki)
+ * @author Mirzali
+ */
+$messages['diq'] = array(
+	'ps-namelabel' => 'Name:',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
