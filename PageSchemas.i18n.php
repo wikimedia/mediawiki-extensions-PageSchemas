@@ -791,10 +791,13 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Suelnur
  * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'ps-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler',
+	'ps-template' => 'Şablon',
+	'ps-add-template' => 'Şablon ekle:',
 );
 
 /** Ukrainian (Українська)
