@@ -731,6 +731,13 @@ $messages['ru'] = array(
 	'generatepages' => 'Создание страниц',
 );
 
+/** Sakha (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'generatepages' => 'Сирэйдэри айыы',
+);
+
 /** Slovenian (Slovenščina)
  * @author Dbc334
  */
