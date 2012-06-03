@@ -702,7 +702,7 @@ $messages['pt'] = array(
 	'ps-namelabel' => 'Nome:',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Daemorris
  * @author Jaideraf
  */
