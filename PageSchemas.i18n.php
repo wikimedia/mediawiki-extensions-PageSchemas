@@ -526,6 +526,14 @@ $messages['ksh'] = array(
 	'createschema' => 'E XML-Schema aanlääje',
 );
 
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'ps-template' => 'Şablon',
+	'ps-namelabel' => 'Nav:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
