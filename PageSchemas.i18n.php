@@ -117,14 +117,14 @@ $messages['be-tarask'] = array(
 	'createschema' => 'Стварыць схему',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
 	'ps-namelabel' => 'Име:',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -145,7 +145,7 @@ $messages['br'] = array(
 	'createschema' => 'Krouiñ ur chema',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -216,7 +216,7 @@ $messages['el'] = array(
 	'ps-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Translationista
  */
@@ -250,14 +250,14 @@ $messages['es'] = array(
 	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  */
 $messages['fi'] = array(
 	'ps-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author IAlex
  * @author PieRRoMaN
@@ -293,7 +293,7 @@ $messages['fr'] = array(
 	'action-generatepages' => "afficher la page ou l'onglet « Générer les pages »",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -413,14 +413,14 @@ $messages['hsb'] = array(
 	'action-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  */
 $messages['hu'] = array(
 	'ps-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -567,7 +567,7 @@ $messages['lb'] = array(
 	'action-generatepages' => 'den Onglet an d\'Säit "Säite generéieren" gesinn',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -641,21 +641,21 @@ $messages['nl'] = array(
 	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Harald Khan
  */
 $messages['nn'] = array(
 	'ps-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
 	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
  * @author Woytecr
@@ -698,7 +698,7 @@ $messages['pms'] = array(
 	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Luckas Blade
  */
@@ -744,7 +744,7 @@ $messages['pt-br'] = array(
 	'action-generatepages' => 'ver a página e guia "Gerar páginas"',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -756,7 +756,7 @@ $messages['roa-tara'] = array(
 	'ps-field' => 'Cambe',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Eleferen
  * @author Александр Сигачёв
  */
@@ -766,14 +766,14 @@ $messages['ru'] = array(
 	'generatepages' => 'Создание страниц',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
 	'generatepages' => 'Сирэйдэри айыы',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -806,19 +806,19 @@ $messages['sl'] = array(
 	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'ps-desc' => 'Одређује структуру података за све странице у категорији користећи XML',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬) */
+/** Serbian (Latin script) (‪srpski (latinica)‬) */
 $messages['sr-el'] = array(
 	'ps-desc' => 'Određuje strukturu podataka za sve stranice u kategoriji koristeći XML',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Per
  */
 $messages['sv'] = array(
@@ -842,7 +842,7 @@ $messages['tr'] = array(
 	'ps-add-template' => 'Şablon ekle:',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author NickK
  * @author Prima klasy4na
  * @author Тест
@@ -858,14 +858,14 @@ $messages['vi'] = array(
 	'ps-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Chenxiaoqino
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '支持的模版已将其数据结构用XML代码声明。',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
