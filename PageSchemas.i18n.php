@@ -84,7 +84,7 @@ $messages['arz'] = array(
 	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Renessaince
@@ -202,7 +202,7 @@ $messages['diq'] = array(
 	'ps-namelabel' => 'Name:',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -314,7 +314,7 @@ $messages['frp'] = array(
 	'createschema' => 'Fâre lo plan',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author MetalBrasil
  * @author Toliño
  */
@@ -380,7 +380,7 @@ $messages['he'] = array(
 	'generatepages' => 'יצירת דפים',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
