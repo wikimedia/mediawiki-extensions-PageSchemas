@@ -467,6 +467,39 @@ $messages['ig'] = array(
 	'ps-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
 );
 
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'ps-desc' => 'Definisce la struttura di dati per tutte le pagine in una categoria utilizzando XML',
+	'ps-schema-description' => 'Schema pagina',
+	'generatepages' => 'Genera pagine',
+	'ps-generatepages-desc' => 'Genera le seguenti pagine, basate sullo schema di questa categoria:',
+	'ps-generatepages-success' => 'Le pagine selezionate verranno generate.',
+	'ps-generatepages-noschema' => "Errore: non non c'è nessun schema di pagina definito per questa categoria.",
+	'ps-generatepages-editsummary' => 'Generata da uno schema di pagina',
+	'ps-page-desc-cat-not-exist' => 'Questa categoria non esiste ancora. Crea questa categoria ed il relativo schema di pagina:',
+	'ps-page-desc-ps-not-exist' => 'Questa categoria esiste, ma non ha uno schema di pagina. Crea uno schema:',
+	'ps-page-desc-edit-schema' => 'Modifica lo schema di pagina per questa categoria:',
+	'ps-delimiter-label' => 'Delimitatore per valori (predefinito è ","):',
+	'ps-multiple-temp-label' => 'Consentire più istanze di questo template',
+	'ps-field-list-label' => 'Questo campo può contenere un elenco di valori',
+	'ps-template' => 'Template',
+	'ps-add-template' => 'Aggiungi template',
+	'ps-remove-template' => 'Rimuovi template',
+	'ps-field' => 'Campo',
+	'ps-namelabel' => 'Nome:',
+	'ps-displaylabel' => 'Etichetta da mostrare:',
+	'ps-add-field' => 'Aggiungi campo',
+	'ps-remove-field' => 'Rimuovi campo',
+	'ps-add-xml-label' => 'XML addizionale:',
+	'ps-optional-name' => 'Nome (lascia vuoto per impostare come il nome del campo):',
+	'editschema' => 'Modifica schema',
+	'createschema' => 'Creare schema',
+	'right-generatepages' => 'Vede la scheda e la pagina "Genera pagine"',
+	'action-generatepages' => 'vedere la scheda e la pagina "Genera pagine"',
+);
+
 /** Japanese (日本語)
  * @author Fryed-peach
  * @author Schu
