@@ -633,7 +633,7 @@ $messages['mk'] = array(
 	'action-generatepages' => 'приказ на јазичето „Создај страници“ и неговата страница',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
