@@ -690,6 +690,17 @@ $messages['oc'] = array(
 	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
 );
 
+/** Pampanga (Kapampangan)
+ * @author Val2397
+ */
+$messages['pam'] = array(
+	'generatepages' => 'Gawan la reng bulung',
+	'ps-template' => 'Ulma (Template)',
+	'ps-add-template' => 'Magdagdag ulma',
+	'ps-remove-template' => 'Ilako ya ing ulma',
+	'ps-namelabel' => 'Lagiu',
+);
+
 /** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
