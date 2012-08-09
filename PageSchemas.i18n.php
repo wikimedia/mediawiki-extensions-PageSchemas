@@ -252,6 +252,18 @@ $messages['es'] = array(
 	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'ps-template' => 'الگو',
+	'ps-add-template' => 'افزودن الگو',
+	'ps-remove-template' => 'حذف الگو',
+	'ps-field' => 'زمینه',
+	'ps-namelabel' => 'نام:',
+	'ps-displaylabel' => 'برچسب نمایش:',
+);
+
 /** Finnish (suomi)
  * @author Crt
  */
@@ -817,6 +829,13 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'generatepages' => 'Сирэйдэри айыы',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'ps-namelabel' => 'නම:',
 );
 
 /** Slovenian (slovenščina)
