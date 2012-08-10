@@ -547,6 +547,22 @@ $messages['ja'] = array(
 	'action-generatepages' => '「ページを生成」タブとページを表示',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'ps-schema-description' => 'გვერდის სქემა',
+	'ps-template' => 'თარგი',
+	'ps-add-template' => 'თარგის დამატება',
+	'ps-remove-template' => 'თარგის წაშლა',
+	'ps-field' => 'ველი',
+	'ps-namelabel' => 'სახელი:',
+	'ps-add-field' => 'ველის დამატება',
+	'ps-remove-field' => 'ველის წაშლა',
+	'editschema' => 'სქემის რედაქტირება',
+	'createschema' => 'სქემის შექმნა',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
@@ -800,6 +816,14 @@ $messages['pt-br'] = array(
 	'createschema' => 'Criar esquema',
 	'right-generatepages' => 'Ver página e guia "Gerar páginas"',
 	'action-generatepages' => 'ver a página e guia "Gerar páginas"',
+);
+
+/** Romanian (română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'ps-field' => 'Câmp',
+	'ps-namelabel' => 'Nume',
 );
 
 /** tarandíne (tarandíne)
