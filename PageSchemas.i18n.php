@@ -772,6 +772,16 @@ $messages['pms'] = array(
 	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'ps-template' => 'کينډۍ',
+	'ps-add-template' => 'کينډۍ ورګډول',
+	'ps-field' => 'ډګر',
+	'ps-namelabel' => 'نوم:',
+);
+
 /** Portuguese (português)
  * @author Hamilton Abreu
  * @author Luckas Blade
@@ -859,6 +869,7 @@ $messages['sah'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'ps-template' => 'සැකිල්ල',
 	'ps-namelabel' => 'නම:',
 );
 
