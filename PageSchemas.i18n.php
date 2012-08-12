@@ -69,6 +69,8 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'ps-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is',
+	'ps-field' => 'Veld',
+	'ps-namelabel' => 'Naam:',
 );
 
 /** Arabic (العربية)
@@ -559,6 +561,7 @@ $messages['ka'] = array(
 	'ps-namelabel' => 'სახელი:',
 	'ps-add-field' => 'ველის დამატება',
 	'ps-remove-field' => 'ველის წაშლა',
+	'ps-add-xml-label' => 'დამატებითი XML:',
 	'editschema' => 'სქემის რედაქტირება',
 	'createschema' => 'სქემის შექმნა',
 );
@@ -923,6 +926,21 @@ $messages['sr-el'] = array(
  */
 $messages['sv'] = array(
 	'ps-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'generatepages' => 'பக்கங்களை உருவாக்கு',
+	'ps-template' => 'வார்ப்புரு',
+	'ps-add-template' => 'வார்ப்புருவைச் சேர்',
+	'ps-remove-template' => 'வார்ப்புருவை நீக்கு',
+	'ps-field' => 'புலம்',
+	'ps-namelabel' => 'பெயர்:',
+	'ps-add-field' => 'புலத்தைச் சேர்',
+	'ps-remove-field' => 'புலத்தை நீக்கு',
 );
 
 /** Tagalog (Tagalog)
