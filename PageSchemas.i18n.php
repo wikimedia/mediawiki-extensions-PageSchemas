@@ -254,6 +254,18 @@ $messages['es'] = array(
 	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
 );
 
+/** Estonian (eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'ps-template' => 'Mall',
+	'ps-add-template' => 'Lisa mall',
+	'ps-field' => 'Väli',
+	'ps-namelabel' => 'Nimi:',
+	'ps-add-field' => 'Lisa väli',
+	'ps-remove-field' => 'Eemalda väli',
+);
+
 /** Persian (فارسی)
  * @author Mjbmr
  */
@@ -554,11 +566,15 @@ $messages['ja'] = array(
  */
 $messages['ka'] = array(
 	'ps-schema-description' => 'გვერდის სქემა',
+	'generatepages' => 'გვერდების შექმნა',
+	'ps-generatepages-success' => 'არჩეული გვერდები შეიქმნება.',
+	'ps-delimiter-label' => 'მნიშვნელობის გამყოფი (სტანდარტული არის „,“):',
 	'ps-template' => 'თარგი',
 	'ps-add-template' => 'თარგის დამატება',
 	'ps-remove-template' => 'თარგის წაშლა',
 	'ps-field' => 'ველი',
 	'ps-namelabel' => 'სახელი:',
+	'ps-displaylabel' => 'სახელი ეკრანზე:',
 	'ps-add-field' => 'ველის დამატება',
 	'ps-remove-field' => 'ველის წაშლა',
 	'ps-add-xml-label' => 'დამატებითი XML:',
@@ -664,6 +680,18 @@ $messages['mk'] = array(
 	'createschema' => 'Создај шема',
 	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
 	'action-generatepages' => 'приказ на јазичето „Создај страници“ и неговата страница',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'ps-template' => 'Mudell',
+	'ps-add-template' => 'Żid mudell',
+	'ps-remove-template' => 'Ħassar mudell',
+	'ps-field' => 'Qasam',
+	'ps-namelabel' => 'Isem:',
+	'ps-add-field' => 'Żid qasam',
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
@@ -872,7 +900,11 @@ $messages['sah'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'generatepages' => 'පිටු ජනිත කරන්න',
 	'ps-template' => 'සැකිල්ල',
+	'ps-add-template' => 'සැකිල්ල එක් කරන්න',
+	'ps-remove-template' => 'සැකිල්ල ඉවත් කරන්න',
+	'ps-field' => 'ක්ෂේත්‍රය',
 	'ps-namelabel' => 'නම:',
 );
 
@@ -923,9 +955,23 @@ $messages['sr-el'] = array(
 
 /** Swedish (svenska)
  * @author Per
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'ps-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
+	'ps-schema-description' => 'Sidschema',
+	'generatepages' => 'Generera sidor',
+	'ps-template' => 'Mall',
+	'ps-add-template' => 'Lägg till mall',
+	'ps-remove-template' => 'Ta bort mall',
+	'ps-field' => 'Fält',
+	'ps-namelabel' => 'Namn:',
+	'ps-displaylabel' => 'Visa etikett:',
+	'ps-add-field' => 'Lägg till fält',
+	'ps-remove-field' => 'Ta bort fält',
+	'ps-add-xml-label' => 'Tilläggande XML:',
+	'editschema' => 'Redigera schema',
+	'createschema' => 'Skapa schema',
 );
 
 /** Tamil (தமிழ்)
