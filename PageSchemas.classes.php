@@ -174,6 +174,10 @@ END;
 		if ( $multiple == 'multiple' ) {
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
 		}
+		$format = $templateXML->attributes()->format;
+		if ( !empty( $format ) ) {
+			$text .= self::attrRowHTML( 'schemaAttrRow', 'format', $format );
+		}
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
@@ -350,6 +354,7 @@ class PSTemplate {
 	private $mTemplateName = "";
 	private $mTemplateXML = null;
 	private $mMultipleAllowed = false;
+	private $mTemplateFormat = null;
 
 	function __construct( $templateXML ) {
 		$this->mTemplateXML = $templateXML;
@@ -357,6 +362,7 @@ class PSTemplate {
 		if( ((string) $templateXML->attributes()->multiple) == "multiple" ) {
 			$this->mMultipleAllowed = true;
 		}
+		$this->mTemplateFormat = (string) $templateXML->attributes()->format;
 		// Index for template objects
 		$i = 0 ;
 		$inherited_fields = array();
@@ -401,6 +407,10 @@ class PSTemplate {
 
 	public function isMultiple() {
 		return $this->mMultipleAllowed;
+	}
+
+	public function getFormat() {
+		return $this->mTemplateFormat;
 	}
 
 	public function getObject( $objectName ) {

@@ -63,6 +63,9 @@ class PSEditSchema extends IncludableSpecialPage {
 				if ( $wgRequest->getCheck( 'is_multiple_' . $templateNum ) ) {
 					$templateAttrs['multiple'] = 'multiple';
 				}
+				if ( $wgRequest->getCheck( 'template_format_' . $templateNum ) ) {
+					$templateAttrs['format'] = $wgRequest->getVal( 'template_format_' . $templateNum );
+				}
 				$psXML .= Xml::openElement( 'Template', $templateAttrs );
 
 				// Get XML created by extensions for this template
@@ -301,12 +304,14 @@ class PSEditSchema extends IncludableSpecialPage {
 		if ( is_null( $templateXML ) ) {
 			$text .= '<div class="templateBox" id="starterTemplate" style="display: none">' . "\n";
 			$templateName = '';
+			$templateFormat = null;
 		} else {
 			$text .= '<div class="templateBox" >' . "\n";
 			$templateName = (string) $templateXML->attributes()->name;
 			if ( ( (string)$templateXML->attributes()->multiple ) == "multiple" ) {
 				$attrs['checked'] = 'checked';
 			}
+			$templateFormat = (string)$templateXML->attributes()->format;
 			$templateXMLElements = $templateXML->children();
 		}
 		$templateNameInput = wfMsg( 'ps-namelabel' ) . ' ';
@@ -314,6 +319,18 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateHTML = "\t\t" . Html::rawElement( 'p', null, $templateNameInput ) . "\n";
 		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
 		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
+
+		// Use an input from the Semantic Forms extension for the
+		// template format.
+		// This is against the basic principles of Page Schemas, which
+		// is that other extensions should rely on it, not the other
+		// way around. However, the creation of templates is a special
+		// case: they're a standard MediaWiki component, but the
+		// creation of them is (for no strong reason) done by Semantic
+		// Forms. In the future, this may change.
+		if ( class_exists( 'SFCreateTemplate' ) && method_exists( 'SFCreateTemplate', 'printTemplateStyleInput' ) ) {
+			$templateHTML .= SFCreateTemplate::printTemplateStyleInput( 'template_format_' . $template_num, $templateFormat );
+		}
 		$template_add_xml = "";
 		// TODO - set this correctly.
 		/*
