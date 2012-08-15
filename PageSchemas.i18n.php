@@ -200,9 +200,11 @@ $messages['de-formal'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Erdemaslancan
  * @author Mirzali
  */
 $messages['diq'] = array(
+	'ps-field' => 'Ca',
 	'ps-namelabel' => 'Name:',
 );
 
@@ -340,6 +342,13 @@ $messages['frp'] = array(
 	'ps-add-xml-label' => 'XML de ples :',
 	'editschema' => 'Changiér lo plan',
 	'createschema' => 'Fâre lo plan',
+);
+
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'ps-namelabel' => 'Ainm:',
 );
 
 /** Galician (galego)
