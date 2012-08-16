@@ -268,6 +268,14 @@ $messages['et'] = array(
 	'ps-remove-field' => 'Eemalda väli',
 );
 
+/** Basque (euskara)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['eu'] = array(
+	'ps-template' => 'Txantiloi',
+	'ps-namelabel' => 'Izena:',
+);
+
 /** Persian (فارسی)
  * @author Mjbmr
  */
@@ -1052,9 +1060,19 @@ $messages['uk'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author පසිඳු කාවින්ද
  */
 $messages['vi'] = array(
 	'ps-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
+	'ps-template' => 'Bản mẫu',
+	'ps-namelabel' => 'Tên:',
+);
+
+/** Yiddish (ייִדיש)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['yi'] = array(
+	'ps-namelabel' => 'נאָמען:',
 );
 
 /** Simplified Chinese (‪中文（简体）‬)
