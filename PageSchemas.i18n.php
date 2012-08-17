@@ -289,10 +289,19 @@ $messages['fa'] = array(
 );
 
 /** Finnish (suomi)
+ * @author Beluga
  * @author Crt
  */
 $messages['fi'] = array(
 	'ps-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
+	'ps-template' => 'Malline',
+	'ps-add-template' => 'Lisää malline',
+	'ps-remove-template' => 'Poista malline',
+	'ps-field' => 'Kenttä',
+	'ps-namelabel' => 'Nimi:',
+	'ps-displaylabel' => 'Näyttönimi:',
+	'ps-add-field' => 'Lisää kenttä',
+	'ps-remove-field' => 'Poista kenttä',
 );
 
 /** French (français)
@@ -1056,6 +1065,18 @@ $messages['tr'] = array(
  */
 $messages['uk'] = array(
 	'ps-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'ps-remove-template' => 'سانچے کو حذف کریں',
+	'ps-field' => 'میدان',
+	'ps-namelabel' => 'نام:',
+	'ps-displaylabel' => 'ڈسپلے لیبل:',
+	'ps-add-field' => 'فیلڈ کا اضافہ کریں',
+	'ps-remove-field' => 'میدان حذف کریں',
 );
 
 /** Vietnamese (Tiếng Việt)
