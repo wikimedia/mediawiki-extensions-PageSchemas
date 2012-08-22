@@ -1100,15 +1100,17 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (‪中文（简体）‬)
  * @author Chenxiaoqino
+ * @author Liangent
  */
 $messages['zh-hans'] = array(
-	'ps-desc' => '支持的模版已将其数据结构用XML代码声明。',
+	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
 );
 
 /** Traditional Chinese (‪中文（繁體）‬)
+ * @author Liangent
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
-	'ps-desc' => '支援的模版已將其資料結構用 XML 代碼聲明。',
+	'ps-desc' => '使用XML爲分類中的所有頁面定義數據結構',
 );
 
