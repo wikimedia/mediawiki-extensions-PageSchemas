@@ -175,7 +175,7 @@ END;
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
 		}
 		$format = $templateXML->attributes()->format;
-		if ( !empty( $format ) ) {
+		if ( $format ) {
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'format', $format );
 		}
 
@@ -409,6 +409,9 @@ class PSTemplate {
 		return $this->mMultipleAllowed;
 	}
 
+	/**
+	 * @since 0.3.1
+	 */
 	public function getFormat() {
 		return $this->mTemplateFormat;
 	}
@@ -417,7 +420,7 @@ class PSTemplate {
 		global $wgPageSchemasHandlerClasses;
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mTemplateXML );
-			if ( !empty( $object ) ) {
+			if ( $object ) {
 				return $object;
 			}
 		}
