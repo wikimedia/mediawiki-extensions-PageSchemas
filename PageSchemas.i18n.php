@@ -586,7 +586,7 @@ $messages['ja'] = array(
 	'editschema' => 'スキーマを編集',
 	'createschema' => 'スキーマを作成',
 	'right-generatepages' => '「ページを生成」タブとページを閲覧',
-	'action-generatepages' => '「ページを生成」タブとページを表示',
+	'action-generatepages' => '「ページを生成」タブとページの閲覧',
 );
 
 /** Georgian (ქართული)
