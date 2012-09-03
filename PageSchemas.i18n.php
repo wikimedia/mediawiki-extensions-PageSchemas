@@ -1086,7 +1086,7 @@ $messages['ur'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['vi'] = array(
-	'ps-desc' => 'Cho phép định nghĩa cấu trúc dữ liệu của bản mẫu dùng mã XML',
+	'ps-desc' => 'Định rõ cấu trúc dữ liệu của tất cả các trang trong một thể loại dùng mã XML',
 	'ps-template' => 'Bản mẫu',
 	'ps-namelabel' => 'Tên:',
 );
