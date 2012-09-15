@@ -204,6 +204,7 @@ $messages['de-formal'] = array(
  * @author Mirzali
  */
 $messages['diq'] = array(
+	'ps-template' => 'Şablon',
 	'ps-field' => 'Ca',
 	'ps-namelabel' => 'Name:',
 );
