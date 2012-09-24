@@ -615,26 +615,31 @@ $messages['ka'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'ps-desc' => 'Ongerschtöz, dat mer de Dateschtruktur vun Schablone övver en <i lang="en">XML</i> Fommaat beschrieve kann.',
+	'ps-desc' => 'Jitt de Dateschtruktur vun alle SIgge en en Saachjropp en enem <i lang="en">XML</i>-Fommaad aan.',
 	'ps-schema-description' => 'Dat XML-Schema beschrevve:',
 	'generatepages' => 'Sigge automattesch aanlääje',
 	'ps-generatepages-desc' => 'Donn de Sigge en dä Leß heh automattesch aanlääje, noh dämm XML-Schema för di Saachjropp:',
-	'ps-generatepages-success' => 'Di Sigge wääde automattesch aanjelaat.',
+	'ps-generatepages-success' => 'e ußjewähltei Sigge wääde automattesch aanjelaat.',
 	'ps-generatepages-noschema' => 'Fähler: Mer han kei XML-Schema för di Saachjropp.',
 	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un e Schema för dä ier Siggg:',
 	'ps-page-desc-ps-not-exist' => 'Heh di Saachjropp jidd_et, ävver se hät kei XML-Schema. Donn ein aanlääje:',
 	'ps-page-desc-edit-schema' => 'Donn dat XML-Schema för di Saachjropp ändere:',
+	'ps-delimiter-label' => 'Et Drännzeische för Wääte. Et Komma „,“ es der Schtandadd:',
 	'ps-field-list-label' => 'En däm Feld kann en Leß met Wääte shtonn',
 	'ps-template' => 'Schabloon',
 	'ps-add-template' => 'Donn en Schabloon dobei',
 	'ps-remove-template' => 'Maach di Schabloon fott',
 	'ps-field' => 'Väld',
+	'ps-namelabel' => 'Der Naame:',
+	'ps-displaylabel' => 'För Aanzezeije, de Opschreff för dat Feld:',
 	'ps-add-field' => 'Donn e Feld dobei',
 	'ps-remove-field' => 'Nemm dat  Feld fott',
 	'ps-add-xml-label' => 'Zohsäzlesh XML:',
 	'ps-optional-name' => 'Dä Name — kam_mer läddesch lohße, dann ess_et automattesch dä Name vun däm Feld:',
 	'editschema' => 'Et Schema ändere',
 	'createschema' => 'E XML-Schema aanlääje',
+	'right-generatepages' => 'Der  Lengk un di Sigg sin dörve',
+	'action-generatepages' => 'der  Lengk un di Sigg sin dörve',
 );
 
 /** Kurdish (Latin script) (‪Kurdî (latînî)‬)
