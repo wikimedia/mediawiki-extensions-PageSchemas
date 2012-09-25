@@ -616,15 +616,17 @@ $messages['ka'] = array(
  */
 $messages['ksh'] = array(
 	'ps-desc' => 'Jitt de Dateschtruktur vun alle SIgge en en Saachjropp en enem <i lang="en">XML</i>-Fommaad aan.',
-	'ps-schema-description' => 'Dat XML-Schema beschrevve:',
+	'ps-schema-description' => 'Et Sigge-Schema',
 	'generatepages' => 'Sigge automattesch aanlääje',
 	'ps-generatepages-desc' => 'Donn de Sigge en dä Leß heh automattesch aanlääje, noh dämm XML-Schema för di Saachjropp:',
 	'ps-generatepages-success' => 'e ußjewähltei Sigge wääde automattesch aanjelaat.',
 	'ps-generatepages-noschema' => 'Fähler: Mer han kei XML-Schema för di Saachjropp.',
+	'ps-generatepages-editsummary' => 'Övver e Scheema för en Sigg opjemaat',
 	'ps-page-desc-cat-not-exist' => 'Di Saachjropp jidd_et noch nit. Donn di Jropp aanlääje un e Schema för dä ier Siggg:',
 	'ps-page-desc-ps-not-exist' => 'Heh di Saachjropp jidd_et, ävver se hät kei XML-Schema. Donn ein aanlääje:',
 	'ps-page-desc-edit-schema' => 'Donn dat XML-Schema för di Saachjropp ändere:',
 	'ps-delimiter-label' => 'Et Drännzeische för Wääte. Et Komma „,“ es der Schtandadd:',
+	'ps-multiple-temp-label' => 'Donn di Schabloon för mieh wi eine beschtemmpte Jebru frei jävve',
 	'ps-field-list-label' => 'En däm Feld kann en Leß met Wääte shtonn',
 	'ps-template' => 'Schabloon',
 	'ps-add-template' => 'Donn en Schabloon dobei',
@@ -638,8 +640,8 @@ $messages['ksh'] = array(
 	'ps-optional-name' => 'Dä Name — kam_mer läddesch lohße, dann ess_et automattesch dä Name vun däm Feld:',
 	'editschema' => 'Et Schema ändere',
 	'createschema' => 'E XML-Schema aanlääje',
-	'right-generatepages' => 'Der  Lengk un di Sigg sin dörve',
-	'action-generatepages' => 'der  Lengk un di Sigg sin dörve',
+	'right-generatepages' => 'Dä Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
+	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
 );
 
 /** Kurdish (Latin script) (‪Kurdî (latînî)‬)
