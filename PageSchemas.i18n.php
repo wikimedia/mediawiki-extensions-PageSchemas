@@ -88,7 +88,7 @@ $messages['arz'] = array(
 	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Renessaince
@@ -190,7 +190,7 @@ $messages['de'] = array(
 	'action-generatepages' => 'den Reiter „Seiten generieren“ sowie die entsprechende Seite zu sehen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -644,7 +644,7 @@ $messages['ksh'] = array(
 	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -730,7 +730,7 @@ $messages['mt'] = array(
 	'ps-add-field' => 'Żid qasam',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -771,7 +771,7 @@ $messages['nl'] = array(
 	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -977,14 +977,14 @@ $messages['sl'] = array(
 	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'ps-desc' => 'Одређује структуру података за све странице у категорији користећи XML',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬) */
+/** Serbian (Latin script) (srpski (latinica)‎) */
 $messages['sr-el'] = array(
 	'ps-desc' => 'Određuje strukturu podataka za sve stranice u kategoriji koristeći XML',
 );
@@ -1106,7 +1106,7 @@ $messages['yi'] = array(
 	'ps-namelabel' => 'נאָמען:',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Chenxiaoqino
  * @author Liangent
  */
@@ -1114,7 +1114,7 @@ $messages['zh-hans'] = array(
 	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
  */
