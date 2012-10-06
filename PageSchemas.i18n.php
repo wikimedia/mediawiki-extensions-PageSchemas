@@ -990,13 +990,24 @@ $messages['sr-el'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Martinwiss
  * @author Per
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'ps-desc' => 'Stödjer mallar som definierar datastrukturen med XML-markering',
+	'ps-desc' => 'Definierar en datastruktur för alla sidor i en kategori m.h.a. XML',
 	'ps-schema-description' => 'Sidschema',
 	'generatepages' => 'Generera sidor',
+	'ps-generatepages-desc' => 'Generera dessa sidor utifrån den här kategorins strukturdefinition:',
+	'ps-generatepages-success' => 'De valda sidorna kommer att skapas',
+	'ps-generatepages-noschema' => 'Fel: Det finns ingen strukturdefinition för den här kategorin.',
+	'ps-generatepages-editsummary' => 'Skapad från strukturdefinition',
+	'ps-page-desc-cat-not-exist' => 'Den här kategorin finns inte ännu. Skapa kategorin och dess strukturdefinition:',
+	'ps-page-desc-ps-not-exist' => 'Den här kategorin finn men har ingen strukturdefinition. Skapa strukturdefinition:',
+	'ps-page-desc-edit-schema' => 'Redigera strukturdefinition för den här kategorin:',
+	'ps-delimiter-label' => 'Tecken för att avgränsa värden ("," är förvalt):',
+	'ps-multiple-temp-label' => 'Tillåt många varianter av den här mallen',
+	'ps-field-list-label' => 'Det här fältet kan innehålla en lista med värden',
 	'ps-template' => 'Mall',
 	'ps-add-template' => 'Lägg till mall',
 	'ps-remove-template' => 'Ta bort mall',
@@ -1006,8 +1017,11 @@ $messages['sv'] = array(
 	'ps-add-field' => 'Lägg till fält',
 	'ps-remove-field' => 'Ta bort fält',
 	'ps-add-xml-label' => 'Tilläggande XML:',
+	'ps-optional-name' => 'Namn (fältnamnet används om du inte anger värde)',
 	'editschema' => 'Redigera schema',
 	'createschema' => 'Skapa schema',
+	'right-generatepages' => 'Visa fliken och sidan "Skapa sidor"',
+	'action-generatepages' => 'visa fliken och sidan "Skapa sidor"',
 );
 
 /** Tamil (தமிழ்)
