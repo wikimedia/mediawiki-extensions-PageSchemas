@@ -611,6 +611,39 @@ $messages['ka'] = array(
 	'createschema' => 'სქემის შექმნა',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'ps-desc' => 'XML을 사용하여 분류에 모든 문서에 대한 데이터 구조를 정의',
+	'ps-schema-description' => '문서 스키마',
+	'generatepages' => '문서 생성',
+	'ps-generatepages-desc' => '이 분류의 스키마를 기반으로 다음 문서를 생성합니다:',
+	'ps-generatepages-success' => '선택한 문서를 생성합니다.',
+	'ps-generatepages-noschema' => '오류: 이 분류에 정의한 문서 스키마가 없습니다.',
+	'ps-generatepages-editsummary' => '문서 스키마에서 생성함',
+	'ps-page-desc-cat-not-exist' => '이 분류가 존재하지 않습니다. 이 분류와 해당 문서 스키마를 만듭니다:',
+	'ps-page-desc-ps-not-exist' => '이 분류는 존재하지만 문서 스케마를 가지고 있지 않습니다. 스키마를 만듭니다:',
+	'ps-page-desc-edit-schema' => '이 분류에 대한 문서 스키마를 편집합니다:',
+	'ps-delimiter-label' => '값에 대한 구분자 (기본값은 ","):',
+	'ps-multiple-temp-label' => '이 분류의 여러 인스턴스 허용',
+	'ps-field-list-label' => '이 필드는 값의 목록을 보관할 수 있습니다',
+	'ps-template' => '틀',
+	'ps-add-template' => '틀 추가',
+	'ps-remove-template' => '틀 제거',
+	'ps-field' => '필드',
+	'ps-namelabel' => '이름:',
+	'ps-displaylabel' => '보여줄 레이블:',
+	'ps-add-field' => '필드 추가',
+	'ps-remove-field' => '필드 제거',
+	'ps-add-xml-label' => '추가적인 XML:',
+	'ps-optional-name' => '이름 (비어 있으면 필드 이름 사용):',
+	'editschema' => '스키마 편집',
+	'createschema' => '스키마 만들기',
+	'right-generatepages' => '"문서 생성" 탭과 문서 보기',
+	'action-generatepages' => '"문서 생성" 탭과 문서 보기',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
