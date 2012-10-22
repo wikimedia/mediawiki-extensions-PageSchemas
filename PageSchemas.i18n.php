@@ -52,9 +52,9 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc}}',
-	'ps-template' => 'A MediaWiki template',
+	'ps-template' => 'A MediaWiki template', # Fuzzy
 	'ps-remove-template' => 'The text on a button that removes the current template',
-	'ps-field' => 'A "field" here is both a template parameter and a form field',
+	'ps-field' => 'A "field" here is both a template parameter and a form field', # Fuzzy
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
@@ -68,7 +68,7 @@ $messages['qqq'] = array(
  * @author Naudefj
  */
 $messages['af'] = array(
-	'ps-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is',
+	'ps-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is', # Fuzzy
 	'ps-field' => 'Veld',
 	'ps-namelabel' => 'Naam:',
 );
@@ -77,7 +77,7 @@ $messages['af'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'ps-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML',
+	'ps-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML', # Fuzzy
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -85,7 +85,7 @@ $messages['ar'] = array(
  * @author Ghaly
  */
 $messages['arz'] = array(
-	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML',
+	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML', # Fuzzy
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -153,7 +153,7 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
-	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika',
+	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika', # Fuzzy
 );
 
 /** German (Deutsch)
@@ -220,7 +220,7 @@ $messages['dsb'] = array(
  * @author Περίεργος
  */
 $messages['el'] = array(
-	'ps-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML',
+	'ps-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML', # Fuzzy
 );
 
 /** Spanish (español)
@@ -294,7 +294,7 @@ $messages['fa'] = array(
  * @author Crt
  */
 $messages['fi'] = array(
-	'ps-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.',
+	'ps-desc' => 'Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.', # Fuzzy
 	'ps-template' => 'Malline',
 	'ps-add-template' => 'Lisää malline',
 	'ps-remove-template' => 'Poista malline',
@@ -472,7 +472,7 @@ $messages['hsb'] = array(
  * @author Dani
  */
 $messages['hu'] = array(
-	'ps-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat',
+	'ps-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat', # Fuzzy
 );
 
 /** Interlingua (interlingua)
@@ -512,14 +512,14 @@ $messages['ia'] = array(
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'ps-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML',
+	'ps-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML', # Fuzzy
 );
 
 /** Igbo (Igbo)
  * @author Ukabia
  */
 $messages['ig'] = array(
-	'ps-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML',
+	'ps-desc' => 'Në nyé ike maka mkpurụ ihü, në nyé úchè maka ázú omárí ha nke shi édé XML', # Fuzzy
 );
 
 /** Italian (italiano)
@@ -734,7 +734,7 @@ $messages['mt'] = array(
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
-	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering',
+	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering', # Fuzzy
 );
 
 /** Dutch (Nederlands)
@@ -775,14 +775,14 @@ $messages['nl'] = array(
  * @author Harald Khan
  */
 $messages['nn'] = array(
-	'ps-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.',
+	'ps-desc' => 'Støttar malar som definerer datastrukturen sin gjennom XML-markering.', # Fuzzy
 );
 
 /** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML',
+	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML', # Fuzzy
 );
 
 /** Pampanga (Kapampangan)
@@ -836,7 +836,7 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML",
+	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML", # Fuzzy
 );
 
 /** Pashto (پښتو)
@@ -854,7 +854,7 @@ $messages['ps'] = array(
  * @author Luckas Blade
  */
 $messages['pt'] = array(
-	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML',
+	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML', # Fuzzy
 	'ps-template' => 'Predefinição',
 	'ps-add-template' => 'Adicionar predefinição',
 	'ps-remove-template' => 'Remover predefinição',
@@ -984,7 +984,8 @@ $messages['sr-ec'] = array(
 	'ps-desc' => 'Одређује структуру података за све странице у категорији користећи XML',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)‎)
+ */
 $messages['sr-el'] = array(
 	'ps-desc' => 'Određuje strukturu podataka za sve stranice u kategoriji koristeći XML',
 );
@@ -1077,7 +1078,7 @@ $messages['tl'] = array(
  * @author Vito Genovese
  */
 $messages['tr'] = array(
-	'ps-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler',
+	'ps-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler', # Fuzzy
 	'ps-template' => 'Şablon',
 	'ps-add-template' => 'Şablon ekle:',
 );
@@ -1088,7 +1089,7 @@ $messages['tr'] = array(
  * @author Тест
  */
 $messages['uk'] = array(
-	'ps-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML',
+	'ps-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML', # Fuzzy
 );
 
 /** Urdu (اردو)
@@ -1135,4 +1136,3 @@ $messages['zh-hans'] = array(
 $messages['zh-hant'] = array(
 	'ps-desc' => '使用XML爲分類中的所有頁面定義數據結構',
 );
-
