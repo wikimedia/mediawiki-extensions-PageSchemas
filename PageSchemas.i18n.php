@@ -1107,13 +1107,29 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Incelemeelemani
  * @author Suelnur
  * @author Vito Genovese
  */
 $messages['tr'] = array(
-	'ps-desc' => 'XML işaretlemesi ile veri yapılarını tanımlayan şablonları destekler', # Fuzzy
+	'ps-desc' => 'XML kullanarak bir kategoride yer alan bütün sayfalar için veri yapısını tanımlamaktadır',
+	'ps-schema-description' => 'Sayfa şeması',
+	'generatepages' => 'Sayfaları oluşturun',
+	'ps-generatepages-success' => 'Seçilen sayfalar oluşturulacaktır.',
+	'ps-generatepages-noschema' => 'Hata: Bu kategori için tanımlanmış bir sayfa şeması yoktur.',
+	'ps-delimiter-label' => 'Değerler için sınırlayıcı (varsayılan ","):',
 	'ps-template' => 'Şablon',
 	'ps-add-template' => 'Şablon ekle:',
+	'ps-remove-template' => 'Şablonu kaldır',
+	'ps-field' => 'Alan',
+	'ps-namelabel' => 'İsim:',
+	'ps-displaylabel' => 'Görüntülenen etiket:',
+	'ps-add-field' => 'Alan ekle',
+	'ps-remove-field' => 'Alanı kaldır',
+	'ps-add-xml-label' => 'İlave XML:',
+	'ps-optional-name' => 'İsim (Alan adını ayarlamak için boş bırakın):',
+	'editschema' => 'Şemayı düzenle',
+	'createschema' => 'Şema oluştur',
 );
 
 /** Ukrainian (українська)
