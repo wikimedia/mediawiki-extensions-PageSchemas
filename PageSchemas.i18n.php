@@ -1107,6 +1107,7 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Hedda Gabler
  * @author Incelemeelemani
  * @author Suelnur
  * @author Vito Genovese
@@ -1130,6 +1131,8 @@ $messages['tr'] = array(
 	'ps-optional-name' => 'İsim (Alan adını ayarlamak için boş bırakın):',
 	'editschema' => 'Şemayı düzenle',
 	'createschema' => 'Şema oluştur',
+	'right-generatepages' => '"Sayfa oluştur" sekmesini ve sayfasını görüntüle',
+	'action-generatepages' => '"Sayfa oluştur" sekmesini ve sayfasını görüntüle',
 );
 
 /** Ukrainian (українська)
