@@ -429,10 +429,12 @@ $messages['gsw'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author YaronSh
+ * @author חיים
  */
 $messages['he'] = array(
 	'ps-desc' => 'הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML',
 	'generatepages' => 'יצירת דפים',
+	'ps-template' => 'תבנית',
 );
 
 /** Upper Sorbian (hornjoserbsce)
