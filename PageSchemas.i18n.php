@@ -47,6 +47,7 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Ankit Garg
  * @author EugeneZelenko
+ * @author Protnet
  * @author Purodha
  * @author Raymond
  */
@@ -58,8 +59,8 @@ $messages['qqq'] = array(
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
-	'editschema' => 'This is a special page name.',
-	'createschema' => 'This is a special page name.',
+	'editschema' => 'Tab name',
+	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}',
 );
@@ -217,10 +218,37 @@ $messages['dsb'] = array(
 );
 
 /** Greek (Ελληνικά)
+ * @author Protnet
  * @author Περίεργος
  */
 $messages['el'] = array(
-	'ps-desc' => 'Υποστηρίζει πρότυπα που καθορίζουν τη δομή των δεδομένων τους μέσω της σήμανσης XML', # Fuzzy
+	'ps-desc' => 'Καθορίζει τη δομή των δεδομένων για όλες τις σελίδες χρησιμοποιώντας κώδικα XML',
+	'ps-schema-description' => 'Σημασιολογικό σχήμα για σελίδες',
+	'generatepages' => 'Παραγωγή σελίδων',
+	'ps-generatepages-desc' => 'Παραγωγή των ακόλουθων σελίδων, βάσει του σημασιολογικού σχήματος αυτής της κατηγορίας:',
+	'ps-generatepages-success' => 'Θα παραχθούν οι επιλεγμένες σελίδες.',
+	'ps-generatepages-noschema' => 'Σφάλμα: Δεν έχει οριστεί σημασιολογικό σχήμα σελίδων για αυτήν την κατηγορία.',
+	'ps-generatepages-editsummary' => 'Έγινε παραγωγή από ένα σημασιολογικό σχήμα για σελίδες',
+	'ps-page-desc-cat-not-exist' => 'Αυτή η κατηγορία δεν έχει δημιουργηθεί ακόμα. Δημιουργία αυτής της κατηγορίας και του σημασιολογικού της σχήματος:',
+	'ps-page-desc-ps-not-exist' => 'Η κατηγορία αυτή υπάρχει, αλλά δεν έχει σημασιολογικό σχήμα σελίδων. Δημιουργία σχήματος:',
+	'ps-page-desc-edit-schema' => 'Επεξεργασία σημασιολογικού σχήματος σελίδων για αυτή την κατηγορία:',
+	'ps-delimiter-label' => 'Διαχωριστικό για τις τιμές (η προεπιλογή είναι «,»):',
+	'ps-multiple-temp-label' => 'Να επιτρέπονται πολλαπλά στιγμιότυπα αυτού του προτύπου',
+	'ps-field-list-label' => 'Αυτό το πεδίο μπορεί να περιέχει μια λίστα τιμών',
+	'ps-template' => 'Πρότυπο',
+	'ps-add-template' => 'Προσθήκη προτύπου',
+	'ps-remove-template' => 'Αφαίρεση προτύπου',
+	'ps-field' => 'Πεδίο',
+	'ps-namelabel' => 'Όνομα:',
+	'ps-displaylabel' => 'Εμφάνιση ετικέτας:',
+	'ps-add-field' => 'Προσθήκη πεδίου',
+	'ps-remove-field' => 'Αφαίρεση πεδίου',
+	'ps-add-xml-label' => 'Πρόσθετο XML:',
+	'ps-optional-name' => 'Όνομα (αφήστε το κενό αν θέλετε να είναι ίδιο με το όνομα πεδίου):',
+	'editschema' => 'Επεξεργασία σχήματος',
+	'createschema' => 'Δημιουργία σχήματος',
+	'right-generatepages' => 'Προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
+	'action-generatepages' => 'προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
 );
 
 /** Spanish (español)
@@ -586,8 +614,8 @@ $messages['ja'] = array(
 	'ps-remove-field' => 'フィールドを削除',
 	'ps-add-xml-label' => '追加の XML:',
 	'ps-optional-name' => '名前 (空欄の場合はフィールド名を使用):',
-	'editschema' => 'スキーマを編集',
-	'createschema' => 'スキーマを作成',
+	'editschema' => 'スキーマの編集',
+	'createschema' => 'スキーマ作成',
 	'right-generatepages' => '「ページを生成」タブとページを閲覧',
 	'action-generatepages' => '「ページを生成」タブとページの閲覧',
 );
