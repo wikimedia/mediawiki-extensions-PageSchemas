@@ -1166,12 +1166,39 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Base
  * @author NickK
  * @author Prima klasy4na
  * @author Тест
  */
 $messages['uk'] = array(
-	'ps-desc' => 'Підтримує визначення структури даних шаблонів за допомогою розмітки XML', # Fuzzy
+	'ps-desc' => 'Визначає структуру даних усіх сторінок категорії через XML',
+	'ps-schema-description' => 'Схема сторінки',
+	'generatepages' => 'Створення сторінок',
+	'ps-generatepages-desc' => 'Створити наступні сторінки, основані на схемі цієї категорії:',
+	'ps-generatepages-success' => 'Обрані сторінки буде створено.',
+	'ps-generatepages-noschema' => 'Помилка: Для цієї категорії не визначено схему сторінки.',
+	'ps-generatepages-editsummary' => 'Створено зі схеми сторінки',
+	'ps-page-desc-cat-not-exist' => 'Ця категорія ще не існує. Створити цю категорію і її схему сторінки:',
+	'ps-page-desc-ps-not-exist' => 'Ця категорія існує, але не має схеми сторінки. Створити схему:',
+	'ps-page-desc-edit-schema' => 'Редагувати схему сторінки для цієї категорії:',
+	'ps-delimiter-label' => 'Розділювач для значень (за замовчуванням «,»):',
+	'ps-multiple-temp-label' => 'Дозволити декілька варіантів цього шаблону',
+	'ps-field-list-label' => 'Це поле може включати список значень',
+	'ps-template' => 'Шаблон',
+	'ps-add-template' => 'Додати шаблон',
+	'ps-remove-template' => 'Вилучити шаблон',
+	'ps-field' => 'Поле',
+	'ps-namelabel' => 'Назва:',
+	'ps-displaylabel' => 'Показувати мітку:',
+	'ps-add-field' => 'Додати поле',
+	'ps-remove-field' => 'Вилучити поле',
+	'ps-add-xml-label' => 'Додатковий XML:',
+	'ps-optional-name' => 'Назва (залишити порожнім для такої ж як назва поля):',
+	'editschema' => 'Редагувати схему',
+	'createschema' => 'Створити схему',
+	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»',
+	'action-generatepages' => 'перегляд вкладки і сторінки «Створення сторінок»',
 );
 
 /** Urdu (اردو)
