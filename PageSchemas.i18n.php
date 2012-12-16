@@ -50,9 +50,10 @@ $messages['en'] = array(
  * @author Protnet
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'ps-desc' => '{{desc}}',
+	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
 	'ps-template' => 'A MediaWiki template', # Fuzzy
 	'ps-remove-template' => 'The text on a button that removes the current template',
 	'ps-field' => 'A "field" here is both a template parameter and a form field', # Fuzzy
@@ -240,7 +241,7 @@ $messages['el'] = array(
 	'ps-remove-template' => 'Αφαίρεση προτύπου',
 	'ps-field' => 'Πεδίο',
 	'ps-namelabel' => 'Όνομα:',
-	'ps-displaylabel' => 'Εμφάνιση ετικέτας:',
+	'ps-displaylabel' => 'Εμφανιζόμενη ετικέτα:',
 	'ps-add-field' => 'Προσθήκη πεδίου',
 	'ps-remove-field' => 'Αφαίρεση πεδίου',
 	'ps-add-xml-label' => 'Πρόσθετος κώδικας XML:',
