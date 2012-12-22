@@ -963,6 +963,9 @@ $messages['pt-br'] = array(
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'ps-template' => 'Format',
+	'ps-add-template' => 'Adăugați format',
+	'ps-remove-template' => 'Eliminați format',
 	'ps-field' => 'Câmp',
 	'ps-namelabel' => 'Nume',
 );
