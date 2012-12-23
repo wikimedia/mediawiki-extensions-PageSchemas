@@ -125,8 +125,10 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (български)
  * @author DCLXVI
+ * @author පසිඳු කාවින්ද
  */
 $messages['bg'] = array(
+	'ps-field' => 'Поле',
 	'ps-namelabel' => 'Име:',
 );
 
@@ -541,9 +543,12 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
+ * @author පසිඳු කාවින්ද
  */
 $messages['id'] = array(
 	'ps-desc' => 'Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML', # Fuzzy
+	'ps-template' => 'Templat',
+	'ps-namelabel' => 'Nama:',
 );
 
 /** Igbo (Igbo)
@@ -960,12 +965,13 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (română)
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'ps-template' => 'Format',
-	'ps-add-template' => 'Adăugați format',
-	'ps-remove-template' => 'Eliminați format',
+	'ps-add-template' => 'Adaugă formatul',
+	'ps-remove-template' => 'Elimină formatul',
 	'ps-field' => 'Câmp',
 	'ps-namelabel' => 'Nume',
 );
