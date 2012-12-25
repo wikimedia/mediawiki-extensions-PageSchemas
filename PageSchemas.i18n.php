@@ -51,12 +51,13 @@ $messages['en'] = array(
  * @author Purodha
  * @author Raymond
  * @author Shirayuki
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
-	'ps-template' => 'A MediaWiki template', # Fuzzy
+	'ps-template' => 'A MediaWiki template',
 	'ps-remove-template' => 'The text on a button that removes the current template',
-	'ps-field' => 'A "field" here is both a template parameter and a form field', # Fuzzy
+	'ps-field' => 'A "field" here is both a template parameter and a form field',
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
@@ -88,6 +89,39 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'ps-desc' => 'بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML', # Fuzzy
+);
+
+/** South Azerbaijani (تورکجه)
+ * @author Mousa
+ */
+$messages['azb'] = array(
+	'ps-desc' => 'ایکس‌اِل‌اِل ایله بیر بؤلمه‌ده بوتون صحیفه‌لره دیتا قورولوشو تعریف ائدر',
+	'ps-schema-description' => 'صحیفه شِماسی',
+	'generatepages' => 'صحیفه‌لر یارات',
+	'ps-generatepages-desc' => 'بو بؤلمه‌نین شِماسینا اسا، بو صحیفه‌لری یارات:',
+	'ps-generatepages-success' => 'سئچیلمیش صحیفه‌لر یارادیلاجاقلار.',
+	'ps-generatepages-noschema' => 'خطا: بو بؤلمه اوچون هئچ بیر صحیفه شِماسی تعریف اولونمویوب‌دور.',
+	'ps-generatepages-editsummary' => 'بیر صحیفه شِماسینا اساس یارادیلیب‌دیر',
+	'ps-page-desc-cat-not-exist' => 'بو بؤلمه هله‌لیک یوخدور. بو بؤلمه‌نی و اونون صحیفه شِماسینی یارات:',
+	'ps-page-desc-ps-not-exist' => 'بو بؤلمه واردیر، اما اونون بیر صحیفه شِماسی یوخدور. شِما یارات:',
+	'ps-page-desc-edit-schema' => 'بو بؤلمه اوچون صحیفه شِماسینی دَییشدیر:',
+	'ps-delimiter-label' => 'دَیَرلر اوچون آیریشدیران (ایلک دَیَر «,»-دور):',
+	'ps-multiple-temp-label' => 'بو شابلونون چوخلو نومونه‌سینی ایجازه وئر',
+	'ps-field-list-label' => 'بو فیلد، دَیَرلر لیستینی ساخلایا بیلر',
+	'ps-template' => 'شابلون',
+	'ps-add-template' => 'شابلون آرتیر',
+	'ps-remove-template' => 'شابلون سیل',
+	'ps-field' => 'فیلد',
+	'ps-namelabel' => 'آد:',
+	'ps-displaylabel' => 'گؤسترمک برچسبی:',
+	'ps-add-field' => 'فیلد آرتیر',
+	'ps-remove-field' => 'فیلدی سیل',
+	'ps-add-xml-label' => 'آرتیق ایکس‌اِم‌اِل:',
+	'ps-optional-name' => 'آد (فیلد آدینا تنظیم‌له‌مک اوچون بوش بوراخ):',
+	'editschema' => 'شِمانی دَییشدیر',
+	'createschema' => 'شِما یارات',
+	'right-generatepages' => '«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین',
+	'action-generatepages' => '«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -252,6 +286,19 @@ $messages['el'] = array(
 	'createschema' => 'Δημιουργία σχήματος',
 	'right-generatepages' => 'Προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
 	'action-generatepages' => 'προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
+);
+
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'ps-template' => 'Ŝablono',
+	'ps-add-template' => 'Aldoni ŝablonon',
+	'ps-remove-template' => 'Forigi ŝablonon',
+	'ps-field' => 'Kampo',
+	'ps-namelabel' => 'Nomo:',
+	'ps-add-field' => 'Aldoni kampon',
+	'ps-remove-field' => 'Forigi kampon',
 );
 
 /** Spanish (español)
@@ -969,11 +1016,33 @@ $messages['pt-br'] = array(
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'ps-desc' => 'Definește structura datelor pentru toate paginile dintr-o categorie, utilizând XML',
+	'ps-schema-description' => 'Schema paginii',
+	'generatepages' => 'Generare pagini',
+	'ps-generatepages-desc' => 'Generează următoarele pagini pe baza schemei acestei categorii:',
+	'ps-generatepages-success' => 'Paginile selectate vor fi generate.',
+	'ps-generatepages-noschema' => 'Eroare: Nu există nicio schemă de pagină definită pentru această categorie.',
+	'ps-generatepages-editsummary' => 'Generată dintr-o schemă de pagină',
+	'ps-page-desc-cat-not-exist' => 'Această categorie nu există încă. Creați această categorie și schema de pagină asociată:',
+	'ps-page-desc-ps-not-exist' => 'Această categorie există, dar nu are asociată o schemă de pagină. Creați schema:',
+	'ps-page-desc-edit-schema' => 'Modificați schema de pagină pentru această categorie:',
+	'ps-delimiter-label' => 'Delimitator pentru valori (implicit este „,”):',
+	'ps-multiple-temp-label' => 'Permite mai multe instanțe ale acestui format',
+	'ps-field-list-label' => 'Acest câmp poate conține o listă de valori',
 	'ps-template' => 'Format',
 	'ps-add-template' => 'Adaugă formatul',
 	'ps-remove-template' => 'Elimină formatul',
 	'ps-field' => 'Câmp',
-	'ps-namelabel' => 'Nume',
+	'ps-namelabel' => 'Nume:',
+	'ps-displaylabel' => 'Afișează eticheta:',
+	'ps-add-field' => 'Adaugă câmp',
+	'ps-remove-field' => 'Șterge câmpul',
+	'ps-add-xml-label' => 'XML suplimentar:',
+	'ps-optional-name' => 'Nume (lăsați necompletat pentru a seta numele câmpului):',
+	'editschema' => 'Modificare schemă',
+	'createschema' => 'Creare schemă',
+	'right-generatepages' => 'Vizualizează fila și pagina „Generare pagini”',
+	'action-generatepages' => 'vizualizați fila și pagina „Generare pagini”',
 );
 
 /** tarandíne (tarandíne)
