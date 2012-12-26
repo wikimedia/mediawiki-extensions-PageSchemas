@@ -952,7 +952,33 @@ $messages['pl'] = array(
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'ps-desc' => "A manten jë stamp ch'a definisso soa strutura dij dat via markup XML", # Fuzzy
+	'ps-desc' => 'A definiss le struture dat për tute le pagine ant na categorìa dovrand XML',
+	'ps-schema-description' => 'Schema ëd pagina',
+	'generatepages' => 'Génera pagine',
+	'ps-generatepages-desc' => "Génera le pagine ch'a ven-o, basà dzora stë schema ëd categorìe:",
+	'ps-generatepages-success' => 'Le pagine selessionà a saran generà.',
+	'ps-generatepages-noschema' => 'Eror: A-i é gnun schema ëd pagina definì për sta categorìa.',
+	'ps-generatepages-editsummary' => 'Generà da në schema ëd pagina',
+	'ps-page-desc-cat-not-exist' => "Sta categorìa a esist pa anco'. Crea sta categorìa e sò schema ëd pagina:",
+	'ps-page-desc-ps-not-exist' => "Sta categorìa a esist, ma a l'ha pa në schema ëd pagina. Crea schema:",
+	'ps-page-desc-edit-schema' => 'Modìfica lë schema ëd pagina për sta categorìa:',
+	'ps-delimiter-label' => 'Delimitador për valor (predefinì a l\'é ","):',
+	'ps-multiple-temp-label' => 'Përmëtt istanse mùltiple dë sto stamp',
+	'ps-field-list-label' => 'Ël camp a peul conten-e na lista ëd valor',
+	'ps-template' => 'Stamp',
+	'ps-add-template' => 'Gionté në stamp',
+	'ps-remove-template' => 'Gavé lë stamp',
+	'ps-field' => 'Camp',
+	'ps-namelabel' => 'Nòm:',
+	'ps-displaylabel' => 'Tichëtta për la visualisassion:',
+	'ps-add-field' => 'Gionté un camp',
+	'ps-remove-field' => 'Gavé un camp',
+	'ps-add-xml-label' => 'XML adissional:',
+	'ps-optional-name' => 'Nòm (lassé bianch për amposté al nòm ëd camp):',
+	'editschema' => 'Modìfica schema',
+	'createschema' => 'Creé schema',
+	'right-generatepages' => 'Varda scheda "Génera pagine" e pagina',
+	'action-generatepages' => 'varda la scheda "Génera pagine" e pagina',
 );
 
 /** Pashto (پښتو)
