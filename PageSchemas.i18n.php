@@ -550,9 +550,34 @@ $messages['hsb'] = array(
 
 /** Hungarian (magyar)
  * @author Dani
+ * @author Dj
  */
 $messages['hu'] = array(
-	'ps-desc' => 'Lehetővé teszi, hogy a sablonok XML-jelölőnyelv segítségével definiálják az adatstruktúrájukat', # Fuzzy
+	'ps-desc' => 'Az adott kategóriába tartozó valamennyi lap adat struktúráját definiálja XML segítségével',
+	'ps-schema-description' => 'Lapséma',
+	'generatepages' => 'Oldalak generálása',
+	'ps-generatepages-desc' => 'Az alábbi lapok generálása a kategória séma alapján:',
+	'ps-generatepages-success' => 'A kiválasztott lapok lesznek legenerálva.',
+	'ps-generatepages-noschema' => 'Hiba: nincs lapséma ehhez a kategóriához.',
+	'ps-generatepages-editsummary' => 'Lapsémából generálva',
+	'ps-page-desc-cat-not-exist' => 'Ez a kategória még nem létezik. Hozd létre ezt a kategóriát és a lapsémáját:',
+	'ps-page-desc-ps-not-exist' => 'Ez a séma létezik, de nincs hozzá lapséma. Hozzál létre sémát:',
+	'ps-page-desc-edit-schema' => 'Lapséma létrehozása ehhez a kategóriához:',
+	'ps-delimiter-label' => 'Értékek elválasztója (alapértelmezett ","):',
+	'ps-multiple-temp-label' => 'Több példány engedélyezése ehhez a sablonhoz',
+	'ps-field-list-label' => 'Ez a mező értékek listáját tartalmazhatja',
+	'ps-template' => 'Sablon',
+	'ps-add-template' => 'Sablon hozzáadása',
+	'ps-remove-template' => 'Sablon eltávolítása',
+	'ps-field' => 'Mező',
+	'ps-namelabel' => 'Név:',
+	'ps-displaylabel' => 'Megjelenített szöveg:',
+	'ps-add-field' => 'Mező hozzáadása',
+	'ps-remove-field' => 'Mező eltávolítása',
+	'ps-add-xml-label' => 'További XML:',
+	'ps-optional-name' => 'Név (hagyd üresen, ha a mező nevére akarod beállítani):',
+	'editschema' => 'Séma módosítása',
+	'createschema' => 'Séma létrehozása',
 );
 
 /** Interlingua (interlingua)
