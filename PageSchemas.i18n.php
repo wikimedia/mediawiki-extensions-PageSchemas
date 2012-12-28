@@ -55,8 +55,8 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
-	'ps-template' => 'A MediaWiki template',
 	'generatepages' => 'Special page name, title on Special:SpecialPages.',
+	'ps-template' => 'A MediaWiki template',
 	'ps-remove-template' => 'The text on a button that removes the current template',
 	'ps-field' => 'A "field" here is both a template parameter and a form field',
 	'ps-namelabel' => '{{Identical|Name}}',
@@ -122,7 +122,7 @@ $messages['azb'] = array(
 	'editschema' => 'شِمانی دَییشدیر',
 	'createschema' => 'شِما یارات',
 	'right-generatepages' => '«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین',
-	'action-generatepages' => '«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین',
+	'action-generatepages' => '«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین', # Fuzzy
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -910,7 +910,7 @@ $messages['nl'] = array(
 	'editschema' => 'Schema bewerken',
 	'createschema' => 'Schema aanmaken',
 	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
-	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien',
+	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien', # Fuzzy
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -1004,7 +1004,7 @@ $messages['pms'] = array(
 	'editschema' => 'Modìfica schema',
 	'createschema' => 'Creé schema',
 	'right-generatepages' => 'Varda scheda "Génera pagine" e pagina',
-	'action-generatepages' => 'varda la scheda "Génera pagine" e pagina',
+	'action-generatepages' => 'varda la scheda "Génera pagine" e pagina', # Fuzzy
 );
 
 /** Pashto (پښتو)
@@ -1094,7 +1094,7 @@ $messages['ro'] = array(
 	'editschema' => 'Modificare schemă',
 	'createschema' => 'Creare schemă',
 	'right-generatepages' => 'Vizualizează fila și pagina „Generare pagini”',
-	'action-generatepages' => 'vizualizați fila și pagina „Generare pagini”',
+	'action-generatepages' => 'vizualizați fila și pagina „Generare pagini”', # Fuzzy
 );
 
 /** tarandíne (tarandíne)
