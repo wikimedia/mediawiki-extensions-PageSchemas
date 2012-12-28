@@ -41,7 +41,7 @@ $messages['en'] = array(
 	'editschema' => 'Edit schema',
 	'createschema' => 'Create schema',
 	'right-generatepages' => 'View "Generate pages" tab and page',
-	'action-generatepages' => 'view the "Generate pages" tab and page',
+	'action-generatepages' => 'view the "{{int:Generatepages}}" tab and page',
 );
 
 /** Message documentation (Message documentation)
@@ -56,12 +56,13 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
 	'ps-template' => 'A MediaWiki template',
+	'generatepages' => 'Special page name, title on Special:SpecialPages.',
 	'ps-remove-template' => 'The text on a button that removes the current template',
 	'ps-field' => 'A "field" here is both a template parameter and a form field',
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
-	'editschema' => 'Tab name',
+	'editschema' => 'Tab name, special page name, title on Special:SpecialPages.',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}',
