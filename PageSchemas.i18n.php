@@ -198,6 +198,7 @@ $messages['bs'] = array(
 /** German (Deutsch)
  * @author Imre
  * @author Kghbln
+ * @author Metalhead64
  */
 $messages['de'] = array(
 	'ps-desc' => 'Ermöglicht, unter Verwendung von XML, das Definieren einer Datenstruktur für alle Seiten in einer Kategorie',
@@ -226,7 +227,7 @@ $messages['de'] = array(
 	'editschema' => 'Schema bearbeiten',
 	'createschema' => 'Schema erstellen',
 	'right-generatepages' => 'Den Reiter „Seiten generieren“ sowie die entsprechende Seite sehen',
-	'action-generatepages' => 'den Reiter „Seiten generieren“ sowie die entsprechende Seite zu sehen',
+	'action-generatepages' => 'den Reiter „{{int:Generatepages}}“ sowie die entsprechende Seite zu sehen',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -675,10 +676,10 @@ $messages['ja'] = array(
 	'generatepages' => 'ページを生成',
 	'ps-generatepages-desc' => 'このカテゴリのスキーマに基づいて、次のページを生成',
 	'ps-generatepages-success' => '選択したページが生成されます。',
-	'ps-generatepages-noschema' => 'エラー：このカテゴリに定義されているページのスキーマはありません。',
+	'ps-generatepages-noschema' => 'エラー: このカテゴリに定義されているページのスキーマはありません。',
 	'ps-generatepages-editsummary' => 'ページのスキーマにより生成',
 	'ps-page-desc-cat-not-exist' => 'このカテゴリはまだ存在しません。このカテゴリとそのページのスキーマを作成します。',
-	'ps-page-desc-ps-not-exist' => 'このカテゴリは存在しますが、ページのスキーマを持っていません。スキーマを作成：',
+	'ps-page-desc-ps-not-exist' => 'このカテゴリは存在しますが、ページのスキーマを持っていません。スキーマを作成:',
 	'ps-page-desc-edit-schema' => 'このカテゴリのページのスキーマを編集:',
 	'ps-delimiter-label' => '値の区切り文字 (既定は ","):',
 	'ps-multiple-temp-label' => 'このテンプレートの複数のインスタンスを許可',
@@ -696,7 +697,7 @@ $messages['ja'] = array(
 	'editschema' => 'スキーマの編集',
 	'createschema' => 'スキーマ作成',
 	'right-generatepages' => '「ページを生成」タブとページを閲覧',
-	'action-generatepages' => '「ページを生成」タブとページの閲覧',
+	'action-generatepages' => '「{{int:Generatepages}}」タブとページの閲覧',
 );
 
 /** Georgian (ქართული)
@@ -857,7 +858,7 @@ $messages['mk'] = array(
 	'editschema' => 'Уреди шема',
 	'createschema' => 'Создај шема',
 	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
-	'action-generatepages' => 'приказ на јазичето „Создај страници“ и неговата страница',
+	'action-generatepages' => 'приказ на јазичето „{{int:Generatepages}}“ и неговата страница',
 );
 
 /** Maltese (Malti)
@@ -1130,12 +1131,19 @@ $messages['sah'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'ps-schema-description' => 'පිටුවේ සංක්ෂිප්ත නිරූපණය',
 	'generatepages' => 'පිටු ජනිත කරන්න',
 	'ps-template' => 'සැකිල්ල',
 	'ps-add-template' => 'සැකිල්ල එක් කරන්න',
 	'ps-remove-template' => 'සැකිල්ල ඉවත් කරන්න',
 	'ps-field' => 'ක්ෂේත්‍රය',
 	'ps-namelabel' => 'නම:',
+	'ps-displaylabel' => 'ලේබලය පෙන්වන්න:',
+	'ps-add-field' => 'ක්ෂේත්‍රය එක් කරන්න',
+	'ps-remove-field' => 'ක්ෂේත්‍රය ඉවත් කරන්න',
+	'ps-add-xml-label' => 'අමතර XML:',
+	'editschema' => 'සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න',
+	'createschema' => 'සංක්ෂිප්ත නිරූපණය තනන්න',
 );
 
 /** Slovenian (slovenščina)
