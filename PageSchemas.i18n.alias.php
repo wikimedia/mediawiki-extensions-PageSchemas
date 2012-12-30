@@ -13,3 +13,8 @@ $specialPageAliases['en'] = array(
 	'GeneratePages' => array( 'GeneratePages' ),
 	'EditSchema' => array( 'EditSchema' ),
 );
+
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'GeneratePages' => array( 'Säite_generéieren' ),
+);

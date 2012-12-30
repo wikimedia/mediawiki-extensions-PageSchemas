@@ -1133,6 +1133,7 @@ $messages['sah'] = array(
 $messages['si'] = array(
 	'ps-schema-description' => 'පිටුවේ සංක්ෂිප්ත නිරූපණය',
 	'generatepages' => 'පිටු ජනිත කරන්න',
+	'ps-generatepages-editsummary' => 'පිටුවේ සංක්ෂිප්ත නිරූපණයෙන් ජනිත කරන ලදී',
 	'ps-template' => 'සැකිල්ල',
 	'ps-add-template' => 'සැකිල්ල එක් කරන්න',
 	'ps-remove-template' => 'සැකිල්ල ඉවත් කරන්න',
