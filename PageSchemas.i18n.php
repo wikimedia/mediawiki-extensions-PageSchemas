@@ -195,6 +195,13 @@ $messages['bs'] = array(
 	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika', # Fuzzy
 );
 
+/** Czech (česky)
+ * @author Vks
+ */
+$messages['cs'] = array(
+	'ps-namelabel' => 'Název:',
+);
+
 /** German (Deutsch)
  * @author Imre
  * @author Kghbln
@@ -418,7 +425,7 @@ $messages['fr'] = array(
 	'editschema' => 'Modifier le schéma',
 	'createschema' => 'Créer le schéma',
 	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page',
-	'action-generatepages' => "afficher la page ou l'onglet « Générer les pages »",
+	'action-generatepages' => 'afficher la page ou l\'onglet "{{int:Generatepages}}"',
 );
 
 /** Franco-Provençal (arpetan)
@@ -1005,7 +1012,7 @@ $messages['pms'] = array(
 	'editschema' => 'Modìfica schema',
 	'createschema' => 'Creé schema',
 	'right-generatepages' => 'Varda scheda "Génera pagine" e pagina',
-	'action-generatepages' => 'varda la scheda "Génera pagine" e pagina', # Fuzzy
+	'action-generatepages' => 'varda la scheda "{{int:Generatepages}}" e pagina',
 );
 
 /** Pashto (پښتو)
@@ -1133,7 +1140,10 @@ $messages['sah'] = array(
 $messages['si'] = array(
 	'ps-schema-description' => 'පිටුවේ සංක්ෂිප්ත නිරූපණය',
 	'generatepages' => 'පිටු ජනිත කරන්න',
+	'ps-generatepages-success' => 'තෝරාගත් පිටු ජනිත වෙමින් පවතී.',
 	'ps-generatepages-editsummary' => 'පිටුවේ සංක්ෂිප්ත නිරූපණයෙන් ජනිත කරන ලදී',
+	'ps-page-desc-edit-schema' => 'මෙම ප්‍රවර්ගය සඳහා පිටු සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න:',
+	'ps-multiple-temp-label' => 'මෙම සැකිල්ලේ බහුවිධ දෘෂ්ටාන්තවලට ඉඩදෙන්න',
 	'ps-template' => 'සැකිල්ල',
 	'ps-add-template' => 'සැකිල්ල එක් කරන්න',
 	'ps-remove-template' => 'සැකිල්ල ඉවත් කරන්න',
