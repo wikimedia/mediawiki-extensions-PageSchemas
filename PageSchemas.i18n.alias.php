@@ -18,3 +18,9 @@ $specialPageAliases['en'] = array(
 $specialPageAliases['lb'] = array(
 	'GeneratePages' => array( 'Säite_generéieren' ),
 );
+
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'GeneratePages' => array( 'PaginasAanmaken' ),
+	'EditSchema' => array( 'SchemaBewerken' ),
+);
