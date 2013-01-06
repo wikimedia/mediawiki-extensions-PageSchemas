@@ -14,6 +14,12 @@ $specialPageAliases['en'] = array(
 	'EditSchema' => array( 'EditSchema' ),
 );
 
+/** Greek (Ελληνικά) */
+$specialPageAliases['el'] = array(
+	'GeneratePages' => array( 'ΠαραγωγήΣελίδων' ),
+	'EditSchema' => array( 'ΕπεξεργασίαΣχήματος' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'GeneratePages' => array( 'Säite_generéieren' ),
