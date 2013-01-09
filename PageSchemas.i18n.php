@@ -487,7 +487,7 @@ $messages['gl'] = array(
 	'editschema' => 'Editar o esquema',
 	'createschema' => 'Crear o esquema',
 	'right-generatepages' => 'Ollar a lapela e a páxina "Xerar as páxinas"',
-	'action-generatepages' => 'ollar a lapela e a páxina "Xerar as páxinas"',
+	'action-generatepages' => 'ollar a lapela e a páxina "{{int:Generatepages}}"',
 );
 
 /** Swiss German (Alemannisch)
