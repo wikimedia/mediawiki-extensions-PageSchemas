@@ -20,6 +20,12 @@ $specialPageAliases['el'] = array(
 	'EditSchema' => array( 'ΕπεξεργασίαΣχήματος' ),
 );
 
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'GeneratePages' => array( '문서생성' ),
+	'EditSchema' => array( '스키마편집' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'GeneratePages' => array( 'Säite_generéieren' ),
