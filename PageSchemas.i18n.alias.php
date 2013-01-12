@@ -31,6 +31,12 @@ $specialPageAliases['lb'] = array(
 	'GeneratePages' => array( 'Säite_generéieren' ),
 );
 
+/** Macedonian (македонски) */
+$specialPageAliases['mk'] = array(
+	'GeneratePages' => array( 'СоздајСтраници' ),
+	'EditSchema' => array( 'УредиШема' ),
+);
+
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'GeneratePages' => array( 'PaginasAanmaken' ),
