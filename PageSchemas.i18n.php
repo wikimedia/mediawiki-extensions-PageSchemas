@@ -294,7 +294,7 @@ $messages['el'] = array(
 	'editschema' => 'Επεξεργασία σχήματος',
 	'createschema' => 'Δημιουργία σχήματος',
 	'right-generatepages' => 'Προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
-	'action-generatepages' => 'προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»',
+	'action-generatepages' => 'προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»', # Fuzzy
 );
 
 /** Esperanto (Esperanto)
@@ -341,7 +341,7 @@ $messages['es'] = array(
 	'editschema' => 'Editar el esquema',
 	'createschema' => 'Crear el esquema',
 	'right-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
-	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
+	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página', # Fuzzy
 );
 
 /** Estonian (eesti)
@@ -554,7 +554,7 @@ $messages['hsb'] = array(
 	'editschema' => 'Šemu wobdźěłać',
 	'createschema' => 'Šemu wutworić',
 	'right-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
-	'action-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
+	'action-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać', # Fuzzy
 );
 
 /** Hungarian (magyar)
@@ -619,7 +619,7 @@ $messages['ia'] = array(
 	'editschema' => 'Modificar schema',
 	'createschema' => 'Crear schema',
 	'right-generatepages' => 'Vider le scheda e pagina "Generar paginas"',
-	'action-generatepages' => 'vider le scheda e pagina "Generar paginas"',
+	'action-generatepages' => 'vider le scheda e pagina "Generar paginas"', # Fuzzy
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -669,7 +669,7 @@ $messages['it'] = array(
 	'editschema' => 'Modifica schema',
 	'createschema' => 'Creare schema',
 	'right-generatepages' => 'Vede la scheda e la pagina "Genera pagine"',
-	'action-generatepages' => 'vedere la scheda e la pagina "Genera pagine"',
+	'action-generatepages' => 'vedere la scheda e la pagina "Genera pagine"', # Fuzzy
 );
 
 /** Japanese (日本語)
@@ -758,7 +758,7 @@ $messages['ko'] = array(
 	'editschema' => '스키마 편집',
 	'createschema' => '스키마 만들기',
 	'right-generatepages' => '"문서 생성" 탭과 문서 보기',
-	'action-generatepages' => '"문서 생성" 탭과 문서 보기',
+	'action-generatepages' => '"문서 생성" 탭과 문서 보기', # Fuzzy
 );
 
 /** Colognian (Ripoarisch)
@@ -791,7 +791,7 @@ $messages['ksh'] = array(
 	'editschema' => 'Et Schema ändere',
 	'createschema' => 'E XML-Schema aanlääje',
 	'right-generatepages' => 'Dä Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
-	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
+	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg sin dörve', # Fuzzy
 );
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
@@ -832,7 +832,7 @@ $messages['lb'] = array(
 	'editschema' => 'Schema änneren',
 	'createschema' => 'Schema uleeën',
 	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn',
-	'action-generatepages' => 'den Onglet an d\'Säit "Säite generéieren" gesinn',
+	'action-generatepages' => 'den Onglet an d\'Säit "Säite generéieren" gesinn', # Fuzzy
 );
 
 /** Macedonian (македонски)
@@ -918,7 +918,7 @@ $messages['nl'] = array(
 	'editschema' => 'Schema bewerken',
 	'createschema' => 'Schema aanmaken',
 	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
-	'action-generatepages' => 'het tabblad en de pagina "Pagina\'s aanmaken" te zien', # Fuzzy
+	'action-generatepages' => 'het tabblad en de pagina "{{int:Generatepages}}" te zien',
 );
 
 /** Norwegian Nynorsk (norsk (nynorsk)‎)
@@ -978,7 +978,7 @@ $messages['pl'] = array(
 	'editschema' => 'Edytuj schemat',
 	'createschema' => 'Utwórz schemat',
 	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
-	'action-generatepages' => 'wyświetl kartę i stronę "Generuj strony"',
+	'action-generatepages' => 'wyświetl kartę i stronę "Generuj strony"', # Fuzzy
 );
 
 /** Piedmontese (Piemontèis)
@@ -1068,7 +1068,7 @@ $messages['pt-br'] = array(
 	'editschema' => 'Editar esquema',
 	'createschema' => 'Criar esquema',
 	'right-generatepages' => 'Ver página e guia "Gerar páginas"',
-	'action-generatepages' => 'ver a página e guia "Gerar páginas"',
+	'action-generatepages' => 'ver a página e guia "Gerar páginas"', # Fuzzy
 );
 
 /** Romanian (română)
@@ -1187,7 +1187,7 @@ $messages['sl'] = array(
 	'editschema' => 'Uredi shemo',
 	'createschema' => 'Ustvarite shemo',
 	'right-generatepages' => 'Ogled zavihka in strani »Ustvari strani«',
-	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«',
+	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«', # Fuzzy
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
@@ -1235,7 +1235,7 @@ $messages['sv'] = array(
 	'editschema' => 'Redigera schema',
 	'createschema' => 'Skapa schema',
 	'right-generatepages' => 'Visa fliken och sidan "Skapa sidor"',
-	'action-generatepages' => 'visa fliken och sidan "Skapa sidor"',
+	'action-generatepages' => 'visa fliken och sidan "Skapa sidor"', # Fuzzy
 );
 
 /** Tamil (தமிழ்)
@@ -1283,7 +1283,7 @@ $messages['tl'] = array(
 	'editschema' => 'Baguhin ang panukala',
 	'createschema' => 'Likhain ang panukala',
 	'right-generatepages' => 'Tingnan ang laylay na "Lumikha ng mga pahina" at pahina',
-	'action-generatepages' => 'tingnan ang laylay na "Lumikha ng mga pahina" at pahina',
+	'action-generatepages' => 'tingnan ang laylay na "Lumikha ng mga pahina" at pahina', # Fuzzy
 );
 
 /** Turkish (Türkçe)
@@ -1312,7 +1312,7 @@ $messages['tr'] = array(
 	'editschema' => 'Şemayı düzenle',
 	'createschema' => 'Şema oluştur',
 	'right-generatepages' => '"Sayfa oluştur" sekmesini ve sayfasını görüntüle',
-	'action-generatepages' => '"Sayfa oluştur" sekmesini ve sayfasını görüntüle',
+	'action-generatepages' => '"Sayfa oluştur" sekmesini ve sayfasını görüntüle', # Fuzzy
 );
 
 /** Ukrainian (українська)
@@ -1348,7 +1348,7 @@ $messages['uk'] = array(
 	'editschema' => 'Редагувати схему',
 	'createschema' => 'Створити схему',
 	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»',
-	'action-generatepages' => 'перегляд вкладки і сторінки «Створення сторінок»',
+	'action-generatepages' => 'перегляд вкладки і сторінки «Створення сторінок»', # Fuzzy
 );
 
 /** Urdu (اردو)
