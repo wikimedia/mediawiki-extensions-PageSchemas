@@ -1115,6 +1115,13 @@ $messages['roa-tara'] = array(
 	'ps-add-template' => "Aggiunge 'u template",
 	'ps-remove-template' => "Live 'u template",
 	'ps-field' => 'Cambe',
+	'ps-namelabel' => 'Nome:',
+	'ps-displaylabel' => 'Etichette de visualizzazzione:',
+	'ps-add-field' => "Aggiunge 'u cambe",
+	'ps-remove-field' => "Live 'u cambe",
+	'ps-add-xml-label' => 'XML aggiundive:',
+	'editschema' => "Cange 'u scheme",
+	'createschema' => "Ccreje 'u scheme",
 );
 
 /** Russian (русский)
