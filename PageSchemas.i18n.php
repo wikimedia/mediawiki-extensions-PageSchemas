@@ -56,7 +56,8 @@ $messages['en'] = array(
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
 	'generatepages' => 'Special page name, title on Special:SpecialPages.',
-	'ps-template' => 'A MediaWiki template',
+	'ps-template' => 'A MediaWiki template.
+{{Identical|Template}}',
 	'ps-remove-template' => 'The text on a button that removes the current template',
 	'ps-field' => 'A "field" here is both a template parameter and a form field',
 	'ps-namelabel' => '{{Identical|Name}}',
