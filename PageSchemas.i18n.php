@@ -55,7 +55,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
-	'generatepages' => 'Special page name, title on Special:SpecialPages.',
+	'generatepages' => 'Special page name, title on [[Special:SpecialPages]].',
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
 	'ps-remove-template' => 'The text on a button that removes the current template',
@@ -63,7 +63,7 @@ $messages['qqq'] = array(
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
-	'editschema' => 'Tab name, special page name, title on Special:SpecialPages.',
+	'editschema' => 'Tab name, special page name, title on [[Special:SpecialPages]].',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}',
