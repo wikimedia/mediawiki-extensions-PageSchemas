@@ -48,3 +48,9 @@ $specialPageAliases['nl'] = array(
 	'GeneratePages' => array( 'PaginasAanmaken' ),
 	'EditSchema' => array( 'SchemaBewerken' ),
 );
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'GeneratePages' => array( '生成页面' ),
+	'EditSchema' => array( '编辑架构' ),
+);
