@@ -59,7 +59,8 @@ $messages['qqq'] = array(
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
 	'ps-remove-template' => 'The text on a button that removes the current template',
-	'ps-field' => 'A "field" here is both a template parameter and a form field',
+	'ps-field' => 'A "field" here is both a template parameter and a form field.
+{{Identical|Field}}',
 	'ps-namelabel' => '{{Identical|Name}}',
 	'ps-displaylabel' => 'The term for the text that shows up next to a field when it is displayed',
 	'ps-remove-field' => 'The text on a button that removes the current field',
