@@ -170,6 +170,7 @@ $messages['bg'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  * @author Y-M D
  */
@@ -178,6 +179,7 @@ $messages['br'] = array(
 	'ps-schema-description' => 'Chema ar bajenn',
 	'generatepages' => 'Genel ar pajennoù',
 	'ps-multiple-temp-label' => 'Aotren meur a eilad eus ar patrom-mañ',
+	'ps-field-list-label' => "Ne c'hall ket ar vaezienn-mañ bezañ ur roll talvoudoù enni",
 	'ps-template' => 'Patrom',
 	'ps-add-template' => 'Ouzhpennañ ur patrom',
 	'ps-remove-template' => 'Lemel ur patrom',
