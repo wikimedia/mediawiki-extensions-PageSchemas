@@ -26,6 +26,12 @@ $specialPageAliases['el'] = array(
 	'EditSchema' => array( 'ΕπεξεργασίαΣχήματος' ),
 );
 
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'GeneratePages' => array( 'ページ生成' ),
+	'EditSchema' => array( 'スキーマ編集' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'GeneratePages' => array( '문서생성' ),
