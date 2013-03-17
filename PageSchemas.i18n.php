@@ -558,7 +558,7 @@ $messages['hsb'] = array(
 	'editschema' => 'Šemu wobdźěłać',
 	'createschema' => 'Šemu wutworić',
 	'right-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
-	'action-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać', # Fuzzy
+	'action-generatepages' => 'Rajtark a stronu "{{int:Generatepages}}"  pokazać',
 );
 
 /** Hungarian (magyar)
