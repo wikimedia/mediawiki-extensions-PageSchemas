@@ -892,6 +892,13 @@ $messages['nb'] = array(
 	'ps-desc' => 'Støtter maler som definerer datastrukturen sin gjennom XML-markering', # Fuzzy
 );
 
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'ps-namelabel' => 'Naam:',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
