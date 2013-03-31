@@ -837,7 +837,7 @@ $messages['lb'] = array(
 	'editschema' => 'Schema änneren',
 	'createschema' => 'Schema uleeën',
 	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn',
-	'action-generatepages' => 'den Onglet an d\'Säit "Säite generéieren" gesinn', # Fuzzy
+	'action-generatepages' => 'den Onglet "{{int:Generatepages}}" an d\'Säit gesinn',
 );
 
 /** Macedonian (македонски)
@@ -1206,7 +1206,7 @@ $messages['sl'] = array(
 	'editschema' => 'Uredi shemo',
 	'createschema' => 'Ustvarite shemo',
 	'right-generatepages' => 'Ogled zavihka in strani »Ustvari strani«',
-	'action-generatepages' => 'ogled zavihka in strani »Ustvari strani«', # Fuzzy
+	'action-generatepages' => 'ogled zavihka in strani »{{int:Generatepages}}«',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
