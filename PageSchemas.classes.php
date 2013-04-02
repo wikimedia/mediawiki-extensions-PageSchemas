@@ -243,6 +243,7 @@ END;
 		}
 		return $object[$key];
 	}
+
 }
 
 /**

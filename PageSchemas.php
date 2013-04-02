@@ -89,6 +89,18 @@ $wgResourceModules += array(
 		),
 	),
 );
+$wgResourceModules += array(
+    'ext.pageschemas.generatepages' => $pageSchemasResourceTemplate + array(
+        'scripts' => array(
+            'generatepages.js',
+        ),
+        'styles' => array(
+        ),
+        'dependencies' => array(
+            'jquery',
+        ),
+    ),
+);
 
 // Page Schemas global variables
 $wgPageSchemasFieldNum = 0;
