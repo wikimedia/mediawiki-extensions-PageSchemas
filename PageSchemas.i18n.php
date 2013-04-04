@@ -674,7 +674,7 @@ $messages['it'] = array(
 	'editschema' => 'Modifica schema',
 	'createschema' => 'Creare schema',
 	'right-generatepages' => 'Vede la scheda e la pagina "Genera pagine"',
-	'action-generatepages' => 'vedere la scheda e la pagina "Genera pagine"', # Fuzzy
+	'action-generatepages' => 'vedere la scheda e la pagina "{{int:Generatepages}}"',
 );
 
 /** Japanese (日本語)
