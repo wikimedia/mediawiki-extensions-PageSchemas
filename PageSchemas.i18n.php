@@ -1401,10 +1401,13 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Chenxiaoqino
+ * @author Kuailong
  * @author Liangent
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
+	'ps-remove-template' => '移除模板',
+	'ps-namelabel' => '名称：',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
