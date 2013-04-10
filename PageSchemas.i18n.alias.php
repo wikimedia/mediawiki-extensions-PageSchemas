@@ -41,6 +41,7 @@ $specialPageAliases['ko'] = array(
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'GeneratePages' => array( 'Säite_generéieren' ),
+	'EditSchema' => array( 'Schema_änneren' ),
 );
 
 /** Macedonian (македонски) */
