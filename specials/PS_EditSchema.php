@@ -24,6 +24,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$domDocument->preserveWhiteSpace = false;
 		$domDocument->formatOutput = true;
 		$domDocument->loadXML( $xml );
+		$domDocument->encoding="UTF-8";
 		return $domDocument->saveXML( $domDocument->documentElement );
 	}
 
