@@ -796,7 +796,7 @@ $messages['ksh'] = array(
 	'editschema' => 'Et Schema ändere',
 	'createschema' => 'E XML-Schema aanlääje',
 	'right-generatepages' => 'Dä Lengk „{{int:generatepages}}“ un di Sigg sin dörve',
-	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg sin dörve', # Fuzzy
+	'action-generatepages' => 'der Lengk „{{int:generatepages}}“ un di Sigg beloore dörve',
 );
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
@@ -1402,12 +1402,19 @@ $messages['yi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Chenxiaoqino
  * @author Kuailong
+ * @author Li3939108
  * @author Liangent
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
+	'ps-template' => '模板',
+	'ps-add-template' => '添加模板',
 	'ps-remove-template' => '移除模板',
+	'ps-field' => '字段',
 	'ps-namelabel' => '名称：',
+	'ps-displaylabel' => '显示标签：',
+	'ps-add-field' => '添加字段',
+	'ps-remove-field' => '移除字段',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
