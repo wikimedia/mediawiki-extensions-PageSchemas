@@ -885,7 +885,7 @@ $messages['mt'] = array(
 	'ps-add-field' => 'Żid qasam',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -933,7 +933,7 @@ $messages['nl'] = array(
 	'action-generatepages' => 'het tabblad en de pagina "{{int:Generatepages}}" te zien',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
  */
 $messages['nn'] = array(
@@ -1039,6 +1039,7 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Hamilton Abreu
+ * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt'] = array(
