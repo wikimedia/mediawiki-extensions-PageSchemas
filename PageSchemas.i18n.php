@@ -58,7 +58,8 @@ $messages['qqq'] = array(
 	'generatepages' => '{{doc-special|GeneratePages}}',
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
-	'ps-remove-template' => 'The text on a button that removes the current template',
+	'ps-remove-template' => 'The text on a button that removes the current template.
+{{Identical|Remove template}}',
 	'ps-field' => 'A "field" here is both a template parameter and a form field.
 {{Identical|Field}}',
 	'ps-namelabel' => '{{Identical|Name}}',
@@ -698,12 +699,12 @@ $messages['ja'] = array(
 	'ps-field-list-label' => 'このフィールドは、値の列挙を保持できます',
 	'ps-template' => 'テンプレート',
 	'ps-add-template' => 'テンプレートを追加',
-	'ps-remove-template' => 'テンプレートを削除',
+	'ps-remove-template' => 'テンプレートを除去',
 	'ps-field' => 'フィールド',
 	'ps-namelabel' => '名前:',
 	'ps-displaylabel' => '表示ラベル:',
 	'ps-add-field' => 'フィールドを追加',
-	'ps-remove-field' => 'フィールドを削除',
+	'ps-remove-field' => 'フィールドを除去',
 	'ps-add-xml-label' => '追加の XML:',
 	'ps-optional-name' => '名前 (空欄の場合はフィールド名を使用):',
 	'editschema' => 'スキーマの編集',
