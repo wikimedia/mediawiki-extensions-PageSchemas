@@ -58,6 +58,7 @@ $messages['qqq'] = array(
 	'generatepages' => '{{doc-special|GeneratePages}}',
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
+	'ps-add-template' => '{{Identical|Add template}}',
 	'ps-remove-template' => 'The text on a button that removes the current template.
 {{Identical|Remove template}}',
 	'ps-field' => 'A "field" here is both a template parameter and a form field.
