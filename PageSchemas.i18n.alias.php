@@ -20,6 +20,12 @@ $specialPageAliases['de'] = array(
 	'EditSchema' => array( 'Schema_bearbeiten' ),
 );
 
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'GeneratePages' => array( 'PeréVırazin' ),
+	'EditSchema' => array( 'ŞemaVırnayış' ),
+);
+
 /** Greek (Ελληνικά) */
 $specialPageAliases['el'] = array(
 	'GeneratePages' => array( 'ΠαραγωγήΣελίδων' ),
