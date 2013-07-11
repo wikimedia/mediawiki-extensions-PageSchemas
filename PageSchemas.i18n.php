@@ -962,6 +962,7 @@ $messages['pam'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Chrumps
  * @author Sp5uhe
  * @author Woytecr
  */
@@ -992,7 +993,7 @@ $messages['pl'] = array(
 	'editschema' => 'Edytuj schemat',
 	'createschema' => 'Utwórz schemat',
 	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
-	'action-generatepages' => 'wyświetl kartę i stronę "Generuj strony"', # Fuzzy
+	'action-generatepages' => 'wyświetl kartę i stronę "{{int:Generatepages}}"',
 );
 
 /** Piedmontese (Piemontèis)
