@@ -209,6 +209,13 @@ $messages['cs'] = array(
 	'ps-namelabel' => 'Název:',
 );
 
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'ps-namelabel' => 'имѧ :',
+);
+
 /** German (Deutsch)
  * @author Imre
  * @author Kghbln
