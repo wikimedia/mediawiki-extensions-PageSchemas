@@ -772,7 +772,7 @@ $messages['ko'] = array(
 	'editschema' => '스키마 편집',
 	'createschema' => '스키마 만들기',
 	'right-generatepages' => '"문서 생성" 탭과 문서 보기',
-	'action-generatepages' => '"문서 생성" 탭과 문서 보기', # Fuzzy
+	'action-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
 );
 
 /** Colognian (Ripoarisch)
