@@ -633,7 +633,7 @@ $messages['ia'] = array(
 	'editschema' => 'Modificar schema',
 	'createschema' => 'Crear schema',
 	'right-generatepages' => 'Vider le scheda e pagina "Generar paginas"',
-	'action-generatepages' => 'vider le scheda e pagina "Generar paginas"', # Fuzzy
+	'action-generatepages' => 'vider le scheda e pagina "{{int:Generatepages}}"',
 );
 
 /** Indonesian (Bahasa Indonesia)
