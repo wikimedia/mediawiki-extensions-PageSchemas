@@ -1346,6 +1346,7 @@ $messages['tr'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Base
  * @author NickK
  * @author Prima klasy4na
@@ -1378,7 +1379,7 @@ $messages['uk'] = array(
 	'editschema' => 'Редагувати схему',
 	'createschema' => 'Створити схему',
 	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»',
-	'action-generatepages' => 'перегляд вкладки і сторінки «Створення сторінок»', # Fuzzy
+	'action-generatepages' => 'переглянути вкладку "{{int:Generatepages}}" і сторінку',
 );
 
 /** Urdu (اردو)
