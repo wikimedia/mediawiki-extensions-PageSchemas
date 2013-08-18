@@ -159,6 +159,8 @@ END;
 		foreach ( $schemaXML->children() as $tag => $child ) {
 			if ( $tag == 'Template') {
 				$text .= self::displayTemplate( $child );
+			} elseif ( $tag == 'Section' ) {
+				$text .= self::displayPageSection( $child );
 			}
 		}
 		$text .= "</table>\n";
@@ -169,7 +171,7 @@ END;
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $templateXML->attributes()->name;
-		$text = self::tableRowHTML( 'templateRow', 'Template', $name );
+		$text = self::tableRowHTML( 'templateRow', wfMsg( 'ps-template' ), $name );
 		$multiple = $templateXML->attributes()->multiple;
 		if ( $multiple == 'multiple' ) {
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
@@ -202,7 +204,7 @@ END;
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $fieldXML->attributes()->name;
-		$text = self::tableRowHTML( 'fieldRow', 'Field', $name );
+		$text = self::tableRowHTML( 'fieldRow', wfMsg( 'ps-field' ), $name );
 
 		if( ((string) $fieldXML->attributes()->list) == "list" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
@@ -235,6 +237,31 @@ END;
 		return $text;
 	}
 
+	static function displayPageSection( $pageSectionXML ) {
+		global $wgPageSchemasHandlerClasses;
+
+		$name = $pageSectionXML->attributes()->name;
+		$level = $pageSectionXML->attributes()->level;
+		$text = self::tableRowHTML( 'templateRow', wfMsg( 'ps-section' ), $name );
+		$text .= self::attrRowHTML( 'schemaAttrRow', wfMsg( 'ps-level' ), $level );
+
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$returnVals = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayValues' ), $pageSectionXML );
+			if ( count( $returnVals ) != 2 ) {
+				continue;
+			}
+			list( $elementName, $values ) = $returnVals;
+			$label = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayString' ) );
+			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
+			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
+			foreach ( $values as $fieldName => $value ) {
+				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
+			}
+		}
+
+		return $text;
+	}
+
 	public static function getValueFromObject( $object, $key ) {
 		if ( is_null( $object ) ) {
 			return null;
@@ -254,6 +281,8 @@ class PSSchema {
 	private $mPageXML = null;
 	/* Stores the template objects */
 	private $mTemplates = array();
+	// Stores the page sections
+	private $mPageSections = array();
 	private $mIsPSDefined = true;
 
 	function __construct ( $categoryName ) {
@@ -281,6 +310,7 @@ class PSSchema {
 			$this->mPageXML = simplexml_load_string ( $pageXMLstr );
 			// index for template objects
 			$i = 0;
+			$pageSectionCount = 0;
 			$inherited_templates = array();
 			foreach ( $this->mPageXML->children() as $tag => $child ) {
 				if ( $tag == 'InheritsFrom ' ) {
@@ -304,6 +334,12 @@ class PSSchema {
 							}
 						}
 					}
+				} elseif ( $tag == 'Section' ) {
+					if ( count( $child->children() ) > 0 ) {
+						$pageSectionObj = new PSPageSection( $child );
+						$this->mPageSections[$pageSectionCount] = $pageSectionObj;
+					}
+					$pageSectionCount++;
 				}
 			}
 		}
@@ -336,6 +372,10 @@ class PSSchema {
 	 */
 	public function getTemplates() {
 		return $this->mTemplates;
+	}
+
+	public function getPageSections() {
+		return $this->mPageSections;
 	}
 
 	public function getObject( $objectName ) {
@@ -481,6 +521,33 @@ class PSTemplateField {
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mFieldXML );
+			if ( !is_null( $object ) ) {
+				return $object;
+			}
+		}
+		return null;
+	}
+}
+
+class PSPageSection{
+
+	private $mPageSectionXML = null;
+	private $mSectionName = "";
+
+	function __construct( $pageSectionXML ) {
+		$this->mPageSectionXML = $pageSectionXML;
+		$this->mSectionName = (string)$pageSectionXML->attributes()->name;
+	}
+
+	public function getSectionName() {
+		return $this->mSectionName;
+	}
+
+	public function getObject( $objectName ) {
+		global $wgPageSchemasHandlerClasses;
+
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mPageSectionXML );
 			if ( !is_null( $object ) ) {
 				return $object;
 			}

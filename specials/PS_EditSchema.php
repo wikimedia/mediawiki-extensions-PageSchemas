@@ -42,14 +42,17 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldName = "";
 		$fieldNum = -1;
 		$templateNum = -1;
+		$pageSectionNum = -1;
 		// Arrays to store the extension-specific XML entered in the form
 		$schemaXMLFromExtensions = array();
 		$templateXMLFromExtensions = array();
 		$fieldXMLFromExtensions = array();
+		$pageSectionXMLFromExtensions = array();
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$schemaXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createSchemaXMLFromForm' ) );
 			$templateXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createTemplateXMLFromForm' ) );
 			$fieldXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createFieldXMLFromForm' ) );
+			$pageSectionXMLFromExtensions[] = call_user_func( array( $psHandlerClass, 'createPageSectionXMLFromForm' ) );
 		}
 		foreach ( $schemaXMLFromExtensions as $xml ) {
 			if ( !empty( $xml ) ) {
@@ -108,6 +111,17 @@ class PSEditSchema extends IncludableSpecialPage {
 			} elseif ( substr( $var, 0, 10 ) == 't_add_xml_' ) {
 				$psXML .= $val;
 				$psXML .= '</Template>';
+			} elseif ( substr( $var, 0, 7 ) == 's_name_' ) {
+				$pageSectionNum = substr( $var, 7 );
+				$sectionName = $val;
+				$sectionLevel = $wgRequest->getVal( "s_level_" . $pageSectionNum );
+				$psXML .= '<Section name="' . $sectionName . '" level="' . $sectionLevel . '">';
+				foreach ( $pageSectionXMLFromExtensions as $extensionName => $xmlPerPageSection ) {
+					if ( !empty( $xmlPerPageSection[$pageSectionNum] ) ) {
+						$psXML .= $xmlPerPageSection[$pageSectionNum];
+					}
+				}
+				$psXML .= '</Section>';
 			}
 		}
 		$psXML .= '</PageSchema>';
@@ -388,6 +402,52 @@ class PSEditSchema extends IncludableSpecialPage {
 	}
 
 	/**
+	 * Returns the HTML for a section of the form comprising of one page section.
+	 */
+	static function printPageSection( $section_num = 'snum', $pageSectionXML = null, $psPageSection = null ) {
+		global $wgPageSchemasHandlerClasses;
+
+		$text = "\t";
+		if ( is_null( $pageSectionXML ) ) {
+			$text .= '<div class="pageSectionBox" id="starterPageSection" style="display: none">' . "\n";
+			$pageSectionName = "";
+			$section_level = 2;
+		} else {
+			$text .= '<div class="pageSectionBox" >' . "\n";
+			$pageSectionName = (string) $pageSectionXML->attributes()->name;
+			$section_level = (string) $pageSectionXML->attributes()->level;
+		}
+
+		$pageSectionHTML = '<p>' . Html::rawElement( 'span', null, wfMsg( 'ps-sectionname' ) ) . "\n";
+		$pageSectionHTML .= '</t>' . Html::input( 's_name_' . $section_num, $pageSectionName, 'text', array( 'size' => '30', 'id' => 'sectionname' ) ) . "\n";
+		$header_options =  '';
+		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, wfMsg( 'ps-sectionlevel' ) ) . "\n";
+		for ( $i = 1; $i < 7; $i++ ) {
+			if ( $section_level == $i ) {
+				$header_options .= " " . Html::element( 'option', array( 'value' => $i, 'selected' ), $i ) . "\n";
+			} else {
+				$header_options .= " " . Html::element( 'option', array( 'value' => $i ), $i ) . "\n";
+			}
+		}
+		$pageSectionHTML .= '&nbsp&nbsp' . Html::rawElement( 'select', array( 'name' => "s_level_" . $section_num ), $header_options ) . "</p>\n";
+
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getPageSectionEditingHTML" ), $psPageSection );
+			$label = call_user_func( array( $psHandlerClass, "getFieldDisplayString" ) );
+			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
+			if ( is_null( $valuesFromExtension ) ) {
+				continue;
+			}
+			$html = self::printFormSection( $label, $color, $valuesFromExtension, 'editSchemaPageSection' );
+			$pageSectionHTML .= str_replace( 'num', $section_num, $html );
+		}
+		$pageSectionHTML .= '<p>' . Html::input( 'remove-pageSection', wfMsg( 'ps-removepagesection' ), 'button', array( 'class' => 'deletePageSection' ) ) . "</p>\n";
+		$text .= self::printFormSection( wfMsg( 'ps-section' ), '#A6B7CC', $pageSectionHTML, 'pageSection' );
+		$text .= "\t</div><!-- pageSectionBox-->\n";
+		return $text;
+	}
+
+	/**
 	 * Returns the HTML to display an entire form.
 	 */
 	static function printForm( $pageSchemaObj = null, $pageXML = null ) {
@@ -395,8 +455,10 @@ class PSEditSchema extends IncludableSpecialPage {
 
 		if ( is_null( $pageSchemaObj ) ) {
 			$psTemplates = array();
+			$psPageSections = array();
 		} else {
 			$psTemplates = $pageSchemaObj->getTemplates();
+			$psPageSections = $pageSchemaObj->getPageSections();
 		}
 
 		if ( is_null( $pageXML ) ) {
@@ -432,15 +494,29 @@ class PSEditSchema extends IncludableSpecialPage {
 		$text .= '<div id="templatesList">' . "\n";
 
 		$templateNum = 0;
+		$pageSectionNum = 0;
 
 		// Add 'starter', hidden template section.
 		$text .= self::printTemplateSection();
+		//Add 'starter', hidden pagesection
+		$text .= self::printPageSection();
+
 		/* index for template objects */
 		foreach ( $pageXMLChildren as $tag => $pageXMLChild ) {
 			if ( $tag == 'Template' ) {
-				$psTemplate = $psTemplates[$templateNum];
+				$psTemplate = null;
+				if ( array_key_exists( $templateNum, $psTemplates ) ) {
+					$psTemplate = $psTemplates[$templateNum];
+				}
 				$text .= self::printTemplateSection( $templateNum, $pageXMLChild, $psTemplate );
 				$templateNum++;
+			} elseif ( $tag == 'Section' ) {
+				$psPageSection = null;
+				if ( array_key_exists( $pageSectionNum, $psPageSections ) ) {
+					$psPageSection = $psPageSections[$pageSectionNum];
+				}
+				$text .= self::printPageSection( $pageSectionNum, $pageXMLChild, $psPageSection );
+				$pageSectionNum++;
 			}
 		}
 		$add_template_button = Xml::element( 'input',
@@ -450,8 +526,15 @@ class PSEditSchema extends IncludableSpecialPage {
 				'value' => wfMsg( 'ps-add-template' ),
 			)
 		);
+		$add_section_button = Xml::element( 'input',
+			array(
+				'type' => 'button',
+				'class' => 'editSchemaAddSection',
+				'value' => wfMsg( 'ps-add-section' ),
+			)
+		);
 		$text .= "\t</div><!-- templatesList -->\n";
-		$text .= Xml::tags( 'p', null, $add_template_button ) . "\n";
+		$text .= Xml::tags( 'p', null, $add_template_button . $add_section_button ) . "\n";
 		$text .= "\t\t<hr />\n";
 		$label = wfMsg( 'summary' );
 		$text .= <<<END

@@ -8,6 +8,7 @@
 
 var fieldNum;
 var templateNum;
+var pageSectionNum;
 
 jQuery.fn.editSchemaMakeTemplateDeleter = function() {
 	jQuery(this).click( function() {
@@ -21,6 +22,14 @@ jQuery.fn.editSchemaMakeFieldDeleter = function() {
 	jQuery(this).click( function() {
 		// Remove the encompassing div for this instance.
 		jQuery(this).closest(".fieldBox")
+			.fadeOut('fast', function() { jQuery(this).remove(); });
+	});
+}
+
+jQuery.fn.editSchemaMakePageSectionDeleter = function() {
+	jQuery(this).click( function() {
+		// Remove the encompassing div for this instance.
+		jQuery(this).closest(".pageSectionBox")
 			.fadeOut('fast', function() { jQuery(this).remove(); });
 	});
 }
@@ -63,6 +72,17 @@ jQuery.fn.editSchemaMakeTemplateAdder = function() {
 	} );
 }
 
+jQuery.fn.editSchemaMakePageSectionAdder = function() {
+	jQuery(this).click( function() {
+		newField = jQuery('#starterPageSection').clone().css('display', '').removeAttr('id');
+		newHTML = newField.html().replace(/snum/g, pageSectionNum);
+		newField.html(newHTML);
+		newField.find(".deletePageSection").editSchemaMakePageSectionDeleter();
+		jQuery('#templatesList').append(newField);
+		pageSectionNum++;
+	});
+}
+
 jQuery.fn.editSchemaToggleDelimiterInput = function() {
 	if (this.is(":checked")) {
 		this.closest('.fieldBox').find('.delimiterInput').css('display', '');
@@ -82,12 +102,15 @@ jQuery.fn.editSchemaToggleSectionDisplay = function() {
 jQuery(document).ready(function() {
 	fieldNum = jQuery('.fieldBox:visible').length;
 	templateNum = jQuery('.templateBox:visible').length;
+	pageSectionNum = jQuery('.pageSectionBox:visible').length;
 
 	// Add and delete buttons
 	jQuery(".deleteTemplate").editSchemaMakeTemplateDeleter();
 	jQuery(".editSchemaAddTemplate").editSchemaMakeTemplateAdder();
 	jQuery(".deleteField").editSchemaMakeFieldDeleter();
 	jQuery(".editSchemaAddField").editSchemaMakeFieldAdder();
+	jQuery(".deletePageSection").editSchemaMakePageSectionDeleter();
+	jQuery(".editSchemaAddSection").editSchemaMakePageSectionAdder();
 
 	// Checkboxes
 	jQuery('.isListCheckbox').each(function() {

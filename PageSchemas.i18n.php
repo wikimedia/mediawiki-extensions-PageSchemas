@@ -42,6 +42,13 @@ $messages['en'] = array(
 	'createschema' => 'Create schema',
 	'right-generatepages' => 'View "Generate pages" tab and page',
 	'action-generatepages' => 'view the "{{int:Generatepages}}" tab and page',
+	'ps-add-section' => 'Add section',
+	'ps-removepagesection' => 'Remove section',
+	'ps-sectionname' => 'Section name:',
+	'ps-sectionlevel' => 'Section level:',
+	'ps-section' => 'Section',
+	'ps-level' => 'Level',
+	'ps-otherparams' => 'Other parameters',
 );
 
 /** Message documentation (Message documentation)
@@ -71,6 +78,13 @@ Also used as tab name.',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}',
+	'ps-add-section' => '{{Identical|Add section}}',
+	'ps-removepagesection' => 'The text on the button that removes the current section',
+	'ps-sectionname' => 'Used as label for "Section name" input box',
+	'ps-sectionlevel' => 'Used as label for "Section level" select box',
+	'ps-section' => 'A page section. {{Identical|Section}}',
+	'ps-level' => 'The level, or number of \'=\'s, in a section\'s header',
+	'ps-otherparams' => '{{Identical|Other parameters}}',
 );
 
 /** Afrikaans (Afrikaans)
