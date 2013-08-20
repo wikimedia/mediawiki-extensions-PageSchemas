@@ -83,7 +83,7 @@ Also used as tab name.',
 	'ps-sectionname' => 'Used as label for "Section name" input box',
 	'ps-sectionlevel' => 'Used as label for "Section level" select box',
 	'ps-section' => 'A page section. {{Identical|Section}}',
-	'ps-level' => 'The level, or number of \'=\'s, in a section\'s header',
+	'ps-level' => "The level, or number of '='s, in a section's header",
 	'ps-otherparams' => '{{Identical|Other parameters}}',
 );
 
@@ -1394,6 +1394,13 @@ $messages['uk'] = array(
 	'createschema' => 'Створити схему',
 	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»',
 	'action-generatepages' => 'переглянути вкладку "{{int:Generatepages}}" і сторінку',
+	'ps-add-section' => 'Додати розділ',
+	'ps-removepagesection' => 'Вилучити розділ',
+	'ps-sectionname' => 'Назва розділу:',
+	'ps-sectionlevel' => 'Рівень розділу:',
+	'ps-section' => 'Розділ',
+	'ps-level' => 'Рівень',
+	'ps-otherparams' => 'Інші параметри',
 );
 
 /** Urdu (اردو)
