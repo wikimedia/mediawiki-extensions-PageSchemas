@@ -78,13 +78,18 @@ Also used as tab name.',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}',
-	'ps-add-section' => '{{Identical|Add section}}',
-	'ps-removepagesection' => 'The text on the button that removes the current section',
-	'ps-sectionname' => 'Used as label for "Section name" input box',
-	'ps-sectionlevel' => 'Used as label for "Section level" select box',
+	'ps-add-section' => 'Used as label for the button.
+{{Identical|Add section}}',
+	'ps-removepagesection' => 'The text on the button that removes the current section.
+{{Identical|Remove section}}',
+	'ps-sectionname' => 'Used as label for "Section name" input box.
+{{Identical|Section name}}',
+	'ps-sectionlevel' => 'Used as label for "Section level" select box.
+{{Identical|Section level}}',
 	'ps-section' => 'A page section. {{Identical|Section}}',
-	'ps-level' => "The level, or number of '='s, in a section's header",
-	'ps-otherparams' => '{{Identical|Other parameters}}',
+	'ps-level' => "The level, or number of '='s, in a section's header.
+{{Identical|Level}}",
+	'ps-otherparams' => '{{Identical|Other parameter}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -263,6 +268,13 @@ $messages['de'] = array(
 	'createschema' => 'Schema erstellen',
 	'right-generatepages' => 'Den Reiter „Seiten generieren“ sowie die entsprechende Seite sehen',
 	'action-generatepages' => 'den Reiter „{{int:Generatepages}}“ sowie die entsprechende Seite zu sehen',
+	'ps-add-section' => 'Abschnitt hinzufügen',
+	'ps-removepagesection' => 'Abschnitt entfernen',
+	'ps-sectionname' => 'Abschnittsname:',
+	'ps-sectionlevel' => 'Abschnittsebene:',
+	'ps-section' => 'Abschnitt',
+	'ps-level' => 'Ebene',
+	'ps-otherparams' => 'Andere Parameter',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -424,6 +436,7 @@ $messages['fi'] = array(
  * @author Gomoko
  * @author IAlex
  * @author PieRRoMaN
+ * @author Sherbrooke
  * @author Zebulon84
  */
 $messages['fr'] = array(
@@ -454,6 +467,13 @@ $messages['fr'] = array(
 	'createschema' => 'Créer le schéma',
 	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page',
 	'action-generatepages' => 'afficher la page ou l\'onglet "{{int:Generatepages}}"',
+	'ps-add-section' => 'Ajouter une section',
+	'ps-removepagesection' => 'Enlever une section',
+	'ps-sectionname' => 'Nom de la section :',
+	'ps-sectionlevel' => 'Niveau de section :',
+	'ps-section' => 'Section',
+	'ps-level' => 'Niveau',
+	'ps-otherparams' => 'Autres paramètres',
 );
 
 /** Franco-Provençal (arpetan)
@@ -733,6 +753,13 @@ $messages['ja'] = array(
 	'createschema' => 'スキーマ作成',
 	'right-generatepages' => '「ページを生成」タブとページを閲覧',
 	'action-generatepages' => '「{{int:Generatepages}}」タブとページの閲覧',
+	'ps-add-section' => '節を追加',
+	'ps-removepagesection' => '節を除去',
+	'ps-sectionname' => '節の名前:',
+	'ps-sectionlevel' => '節のレベル:',
+	'ps-section' => '節',
+	'ps-level' => 'レベル',
+	'ps-otherparams' => 'その他のパラメーター',
 );
 
 /** Georgian (ქართული)
@@ -894,6 +921,13 @@ $messages['mk'] = array(
 	'createschema' => 'Создај шема',
 	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
 	'action-generatepages' => 'приказ на јазичето „{{int:Generatepages}}“ и неговата страница',
+	'ps-add-section' => 'Додај поднаслов',
+	'ps-removepagesection' => 'Отстрани поднаслов',
+	'ps-sectionname' => 'Назив на поднасловот:',
+	'ps-sectionlevel' => 'Ниво на поднасловот:',
+	'ps-section' => 'Поднаслов',
+	'ps-level' => 'Ниво',
+	'ps-otherparams' => 'Други параметри',
 );
 
 /** Maltese (Malti)
