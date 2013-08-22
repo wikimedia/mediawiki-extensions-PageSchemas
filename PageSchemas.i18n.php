@@ -888,6 +888,13 @@ $messages['lb'] = array(
 	'createschema' => 'Schema uleeën',
 	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn',
 	'action-generatepages' => 'den Onglet "{{int:Generatepages}}" an d\'Säit gesinn',
+	'ps-add-section' => 'Abschnitt derbäisetzen',
+	'ps-removepagesection' => 'Abschnitt ewechhuelen',
+	'ps-sectionname' => 'Numm vum Abschnitt:',
+	'ps-sectionlevel' => 'Niveau vum Abschnitt:',
+	'ps-section' => 'Abschnitt',
+	'ps-level' => 'Niveau',
+	'ps-otherparams' => 'Aner Parameter',
 );
 
 /** Macedonian (македонски)
@@ -928,6 +935,19 @@ $messages['mk'] = array(
 	'ps-section' => 'Поднаслов',
 	'ps-level' => 'Ниво',
 	'ps-otherparams' => 'Други параметри',
+);
+
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'ps-add-section' => 'विभाग जोडा',
+	'ps-removepagesection' => 'विभाग हटवा',
+	'ps-sectionname' => 'विभागाचे नाव:',
+	'ps-sectionlevel' => 'विभाग स्तर:',
+	'ps-section' => 'विभाग',
+	'ps-level' => 'पातळी',
+	'ps-otherparams' => 'ईतर प्राचले',
 );
 
 /** Maltese (Malti)
