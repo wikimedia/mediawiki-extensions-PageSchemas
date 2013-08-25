@@ -281,8 +281,8 @@ class PSSchema {
 	private $mPageXML = null;
 	/* Stores the template objects */
 	private $mTemplates = array();
-	// Stores the page sections
-	private $mPageSections = array();
+	/* Stores the template and page section objects */
+	private $mFormItemsList = array();
 	private $mIsPSDefined = true;
 
 	function __construct ( $categoryName ) {
@@ -309,36 +309,44 @@ class PSSchema {
 			$pageXMLstr = $row[2];
 			$this->mPageXML = simplexml_load_string ( $pageXMLstr );
 			// index for template objects
-			$i = 0;
+			$templateCount = 0;
 			$pageSectionCount = 0;
 			$inherited_templates = array();
 			foreach ( $this->mPageXML->children() as $tag => $child ) {
 				if ( $tag == 'InheritsFrom ' ) {
 					$schema_to_inherit = (string) $child->attributes()->schema;
-					if( $schema_to_inherit !=null ){
+					if( $schema_to_inherit != null ) {
 						$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
 						$inherited_templates = $inheritedSchemaObj->getTemplates();
 					}
 				}
 				if ( $tag == 'Template' ) {
 					$ignore = (string) $child->attributes()->ignore;
-					if ( count($child->children()) > 0 ) {
-						$templateObj = new PSTemplate($child);
-						$this->mTemplates[$i++]= $templateObj;
+					if ( count( $child->children() ) > 0 ) {
+						$templateObj = new PSTemplate( $child );
+						$this->mFormItemsList[] = array( 'type' => $tag,
+							'number' => $templateCount,
+							'item' => $templateObj );
+							$this->mTemplates[$templateCount]= $templateObj;
+						$templateCount++;
 					} elseif ( $ignore != "true" ) {
 						// Code to add templates from inherited templates
 						$temp_name = (string) $child->attributes()->name;
 						foreach( $inherited_templates as $inherited_template ) {
-							if( $temp_name == $inherited_template->getName() ){
-								$this->mTemplates[$i++] = $inherited_template;
+							if( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
+								$this->mFormItemsList[] = array( 'type' => $tag,
+									'number' => $templateCount,
+									'item' => $inherited_template );
+									$this->mTemplates[$templateCount] = $inherited_template;
+								$templateCount++;
 							}
 						}
 					}
 				} elseif ( $tag == 'Section' ) {
-					if ( count( $child->children() ) > 0 ) {
-						$pageSectionObj = new PSPageSection( $child );
-						$this->mPageSections[$pageSectionCount] = $pageSectionObj;
-					}
+					$pageSectionObj = new PSPageSection( $child );
+					$this->mFormItemsList[] = array( 'type' => $tag,
+							'number' => $pageSectionCount,
+							'item' => $pageSectionObj );
 					$pageSectionCount++;
 				}
 			}
@@ -374,8 +382,11 @@ class PSSchema {
 		return $this->mTemplates;
 	}
 
-	public function getPageSections() {
-		return $this->mPageSections;
+	/**
+	 * Returns an array of template and page section objects.
+	 */
+	public function getFormItemsList() {
+		return $this->mFormItemsList;
 	}
 
 	public function getObject( $objectName ) {
@@ -533,14 +544,20 @@ class PSPageSection{
 
 	private $mPageSectionXML = null;
 	private $mSectionName = "";
+	private $mSectionLevel = 2;
 
 	function __construct( $pageSectionXML ) {
 		$this->mPageSectionXML = $pageSectionXML;
 		$this->mSectionName = (string)$pageSectionXML->attributes()->name;
+		$this->mSectionLevel = (string)$pageSectionXML->attributes()->level;
 	}
 
 	public function getSectionName() {
 		return $this->mSectionName;
+	}
+
+	public function getSectionLevel() {
+		return $this->mSectionLevel;
 	}
 
 	public function getObject( $objectName ) {
