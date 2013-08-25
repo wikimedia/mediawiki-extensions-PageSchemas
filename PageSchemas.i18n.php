@@ -1069,6 +1069,11 @@ $messages['pl'] = array(
 	'createschema' => 'Utwórz schemat',
 	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
 	'action-generatepages' => 'wyświetl kartę i stronę "{{int:Generatepages}}"',
+	'ps-add-section' => 'Dodaj sekcję',
+	'ps-sectionname' => 'Nazwa sekcji:',
+	'ps-section' => 'Sekcja',
+	'ps-level' => 'Poziom',
+	'ps-otherparams' => 'Inne parametry',
 );
 
 /** Piedmontese (Piemontèis)
@@ -1480,10 +1485,18 @@ $messages['vi'] = array(
 );
 
 /** Yiddish (ייִדיש)
+ * @author פוילישער
  * @author පසිඳු කාවින්ද
  */
 $messages['yi'] = array(
 	'ps-namelabel' => 'נאָמען:',
+	'ps-add-section' => 'צולייגן ניווא',
+	'ps-removepagesection' => 'אראפנעמען אפטייל',
+	'ps-sectionname' => 'אפטייל נאמען:',
+	'ps-sectionlevel' => 'אפטייל ניווא:',
+	'ps-section' => 'אפטייל',
+	'ps-level' => 'ניווא',
+	'ps-otherparams' => 'אנדערע פאראמעטערס',
 );
 
 /** Simplified Chinese (中文（简体）‎)
