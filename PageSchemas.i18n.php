@@ -103,9 +103,12 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author زكريا
  */
 $messages['ar'] = array(
 	'ps-desc' => 'يدعم القوالب التي تعرف هيكل بياناتها من خلال علامات XML', # Fuzzy
+	'ps-add-template' => 'أضف القالب',
+	'ps-remove-template' => 'أزل القالب',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -1022,6 +1025,13 @@ $messages['nn'] = array(
  */
 $messages['oc'] = array(
 	'ps-desc' => 'Supòrta los modèls en definissent lor estructura de donadas via de balisas XML', # Fuzzy
+	'ps-add-section' => 'Apondre una seccion',
+	'ps-removepagesection' => 'Levar una seccion',
+	'ps-sectionname' => 'Nom de la seccion :',
+	'ps-sectionlevel' => 'Nivèl de seccion :',
+	'ps-section' => 'Seccion',
+	'ps-level' => 'Nivèl',
+	'ps-otherparams' => 'Autres paramètres',
 );
 
 /** Pampanga (Kapampangan)
