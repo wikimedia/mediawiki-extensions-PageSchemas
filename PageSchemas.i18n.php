@@ -539,6 +539,13 @@ $messages['gl'] = array(
 	'createschema' => 'Crear o esquema',
 	'right-generatepages' => 'Ollar a lapela e a páxina "Xerar as páxinas"',
 	'action-generatepages' => 'ollar a lapela e a páxina "{{int:Generatepages}}"',
+	'ps-add-section' => 'Engadir unha sección',
+	'ps-removepagesection' => 'Eliminar a sección',
+	'ps-sectionname' => 'Nome da sección:',
+	'ps-sectionlevel' => 'Nivel de sección:',
+	'ps-section' => 'Sección',
+	'ps-level' => 'Nivel',
+	'ps-otherparams' => 'Outros parámetros',
 );
 
 /** Swiss German (Alemannisch)
