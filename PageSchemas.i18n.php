@@ -699,6 +699,7 @@ $messages['ig'] = array(
 
 /** Italian (italiano)
  * @author Beta16
+ * @author Gianfranco
  */
 $messages['it'] = array(
 	'ps-desc' => 'Definisce la struttura di dati per tutte le pagine in una categoria utilizzando XML',
@@ -728,6 +729,13 @@ $messages['it'] = array(
 	'createschema' => 'Creare schema',
 	'right-generatepages' => 'Vede la scheda e la pagina "Genera pagine"',
 	'action-generatepages' => 'vedere la scheda e la pagina "{{int:Generatepages}}"',
+	'ps-add-section' => 'Aggiungi sezione',
+	'ps-removepagesection' => 'Rimuovi la sezione',
+	'ps-sectionname' => 'Nome della sezione:',
+	'ps-sectionlevel' => 'Livello della sezione:',
+	'ps-section' => 'Sezione',
+	'ps-level' => 'Livello',
+	'ps-otherparams' => 'Altri parametri',
 );
 
 /** Japanese (日本語)
@@ -1087,7 +1095,9 @@ $messages['pl'] = array(
 	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
 	'action-generatepages' => 'wyświetl kartę i stronę "{{int:Generatepages}}"',
 	'ps-add-section' => 'Dodaj sekcję',
+	'ps-removepagesection' => 'Usuń sekcję',
 	'ps-sectionname' => 'Nazwa sekcji:',
+	'ps-sectionlevel' => 'Poziom sekcji:',
 	'ps-section' => 'Sekcja',
 	'ps-level' => 'Poziom',
 	'ps-otherparams' => 'Inne parametry',
