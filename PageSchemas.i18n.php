@@ -62,7 +62,10 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'ps-desc' => '{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}',
-	'generatepages' => '{{doc-special|GeneratePages}}',
+	'generatepages' => '{{doc-special|GeneratePages}}
+Used as label for the tab.
+
+Used in {{msg-mw|Action-generatepages}}.',
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
 	'ps-add-template' => '{{Identical|Add template}}',
@@ -77,7 +80,8 @@ $messages['qqq'] = array(
 Also used as tab name.',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
-	'action-generatepages' => '{{doc-action|generatepages}}',
+	'action-generatepages' => '{{doc-action|generatepages}}
+Refers to {{msg-mw|Generatepages}}.',
 	'ps-add-section' => 'Used as label for the button.
 {{Identical|Add section}}',
 	'ps-removepagesection' => 'The text on the button that removes the current section.
