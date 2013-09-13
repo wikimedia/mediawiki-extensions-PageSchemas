@@ -1152,19 +1152,24 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
+ * @author Cainamarques
  * @author Hamilton Abreu
  * @author Luckas
  * @author Luckas Blade
  */
 $messages['pt'] = array(
-	'ps-desc' => 'Permite criar modelos, cuja estrutura de dados é definida através de uma notação XML', # Fuzzy
+	'ps-desc' => 'Define a estrutura de dados de todas as páginas utilizando XML',
 	'ps-template' => 'Predefinição',
 	'ps-add-template' => 'Adicionar predefinição',
 	'ps-remove-template' => 'Remover predefinição',
 	'ps-namelabel' => 'Nome:',
+	'ps-add-xml-label' => 'XML adicional:',
+	'ps-level' => 'Nível',
+	'ps-otherparams' => 'Outros parâmetros',
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Daemorris
  * @author Jaideraf
  */
@@ -1195,7 +1200,14 @@ $messages['pt-br'] = array(
 	'editschema' => 'Editar esquema',
 	'createschema' => 'Criar esquema',
 	'right-generatepages' => 'Ver página e guia "Gerar páginas"',
-	'action-generatepages' => 'ver a página e guia "Gerar páginas"', # Fuzzy
+	'action-generatepages' => 'ver a página e guia "{{int:Generatepages}}"',
+	'ps-add-section' => 'Adicionar seção',
+	'ps-removepagesection' => 'Remover seção',
+	'ps-sectionname' => 'Título da seção:',
+	'ps-sectionlevel' => 'Nível da seção:',
+	'ps-section' => 'Seção',
+	'ps-level' => 'Nível',
+	'ps-otherparams' => 'Outros parâmetros',
 );
 
 /** Romanian (română)
