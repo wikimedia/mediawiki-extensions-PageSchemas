@@ -1381,7 +1381,7 @@ $messages['sv'] = array(
 	'editschema' => 'Redigera schema',
 	'createschema' => 'Skapa schema',
 	'right-generatepages' => 'Visa fliken och sidan "Skapa sidor"',
-	'action-generatepages' => 'visa fliken och sidan "Skapa sidor"', # Fuzzy
+	'action-generatepages' => 'visa fliken och sidan "{{int:Generatepages}}"',
 );
 
 /** Tamil (தமிழ்)
