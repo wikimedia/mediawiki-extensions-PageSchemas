@@ -454,11 +454,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		global $wgPageSchemasHandlerClasses;
 
 		if ( is_null( $pageSchemaObj ) ) {
-			$psTemplates = array();
-			$psPageSections = array();
+			$psFormItemList = array();
 		} else {
-			$psTemplates = $pageSchemaObj->getTemplates();
-			$psPageSections = $pageSchemaObj->getPageSections();
+			$psFormItemList = $pageSchemaObj->getFormItemsList();
 		}
 
 		if ( is_null( $pageXML ) ) {
@@ -505,15 +503,19 @@ class PSEditSchema extends IncludableSpecialPage {
 		foreach ( $pageXMLChildren as $tag => $pageXMLChild ) {
 			if ( $tag == 'Template' ) {
 				$psTemplate = null;
-				if ( array_key_exists( $templateNum, $psTemplates ) ) {
-					$psTemplate = $psTemplates[$templateNum];
+				foreach ( $psFormItemList as $psFormItem ) {
+					if ( $psFormItem['type'] == 'Template' && $psFormItem['number'] == $templateNum ) {
+						$psTemplate = $psFormItem['item'];
+					}
 				}
 				$text .= self::printTemplateSection( $templateNum, $pageXMLChild, $psTemplate );
 				$templateNum++;
 			} elseif ( $tag == 'Section' ) {
 				$psPageSection = null;
-				if ( array_key_exists( $pageSectionNum, $psPageSections ) ) {
-					$psPageSection = $psPageSections[$pageSectionNum];
+				foreach ( $psFormItemList as $psFormItem ) {
+					if ( $psFormItem['type'] == 'Section' && $psFormItem['number'] == $pageSectionNum ) {
+						$psPageSection = $psFormItem['item'];
+					}
 				}
 				$text .= self::printPageSection( $pageSectionNum, $pageXMLChild, $psPageSection );
 				$pageSectionNum++;
