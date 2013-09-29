@@ -881,6 +881,7 @@ $messages['ku-latn'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'ps-desc' => "Definéiert d'Date-Struktur per XML fir all Säiten an enger Kategorie",
@@ -901,7 +902,7 @@ $messages['lb'] = array(
 	'ps-remove-template' => 'Schablon ewechhuelen',
 	'ps-field' => 'Feld',
 	'ps-namelabel' => 'Numm:',
-	'ps-displaylabel' => 'Etiquette weisen:',
+	'ps-displaylabel' => 'Etikett weisen:',
 	'ps-add-field' => 'Feld derbäisetzen',
 	'ps-remove-field' => 'Feld ewechhuelen',
 	'ps-add-xml-label' => 'Zousätzlechen XML:',
