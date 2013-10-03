@@ -1147,7 +1147,7 @@ $messages['pms'] = array(
  */
 $messages['ps'] = array(
 	'ps-template' => 'کينډۍ',
-	'ps-add-template' => 'کينډۍ ورګډول',
+	'ps-add-template' => 'کينډۍ ورگډول',
 	'ps-field' => 'ډګر',
 	'ps-namelabel' => 'نوم:',
 );
