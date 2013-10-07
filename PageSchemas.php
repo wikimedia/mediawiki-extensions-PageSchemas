@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
-define( 'PAGE_SCHEMAS_VERSION', '0.4-alpha' );
+define( 'PAGE_SCHEMAS_VERSION', '0.4' );
 
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
@@ -90,16 +90,16 @@ $wgResourceModules += array(
 	),
 );
 $wgResourceModules += array(
-    'ext.pageschemas.generatepages' => $pageSchemasResourceTemplate + array(
-        'scripts' => array(
-            'generatepages.js',
-        ),
-        'styles' => array(
-        ),
-        'dependencies' => array(
-            'jquery',
-        ),
-    ),
+	'ext.pageschemas.generatepages' => $pageSchemasResourceTemplate + array(
+		'scripts' => array(
+			'generatepages.js',
+		),
+		'styles' => array(
+		),
+		'dependencies' => array(
+			'jquery',
+		),
+	),
 );
 
 // Page Schemas global variables
