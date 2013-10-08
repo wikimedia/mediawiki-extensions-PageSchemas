@@ -1266,12 +1266,27 @@ $messages['roa-tara'] = array(
 
 /** Russian (русский)
  * @author Eleferen
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'ps-desc' => 'Определяет структуру данных для всех страниц в категории с помощью XML',
 	'ps-schema-description' => 'Схема страницы',
 	'generatepages' => 'Создание страниц',
+	'ps-template' => 'Шаблон',
+	'ps-add-template' => 'Добавить шаблон',
+	'ps-remove-template' => 'Удалить шаблон',
+	'ps-field' => 'Поле',
+	'ps-add-field' => 'Добавить поле',
+	'ps-remove-field' => 'Удалить поле',
+	'ps-add-xml-label' => 'Дополнительный XML:',
+	'editschema' => 'Изменить схему',
+	'createschema' => 'Создать схему',
+	'ps-add-section' => 'Добавить раздел',
+	'ps-removepagesection' => 'Удалить раздел',
+	'ps-sectionname' => 'Название раздела:',
+	'ps-section' => 'Раздел',
+	'ps-otherparams' => 'Другие параметры',
 );
 
 /** Sakha (саха тыла)
