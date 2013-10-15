@@ -1273,6 +1273,7 @@ $messages['ru'] = array(
 	'ps-desc' => 'Определяет структуру данных для всех страниц в категории с помощью XML',
 	'ps-schema-description' => 'Схема страницы',
 	'generatepages' => 'Создание страниц',
+	'ps-delimiter-label' => 'Разделитель для значений (по умолчанию — «,»):',
 	'ps-template' => 'Шаблон',
 	'ps-add-template' => 'Добавить шаблон',
 	'ps-remove-template' => 'Удалить шаблон',
