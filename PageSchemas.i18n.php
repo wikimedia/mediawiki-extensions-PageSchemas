@@ -1000,6 +1000,7 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author JurgenNL
  * @author SPQRobin
  * @author Siebrand
  */
@@ -1015,7 +1016,7 @@ $messages['nl'] = array(
 	'ps-page-desc-ps-not-exist' => 'Deze categorie bestaat, maar heeft geen paginaschema. Maak het paginaschema aan:',
 	'ps-page-desc-edit-schema' => 'Bewerkt het paginaschema voor deze categorie:',
 	'ps-delimiter-label' => 'Scheidingsteken voor waarden (standaard ","):',
-	'ps-multiple-temp-label' => 'Meerdere exemplaren van deze sjabloon toestaan',
+	'ps-multiple-temp-label' => 'Meerdere exemplaren van dit sjabloon toestaan',
 	'ps-field-list-label' => 'Dit veld kan een lijst met waarden bevatten',
 	'ps-template' => 'Sjabloon',
 	'ps-add-template' => 'Sjabloon toevoegen',
