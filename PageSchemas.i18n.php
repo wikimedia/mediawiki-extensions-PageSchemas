@@ -1368,6 +1368,7 @@ $messages['sr-el'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author Martinwiss
  * @author Per
  * @author WikiPhoenix
@@ -1400,6 +1401,8 @@ $messages['sv'] = array(
 	'createschema' => 'Skapa schema',
 	'right-generatepages' => 'Visa fliken och sidan "Skapa sidor"',
 	'action-generatepages' => 'visa fliken och sidan "{{int:Generatepages}}"',
+	'ps-level' => 'Nivå',
+	'ps-otherparams' => 'Andra parametrar',
 );
 
 /** Tamil (தமிழ்)
