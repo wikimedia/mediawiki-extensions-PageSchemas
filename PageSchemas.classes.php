@@ -194,8 +194,10 @@ END;
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
 			}
 		}
-		foreach ( $templateXML->children() as $child ) {
-			$text .= self::displayField( $child );
+		foreach ( $templateXML->children() as $elementName => $child ) {
+			if ( $elementName == 'Field' ) {
+				$text .= self::displayField( $child );
+			}
 		}
 		return $text;
 	}

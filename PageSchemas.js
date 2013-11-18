@@ -68,6 +68,9 @@ jQuery.fn.editSchemaMakeTemplateAdder = function() {
 		jQuery('.isListCheckbox').click(function() {
 			jQuery(this).editSchemaToggleDelimiterInput();
 		});
+		jQuery('.multipleInstanceTemplateCheckbox').click(function() {
+			jQuery(this).editSchemaToggleMultiInstanceTemplateAttrs();
+		});
 		templateNum++;
 	} );
 }
@@ -99,6 +102,14 @@ jQuery.fn.editSchemaToggleSectionDisplay = function() {
 	}
 }
 
+jQuery.fn.editSchemaToggleMultiInstanceTemplateAttrs = function() {
+	if (this.is(":checked")) {
+		this.closest('.sectionBody').find('.multipleInstanceTemplateAttributes').show('fast');
+	} else {
+		this.closest('.sectionBody').find('.multipleInstanceTemplateAttributes').hide('fast');
+	}
+}
+
 jQuery(document).ready(function() {
 	fieldNum = jQuery('.fieldBox:visible').length;
 	templateNum = jQuery('.templateBox:visible').length;
@@ -124,6 +135,12 @@ jQuery(document).ready(function() {
 	});
 	jQuery('.sectionCheckbox').click(function() {
 		jQuery(this).editSchemaToggleSectionDisplay();
+	});
+	jQuery('.multipleInstanceTemplateCheckbox').each(function() {
+		jQuery(this).editSchemaToggleMultiInstanceTemplateAttrs();
+	});
+	jQuery('.multipleInstanceTemplateCheckbox').click(function() {
+		jQuery(this).editSchemaToggleMultiInstanceTemplateAttrs();
 	});
 	jQuery('#editSchemaForm').submit( function() {
 		jQuery(':hidden').find("input, select, textarea").attr('disabled', 'disabled');
