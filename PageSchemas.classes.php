@@ -167,11 +167,14 @@ END;
 		return $text;
 	}
 
-	static function displayTemplate ( $templateXML ) {
+	/**
+	 * Display the schema information for a single template, in HTML form.
+	 */
+	static function displayTemplate( $templateXML ) {
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $templateXML->attributes()->name;
-		$text = self::tableRowHTML( 'templateRow', wfMsg( 'ps-template' ), $name );
+		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-template' )->text(), $name );
 		$multiple = $templateXML->attributes()->multiple;
 		if ( $multiple == 'multiple' ) {
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
@@ -202,11 +205,15 @@ END;
 		return $text;
 	}
 
-	static function displayField ( $fieldXML ) {
+	/**
+	 * Display the schema information for a single template field, in HTML
+	 * form.
+	 */
+	static function displayField( $fieldXML ) {
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $fieldXML->attributes()->name;
-		$text = self::tableRowHTML( 'fieldRow', wfMsg( 'ps-field' ), $name );
+		$text = self::tableRowHTML( 'fieldRow', wfMessage( 'ps-field' )->text(), $name );
 
 		if( ((string) $fieldXML->attributes()->list) == "list" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
@@ -239,13 +246,17 @@ END;
 		return $text;
 	}
 
+	/**
+	 * Display the schema information for a single page section, in HTML
+	 * form.
+	 */
 	static function displayPageSection( $pageSectionXML ) {
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $pageSectionXML->attributes()->name;
 		$level = $pageSectionXML->attributes()->level;
-		$text = self::tableRowHTML( 'templateRow', wfMsg( 'ps-section' ), $name );
-		$text .= self::attrRowHTML( 'schemaAttrRow', wfMsg( 'ps-level' ), $level );
+		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-section' )->text(), $name );
+		$text .= self::attrRowHTML( 'schemaAttrRow', wfMessage( 'ps-level' )->text(), $level );
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayValues' ), $pageSectionXML );

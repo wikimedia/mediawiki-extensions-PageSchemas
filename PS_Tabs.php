@@ -25,7 +25,7 @@ final class PSTabs {
 
 		if ( $wgUser->isAllowed( 'edit' ) && $wgTitle->userCan( 'edit' ) ) {
 			$content_actions['editschema'] = array(
-				'text' => ( $isPSDefined ) ? wfMsg( 'editschema' ) : wfMsg( 'createschema' ),
+				'text' => ( $isPSDefined ) ? wfMessage( 'editschema' )->text() : wfMessage( 'createschema' )->text(),
 				'class' => $wgRequest->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 				'href' => $title->getLocalURL( 'action=editschema' )
 			);
@@ -33,7 +33,7 @@ final class PSTabs {
 
 		if ( $isPSDefined && $wgUser->isAllowed( 'generatepages' ) ) {
 			$content_actions['generatepages'] = array(
-				'text' => wfMsg( 'generatepages' ),
+				'text' => wfMessage( 'generatepages' )->text(),
 				'class' => $wgRequest->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 				'href' => $title->getLocalURL( 'action=generatepages' )
 			);

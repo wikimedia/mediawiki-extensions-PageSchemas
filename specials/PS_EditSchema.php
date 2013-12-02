@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Displays an interface to let users create and edit the <PageSchema> XML.
  *
  * @author Ankit Garg
  * @author Yaron Koren
  */
-
 class PSEditSchema extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'EditSchema', 'edit' );
@@ -246,15 +246,15 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 			$fieldDisplay = (string)$field_xml->attributes()->display;
 		}
-		$fieldHTML = wfMsg( 'ps-namelabel' ) . ' ';
+		$fieldHTML = wfMessage( 'ps-namelabel' )->text() . ' ';
 		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 25 ) ) . ' ';
-		$fieldHTML .= wfMsg( 'ps-displaylabel' ) . ' ';
+		$fieldHTML .= wfMessage( 'ps-displaylabel' )->text() . ' ';
 		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', array( 'size' => 25 ) );
 		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
 		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
-		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMsg( 'ps-field-list-label' ) );
+		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMessage( 'ps-field-list-label' )->text() );
 		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
-		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMsg( 'ps-delimiter-label' ) . ' ' . $fieldDelimiterInput );
+		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMessage( 'ps-delimiter-label' )->text() . ' ' . $fieldDelimiterInput );
 		// Create radiobutton for display of field
 		$displayShownAttrs = array();
 		$displayIfNonEmptyAttrs = array();
@@ -294,11 +294,11 @@ class PSEditSchema extends IncludableSpecialPage {
 		$field_add_xml = null;
 		$fieldHTML .= "\n\t\t\t\t" . Html::hidden( "f_add_xml_$fieldNum", $field_add_xml );
 		//$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
-		//$fieldHTML .= "<p>" . wfMsg('ps-add-xml-label') . $additionalXMLInput . "</p>\n";
-		$fieldHTML .= Html::input( 'remove-field', wfMsg( 'ps-remove-field' ), 'button',
+		//$fieldHTML .= "<p>" . wfMessage('ps-add-xml-label')->text() . $additionalXMLInput . "</p>\n";
+		$fieldHTML .= Html::input( 'remove-field', wfMessage( 'ps-remove-field' )->text(), 'button',
 			array( 'class' => 'deleteField' )
 		);
-		$text .= "\n" . self::printFormSection( wfMsg( 'ps-field' ), '#AAA', $fieldHTML, 'editSchemaFieldSection' );
+		$text .= "\n" . self::printFormSection( wfMessage( 'ps-field' )->text(), '#AAA', $fieldHTML, 'editSchemaFieldSection' );
 		$text .= "\t</div><!-- fieldBox -->\n";
 		return $text;
 	}
@@ -330,11 +330,11 @@ class PSEditSchema extends IncludableSpecialPage {
 			$templateFormat = (string)$templateXML->attributes()->format;
 			$templateXMLElements = $templateXML->children();
 		}
-		$templateNameInput = wfMsg( 'ps-namelabel' ) . ' ';
+		$templateNameInput = wfMessage( 'ps-namelabel' )->text() . ' ';
 		$templateNameInput .= Html::input( 't_name_' . $template_num, $templateName, 'text' );
 		$templateHTML = "\t\t" . Html::rawElement( 'p', null, $templateNameInput ) . "\n";
 		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
-		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMsg( 'ps-multiple-temp-label' ) );
+		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMessage( 'ps-multiple-temp-label' )->text() );
 
 		// Use an input from the Semantic Forms extension for the
 		// template format.
@@ -401,16 +401,16 @@ class PSEditSchema extends IncludableSpecialPage {
 			array(
 				'type' => 'button',
 				'class' => 'editSchemaAddField',
-				'value' => wfMsg( 'ps-add-field' ),
+				'value' => wfMessage( 'ps-add-field' )->text(),
 			)
 		);
 		$templateHTML .= Xml::tags( 'p', null, $add_field_button ) . "\n";
 		$templateHTML .= "<hr />\n";
 		$templateHTML .= "\n\t\t\t\t" . Html::hidden( "t_add_xml_$template_num", $template_add_xml );
 		//$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
-		//$templateHTML .= "\n<p>" . wfMsg('ps-add-xml-label') . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
+		//$templateHTML .= "\n<p>" . wfMessage('ps-add-xml-label')->text() . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
 		$templateHTML .= '<p>' . Html::input( 'remove-template', 'Remove template', 'button', array( 'class' => 'deleteTemplate' ) ) . "</p>\n";
-		$text .= self::printFormSection( wfMsg( 'ps-template' ), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
+		$text .= self::printFormSection( wfMessage( 'ps-template' )->text(), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
 		$text .= "\t</div><!-- templateBox-->\n";
 		return $text;
 	}
@@ -432,10 +432,10 @@ class PSEditSchema extends IncludableSpecialPage {
 			$section_level = (string)$pageSectionXML->attributes()->level;
 		}
 
-		$pageSectionHTML = '<p>' . Html::rawElement( 'span', null, wfMsg( 'ps-sectionname' ) ) . "\n";
+		$pageSectionHTML = '<p>' . Html::rawElement( 'span', null, wfMessage( 'ps-sectionname' )->text() ) . "\n";
 		$pageSectionHTML .= '</t>' . Html::input( 's_name_' . $section_num, $pageSectionName, 'text', array( 'size' => '30', 'id' => 'sectionname' ) ) . "\n";
-		$header_options =  '';
-		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, wfMsg( 'ps-sectionlevel' ) ) . "\n";
+		$header_options = '';
+		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, wfMessage( 'ps-sectionlevel' )->text() ) . "\n";
 		for ( $i = 1; $i < 7; $i++ ) {
 			if ( $section_level == $i ) {
 				$header_options .= " " . Html::element( 'option', array( 'value' => $i, 'selected' ), $i ) . "\n";
@@ -455,8 +455,8 @@ class PSEditSchema extends IncludableSpecialPage {
 			$html = self::printFormSection( $label, $color, $valuesFromExtension, 'editSchemaPageSection' );
 			$pageSectionHTML .= str_replace( 'num', $section_num, $html );
 		}
-		$pageSectionHTML .= '<p>' . Html::input( 'remove-pageSection', wfMsg( 'ps-removepagesection' ), 'button', array( 'class' => 'deletePageSection' ) ) . "</p>\n";
-		$text .= self::printFormSection( wfMsg( 'ps-section' ), '#A6B7CC', $pageSectionHTML, 'pageSection' );
+		$pageSectionHTML .= '<p>' . Html::input( 'remove-pageSection', wfMessage( 'ps-removepagesection' )->text(), 'button', array( 'class' => 'deletePageSection' ) ) . "</p>\n";
+		$text .= self::printFormSection( wfMessage( 'ps-section' )->text(), '#A6B7CC', $pageSectionHTML, 'pageSection' );
 		$text .= "\t</div><!-- pageSectionBox-->\n";
 		return $text;
 	}
@@ -492,7 +492,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$text = '<form id="editSchemaForm" action="" method="post">' . "\n";
 		$text .= "\n\t\t\t\t" . Html::hidden( 'ps_add_xml', $ps_add_xml );
 		//$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( 'ps_add_xml', $ps_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
-		//$text .= '<p>' . wfMsg('ps-add-xml-label') . $additionalXMLInput . "\n</p>";
+		//$text .= '<p>' . wfMessage( 'ps-add-xml-label' )->text() . $additionalXMLInput . "\n</p>";
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getSchemaEditingHTML" ), $pageSchemaObj );
@@ -540,20 +540,20 @@ class PSEditSchema extends IncludableSpecialPage {
 			array(
 				'type' => 'button',
 				'class' => 'editSchemaAddTemplate',
-				'value' => wfMsg( 'ps-add-template' ),
+				'value' => wfMessage( 'ps-add-template' )->text(),
 			)
 		);
 		$add_section_button = Xml::element( 'input',
 			array(
 				'type' => 'button',
 				'class' => 'editSchemaAddSection',
-				'value' => wfMsg( 'ps-add-section' ),
+				'value' => wfMessage( 'ps-add-section' )->text(),
 			)
 		);
 		$text .= "\t</div><!-- templatesList -->\n";
 		$text .= Xml::tags( 'p', null, $add_template_button . $add_section_button ) . "\n";
 		$text .= "\t\t<hr />\n";
-		$label = wfMsg( 'summary' );
+		$label = wfMessage( 'summary' )->text();
 		$text .= <<<END
 	<p>
 	<span id='wpSummaryLabel'><label for='wpSummary'>$label</label></span>
@@ -562,11 +562,11 @@ class PSEditSchema extends IncludableSpecialPage {
 
 END;
 		$attr = array(
-			'id'        => 'wpSave',
-			'accesskey' => wfMsg( 'accesskey-save' ),
-			'title'     => wfMsg( 'tooltip-save' ),
+			'id' => 'wpSave',
+			'accesskey' => wfMessage( 'accesskey-save' )->text(),
+			'title' => wfMessage( 'tooltip-save' )->text(),
 		);
-		$saveButton = Html::input( 'wpSave', wfMsg( 'savearticle' ), 'submit', $attr );
+		$saveButton = Html::input( 'wpSave', wfMessage( 'savearticle' )->text(), 'submit', $attr );
 		$text .= "\t\t" . Html::rawElement( 'div', array( 'class' => 'editButtons' ),
 			$saveButton ) . "\n";
 		$text .= "\t</form>\n";
@@ -587,7 +587,7 @@ END;
 
 
 		$this->setHeaders();
-		$text = '<p>' . wfMsg( 'ps-page-desc-edit-schema' ) . '</p>';
+		$text = '<p>' . wfMessage( 'ps-page-desc-edit-schema' )->text() . '</p>';
 		PageSchemas::addJavascriptAndCSS();
 
 		$save_page = $wgRequest->getCheck( 'wpSave' );
@@ -653,13 +653,13 @@ END;
 		$row = $dbr->fetchRow( $res );
 		if ( $row == null && !$title->exists() ) {
 			// Category doesn't exist.
-			$wgOut->setPageTitle( wfMsg( 'createschema' ) );
-			$text = '<p>' . wfMsg( 'ps-page-desc-cat-not-exist' ) . '</p>';
+			$wgOut->setPageTitle( wfMessage( 'createschema' )->text() );
+			$text = '<p>' . wfMessage( 'ps-page-desc-cat-not-exist' )->text() . '</p>';
 			$text .= self::printForm();
 		} elseif ( ( $row[1] != 'PageSchema' ) || ( $row[2] == null ) ) {
 			// Category exists, but has no page schema.
-			$text = '<p>' . wfMsg( 'ps-page-desc-ps-not-exist' ) . '</p>';
-			$wgOut->setPageTitle( wfMsg( 'createschema' ) );
+			$text = '<p>' . wfMessage( 'ps-page-desc-ps-not-exist' )->text() . '</p>';
+			$wgOut->setPageTitle( wfMessage( 'createschema' )->text() );
 			$text .= self::printForm();
 		} else {
 			// It's a category with an existing page schema -

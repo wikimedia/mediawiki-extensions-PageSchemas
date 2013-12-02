@@ -26,7 +26,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
 			$this->generatePages( $param, $wgRequest->getArray( 'page' ) );
-			$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-success' ) );
+			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-success' )->text() );
 			$wgOut->addHTML( $text );
 			return true;
 		}
@@ -41,12 +41,12 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// Check for a valid category, with a page schema defined.
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-noschema' ) );
+			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-noschema' )->text() );
 			$wgOut->addHTML( $text );
 			return true;
 		}
 
-		$text = Html::element( 'p', null, wfMsg( 'ps-generatepages-desc' ) ) . "\n";
+		$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-desc' )->text() ) . "\n";
 		$text .= '<form method="post">';
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
@@ -80,7 +80,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$text .= "\n" . $skin->link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
-		$text .= Html::input( null, wfMsg( 'generatepages' ), 'submit' );
+		$text .= Html::input( null, wfMessage( 'generatepages' )->text(), 'submit' );
 		$text .= "\n</form>";
 		$wgOut->addHTML( $text );
 		return true;

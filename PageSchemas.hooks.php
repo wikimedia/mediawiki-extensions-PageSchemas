@@ -19,7 +19,7 @@ class PageSchemasHooks {
 
 	// Render the displayed XML, if any
 	public static function render( $input, $args, $parser, $frame ) {
-		// Disable cache so that CSS will get loaded
+		// Disable cache so that CSS will get loaded.
 		$parser->disableCache();
 
 		// If this call is contained in a transcluded page or template,
@@ -31,9 +31,9 @@ class PageSchemasHooks {
 		// TODO: Do processing here, like parse to an array
 		$error_msg = null;
 
-		// recreate the top-level <PageSchema> tag, with whatever
+		// Recreate the top-level <PageSchema> tag, with whatever
 		// attributes it contained, because that was actually a tag-
-		// function call, as opposed to a real XML tag
+		// function call, as opposed to a real XML tag.
 		$input = Xml::tags( 'PageSchema', $args, $input );
 
  		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
@@ -50,7 +50,6 @@ class PageSchemasHooks {
 			$text .= Html::element( 'pre', null, $input );
 		}
 
-		// return output
 		return $text;
 	}
 }
