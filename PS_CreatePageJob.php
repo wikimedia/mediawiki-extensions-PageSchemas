@@ -48,7 +48,7 @@ class PSCreatePageJob extends Job {
 		global $wgUser;
 		$actual_user = $wgUser;
 		$wgUser = User::newFromId( $this->params['user_id'] );
-		$edit_summary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->text();
+		$edit_summary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
 		if ( method_exists( 'WikiPage', 'getContent' ) ) {
 			// MW >= 1.21
 			$content = new WikitextContent( $page_text );

@@ -26,7 +26,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
 			$this->generatePages( $param, $wgRequest->getArray( 'page' ) );
-			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-success' )->text() );
+			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-success' )->parse() );
 			$wgOut->addHTML( $text );
 			return true;
 		}
@@ -41,18 +41,18 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// Check for a valid category, with a page schema defined.
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-noschema' )->text() );
+			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-noschema' )->parse() );
 			$wgOut->addHTML( $text );
 			return true;
 		}
 
-		$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-desc' )->text() ) . "\n";
+		$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-desc' )->parse() ) . "\n";
 		$text .= '<form method="post">';
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
 		$text .= '<div id="ps_check_all_check_none">
-		<input type="button" id="ps_check_all" value="'.wfMessage('powersearch-toggleall')->text().'" />
-		<input type="button" id="ps_check_none" value="'.wfMessage('powersearch-togglenone')->text().'" />
+		<input type="button" id="ps_check_all" value="'.wfMessage('powersearch-toggleall')->parse().'" />
+		<input type="button" id="ps_check_none" value="'.wfMessage('powersearch-togglenone')->parse().'" />
 		</div><br/>';
 
 		$wgOut->addModules('ext.pageschemas.generatepages');
@@ -80,7 +80,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$text .= "\n" . $skin->link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
-		$text .= Html::input( null, wfMessage( 'generatepages' )->text(), 'submit' );
+		$text .= Html::input( null, wfMessage( 'generatepages' )->parse(), 'submit' );
 		$text .= "\n</form>";
 		$wgOut->addHTML( $text );
 		return true;
