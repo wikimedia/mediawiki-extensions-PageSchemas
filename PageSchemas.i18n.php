@@ -1032,6 +1032,7 @@ $messages['nl'] = array(
 	'createschema' => 'Schema aanmaken',
 	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
 	'action-generatepages' => 'het tabblad en de pagina "{{int:Generatepages}}" te zien',
+	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Andere parameters',
 );
 
