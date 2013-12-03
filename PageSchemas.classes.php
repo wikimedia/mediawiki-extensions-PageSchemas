@@ -174,7 +174,7 @@ END;
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $templateXML->attributes()->name;
-		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-template' )->text(), $name );
+		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-template' )->parse(), $name );
 		$multiple = $templateXML->attributes()->multiple;
 		if ( $multiple == 'multiple' ) {
 			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
@@ -213,7 +213,7 @@ END;
 		global $wgPageSchemasHandlerClasses;
 
 		$name = $fieldXML->attributes()->name;
-		$text = self::tableRowHTML( 'fieldRow', wfMessage( 'ps-field' )->text(), $name );
+		$text = self::tableRowHTML( 'fieldRow', wfMessage( 'ps-field' )->parse(), $name );
 
 		if( ((string) $fieldXML->attributes()->list) == "list" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
@@ -255,8 +255,8 @@ END;
 
 		$name = $pageSectionXML->attributes()->name;
 		$level = $pageSectionXML->attributes()->level;
-		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-section' )->text(), $name );
-		$text .= self::attrRowHTML( 'schemaAttrRow', wfMessage( 'ps-level' )->text(), $level );
+		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-section' )->parse(), $name );
+		$text .= self::attrRowHTML( 'schemaAttrRow', wfMessage( 'ps-level' )->parse(), $level );
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayValues' ), $pageSectionXML );
