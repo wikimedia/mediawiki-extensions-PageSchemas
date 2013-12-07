@@ -228,14 +228,14 @@ $messages['bs'] = array(
 	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika', # Fuzzy
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Vks
  */
 $messages['cs'] = array(
 	'ps-namelabel' => 'Název:',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -1032,6 +1032,11 @@ $messages['nl'] = array(
 	'createschema' => 'Schema aanmaken',
 	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
 	'action-generatepages' => 'het tabblad en de pagina "{{int:Generatepages}}" te zien',
+	'ps-add-section' => 'Sectie toevoegen',
+	'ps-removepagesection' => 'Sectie verwijderen',
+	'ps-sectionname' => 'Sectienaam:',
+	'ps-sectionlevel' => 'Sectieniveau:',
+	'ps-section' => 'Sectie',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Andere parameters',
 );
