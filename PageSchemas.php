@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
-define( 'PAGE_SCHEMAS_VERSION', '0.4' );
+define( 'PAGE_SCHEMAS_VERSION', '0.4.1' );
 
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
@@ -40,7 +40,6 @@ $wgExtensionMessagesFiles['PageSchemasAlias'] = $dir . 'PageSchemas.i18n.alias.p
 
 // Job classes
 $wgJobClasses['pageSchemasCreatePage'] = 'PSCreatePageJob';
-$wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
 // Register page classes
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
@@ -51,6 +50,7 @@ $wgAutoloadClasses['PSGeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
 $wgAutoloadClasses['PSEditSchema'] = $dir . 'specials/PS_EditSchema.php';
 $wgAutoloadClasses['PSTabs'] = $dir . 'PS_Tabs.php';
 $wgAutoloadClasses['PSExtensionHandler'] = $dir . 'PS_ExtensionHandler.php';
+$wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
 // Register special pages
 $wgSpecialPages['GeneratePages'] = 'PSGeneratePages'; 
