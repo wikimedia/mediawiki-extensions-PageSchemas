@@ -19,14 +19,14 @@ class PSCreatePageJob extends Job {
 		wfProfileIn( __METHOD__ );
 
 		if ( is_null( $this->title ) ) {
-			$this->error = "pageSchemasCreatePage: Invalid title";
+			$this->error = wfMessage( 'ps-createpage-invalidtitle' )->text();
 			wfProfileOut( __METHOD__ );
 			return false;
 		}
 		if ( method_exists( 'WikiPage', 'getContent' ) ) {
 			// MW >= 1.21
 			if ( $this->title->getContentModel() !== CONTENT_MODEL_WIKITEXT ) {
-				$this->error = 'pageSchemasCreatePage: Wiki page "' . $this->title->getPrefixedDBkey() . '" does not hold regular wikitext.';
+				$this->error = wfMessage( 'ps-createpage-irregulartext', $this->title->getPrefixedDBkey() )->text();
 				wfProfileOut( __METHOD__ );
 				return false;
 			}
@@ -34,7 +34,7 @@ class PSCreatePageJob extends Job {
 		} else {
 			$article = new Article( $this->title );
 			if ( !$article ) {
-				$this->error = 'pageSchemasCreatePage: Article not found "' . $this->title->getPrefixedDBkey() . '"';
+				$this->error = wfMessage( 'ps-createpage-notfound', $this->title->getPrefixedDBkey() )->text();
 				wfProfileOut( __METHOD__ );
 				return false;
 			}

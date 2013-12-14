@@ -252,9 +252,13 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', array( 'size' => 25 ) );
 		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
 		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
-		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListInput . ' ' . wfMessage( 'ps-field-list-label' )->parse() );
+		$fieldIsListSet = $fieldIsListInput . ' ';
+		$fieldIsListSet .= wfMessage( 'ps-field-list-label' )->parse();
+		$fieldHTML .= Html::rawElement( 'p', null,  $fieldIsListSet);
 		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
-		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, wfMessage( 'ps-delimiter-label' )->parse() . ' ' . $fieldDelimiterInput );
+		$fieldDelimiterInputAndLabel = wfMessage( 'ps-delimiter-label' )->parse() . ' ';
+		$fieldDelimiterSet .= $fieldDelimiterInput;
+		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterSet );
 		// Create radiobutton for display of field
 		$displayShownAttrs = array();
 		$displayIfNonEmptyAttrs = array();
@@ -271,7 +275,13 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldDisplayShownInput = Html::input( $groupName, 'show', 'radio', $displayShownAttrs );
 		$fieldDisplayIfNonEmptyInput = Html::input( $groupName, 'nonempty', 'radio', $displayIfNonEmptyAttrs );
 		$fieldDisplayHiddenInput = Html::input( $groupName, 'hidden', 'radio', $displayHiddenAttrs );
-		$fieldHTML .= Html::rawElement( 'p', null, $fieldDisplayShownInput . ' ' . "Display this field always" . ' ' . $fieldDisplayIfNonEmptyInput . ' ' . "Display if not empty" . ' ' . $fieldDisplayHiddenInput . ' ' . "Hide" );
+		$radioAndLabelSet = $fieldDisplayShownInput . ' ';
+		$radioAndLabelSet .= wfMessage( 'ps-field-display-always' )->parse() . ' ';
+		$radioAndLabelSet .= $fieldDisplayIfNonEmptyInput . ' ';
+		$radioAndLabelSet .= wfMessage( 'ps-field-display-nonempty' )->parse() . ' ';
+		$radioAndLabelSet .= $fieldDisplayHiddenInput . ' ';
+		$radioAndLabelSet .= wfMessage( 'ps-field-display-hidden' )->parse();
+		$fieldHTML .= Html::rawElement( 'p', null, $radioAndLabelSet );
 
 		// Insert HTML text from extensions
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
@@ -409,7 +419,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateHTML .= "\n\t\t\t\t" . Html::hidden( "t_add_xml_$template_num", $template_add_xml );
 		//$additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
 		//$templateHTML .= "\n<p>" . wfMessage('ps-add-xml-label')->parse() . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
-		$templateHTML .= '<p>' . Html::input( 'remove-template', 'Remove template', 'button', array( 'class' => 'deleteTemplate' ) ) . "</p>\n";
+		$templateHTML .= '<p>' . Html::input( 'remove-template', wfMessage( 'ps-remove-template' )->text(), 'button', array( 'class' => 'deleteTemplate' ) ) . "</p>\n";
 		$text .= self::printFormSection( wfMessage( 'ps-template' )->parse(), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
 		$text .= "\t</div><!-- templateBox-->\n";
 		return $text;
