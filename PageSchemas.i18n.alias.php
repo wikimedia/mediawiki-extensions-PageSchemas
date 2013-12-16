@@ -15,6 +15,12 @@ $specialPageAliases['en'] = array(
 	'EditSchema' => array( 'EditSchema' ),
 );
 
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'GeneratePages' => array( 'توليد_صفحات' ),
+	'EditSchema' => array( 'تعديل_السكيما' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'GeneratePages' => array( 'Seiten_generieren' ),
