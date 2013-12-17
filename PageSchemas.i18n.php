@@ -1591,9 +1591,11 @@ $messages['yi'] = array(
  * @author Kuailong
  * @author Li3939108
  * @author Liangent
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
+	'generatepages' => '生成页面',
 	'ps-template' => '模板',
 	'ps-add-template' => '添加模板',
 	'ps-remove-template' => '移除模板',
