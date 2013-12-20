@@ -49,6 +49,12 @@ $messages['en'] = array(
 	'ps-section' => 'Section',
 	'ps-level' => 'Level',
 	'ps-otherparams' => 'Other parameters',
+	'ps-createpage-irregulartext' => 'Wiki page "$1" does not hold regular wikitext.',
+	'ps-createpage-invalidtitle' => 'Invalid Title',
+	'ps-createpage-notfound' => 'Article not found',
+	'ps-field-display-always' => 'Display this field always',
+	'ps-field-display-notempty' => 'Display if not empty',
+	'ps-field-display-hide' => 'Hide',
 );
 
 /** Message documentation (Message documentation)
@@ -94,6 +100,35 @@ Refers to {{msg-mw|Generatepages}}.',
 	'ps-level' => "The level, or number of '='s, in a section's header.
 {{Identical|Level}}",
 	'ps-otherparams' => '{{Identical|Other parameter}}',
+	'ps-delimiter-label' => 'Used as label for delimiter of values.
+{{Identical|Delimiter for values (default is ","):}}',
+	'ps-field-display-always' => 'Label for radio button for always display
+See also:
+* {{msg-mw|ps-field-display-nonempty}}
+* {{msg-mw|ps-field-display-hide}}
+----
+{{Identical|Display this field always}}',
+	'ps-field-display-nonempty' => 'Label for radio button for display if nonempty
+See also:
+* {{msg-mw|ps-field-display-always}}
+* {{msg-mw|ps-field-display-hide}}
+----
+{{Identical|Display if nonempty}}',
+	'ps-field-display-hide' => 'Label for radio button for display hide
+See also:
+* {{msg-mw|ps-field-display-nonempty}}
+* {{msg-mw|ps-field-display-always}}
+----
+{{Identical|Hide}}',
+	'ps-field-list-label' => 'Label for is_list checkbox.
+{{Identical|This field can hold a list of values}}',
+	'ps-createpage-invalidtitle' => 'Error message when the title requested is invalid.
+{{Identical|Invalid Title}}',
+	'ps-createpage-notfound' => 'Error message when the requested article is not found.
+{{Identical|Article not found}}',
+	'ps-createpage-irregulartext' => 'Error message when the text input is irregular.
+Parameter:
+* $1 is the wikipage with irregular text',
 );
 
 /** Afrikaans (Afrikaans)
