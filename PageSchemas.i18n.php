@@ -72,6 +72,10 @@ $messages['qqq'] = array(
 Used as label for the tab.
 
 Used in {{msg-mw|Action-generatepages}}.',
+	'ps-delimiter-label' => 'Used as label for delimiter of values.
+{{Identical|Delimiter for values (default is ","):}}',
+	'ps-field-list-label' => 'Label for is_list checkbox.
+{{Identical|This field can hold a list of values}}',
 	'ps-template' => 'A MediaWiki template.
 {{Identical|Template}}',
 	'ps-add-template' => '{{Identical|Add template}}',
@@ -100,35 +104,23 @@ Refers to {{msg-mw|Generatepages}}.',
 	'ps-level' => "The level, or number of '='s, in a section's header.
 {{Identical|Level}}",
 	'ps-otherparams' => '{{Identical|Other parameter}}',
-	'ps-delimiter-label' => 'Used as label for delimiter of values.
-{{Identical|Delimiter for values (default is ","):}}',
-	'ps-field-display-always' => 'Label for radio button for always display
-See also:
-* {{msg-mw|ps-field-display-nonempty}}
-* {{msg-mw|ps-field-display-hide}}
-----
-{{Identical|Display this field always}}',
-	'ps-field-display-nonempty' => 'Label for radio button for display if nonempty
-See also:
-* {{msg-mw|ps-field-display-always}}
-* {{msg-mw|ps-field-display-hide}}
-----
-{{Identical|Display if nonempty}}',
-	'ps-field-display-hide' => 'Label for radio button for display hide
-See also:
-* {{msg-mw|ps-field-display-nonempty}}
-* {{msg-mw|ps-field-display-always}}
-----
-{{Identical|Hide}}',
-	'ps-field-list-label' => 'Label for is_list checkbox.
-{{Identical|This field can hold a list of values}}',
-	'ps-createpage-invalidtitle' => 'Error message when the title requested is invalid.
-{{Identical|Invalid Title}}',
-	'ps-createpage-notfound' => 'Error message when the requested article is not found.
-{{Identical|Article not found}}',
 	'ps-createpage-irregulartext' => 'Error message when the text input is irregular.
 Parameter:
 * $1 is the wikipage with irregular text',
+	'ps-createpage-invalidtitle' => 'Error message when the title requested is invalid.
+{{Identical|Invalid title}}',
+	'ps-createpage-notfound' => 'Error message when the requested article is not found.',
+	'ps-field-display-always' => 'Label for radio button for always display.
+
+See also:
+* {{msg-mw|ps-field-display-notempty}}
+* {{msg-mw|ps-field-display-hide}}',
+	'ps-field-display-hide' => 'Label for radio button for display hide.
+
+See also:
+* {{msg-mw|ps-field-display-notempty}}
+* {{msg-mw|ps-field-display-always}}
+{{Identical|Hide}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -308,7 +300,7 @@ $messages['de'] = array(
 	'ps-optional-name' => 'Name (leer lassen, um den Feldnamen zu verwenden):',
 	'editschema' => 'Schema bearbeiten',
 	'createschema' => 'Schema erstellen',
-	'right-generatepages' => 'Den Reiter „Seiten generieren“ sowie die entsprechende Seite sehen',
+	'right-generatepages' => 'Den Reiter „{{int:generatepages}}“ sowie die entsprechende Seite sehen',
 	'action-generatepages' => 'den Reiter „{{int:Generatepages}}“ sowie die entsprechende Seite zu sehen',
 	'ps-add-section' => 'Abschnitt hinzufügen',
 	'ps-removepagesection' => 'Abschnitt entfernen',
@@ -317,6 +309,12 @@ $messages['de'] = array(
 	'ps-section' => 'Abschnitt',
 	'ps-level' => 'Ebene',
 	'ps-otherparams' => 'Andere Parameter',
+	'ps-createpage-irregulartext' => 'Die Wikiseite „$1“ enthält keinen normalen Wikitext.',
+	'ps-createpage-invalidtitle' => 'Ungültiger Titel',
+	'ps-createpage-notfound' => 'Artikel nicht gefunden',
+	'ps-field-display-always' => 'Dieses Feld immer anzeigen',
+	'ps-field-display-notempty' => 'Anzeigen, falls nicht leer',
+	'ps-field-display-hide' => 'Verstecken',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
@@ -808,7 +806,7 @@ $messages['ja'] = array(
 	'ps-optional-name' => '名前 (空欄の場合はフィールド名を使用):',
 	'editschema' => 'スキーマの編集',
 	'createschema' => 'スキーマ作成',
-	'right-generatepages' => '「ページを生成」タブとページを閲覧',
+	'right-generatepages' => '「ページを生成」タブとページを閲覧', # Fuzzy
 	'action-generatepages' => '「{{int:Generatepages}}」タブとページの閲覧',
 	'ps-add-section' => '節を追加',
 	'ps-removepagesection' => '節を除去',
@@ -817,6 +815,12 @@ $messages['ja'] = array(
 	'ps-section' => '節',
 	'ps-level' => 'レベル',
 	'ps-otherparams' => 'その他のパラメーター',
+	'ps-createpage-irregulartext' => 'ウィキページ「$1」は通常のウィキテキストを保持していません。',
+	'ps-createpage-invalidtitle' => '無効なページ名',
+	'ps-createpage-notfound' => '記事が見つかりません',
+	'ps-field-display-always' => 'このフィールドを常に表示',
+	'ps-field-display-notempty' => '空ではない場合表示',
+	'ps-field-display-hide' => '非表示',
 );
 
 /** Georgian (ქართული)
@@ -944,7 +948,7 @@ $messages['lb'] = array(
 	'ps-optional-name' => 'Numm (eidel loosse fir den Numm vum Feld ze benotzen):',
 	'editschema' => 'Schema änneren',
 	'createschema' => 'Schema uleeën',
-	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn',
+	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn', # Fuzzy
 	'action-generatepages' => 'den Onglet "{{int:Generatepages}}" an d\'Säit gesinn',
 	'ps-add-section' => 'Abschnitt derbäisetzen',
 	'ps-removepagesection' => 'Abschnitt ewechhuelen',
@@ -993,6 +997,16 @@ $messages['mk'] = array(
 	'ps-section' => 'Поднаслов',
 	'ps-level' => 'Ниво',
 	'ps-otherparams' => 'Други параметри',
+);
+
+/** Malayalam (മലയാളം)
+ * @author Santhosh.thottingal
+ */
+$messages['ml'] = array(
+	'ps-createpage-invalidtitle' => 'അസാധുവായ തലക്കെട്ട്',
+	'ps-createpage-notfound' => 'ലേഖനം കണ്ടെത്താൻ കഴിഞ്ഞില്ല',
+	'ps-field-display-notempty' => 'കാലിയല്ലെങ്കിൽ കാണിയ്ക്കുക',
+	'ps-field-display-hide' => 'മറയ്ക്കുക',
 );
 
 /** Marathi (मराठी)
@@ -1573,7 +1587,7 @@ $messages['uk'] = array(
 	'ps-optional-name' => 'Назва (залишити порожнім для такої ж як назва поля):',
 	'editschema' => 'Редагувати схему',
 	'createschema' => 'Створити схему',
-	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»',
+	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»', # Fuzzy
 	'action-generatepages' => 'переглянути вкладку "{{int:Generatepages}}" і сторінку',
 	'ps-add-section' => 'Додати розділ',
 	'ps-removepagesection' => 'Вилучити розділ',
@@ -1582,6 +1596,12 @@ $messages['uk'] = array(
 	'ps-section' => 'Розділ',
 	'ps-level' => 'Рівень',
 	'ps-otherparams' => 'Інші параметри',
+	'ps-createpage-irregulartext' => 'Вікі-сторінка "$1" не містить регулярного тексту вікі.',
+	'ps-createpage-invalidtitle' => 'Невірний заголовок',
+	'ps-createpage-notfound' => 'Статтю не знайдено',
+	'ps-field-display-always' => 'Відображати це поле завжди',
+	'ps-field-display-notempty' => 'Відображати, якщо поле не порожнє',
+	'ps-field-display-hide' => 'Приховати',
 );
 
 /** Urdu (اردو)
