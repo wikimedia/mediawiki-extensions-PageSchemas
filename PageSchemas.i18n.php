@@ -71,7 +71,9 @@ $messages['qqq'] = array(
 	'generatepages' => '{{doc-special|GeneratePages}}
 Used as label for the tab.
 
-Used in {{msg-mw|Action-generatepages}}.',
+Used in:
+* {{msg-mw|Right-generatepages}}
+* {{msg-mw|Action-generatepages}}',
 	'ps-delimiter-label' => 'Used as label for delimiter of values.
 {{Identical|Delimiter for values (default is ","):}}',
 	'ps-field-list-label' => 'Label for is_list checkbox.
@@ -91,7 +93,7 @@ Also used as tab name.',
 	'createschema' => 'Tab name',
 	'right-generatepages' => '{{doc-right|generatepages}}',
 	'action-generatepages' => '{{doc-action|generatepages}}
-Refers to {{msg-mw|Generatepages}}.',
+Refers to {{msg-mw|generatepages}}.',
 	'ps-add-section' => 'Used as label for the button.
 {{Identical|Add section}}',
 	'ps-removepagesection' => 'The text on the button that removes the current section.
@@ -446,6 +448,7 @@ $messages['eu'] = array(
 
 /** Persian (فارسی)
  * @author Mjbmr
+ * @author Omidh
  */
 $messages['fa'] = array(
 	'ps-template' => 'الگو',
@@ -454,6 +457,7 @@ $messages['fa'] = array(
 	'ps-field' => 'زمینه',
 	'ps-namelabel' => 'نام:',
 	'ps-displaylabel' => 'برچسب نمایش:',
+	'ps-createpage-invalidtitle' => 'عنوان نادرست',
 );
 
 /** Finnish (suomi)
@@ -477,6 +481,7 @@ $messages['fi'] = array(
  * @author IAlex
  * @author PieRRoMaN
  * @author Sherbrooke
+ * @author Yann.fauche
  * @author Zebulon84
  */
 $messages['fr'] = array(
@@ -505,7 +510,7 @@ $messages['fr'] = array(
 	'ps-optional-name' => 'Nom (laisser blanc pour mettre le nom du champ):',
 	'editschema' => 'Modifier le schéma',
 	'createschema' => 'Créer le schéma',
-	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page',
+	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page', # Fuzzy
 	'action-generatepages' => 'afficher la page ou l\'onglet "{{int:Generatepages}}"',
 	'ps-add-section' => 'Ajouter une section',
 	'ps-removepagesection' => 'Enlever une section',
@@ -514,6 +519,11 @@ $messages['fr'] = array(
 	'ps-section' => 'Section',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Autres paramètres',
+	'ps-createpage-irregulartext' => 'La page wiki "$1" ne contient pas de texte valide.',
+	'ps-createpage-notfound' => 'Article non trouvé',
+	'ps-field-display-always' => 'Toujours afficher ce champ',
+	'ps-field-display-notempty' => "À afficher si le champ n'est pas vide",
+	'ps-field-display-hide' => 'Cacher',
 );
 
 /** Franco-Provençal (arpetan)
@@ -648,7 +658,7 @@ $messages['hsb'] = array(
 	'ps-optional-name' => 'Mjeno (prózdne wostajić, zo by pólne mjeno wužił)',
 	'editschema' => 'Šemu wobdźěłać',
 	'createschema' => 'Šemu wutworić',
-	'right-generatepages' => 'Rajtark a stronu "Stronu wutworić" pokazać',
+	'right-generatepages' => 'Rajtark a stronu "{{int:generatepages}}" pokazać',
 	'action-generatepages' => 'Rajtark a stronu "{{int:Generatepages}}"  pokazać',
 );
 
@@ -806,8 +816,8 @@ $messages['ja'] = array(
 	'ps-optional-name' => '名前 (空欄の場合はフィールド名を使用):',
 	'editschema' => 'スキーマの編集',
 	'createschema' => 'スキーマ作成',
-	'right-generatepages' => '「ページを生成」タブとページを閲覧', # Fuzzy
-	'action-generatepages' => '「{{int:Generatepages}}」タブとページの閲覧',
+	'right-generatepages' => '「{{int:generatepages}}」タブとページを閲覧',
+	'action-generatepages' => '「{{int:generatepages}}」タブとページの閲覧',
 	'ps-add-section' => '節を追加',
 	'ps-removepagesection' => '節を除去',
 	'ps-sectionname' => '節の名前:',
@@ -845,6 +855,7 @@ $messages['ka'] = array(
 );
 
 /** Korean (한국어)
+ * @author Clockoon
  * @author 아라
  */
 $messages['ko'] = array(
@@ -873,8 +884,12 @@ $messages['ko'] = array(
 	'ps-optional-name' => '이름 (비어 있으면 필드 이름 사용):',
 	'editschema' => '스키마 편집',
 	'createschema' => '스키마 만들기',
-	'right-generatepages' => '"문서 생성" 탭과 문서 보기',
+	'right-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
 	'action-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
+	'ps-createpage-irregulartext' => '위키 페이지 "$1"은(는) 위키 텍스트를 포함하고 있지 않습니다.',
+	'ps-createpage-invalidtitle' => '제목이 잘못되었습니다.',
+	'ps-field-display-notempty' => '비어있지 않을 경우 표시',
+	'ps-field-display-hide' => '숨기기',
 );
 
 /** Colognian (Ripoarisch)
@@ -948,7 +963,7 @@ $messages['lb'] = array(
 	'ps-optional-name' => 'Numm (eidel loosse fir den Numm vum Feld ze benotzen):',
 	'editschema' => 'Schema änneren',
 	'createschema' => 'Schema uleeën',
-	'right-generatepages' => 'Den Onglet an d\'Säit "Säite generéieren" gesinn', # Fuzzy
+	'right-generatepages' => 'Den Onglet "{{int:generatepages}}" an d\'Säit weisen',
 	'action-generatepages' => 'den Onglet "{{int:Generatepages}}" an d\'Säit gesinn',
 	'ps-add-section' => 'Abschnitt derbäisetzen',
 	'ps-removepagesection' => 'Abschnitt ewechhuelen',
@@ -957,6 +972,10 @@ $messages['lb'] = array(
 	'ps-section' => 'Abschnitt',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Aner Parameter',
+	'ps-createpage-invalidtitle' => 'Net valabelen Titel',
+	'ps-createpage-notfound' => 'Artikel net fonnt',
+	'ps-field-display-notempty' => 'Weise wann net eidel',
+	'ps-field-display-hide' => 'Verstoppen',
 );
 
 /** Macedonian (македонски)
@@ -1587,7 +1606,7 @@ $messages['uk'] = array(
 	'ps-optional-name' => 'Назва (залишити порожнім для такої ж як назва поля):',
 	'editschema' => 'Редагувати схему',
 	'createschema' => 'Створити схему',
-	'right-generatepages' => 'Переглядати вкладку і сторінку «Створення сторінок»', # Fuzzy
+	'right-generatepages' => 'Переглядати вкладку і сторінку "{{int:generatepages}}"',
 	'action-generatepages' => 'переглянути вкладку "{{int:Generatepages}}" і сторінку',
 	'ps-add-section' => 'Додати розділ',
 	'ps-removepagesection' => 'Вилучити розділ',
