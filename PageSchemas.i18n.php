@@ -620,6 +620,7 @@ $messages['gsw'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Inkbug
  * @author YaronSh
  * @author חיים
  */
@@ -627,6 +628,7 @@ $messages['he'] = array(
 	'ps-desc' => 'הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML',
 	'generatepages' => 'יצירת דפים',
 	'ps-template' => 'תבנית',
+	'ps-createpage-invalidtitle' => 'כותרת בלתי תקינה',
 );
 
 /** Upper Sorbian (hornjoserbsce)
