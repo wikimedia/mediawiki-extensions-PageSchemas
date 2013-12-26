@@ -91,7 +91,8 @@ Used in:
 	'editschema' => '{{doc-special|EditSchema}}
 Also used as tab name.',
 	'createschema' => 'Tab name',
-	'right-generatepages' => '{{doc-right|generatepages}}',
+	'right-generatepages' => '{{doc-right|generatepages}}
+Refers to {{msg-mw|Generatepages}}.',
 	'action-generatepages' => '{{doc-action|generatepages}}
 Refers to {{msg-mw|generatepages}}.',
 	'ps-add-section' => 'Used as label for the button.
@@ -976,6 +977,7 @@ $messages['lb'] = array(
 	'ps-otherparams' => 'Aner Parameter',
 	'ps-createpage-invalidtitle' => 'Net valabelen Titel',
 	'ps-createpage-notfound' => 'Artikel net fonnt',
+	'ps-field-display-always' => 'Dëst Feld ëmmer weisen',
 	'ps-field-display-notempty' => 'Weise wann net eidel',
 	'ps-field-display-hide' => 'Verstoppen',
 );
