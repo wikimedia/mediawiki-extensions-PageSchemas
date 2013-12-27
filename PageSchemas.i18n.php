@@ -975,6 +975,7 @@ $messages['lb'] = array(
 	'ps-section' => 'Abschnitt',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Aner Parameter',
+	'ps-createpage-irregulartext' => 'Op der Wikisäit "$1" ass kee reguläre Wikitext.',
 	'ps-createpage-invalidtitle' => 'Net valabelen Titel',
 	'ps-createpage-notfound' => 'Artikel net fonnt',
 	'ps-field-display-always' => 'Dëst Feld ëmmer weisen',
@@ -1011,7 +1012,7 @@ $messages['mk'] = array(
 	'ps-optional-name' => 'Име (оставете празно за да биде како името на полето):',
 	'editschema' => 'Уреди шема',
 	'createschema' => 'Создај шема',
-	'right-generatepages' => 'Јазичето „Создај страници“ и неговата страница',
+	'right-generatepages' => 'Достапност на јазичето „{{int:generatepages}}“ и неговата страница',
 	'action-generatepages' => 'приказ на јазичето „{{int:Generatepages}}“ и неговата страница',
 	'ps-add-section' => 'Додај поднаслов',
 	'ps-removepagesection' => 'Отстрани поднаслов',
@@ -1020,6 +1021,12 @@ $messages['mk'] = array(
 	'ps-section' => 'Поднаслов',
 	'ps-level' => 'Ниво',
 	'ps-otherparams' => 'Други параметри',
+	'ps-createpage-irregulartext' => 'Викистраницата „$1“ нема обичен викитекст.',
+	'ps-createpage-invalidtitle' => 'Неважечки наслов',
+	'ps-createpage-notfound' => 'Не ја пронајдов статијата',
+	'ps-field-display-always' => 'Секогаш прикажувај го полево',
+	'ps-field-display-notempty' => 'Прикажувај ако не е празно',
+	'ps-field-display-hide' => 'Скриј',
 );
 
 /** Malayalam (മലയാളം)
@@ -1494,7 +1501,7 @@ $messages['sv'] = array(
 	'ps-optional-name' => 'Namn (fältnamnet används om du inte anger värde)',
 	'editschema' => 'Redigera schema',
 	'createschema' => 'Skapa schema',
-	'right-generatepages' => 'Visa fliken och sidan "Skapa sidor"',
+	'right-generatepages' => 'Visa fliken och sidan "{{int:generatepages}}"',
 	'action-generatepages' => 'visa fliken och sidan "{{int:Generatepages}}"',
 	'ps-level' => 'Nivå',
 	'ps-otherparams' => 'Andra parametrar',
@@ -1666,6 +1673,7 @@ $messages['yi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Chenxiaoqino
+ * @author Dimension
  * @author Kuailong
  * @author Li3939108
  * @author Liangent
@@ -1682,6 +1690,9 @@ $messages['zh-hans'] = array(
 	'ps-displaylabel' => '显示标签：',
 	'ps-add-field' => '添加字段',
 	'ps-remove-field' => '移除字段',
+	'ps-createpage-invalidtitle' => '标题无效',
+	'ps-createpage-notfound' => '未找到条目',
+	'ps-field-display-hide' => '隐藏',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
