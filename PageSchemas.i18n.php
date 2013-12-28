@@ -1109,7 +1109,7 @@ $messages['nl'] = array(
 	'ps-optional-name' => 'Naam (laat leeg om in te stellen op de veldnaam):',
 	'editschema' => 'Schema bewerken',
 	'createschema' => 'Schema aanmaken',
-	'right-generatepages' => 'Mag het tabblad en de pagina "Pagina\'s aanmaken" zijn',
+	'right-generatepages' => 'Mag het tabblad en de pagina "{{int:generatepages}}" zien',
 	'action-generatepages' => 'het tabblad en de pagina "{{int:Generatepages}}" te zien',
 	'ps-add-section' => 'Sectie toevoegen',
 	'ps-removepagesection' => 'Sectie verwijderen',
@@ -1118,6 +1118,7 @@ $messages['nl'] = array(
 	'ps-section' => 'Sectie',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Andere parameters',
+	'ps-field-display-hide' => 'Verbergen',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
