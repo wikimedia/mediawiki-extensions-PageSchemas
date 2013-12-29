@@ -128,11 +128,14 @@ See also:
 
 /** Afrikaans (Afrikaans)
  * @author Naudefj
+ * @author Winstonza
  */
 $messages['af'] = array(
 	'ps-desc' => 'Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is', # Fuzzy
 	'ps-field' => 'Veld',
 	'ps-namelabel' => 'Naam:',
+	'ps-createpage-invalidtitle' => 'Ongeldige titel',
+	'ps-createpage-notfound' => 'Artikel nie gevind',
 );
 
 /** Arabic (العربية)
@@ -891,7 +894,7 @@ $messages['ko'] = array(
 	'action-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
 	'ps-createpage-irregulartext' => '위키 페이지 "$1"은(는) 위키 텍스트를 포함하고 있지 않습니다.',
 	'ps-createpage-invalidtitle' => '제목이 잘못되었습니다.',
-	'ps-field-display-notempty' => '비어있지 않을 경우 표시',
+	'ps-field-display-notempty' => '비어 있지 않으면 보기',
 	'ps-field-display-hide' => '숨기기',
 );
 
