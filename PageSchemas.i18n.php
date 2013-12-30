@@ -340,6 +340,7 @@ $messages['diq'] = array(
 	'ps-template' => 'Şablon',
 	'ps-field' => 'Ca',
 	'ps-namelabel' => 'Name:',
+	'ps-field-display-hide' => 'Bınımne',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -453,6 +454,7 @@ $messages['eu'] = array(
 /** Persian (فارسی)
  * @author Mjbmr
  * @author Omidh
+ * @author Reza1615
  */
 $messages['fa'] = array(
 	'ps-template' => 'الگو',
@@ -462,6 +464,7 @@ $messages['fa'] = array(
 	'ps-namelabel' => 'نام:',
 	'ps-displaylabel' => 'برچسب نمایش:',
 	'ps-createpage-invalidtitle' => 'عنوان نادرست',
+	'ps-field-display-hide' => 'نهفتن',
 );
 
 /** Finnish (suomi)
@@ -485,6 +488,7 @@ $messages['fi'] = array(
  * @author IAlex
  * @author PieRRoMaN
  * @author Sherbrooke
+ * @author Wyz
  * @author Yann.fauche
  * @author Zebulon84
  */
@@ -514,7 +518,7 @@ $messages['fr'] = array(
 	'ps-optional-name' => 'Nom (laisser blanc pour mettre le nom du champ):',
 	'editschema' => 'Modifier le schéma',
 	'createschema' => 'Créer le schéma',
-	'right-generatepages' => 'Afficher l\'onglet "Générer les pages" et la page', # Fuzzy
+	'right-generatepages' => "Afficher l'onglet ou la page « {{int:generatepages}} »",
 	'action-generatepages' => 'afficher la page ou l\'onglet "{{int:Generatepages}}"',
 	'ps-add-section' => 'Ajouter une section',
 	'ps-removepagesection' => 'Enlever une section',
@@ -524,6 +528,7 @@ $messages['fr'] = array(
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Autres paramètres',
 	'ps-createpage-irregulartext' => 'La page wiki "$1" ne contient pas de texte valide.',
+	'ps-createpage-invalidtitle' => 'Titre non valide',
 	'ps-createpage-notfound' => 'Article non trouvé',
 	'ps-field-display-always' => 'Toujours afficher ce champ',
 	'ps-field-display-notempty' => "À afficher si le champ n'est pas vide",
