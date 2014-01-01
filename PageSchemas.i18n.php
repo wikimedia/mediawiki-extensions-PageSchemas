@@ -865,6 +865,15 @@ $messages['ka'] = array(
 	'createschema' => 'სქემის შექმნა',
 );
 
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
+ */
+$messages['kk-cyrl'] = array(
+	'ps-createpage-notfound' => 'Мақала табылмады',
+	'ps-field-display-always' => 'Кейде бұл жолақты көрсету',
+	'ps-field-display-hide' => 'Жасыру',
+);
+
 /** Korean (한국어)
  * @author Clockoon
  * @author 아라
@@ -1514,6 +1523,11 @@ $messages['sv'] = array(
 	'action-generatepages' => 'visa fliken och sidan "{{int:Generatepages}}"',
 	'ps-level' => 'Nivå',
 	'ps-otherparams' => 'Andra parametrar',
+	'ps-createpage-irregulartext' => 'Wikisidan "$1" innehåller inte vanlig wikitext.',
+	'ps-createpage-invalidtitle' => 'Ogiltig titel',
+	'ps-createpage-notfound' => 'Artikel hittades inte',
+	'ps-field-display-always' => 'Visa alltid detta fält',
+	'ps-field-display-hide' => 'Dölj',
 );
 
 /** Tamil (தமிழ்)
