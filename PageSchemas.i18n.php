@@ -1715,6 +1715,8 @@ $messages['zh-hans'] = array(
 	'ps-remove-field' => '移除字段',
 	'ps-createpage-invalidtitle' => '标题无效',
 	'ps-createpage-notfound' => '未找到条目',
+	'ps-field-display-always' => '总是显示此字段',
+	'ps-field-display-notempty' => '显示，如果不为空',
 	'ps-field-display-hide' => '隐藏',
 );
 
