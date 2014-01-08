@@ -734,7 +734,7 @@ $messages['ia'] = array(
 	'ps-optional-name' => 'Nomine (lassar vacue pro definir como le nomine del campo):',
 	'editschema' => 'Modificar schema',
 	'createschema' => 'Crear schema',
-	'right-generatepages' => 'Vider le scheda e pagina "Generar paginas"',
+	'right-generatepages' => 'Vider le scheda e pagina "{{int:generatepages}}"',
 	'action-generatepages' => 'vider le scheda e pagina "{{int:Generatepages}}"',
 );
 
@@ -1371,6 +1371,7 @@ $messages['roa-tara'] = array(
 
 /** Russian (русский)
  * @author Eleferen
+ * @author Kaganer
  * @author Okras
  * @author Александр Сигачёв
  */
@@ -1400,7 +1401,7 @@ $messages['ru'] = array(
 	'ps-optional-name' => 'Имя (оставьте пустым, чтобы использовать имя поля):',
 	'editschema' => 'Изменить схему',
 	'createschema' => 'Создать схему',
-	'right-generatepages' => 'Просмотреть вкладку и страницу «Создание страниц»',
+	'right-generatepages' => 'Просмотреть вкладку и страницу «{{int:generatepages}}»',
 	'action-generatepages' => 'просмотр вкладки и страницы «{{int:Generatepages}}»',
 	'ps-add-section' => 'Добавить раздел',
 	'ps-removepagesection' => 'Удалить раздел',
