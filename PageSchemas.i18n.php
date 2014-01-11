@@ -399,6 +399,7 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Ciencia Al Poder
  * @author Translationista
  */
 $messages['es'] = array(
@@ -427,8 +428,8 @@ $messages['es'] = array(
 	'ps-optional-name' => 'Nombre (déjelo en blanco para definir el nombre del campo):',
 	'editschema' => 'Editar el esquema',
 	'createschema' => 'Crear el esquema',
-	'right-generatepages' => 'Ver la pestaña "Generar páginas" y la página',
-	'action-generatepages' => 'Ver la pestaña "Generar páginas" y la página', # Fuzzy
+	'right-generatepages' => 'Ver la pestaña y la página "{{int:generatepages}}"',
+	'action-generatepages' => 'Ver la pestaña y la página "{{int:generatepages}}"',
 );
 
 /** Estonian (eesti)
