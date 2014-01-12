@@ -1411,6 +1411,12 @@ $messages['ru'] = array(
 	'ps-section' => 'Раздел',
 	'ps-level' => 'Уровень',
 	'ps-otherparams' => 'Другие параметры',
+	'ps-createpage-irregulartext' => 'Страница «$1» не содержит правильный вики-текст.',
+	'ps-createpage-invalidtitle' => 'Недопустимое название',
+	'ps-createpage-notfound' => 'Статья не найдена',
+	'ps-field-display-always' => 'Всегда отображать это поле',
+	'ps-field-display-notempty' => 'Отображать, если не пустое',
+	'ps-field-display-hide' => 'Скрыть',
 );
 
 /** Sakha (саха тыла)
