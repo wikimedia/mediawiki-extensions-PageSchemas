@@ -66,18 +66,12 @@ class PSGeneratePages extends IncludableSpecialPage {
 				$pageList[] = $page;
 			}
 		}
-		// SpecialPage::getSkin() was added in MW 1.18
-		if ( is_callable( $this, 'getSkin' ) ) {
-			$skin = $this->getSkin();
-		} else {
-			global $wgUser;
-			$skin = $wgUser->getSkin();
-		}
+
 		foreach ( $pageList as $page ) {
 			if ( !( $page instanceof Title ) ) { continue; }
 			$pageName = PageSchemas::titleString( $page );
 			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
-			$text .= "\n" . $skin->link( $page ) . "<br />\n";
+			$text .= "\n" . Linker::link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
 		$text .= Html::input( null, wfMessage( 'generatepages' )->parse(), 'submit' );
