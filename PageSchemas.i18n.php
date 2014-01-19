@@ -400,6 +400,7 @@ $messages['eo'] = array(
 /** Spanish (español)
  * @author Armando-Martin
  * @author Ciencia Al Poder
+ * @author Fitoschido
  * @author Translationista
  */
 $messages['es'] = array(
@@ -428,7 +429,7 @@ $messages['es'] = array(
 	'ps-optional-name' => 'Nombre (déjelo en blanco para definir el nombre del campo):',
 	'editschema' => 'Editar el esquema',
 	'createschema' => 'Crear el esquema',
-	'right-generatepages' => 'Ver la pestaña y la página "{{int:generatepages}}"',
+	'right-generatepages' => 'Ver la pestaña y la página «{{int:generatepages}}»',
 	'action-generatepages' => 'Ver la pestaña y la página "{{int:generatepages}}"',
 );
 
@@ -877,6 +878,7 @@ $messages['kk-cyrl'] = array(
 
 /** Korean (한국어)
  * @author Clockoon
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
@@ -907,8 +909,17 @@ $messages['ko'] = array(
 	'createschema' => '스키마 만들기',
 	'right-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
 	'action-generatepages' => '"{{int:Generatepages}}" 탭과 문서 보기',
+	'ps-add-section' => '문단 추가',
+	'ps-removepagesection' => '문단 제거',
+	'ps-sectionname' => '문단 이름:',
+	'ps-sectionlevel' => '문단 수준:',
+	'ps-section' => '문단',
+	'ps-level' => '수준',
+	'ps-otherparams' => '다른 매개변수',
 	'ps-createpage-irregulartext' => '위키 페이지 "$1"은(는) 위키 텍스트를 포함하고 있지 않습니다.',
 	'ps-createpage-invalidtitle' => '제목이 잘못되었습니다.',
+	'ps-createpage-notfound' => '문서를 찾을 수 없음',
+	'ps-field-display-always' => '이 필드를 항상 표시',
 	'ps-field-display-notempty' => '비어 있지 않으면 보기',
 	'ps-field-display-hide' => '숨기기',
 );
