@@ -787,7 +787,7 @@ $messages['it'] = array(
 	'ps-optional-name' => 'Nome (lascia vuoto per impostare come il nome del campo):',
 	'editschema' => 'Modifica schema',
 	'createschema' => 'Creare schema',
-	'right-generatepages' => 'Vede la scheda e la pagina "Genera pagine"', # Fuzzy
+	'right-generatepages' => 'Visualizza la scheda e la pagina "{{int:generatepages}}"',
 	'action-generatepages' => 'vedere la scheda e la pagina "{{int:Generatepages}}"',
 	'ps-add-section' => 'Aggiungi sezione',
 	'ps-removepagesection' => 'Rimuovi sezione',
@@ -796,6 +796,11 @@ $messages['it'] = array(
 	'ps-section' => 'Sezione',
 	'ps-level' => 'Livello',
 	'ps-otherparams' => 'Altri parametri',
+	'ps-createpage-invalidtitle' => 'Titolo non valido',
+	'ps-createpage-notfound' => 'Voce non trovata',
+	'ps-field-display-always' => 'Mostra sempre questo campo',
+	'ps-field-display-notempty' => 'Mostra se non vuoto',
+	'ps-field-display-hide' => 'Nascondi',
 );
 
 /** Japanese (日本語)
