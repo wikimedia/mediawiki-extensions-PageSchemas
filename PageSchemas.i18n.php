@@ -454,17 +454,32 @@ $messages['eu'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Mjbmr
  * @author Omidh
  * @author Reza1615
  */
 $messages['fa'] = array(
+	'ps-schema-description' => 'طرح صفحه',
+	'generatepages' => 'تولید صفحات',
+	'ps-generatepages-success' => 'صفحات انتخاب شده تولید خواهند شد.',
+	'ps-generatepages-noschema' => 'خطا: هیچ طرح صفحه‌ای برای این مقوله تعریف نشده‌است.',
+	'ps-generatepages-editsummary' => 'از یک طرح صفحه تولید شده',
+	'ps-page-desc-cat-not-exist' => 'این مقوله هنوز وجود ندارد. این مقوله را ایجاد کنید و این طرح صفحه است:',
+	'ps-page-desc-ps-not-exist' => 'این مقوله وجود دارد، اما طرح صفحه ندارد. طرح ایجاد کنید:',
+	'ps-page-desc-edit-schema' => 'ویرایش طرح صفحه برای این مقوله:',
+	'ps-delimiter-label' => 'حائل برای مقادیر (پیش‌فرض "،" است):',
+	'ps-multiple-temp-label' => 'اجازهٔ چند نمونه از این الگو',
+	'ps-field-list-label' => 'این زمینه می‌تواند فهرستی از مقادیر را دریافت کند',
 	'ps-template' => 'الگو',
 	'ps-add-template' => 'افزودن الگو',
 	'ps-remove-template' => 'حذف الگو',
 	'ps-field' => 'زمینه',
 	'ps-namelabel' => 'نام:',
 	'ps-displaylabel' => 'برچسب نمایش:',
+	'ps-add-field' => 'افزودن زمینه',
+	'ps-remove-field' => 'حذف زمینه',
+	'ps-add-xml-label' => 'ایکس‌ام‌ال اضافی:',
 	'ps-createpage-invalidtitle' => 'عنوان نادرست',
 	'ps-field-display-hide' => 'نهفتن',
 );
