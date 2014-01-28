@@ -625,7 +625,7 @@ $messages['gl'] = array(
 	'ps-optional-name' => 'Nome (déixeo en branco para definir o nome do campo):',
 	'editschema' => 'Editar o esquema',
 	'createschema' => 'Crear o esquema',
-	'right-generatepages' => 'Ollar a lapela e a páxina "Xerar as páxinas"',
+	'right-generatepages' => 'Ollar a lapela e a páxina "{{int:generatepages}}"',
 	'action-generatepages' => 'ollar a lapela e a páxina "{{int:Generatepages}}"',
 	'ps-add-section' => 'Engadir unha sección',
 	'ps-removepagesection' => 'Eliminar a sección',
@@ -634,6 +634,12 @@ $messages['gl'] = array(
 	'ps-section' => 'Sección',
 	'ps-level' => 'Nivel',
 	'ps-otherparams' => 'Outros parámetros',
+	'ps-createpage-irregulartext' => 'A páxina wiki "$1" non contén texto wiki habitual.',
+	'ps-createpage-invalidtitle' => 'Título non válido',
+	'ps-createpage-notfound' => 'Non se atopou o artigo',
+	'ps-field-display-always' => 'Mostrar sempre este campo',
+	'ps-field-display-notempty' => 'Mostrar se non está baleiro',
+	'ps-field-display-hide' => 'Agochar',
 );
 
 /** Swiss German (Alemannisch)
