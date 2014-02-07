@@ -1188,6 +1188,8 @@ $messages['nl'] = array(
 	'ps-section' => 'Sectie',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Andere parameters',
+	'ps-createpage-invalidtitle' => 'Ongeldige titel',
+	'ps-createpage-notfound' => 'Artikel niet gevonden',
 	'ps-field-display-hide' => 'Verbergen',
 );
 
