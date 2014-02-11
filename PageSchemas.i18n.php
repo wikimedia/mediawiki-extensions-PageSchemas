@@ -55,6 +55,7 @@ $messages['en'] = array(
 	'ps-field-display-always' => 'Display this field always',
 	'ps-field-display-notempty' => 'Display if not empty',
 	'ps-field-display-hide' => 'Hide',
+	'ps-field-namespace' => 'This field will always have values in the following namespace:';
 );
 
 /** Message documentation (Message documentation)
@@ -124,6 +125,7 @@ See also:
 * {{msg-mw|ps-field-display-notempty}}
 * {{msg-mw|ps-field-display-always}}
 {{Identical|Hide}}',
+	'ps-field-namespace' => 'Label for an input holding the name of a MediaWiki namespace.';
 );
 
 /** Afrikaans (Afrikaans)

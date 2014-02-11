@@ -93,6 +93,10 @@ class PSEditSchema extends IncludableSpecialPage {
 				if ( $fieldDisplay != 'show' ) {
 					$fieldAttrs['display'] = $fieldDisplay;
 				}
+				$fieldNamespace = $wgRequest->getText( 'f_namespace_' . $fieldNum );
+				if ( $fieldNamespace != '' ) {
+					$fieldAttrs['namespace'] = $fieldNamespace;
+				}
 				$psXML .= Xml::openElement( 'Field', $fieldAttrs );
 			} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
 				if ( !empty( $val ) ) {
@@ -207,6 +211,36 @@ class PSEditSchema extends IncludableSpecialPage {
 	}
 
 	/**
+	 * Based in part on MediaWiki's Html::namespaceSelector().
+	 */
+	static function printNamespaceDropdown( $inputName, $curNamespace ) {
+		global $wgContLang;
+                $options = $wgContLang->getFormattedNamespaces();
+
+                // Convert $options to HTML and filter out namespaces below 0
+                $optionsHtml = array();
+                foreach ( $options as $nsId => $nsName ) {
+			// Skip the special namespaces.
+			if ( $nsId < 0 ) continue;
+			// Skip all the odd, i.e. "Talk", namespaces.
+			if ( $nsId % 2 == 1 ) continue;
+			// Skip some of the helper namespaces.
+			if ( $nsId == NS_MEDIAWIKI || $nsId == NS_TEMPLATE || $nsId == NS_HELP ) continue;
+                        $optionsHtml[] = Html::element(
+                                'option', array(
+                                        'selected' => $nsName === $curNamespace,
+                                ), $nsName
+                        );
+		}
+
+		return Html::openElement( 'select', array( 'name' => $inputName ) )
+                        . "\n"
+                        . implode( "\n", $optionsHtml )
+                        . "\n"
+                        . Html::closeElement( 'select' );
+	}
+
+	/**
 	 * Returns the HTML for a section of the form comprising one
 	 * template field.
 	 */
@@ -227,6 +261,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$isListAttrs = array( 'class' => 'isListCheckbox' );
 		$delimiterAttrs = array( 'class' => 'delimiterInput' );
 		$fieldDisplay = '';
+		$fieldNamespace = '';
 		$text = "\n\t\t\t";
 		if ( is_null( $field_xml ) ) {
 			$text .= '<div class="fieldBox" id="starterField" style="display: none" >';
@@ -245,6 +280,7 @@ class PSEditSchema extends IncludableSpecialPage {
 				$isListAttrs['checked'] = 'checked';
 			}
 			$fieldDisplay = (string)$field_xml->attributes()->display;
+			$fieldNamespace = (string)$field_xml->attributes()->namespace;
 		}
 		$fieldHTML = wfMessage( 'ps-namelabel' )->parse() . ' ';
 		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', array( 'size' => 25 ) ) . ' ';
@@ -257,8 +293,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= Html::rawElement( 'p', null,  $fieldIsListSet);
 		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
 		$fieldDelimiterInputAndLabel = wfMessage( 'ps-delimiter-label' )->parse() . ' ';
-		$fieldDelimiterSet .= $fieldDelimiterInput;
-		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterSet );
+		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterInput );
 		// Create radiobutton for display of field
 		$displayShownAttrs = array();
 		$displayIfNonEmptyAttrs = array();
@@ -273,15 +308,19 @@ class PSEditSchema extends IncludableSpecialPage {
 		}
 		$groupName = 'f_display_' . $fieldNum;
 		$fieldDisplayShownInput = Html::input( $groupName, 'show', 'radio', $displayShownAttrs );
+		$fieldDisplaySet = $fieldDisplayShownInput . ' ';
+		$fieldDisplaySet .= wfMessage( 'ps-field-display-always' )->parse() . ' ';
 		$fieldDisplayIfNonEmptyInput = Html::input( $groupName, 'nonempty', 'radio', $displayIfNonEmptyAttrs );
+		$fieldDisplaySet .= $fieldDisplayIfNonEmptyInput . ' ';
+		$fieldDisplaySet .= wfMessage( 'ps-field-display-notempty' )->parse() . ' ';
 		$fieldDisplayHiddenInput = Html::input( $groupName, 'hidden', 'radio', $displayHiddenAttrs );
-		$radioAndLabelSet = $fieldDisplayShownInput . ' ';
-		$radioAndLabelSet .= wfMessage( 'ps-field-display-always' )->parse() . ' ';
-		$radioAndLabelSet .= $fieldDisplayIfNonEmptyInput . ' ';
-		$radioAndLabelSet .= wfMessage( 'ps-field-display-nonempty' )->parse() . ' ';
-		$radioAndLabelSet .= $fieldDisplayHiddenInput . ' ';
-		$radioAndLabelSet .= wfMessage( 'ps-field-display-hidden' )->parse();
-		$fieldHTML .= Html::rawElement( 'p', null, $radioAndLabelSet );
+		$fieldDisplaySet .= $fieldDisplayHiddenInput . ' ';
+		$fieldDisplaySet .= wfMessage( 'ps-field-display-hide' )->parse();
+		$fieldHTML .= Html::rawElement( 'p', null, $fieldDisplaySet );
+
+		$fieldNamespaceSet = wfMessage( 'ps-field-namespace' )->parse() . ' ';
+		$fieldNamespaceSet .= self::printNamespaceDropdown( 'f_namespace_' . $fieldNum, $fieldNamespace );
+		$fieldHTML .= Html::rawElement( 'div', array( 'class' => 'editSchemaMinorFields' ), $fieldNamespaceSet );
 
 		// Insert HTML text from extensions
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {

@@ -504,6 +504,7 @@ class PSTemplateField {
 	private $mIsList = false;
 	private $mDelimiter = null;
 	private $mDisplay = null;
+	private $mNamespace = null;
 
 	function __construct( $fieldXML ) {
 		$this->mFieldXML = $fieldXML;
@@ -513,6 +514,7 @@ class PSTemplateField {
 		}
 		$this->mDelimiter = $fieldXML->attributes()->delimiter;
 		$this->mDisplay = $fieldXML->attributes()->display;
+		$this->mNamespace = $fieldXML->attributes()->namespace;
 		foreach ( $fieldXML->children() as $tag => $child ) {
 			if ( $tag == 'Label' ) {
 				$this->mFieldLabel = $child;
@@ -526,6 +528,10 @@ class PSTemplateField {
 
 	public function getDisplay() {
 		return $this->mDisplay;
+	}
+
+	public function getNamespace() {
+		return $this->mNamespace;
 	}
 
 	public function getName() {
