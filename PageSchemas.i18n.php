@@ -323,6 +323,7 @@ $messages['de'] = array(
 	'ps-field-display-always' => 'Dieses Feld immer anzeigen',
 	'ps-field-display-notempty' => 'Anzeigen, falls nicht leer',
 	'ps-field-display-hide' => 'Verstecken',
+	'ps-field-namespace' => 'Dieses Feld hat immer Werte im folgenden Namensraum:',
 );
 
 /** German (formal address) (Deutsch (Sie-Form)‎)
