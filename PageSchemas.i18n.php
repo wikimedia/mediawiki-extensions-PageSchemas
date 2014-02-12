@@ -568,6 +568,7 @@ $messages['fr'] = array(
 	'ps-field-display-always' => 'Toujours afficher ce champ',
 	'ps-field-display-notempty' => "À afficher si le champ n'est pas vide",
 	'ps-field-display-hide' => 'Cacher',
+	'ps-field-namespace' => 'Ce champ aura toujours des valeurs dans l’espace de noms suivant :',
 );
 
 /** Franco-Provençal (arpetan)
@@ -1100,6 +1101,7 @@ $messages['mk'] = array(
 	'ps-field-display-always' => 'Секогаш прикажувај го полево',
 	'ps-field-display-notempty' => 'Прикажувај ако не е празно',
 	'ps-field-display-hide' => 'Скриј',
+	'ps-field-namespace' => 'Ова поле секогаш ќе има вредности во следниов именски простор:',
 );
 
 /** Malayalam (മലയാളം)
@@ -1474,6 +1476,7 @@ $messages['ru'] = array(
 	'ps-field-display-always' => 'Всегда отображать это поле',
 	'ps-field-display-notempty' => 'Отображать, если не пустое',
 	'ps-field-display-hide' => 'Скрыть',
+	'ps-field-namespace' => 'Это поле всегда будет иметь значения в следующих пространствах имён:',
 );
 
 /** Sakha (саха тыла)
