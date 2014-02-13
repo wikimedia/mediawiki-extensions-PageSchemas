@@ -967,6 +967,7 @@ $messages['ko'] = array(
 	'ps-field-display-always' => '이 필드를 항상 표시',
 	'ps-field-display-notempty' => '비어 있지 않으면 보기',
 	'ps-field-display-hide' => '숨기기',
+	'ps-field-namespace' => '이 필드는 항상 다음 이름공간을 값으로 가져야 합니다:',
 );
 
 /** Colognian (Ripoarisch)
@@ -1538,8 +1539,22 @@ $messages['sl'] = array(
 	'ps-optional-name' => 'Ime (pustite prazno, da nastavite na ime polje):',
 	'editschema' => 'Uredi shemo',
 	'createschema' => 'Ustvarite shemo',
-	'right-generatepages' => 'Ogled zavihka in strani »Ustvari strani«',
+	'right-generatepages' => 'Ogled zavihka in strani »{{int:generatepages}}«',
 	'action-generatepages' => 'ogled zavihka in strani »{{int:Generatepages}}«',
+	'ps-add-section' => 'Dodaj razdelek',
+	'ps-removepagesection' => 'Odstrani razdelek',
+	'ps-sectionname' => 'Ime razdelka:',
+	'ps-sectionlevel' => 'Raven razdelka:',
+	'ps-section' => 'Razdelek',
+	'ps-level' => 'Raven',
+	'ps-otherparams' => 'Drugi parametri',
+	'ps-createpage-irregulartext' => 'Wikistran »$1« ne vsebuje navadnega wikibesedila.',
+	'ps-createpage-invalidtitle' => 'Neveljavni naslov',
+	'ps-createpage-notfound' => 'Članka ni mogoče najti',
+	'ps-field-display-always' => 'Polje vedno prikaži',
+	'ps-field-display-notempty' => 'Prikaži, če ni prazno',
+	'ps-field-display-hide' => 'Skrij',
+	'ps-field-namespace' => 'Polje bo vedno imelo vrednosti v naslednjih imenskih prostorih:',
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
