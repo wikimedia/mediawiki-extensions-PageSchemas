@@ -1738,6 +1738,7 @@ $messages['uk'] = array(
 	'ps-field-display-always' => 'Відображати це поле завжди',
 	'ps-field-display-notempty' => 'Відображати, якщо поле не порожнє',
 	'ps-field-display-hide' => 'Приховати',
+	'ps-field-namespace' => 'Це поле завжди буде мати значення в такому просторі імен:',
 );
 
 /** Urdu (اردو)
