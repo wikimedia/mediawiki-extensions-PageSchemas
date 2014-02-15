@@ -1263,7 +1263,7 @@ $messages['pl'] = array(
 	'ps-optional-name' => 'Nazwa (pozostaw puste aby ustawić nazwę pola):',
 	'editschema' => 'Edytuj schemat',
 	'createschema' => 'Utwórz schemat',
-	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"',
+	'right-generatepages' => 'Wyświetlanie karty i strony "Generuj strony"', # Fuzzy
 	'action-generatepages' => 'wyświetl kartę i stronę "{{int:Generatepages}}"',
 	'ps-add-section' => 'Dodaj sekcję',
 	'ps-removepagesection' => 'Usuń sekcję',
@@ -1272,6 +1272,10 @@ $messages['pl'] = array(
 	'ps-section' => 'Sekcja',
 	'ps-level' => 'Poziom',
 	'ps-otherparams' => 'Inne parametry',
+	'ps-createpage-invalidtitle' => 'Nieprawidłowy tytuł',
+	'ps-createpage-notfound' => 'Nie znaleziono artykułu',
+	'ps-field-display-always' => 'Zawsze pokazuj to pole',
+	'ps-field-display-hide' => 'Ukryj',
 );
 
 /** Piedmontese (Piemontèis)
