@@ -1788,6 +1788,7 @@ $messages['yi'] = array(
  * @author Kuailong
  * @author Li3939108
  * @author Liangent
+ * @author Liuxinyu970226
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
@@ -1801,6 +1802,7 @@ $messages['zh-hans'] = array(
 	'ps-displaylabel' => '显示标签：',
 	'ps-add-field' => '添加字段',
 	'ps-remove-field' => '移除字段',
+	'ps-level' => '等级',
 	'ps-createpage-invalidtitle' => '标题无效',
 	'ps-createpage-notfound' => '未找到条目',
 	'ps-field-display-always' => '总是显示此字段',

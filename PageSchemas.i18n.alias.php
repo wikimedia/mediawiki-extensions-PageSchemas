@@ -21,6 +21,12 @@ $specialPageAliases['ar'] = array(
 	'EditSchema' => array( 'تعديل_السكيما' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'GeneratePages' => array( 'توليد_صفحات' ),
+	'EditSchema' => array( 'تعديل_السكيما' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'GeneratePages' => array( 'Seiten_generieren' ),
