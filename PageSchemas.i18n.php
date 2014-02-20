@@ -1491,6 +1491,13 @@ $messages['sah'] = array(
 	'generatepages' => 'Сирэйдэри айыы',
 );
 
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'ps-field-namespace' => 'This field will aawaws hae values in the follaeing namespace:',
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */
