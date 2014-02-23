@@ -463,8 +463,10 @@ $messages['eu'] = array(
  * @author Reza1615
  */
 $messages['fa'] = array(
+	'ps-desc' => 'تعریف ساختار داده‌ها برای همهٔ صفحات در یک مقوله با استفاده از ایکس‌ام‌ال',
 	'ps-schema-description' => 'طرح صفحه',
 	'generatepages' => 'تولید صفحات',
+	'ps-generatepages-desc' => 'تولید صفحات زیر، براساس این طرح کلی مقوله:',
 	'ps-generatepages-success' => 'صفحات انتخاب شده تولید خواهند شد.',
 	'ps-generatepages-noschema' => 'خطا: هیچ طرح صفحه‌ای برای این مقوله تعریف نشده‌است.',
 	'ps-generatepages-editsummary' => 'از یک طرح صفحه تولید شده',
@@ -483,6 +485,7 @@ $messages['fa'] = array(
 	'ps-add-field' => 'افزودن زمینه',
 	'ps-remove-field' => 'حذف زمینه',
 	'ps-add-xml-label' => 'ایکس‌ام‌ال اضافی:',
+	'ps-optional-name' => 'نام (برای تنظیم نام زمینه، جای خالی را رها کنید):',
 	'editschema' => 'ویرایش طرح',
 	'createschema' => 'ایجاد طرح',
 	'right-generatepages' => 'مشاهدهٔ صفحه و نوار "{{int:generatepages}}"',
@@ -500,6 +503,7 @@ $messages['fa'] = array(
 	'ps-field-display-always' => 'نمایش همیشگی این زمینه',
 	'ps-field-display-notempty' => 'اگر خالی نباشد نمایش دهد',
 	'ps-field-display-hide' => 'نهفتن',
+	'ps-field-namespace' => 'این زمینه همیشه مقادیری در فضای نام زیر خواهد‌ داشت:',
 );
 
 /** Finnish (suomi)
