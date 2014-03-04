@@ -1162,6 +1162,7 @@ $messages['nds'] = array(
  * @author JurgenNL
  * @author SPQRobin
  * @author Siebrand
+ * @author Sjoerddebruin
  */
 $messages['nl'] = array(
 	'ps-desc' => "Bepaalt de gegevensstructuur van alle pagina's in een categorie via XML",
@@ -1200,6 +1201,8 @@ $messages['nl'] = array(
 	'ps-otherparams' => 'Andere parameters',
 	'ps-createpage-invalidtitle' => 'Ongeldige titel',
 	'ps-createpage-notfound' => 'Artikel niet gevonden',
+	'ps-field-display-always' => 'Dit veld altijd weergeven',
+	'ps-field-display-notempty' => 'Weergeven indien niet leeg',
 	'ps-field-display-hide' => 'Verbergen',
 );
 
