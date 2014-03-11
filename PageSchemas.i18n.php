@@ -695,6 +695,7 @@ $messages['gl'] = array(
 	'ps-field-display-always' => 'Mostrar sempre este campo',
 	'ps-field-display-notempty' => 'Mostrar se non está baleiro',
 	'ps-field-display-hide' => 'Agochar',
+	'ps-field-namespace' => 'Este campo ha ter sempre valores nos seguintes espazos de nomes:',
 );
 
 /** Swiss German (Alemannisch)
@@ -1854,7 +1855,11 @@ $messages['yi'] = array(
  */
 $messages['zh-hans'] = array(
 	'ps-desc' => '使用XML为分类中的所有页面定义数据结构',
+	'ps-schema-description' => '页面架构',
 	'generatepages' => '生成页面',
+	'ps-generatepages-desc' => '基于此分类的结构生成以下页面：',
+	'ps-generatepages-success' => '将生成选定页面。',
+	'ps-page-desc-edit-schema' => '从此分类编辑页面架构：',
 	'ps-template' => '模板',
 	'ps-add-template' => '添加模板',
 	'ps-remove-template' => '移除模板',
@@ -1863,6 +1868,15 @@ $messages['zh-hans'] = array(
 	'ps-displaylabel' => '显示标签：',
 	'ps-add-field' => '添加字段',
 	'ps-remove-field' => '移除字段',
+	'editschema' => '编辑架构',
+	'createschema' => '创建架构',
+	'right-generatepages' => '查看“{{int:generatepages}}”标签和页面',
+	'action-generatepages' => '查看“{{int:generatepages}}”标签和页面',
+	'ps-add-section' => '添加部分',
+	'ps-removepagesection' => '移除部分',
+	'ps-sectionname' => '部分名称：',
+	'ps-sectionlevel' => '部分等级：',
+	'ps-section' => '部分',
 	'ps-level' => '等级',
 	'ps-createpage-invalidtitle' => '标题无效',
 	'ps-createpage-notfound' => '未找到条目',
