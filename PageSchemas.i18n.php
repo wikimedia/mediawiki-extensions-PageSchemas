@@ -1250,7 +1250,7 @@ $messages['nl'] = array(
 	'ps-createpage-invalidtitle' => 'Ongeldige titel',
 	'ps-createpage-notfound' => 'Artikel niet gevonden',
 	'ps-field-display-always' => 'Dit veld altijd weergeven',
-	'ps-field-display-notempty' => 'Weergeven indien niet leeg',
+	'ps-field-display-notempty' => 'Weergeven als niet leeg',
 	'ps-field-display-hide' => 'Verbergen',
 );
 
