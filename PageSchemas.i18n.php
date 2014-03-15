@@ -310,6 +310,13 @@ $messages['bs'] = array(
 	'ps-desc' => 'Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika', # Fuzzy
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'editschema' => 'Хийцам бе схемина',
+);
+
 /** Czech (čeština)
  * @author Vks
  */
@@ -962,6 +969,7 @@ $messages['ka'] = array(
 	'ps-add-xml-label' => 'დამატებითი XML:',
 	'editschema' => 'სქემის რედაქტირება',
 	'createschema' => 'სქემის შექმნა',
+	'ps-field-display-hide' => 'დამალვა',
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
