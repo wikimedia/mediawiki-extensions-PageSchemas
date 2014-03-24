@@ -1255,11 +1255,13 @@ $messages['nl'] = array(
 	'ps-section' => 'Sectie',
 	'ps-level' => 'Niveau',
 	'ps-otherparams' => 'Andere parameters',
+	'ps-createpage-irregulartext' => 'De wikipagina "$1" bevat geen reguliere wikitekst.',
 	'ps-createpage-invalidtitle' => 'Ongeldige titel',
 	'ps-createpage-notfound' => 'Artikel niet gevonden',
 	'ps-field-display-always' => 'Dit veld altijd weergeven',
 	'ps-field-display-notempty' => 'Weergeven als niet leeg',
 	'ps-field-display-hide' => 'Verbergen',
+	'ps-field-namespace' => 'Dit veld heeft altijd waarden in de volgende naamruimte:',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)
