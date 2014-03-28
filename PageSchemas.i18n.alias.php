@@ -80,3 +80,8 @@ $specialPageAliases['zh-hans'] = array(
 	'GeneratePages' => array( '生成页面' ),
 	'EditSchema' => array( '编辑架构' ),
 );
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'EditSchema' => array( '編輯架構' ),
+);

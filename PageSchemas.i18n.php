@@ -1878,6 +1878,7 @@ $messages['zh-hans'] = array(
 	'ps-displaylabel' => '显示标签：',
 	'ps-add-field' => '添加字段',
 	'ps-remove-field' => '移除字段',
+	'ps-add-xml-label' => '附加XML：',
 	'editschema' => '编辑架构',
 	'createschema' => '创建架构',
 	'right-generatepages' => '查看“{{int:generatepages}}”标签和页面',
