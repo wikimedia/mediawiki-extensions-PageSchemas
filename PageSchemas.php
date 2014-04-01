@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
-define( 'PAGE_SCHEMAS_VERSION', '0.4.2' );
+define( 'PAGE_SCHEMAS_VERSION', '0.5.0' );
 
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
@@ -35,6 +35,7 @@ $wgExtensionCredits['parserhook'][] = array(
 $dir = dirname( __FILE__ ) . '/';
 
 // Internationalization
+$wgMessagesDirs['PageSchemas'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['PageSchemas'] = $dir . 'PageSchemas.i18n.php';
 $wgExtensionMessagesFiles['PageSchemasAlias'] = $dir . 'PageSchemas.i18n.alias.php';
 
@@ -53,8 +54,8 @@ $wgAutoloadClasses['PSExtensionHandler'] = $dir . 'PS_ExtensionHandler.php';
 $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
 // Register special pages
-$wgSpecialPages['GeneratePages'] = 'PSGeneratePages'; 
-$wgSpecialPages['EditSchema'] = 'PSEditSchema'; 
+$wgSpecialPages['GeneratePages'] = 'PSGeneratePages';
+$wgSpecialPages['EditSchema'] = 'PSEditSchema';
 $wgSpecialPageGroups['GeneratePages'] = 'other';
 $wgSpecialPageGroups['EditSchema'] = 'other';
 // Register parser hook

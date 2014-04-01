@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Avjoska"
+        ]
+    },
+    "ps-template": "Mall",
+    "ps-add-template": "Lisa mall",
+    "ps-field": "Väli",
+    "ps-namelabel": "Nimi:",
+    "ps-add-field": "Lisa väli",
+    "ps-remove-field": "Eemalda väli"
+}

@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Yekrats"
+        ]
+    },
+    "ps-template": "Ŝablono",
+    "ps-add-template": "Aldoni ŝablonon",
+    "ps-remove-template": "Forigi ŝablonon",
+    "ps-field": "Kampo",
+    "ps-namelabel": "Nomo:",
+    "ps-add-field": "Aldoni kampon",
+    "ps-remove-field": "Forigi kampon"
+}

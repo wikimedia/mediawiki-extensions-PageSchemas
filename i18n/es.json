@@ -1,0 +1,37 @@
+{
+    "@metadata": {
+        "authors": [
+            "Armando-Martin",
+            "Ciencia Al Poder",
+            "Fitoschido",
+            "Translationista"
+        ]
+    },
+    "ps-desc": "Define la estrutura de datos de todas las páginas de una categoría mediante formato XML",
+    "ps-schema-description": "Esquema de la página",
+    "generatepages": "Generar las páginas",
+    "ps-generatepages-desc": "Generar las siguientes páginas, según el esquema de esta categoría:",
+    "ps-generatepages-success": "Las páginas seleccionadas van a ser generadas.",
+    "ps-generatepages-noschema": "Erro: No hay ningún esquema de página definido para esta categoría.",
+    "ps-generatepages-editsummary": "Generado a partir del esquema de página",
+    "ps-page-desc-cat-not-exist": "Esta categoría aun no existe. Cree esta categoría y su esquema de página:",
+    "ps-page-desc-ps-not-exist": "Esta categoría existe, pero no tiene un esquema de página. Cree el esquema:",
+    "ps-page-desc-edit-schema": "Edite el esquema de página de esta categoría:",
+    "ps-delimiter-label": "Delimitador para los valores (por defecto es \",\"):",
+    "ps-multiple-temp-label": "Permitir varios ejemplos de esta plantilla",
+    "ps-field-list-label": "Este campo puede contener una lista de valores",
+    "ps-template": "Plantilla",
+    "ps-add-template": "Agregar plantilla:",
+    "ps-remove-template": "Eliminar plantilla",
+    "ps-field": "Campo",
+    "ps-namelabel": "Nombre:",
+    "ps-displaylabel": "Mostrar etiqueta:",
+    "ps-add-field": "Agregar campo",
+    "ps-remove-field": "Eliminar campo",
+    "ps-add-xml-label": "XML adicional:",
+    "ps-optional-name": "Nombre (déjelo en blanco para definir el nombre del campo):",
+    "editschema": "Editar el esquema",
+    "createschema": "Crear el esquema",
+    "right-generatepages": "Ver la pestaña y la página «{{int:generatepages}}»",
+    "action-generatepages": "Ver la pestaña y la página \"{{int:generatepages}}\""
+}

@@ -1,0 +1,20 @@
+{
+    "@metadata": {
+        "authors": [
+            "Joetaras"
+        ]
+    },
+    "ps-desc": "Definisce le strutture de le date pe tutte le pàggene jndr'à 'na categorije ausanne l'XML",
+    "ps-schema-description": "Schema d'a pàgene",
+    "ps-template": "Template",
+    "ps-add-template": "Aggiunge 'u template",
+    "ps-remove-template": "Live 'u template",
+    "ps-field": "Cambe",
+    "ps-namelabel": "Nome:",
+    "ps-displaylabel": "Etichette de visualizzazzione:",
+    "ps-add-field": "Aggiunge 'u cambe",
+    "ps-remove-field": "Live 'u cambe",
+    "ps-add-xml-label": "XML aggiundive:",
+    "editschema": "Cange 'u scheme",
+    "createschema": "Ccreje 'u scheme"
+}

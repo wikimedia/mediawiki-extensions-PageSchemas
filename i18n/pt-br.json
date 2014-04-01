@@ -1,0 +1,43 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cainamarques",
+            "Daemorris",
+            "Jaideraf"
+        ]
+    },
+    "ps-desc": "Define a estrutura de dados para todas as páginas contidas em uma categoria utilizando XML",
+    "ps-schema-description": "Esquema da página",
+    "generatepages": "Gerar páginas",
+    "ps-generatepages-desc": "Gere as seguintes páginas baseada neste esquema de categoria:",
+    "ps-generatepages-success": "As páginas selecionadas serão geradas.",
+    "ps-generatepages-noschema": "Erro: Não há nenhum esquema de página definida para esta categoria.",
+    "ps-generatepages-editsummary": "Gerada a partir de um esquema de página",
+    "ps-page-desc-cat-not-exist": "Esta categoria ainda não existe. Crie esta categoria e seu esquema de página:",
+    "ps-page-desc-ps-not-exist": "Esta categoria existe, mas não tem um esquema de página. Crie o esquema:",
+    "ps-page-desc-edit-schema": "Edite o esquema de página para esta categoria:",
+    "ps-delimiter-label": "Delimitador para os valores (o padrão é \",\"):",
+    "ps-multiple-temp-label": "Permitir várias instâncias desta predefinição",
+    "ps-field-list-label": "Este campo pode conter uma lista de valores",
+    "ps-template": "Predefinição",
+    "ps-add-template": "Adicionar predefinição",
+    "ps-remove-template": "Remover predefinição",
+    "ps-field": "Campo",
+    "ps-namelabel": "Nome:",
+    "ps-displaylabel": "Exibir rótulo:",
+    "ps-add-field": "Adicionar campo",
+    "ps-remove-field": "Remover campo",
+    "ps-add-xml-label": "XML adicional:",
+    "ps-optional-name": "Nome (deixe em branco para definir o nome do campo):",
+    "editschema": "Editar esquema",
+    "createschema": "Criar esquema",
+    "right-generatepages": "Ver página e guia \"Gerar páginas\"",
+    "action-generatepages": "ver a página e guia \"{{int:Generatepages}}\"",
+    "ps-add-section": "Adicionar seção",
+    "ps-removepagesection": "Remover seção",
+    "ps-sectionname": "Título da seção:",
+    "ps-sectionlevel": "Nível da seção:",
+    "ps-section": "Seção",
+    "ps-level": "Nível",
+    "ps-otherparams": "Outros parâmetros"
+}

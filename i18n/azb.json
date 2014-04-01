@@ -1,0 +1,34 @@
+{
+    "@metadata": {
+        "authors": [
+            "Mousa"
+        ]
+    },
+    "ps-desc": "ایکس‌اِل‌اِل ایله بیر بؤلمه‌ده بوتون صحیفه‌لره دیتا قورولوشو تعریف ائدر",
+    "ps-schema-description": "صحیفه شِماسی",
+    "generatepages": "صحیفه‌لر یارات",
+    "ps-generatepages-desc": "بو بؤلمه‌نین شِماسینا اسا، بو صحیفه‌لری یارات:",
+    "ps-generatepages-success": "سئچیلمیش صحیفه‌لر یارادیلاجاقلار.",
+    "ps-generatepages-noschema": "خطا: بو بؤلمه اوچون هئچ بیر صحیفه شِماسی تعریف اولونمویوب‌دور.",
+    "ps-generatepages-editsummary": "بیر صحیفه شِماسینا اساس یارادیلیب‌دیر",
+    "ps-page-desc-cat-not-exist": "بو بؤلمه هله‌لیک یوخدور. بو بؤلمه‌نی و اونون صحیفه شِماسینی یارات:",
+    "ps-page-desc-ps-not-exist": "بو بؤلمه واردیر، اما اونون بیر صحیفه شِماسی یوخدور. شِما یارات:",
+    "ps-page-desc-edit-schema": "بو بؤلمه اوچون صحیفه شِماسینی دَییشدیر:",
+    "ps-delimiter-label": "دَیَرلر اوچون آیریشدیران (ایلک دَیَر «,»-دور):",
+    "ps-multiple-temp-label": "بو شابلونون چوخلو نومونه‌سینی ایجازه وئر",
+    "ps-field-list-label": "بو فیلد، دَیَرلر لیستینی ساخلایا بیلر",
+    "ps-template": "شابلون",
+    "ps-add-template": "شابلون آرتیر",
+    "ps-remove-template": "شابلون سیل",
+    "ps-field": "فیلد",
+    "ps-namelabel": "آد:",
+    "ps-displaylabel": "گؤسترمک برچسبی:",
+    "ps-add-field": "فیلد آرتیر",
+    "ps-remove-field": "فیلدی سیل",
+    "ps-add-xml-label": "آرتیق ایکس‌اِم‌اِل:",
+    "ps-optional-name": "آد (فیلد آدینا تنظیم‌له‌مک اوچون بوش بوراخ):",
+    "editschema": "شِمانی دَییشدیر",
+    "createschema": "شِما یارات",
+    "right-generatepages": "«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین",
+    "action-generatepages": "«صحیفه‌لر یارات» بؤلومو و صحیفه‌سینه باخین"
+}

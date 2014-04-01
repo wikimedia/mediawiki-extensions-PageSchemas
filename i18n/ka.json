@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "David1010"
+        ]
+    },
+    "ps-schema-description": "გვერდის სქემა",
+    "generatepages": "გვერდების შექმნა",
+    "ps-generatepages-success": "არჩეული გვერდები შეიქმნება.",
+    "ps-delimiter-label": "მნიშვნელობის გამყოფი (სტანდარტული არის „,“):",
+    "ps-template": "თარგი",
+    "ps-add-template": "თარგის დამატება",
+    "ps-remove-template": "თარგის წაშლა",
+    "ps-field": "ველი",
+    "ps-namelabel": "სახელი:",
+    "ps-displaylabel": "სახელი ეკრანზე:",
+    "ps-add-field": "ველის დამატება",
+    "ps-remove-field": "ველის წაშლა",
+    "ps-add-xml-label": "დამატებითი XML:",
+    "editschema": "სქემის რედაქტირება",
+    "createschema": "სქემის შექმნა",
+    "ps-field-display-hide": "დამალვა"
+}

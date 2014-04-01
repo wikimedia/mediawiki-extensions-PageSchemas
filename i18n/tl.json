@@ -1,0 +1,34 @@
+{
+    "@metadata": {
+        "authors": [
+            "AnakngAraw"
+        ]
+    },
+    "ps-desc": "Nagbibigay ng kahulugan sa kayarian ng dato para sa lahat ng mga pahina sa loob ng isang kategorya na ginagamit ang XML",
+    "ps-schema-description": "Panukala sa pahina",
+    "generatepages": "Lumikha ng mga pahina",
+    "ps-generatepages-desc": "Likhain ang sumusunod na mga pahina, na nakabatay sa panukala ng kategoryang ito:",
+    "ps-generatepages-success": "Lilikhain ang napiling mga pahina.",
+    "ps-generatepages-noschema": "Kamalian: Walang panukala sa pahina na binigyan ng kahulugan para sa kategoryang ito.",
+    "ps-generatepages-editsummary": "Nilikha mula sa isang panukala sa isang pahina",
+    "ps-page-desc-cat-not-exist": "Hindi pa umiiral ang kategoryang ito. Likhain ang kategoryang ito at ang panukala sa pahina nito:",
+    "ps-page-desc-ps-not-exist": "Umiiral ang kategoryang ito, subalit walang panukala sa pahina. Likhain ang panukala:",
+    "ps-page-desc-edit-schema": "Baguhin ang panukala sa pahina para sa kategoryang ito:",
+    "ps-delimiter-label": "Pantakda ng hangganan para sa mga halaga (ang likas na nakatakda ay ang \",\"):",
+    "ps-multiple-temp-label": "Payagan ang maramihang mga pagkakataon ng suleras na ito",
+    "ps-field-list-label": "Ang hanay na ito ay makakahawak ng isang listahan ng mga halaga",
+    "ps-template": "Suleras",
+    "ps-add-template": "Magdagdag ng suleras",
+    "ps-remove-template": "Tanggalin ang suleras",
+    "ps-field": "Kahanayan",
+    "ps-namelabel": "Pangalan:",
+    "ps-displaylabel": "Katatakan ng ipinapakita:",
+    "ps-add-field": "Magdagdag ng hanay",
+    "ps-remove-field": "Tanggalin ang hanay",
+    "ps-add-xml-label": "Karagdagang XML:",
+    "ps-optional-name": "Pangalan (iwanang walang laman upang itakda sa pangalan ng hanay):",
+    "editschema": "Baguhin ang panukala",
+    "createschema": "Likhain ang panukala",
+    "right-generatepages": "Tingnan ang laylay na \"Lumikha ng mga pahina\" at pahina",
+    "action-generatepages": "tingnan ang laylay na \"Lumikha ng mga pahina\" at pahina"
+}

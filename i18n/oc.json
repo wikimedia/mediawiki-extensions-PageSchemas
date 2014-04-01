@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cedric31"
+        ]
+    },
+    "ps-desc": "Supòrta los modèls en definissent lor estructura de donadas via de balisas XML",
+    "ps-add-section": "Apondre una seccion",
+    "ps-removepagesection": "Levar una seccion",
+    "ps-sectionname": "Nom de la seccion :",
+    "ps-sectionlevel": "Nivèl de seccion :",
+    "ps-section": "Seccion",
+    "ps-level": "Nivèl",
+    "ps-otherparams": "Autres paramètres"
+}
