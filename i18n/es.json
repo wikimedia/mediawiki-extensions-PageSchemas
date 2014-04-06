@@ -33,5 +33,10 @@
     "editschema": "Editar el esquema",
     "createschema": "Crear el esquema",
     "right-generatepages": "Ver la pestaña y la página «{{int:generatepages}}»",
-    "action-generatepages": "Ver la pestaña y la página \"{{int:generatepages}}\""
+    "action-generatepages": "Ver la pestaña y la página \"{{int:generatepages}}\"",
+    "ps-createpage-invalidtitle": "El título no es válido",
+    "ps-createpage-notfound": "No se encontró el artículo",
+    "ps-field-display-always": "Siempre mostrar este campo",
+    "ps-field-display-notempty": "Mostrar si no está vacío",
+    "ps-field-display-hide": "Ocultar"
 }
