@@ -39,9 +39,11 @@
     "ps-section": "Sezione",
     "ps-level": "Livello",
     "ps-otherparams": "Altri parametri",
+    "ps-createpage-irregulartext": "La pagina wiki \"$1\" non contiene regolare wikitesto.",
     "ps-createpage-invalidtitle": "Titolo non valido",
     "ps-createpage-notfound": "Voce non trovata",
     "ps-field-display-always": "Mostra sempre questo campo",
     "ps-field-display-notempty": "Mostra se non vuoto",
-    "ps-field-display-hide": "Nascondi"
+    "ps-field-display-hide": "Nascondi",
+    "ps-field-namespace": "Questo campo conterrà sempre valori nei seguenti namespace:"
 }
