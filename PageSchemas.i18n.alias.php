@@ -45,6 +45,12 @@ $specialPageAliases['el'] = array(
 	'EditSchema' => array( 'ΕπεξεργασίαΣχήματος' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'GeneratePages' => array( 'GeneraPagine' ),
+	'EditSchema' => array( 'ModificaSchema' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'GeneratePages' => array( 'ページ生成' ),
