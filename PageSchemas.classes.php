@@ -136,7 +136,7 @@ END;
 	static function displaySchema( $schemaXML ) {
 		global $wgTitle, $wgPageSchemasHandlerClasses;
 
-		if ( $wgTitle->getNamespace() != NS_CATEGORY ) {
+		if ( is_null( $wgTitle ) || $wgTitle->getNamespace() != NS_CATEGORY ) {
 			return '';
 		}
 		$text = "<table class=\"pageSchema mw-collapsible mw-collapsed\">\n";
