@@ -4,7 +4,7 @@
             "Cedric31"
         ]
     },
-    "ps-desc": "Supòrta los modèls en definissent lor estructura de donadas via de balisas XML",
+    "ps-desc": "Definís l'estructura de las donadas per totas las paginas dins una categoria en utilizant XML",
     "ps-add-section": "Apondre una seccion",
     "ps-removepagesection": "Levar una seccion",
     "ps-sectionname": "Nom de la seccion :",
