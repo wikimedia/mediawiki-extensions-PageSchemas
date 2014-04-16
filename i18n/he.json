@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80",
-            "Inkbug",
-            "YaronSh",
-            "חיים"
-        ]
-    },
-    "ps-desc": "הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML",
-    "generatepages": "יצירת דפים",
-    "ps-template": "תבנית",
-    "ps-createpage-invalidtitle": "כותרת בלתי תקינה"
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Inkbug",
+			"YaronSh",
+			"חיים"
+		]
+	},
+	"ps-desc": "הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML",
+	"generatepages": "יצירת דפים",
+	"ps-template": "תבנית",
+	"ps-createpage-invalidtitle": "כותרת בלתי תקינה"
 }

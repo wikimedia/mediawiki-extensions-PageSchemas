@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrisportelli"
-        ]
-    },
-    "ps-template": "Mudell",
-    "ps-add-template": "Żid mudell",
-    "ps-remove-template": "Ħassar mudell",
-    "ps-field": "Qasam",
-    "ps-namelabel": "Isem:",
-    "ps-add-field": "Żid qasam"
+	"@metadata": {
+		"authors": [
+			"Chrisportelli"
+		]
+	},
+	"ps-template": "Mudell",
+	"ps-add-template": "Żid mudell",
+	"ps-remove-template": "Ħassar mudell",
+	"ps-field": "Qasam",
+	"ps-namelabel": "Isem:",
+	"ps-add-field": "Żid qasam"
 }

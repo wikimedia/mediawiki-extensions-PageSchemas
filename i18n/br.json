@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "Fohanno",
-            "Fulup",
-            "Y-M D"
-        ]
-    },
-    "ps-desc": "Termeniñ a ra framm ar roadennoù evit holl bajennoù ur rummad bennak en ur ober gant XML",
-    "ps-schema-description": "Chema ar bajenn",
-    "generatepages": "Genel ar pajennoù",
-    "ps-multiple-temp-label": "Aotren meur a eilad eus ar patrom-mañ",
-    "ps-field-list-label": "Ne c'hall ket ar vaezienn-mañ bezañ ur roll talvoudoù enni",
-    "ps-template": "Patrom",
-    "ps-add-template": "Ouzhpennañ ur patrom",
-    "ps-remove-template": "Lemel ur patrom",
-    "ps-field": "Maezienn",
-    "ps-namelabel": "Anv :",
-    "ps-displaylabel": "Tikedenn diskwel :",
-    "ps-add-field": "Ouzhpennañ ur vaezienn",
-    "ps-remove-field": "Lemel ar vaezienn",
-    "editschema": "Kemmañ ar chema",
-    "createschema": "Krouiñ ur chema"
+	"@metadata": {
+		"authors": [
+			"Fohanno",
+			"Fulup",
+			"Y-M D"
+		]
+	},
+	"ps-desc": "Termeniñ a ra framm ar roadennoù evit holl bajennoù ur rummad bennak en ur ober gant XML",
+	"ps-schema-description": "Chema ar bajenn",
+	"generatepages": "Genel ar pajennoù",
+	"ps-multiple-temp-label": "Aotren meur a eilad eus ar patrom-mañ",
+	"ps-field-list-label": "Ne c'hall ket ar vaezienn-mañ bezañ ur roll talvoudoù enni",
+	"ps-template": "Patrom",
+	"ps-add-template": "Ouzhpennañ ur patrom",
+	"ps-remove-template": "Lemel ur patrom",
+	"ps-field": "Maezienn",
+	"ps-namelabel": "Anv :",
+	"ps-displaylabel": "Tikedenn diskwel :",
+	"ps-add-field": "Ouzhpennañ ur vaezienn",
+	"ps-remove-field": "Lemel ar vaezienn",
+	"editschema": "Kemmañ ar chema",
+	"createschema": "Krouiñ ur chema"
 }

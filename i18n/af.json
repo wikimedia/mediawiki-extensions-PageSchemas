@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Naudefj",
-            "Winstonza"
-        ]
-    },
-    "ps-desc": "Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is",
-    "ps-field": "Veld",
-    "ps-namelabel": "Naam:",
-    "ps-createpage-invalidtitle": "Ongeldige titel",
-    "ps-createpage-notfound": "Artikel nie gevind"
+	"@metadata": {
+		"authors": [
+			"Naudefj",
+			"Winstonza"
+		]
+	},
+	"ps-desc": "Ondersteun sjablone waarvoor die datastruktuur via XML gedefinieer is",
+	"ps-field": "Veld",
+	"ps-namelabel": "Naam:",
+	"ps-createpage-invalidtitle": "Ongeldige titel",
+	"ps-createpage-notfound": "Artikel nie gevind"
 }

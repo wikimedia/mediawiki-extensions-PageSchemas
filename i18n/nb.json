@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nghtwlkr"
-        ]
-    },
-    "ps-desc": "Støtter maler som definerer datastrukturen sin gjennom XML-markering"
+	"@metadata": {
+		"authors": [
+			"Nghtwlkr"
+		]
+	},
+	"ps-desc": "Støtter maler som definerer datastrukturen sin gjennom XML-markering"
 }

@@ -1,24 +1,24 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "ps-schema-description": "පිටුවේ සංක්ෂිප්ත නිරූපණය",
-    "generatepages": "පිටු ජනිත කරන්න",
-    "ps-generatepages-success": "තෝරාගත් පිටු ජනිත වෙමින් පවතී.",
-    "ps-generatepages-editsummary": "පිටුවේ සංක්ෂිප්ත නිරූපණයෙන් ජනිත කරන ලදී",
-    "ps-page-desc-edit-schema": "මෙම ප්‍රවර්ගය සඳහා පිටු සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න:",
-    "ps-multiple-temp-label": "මෙම සැකිල්ලේ බහුවිධ දෘෂ්ටාන්තවලට ඉඩදෙන්න",
-    "ps-template": "සැකිල්ල",
-    "ps-add-template": "සැකිල්ල එක් කරන්න",
-    "ps-remove-template": "සැකිල්ල ඉවත් කරන්න",
-    "ps-field": "ක්ෂේත්‍රය",
-    "ps-namelabel": "නම:",
-    "ps-displaylabel": "ලේබලය පෙන්වන්න:",
-    "ps-add-field": "ක්ෂේත්‍රය එක් කරන්න",
-    "ps-remove-field": "ක්ෂේත්‍රය ඉවත් කරන්න",
-    "ps-add-xml-label": "අමතර XML:",
-    "editschema": "සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න",
-    "createschema": "සංක්ෂිප්ත නිරූපණය තනන්න"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"ps-schema-description": "පිටුවේ සංක්ෂිප්ත නිරූපණය",
+	"generatepages": "පිටු ජනිත කරන්න",
+	"ps-generatepages-success": "තෝරාගත් පිටු ජනිත වෙමින් පවතී.",
+	"ps-generatepages-editsummary": "පිටුවේ සංක්ෂිප්ත නිරූපණයෙන් ජනිත කරන ලදී",
+	"ps-page-desc-edit-schema": "මෙම ප්‍රවර්ගය සඳහා පිටු සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න:",
+	"ps-multiple-temp-label": "මෙම සැකිල්ලේ බහුවිධ දෘෂ්ටාන්තවලට ඉඩදෙන්න",
+	"ps-template": "සැකිල්ල",
+	"ps-add-template": "සැකිල්ල එක් කරන්න",
+	"ps-remove-template": "සැකිල්ල ඉවත් කරන්න",
+	"ps-field": "ක්ෂේත්‍රය",
+	"ps-namelabel": "නම:",
+	"ps-displaylabel": "ලේබලය පෙන්වන්න:",
+	"ps-add-field": "ක්ෂේත්‍රය එක් කරන්න",
+	"ps-remove-field": "ක්ෂේත්‍රය ඉවත් කරන්න",
+	"ps-add-xml-label": "අමතර XML:",
+	"editschema": "සංක්ෂිප්ත නිරූපණය සංස්කරණය කරන්න",
+	"createschema": "සංක්ෂිප්ත නිරූපණය තනන්න"
 }

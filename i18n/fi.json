@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Beluga",
-            "Crt"
-        ]
-    },
-    "ps-desc": "Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.",
-    "ps-template": "Malline",
-    "ps-add-template": "Lisää malline",
-    "ps-remove-template": "Poista malline",
-    "ps-field": "Kenttä",
-    "ps-namelabel": "Nimi:",
-    "ps-displaylabel": "Näyttönimi:",
-    "ps-add-field": "Lisää kenttä",
-    "ps-remove-field": "Poista kenttä"
+	"@metadata": {
+		"authors": [
+			"Beluga",
+			"Crt"
+		]
+	},
+	"ps-desc": "Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.",
+	"ps-template": "Malline",
+	"ps-add-template": "Lisää malline",
+	"ps-remove-template": "Poista malline",
+	"ps-field": "Kenttä",
+	"ps-namelabel": "Nimi:",
+	"ps-displaylabel": "Näyttönimi:",
+	"ps-add-field": "Lisää kenttä",
+	"ps-remove-field": "Poista kenttä"
 }

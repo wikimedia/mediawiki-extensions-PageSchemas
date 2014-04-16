@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "ps-remove-template": "سانچے کو حذف کریں",
-    "ps-field": "میدان",
-    "ps-namelabel": "نام:",
-    "ps-displaylabel": "ڈسپلے لیبل:",
-    "ps-add-field": "فیلڈ کا اضافہ کریں",
-    "ps-remove-field": "میدان حذف کریں"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"ps-remove-template": "سانچے کو حذف کریں",
+	"ps-field": "میدان",
+	"ps-namelabel": "نام:",
+	"ps-displaylabel": "ڈسپلے لیبل:",
+	"ps-add-field": "فیلڈ کا اضافہ کریں",
+	"ps-remove-field": "میدان حذف کریں"
 }

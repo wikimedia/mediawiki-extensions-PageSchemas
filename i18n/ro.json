@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minisarm",
-            "Stelistcristi"
-        ]
-    },
-    "ps-desc": "Definește structura datelor pentru toate paginile dintr-o categorie, utilizând XML",
-    "ps-schema-description": "Schema paginii",
-    "generatepages": "Generare pagini",
-    "ps-generatepages-desc": "Generează următoarele pagini pe baza schemei acestei categorii:",
-    "ps-generatepages-success": "Paginile selectate vor fi generate.",
-    "ps-generatepages-noschema": "Eroare: Nu există nicio schemă de pagină definită pentru această categorie.",
-    "ps-generatepages-editsummary": "Generată dintr-o schemă de pagină",
-    "ps-page-desc-cat-not-exist": "Această categorie nu există încă. Creați această categorie și schema de pagină asociată:",
-    "ps-page-desc-ps-not-exist": "Această categorie există, dar nu are asociată o schemă de pagină. Creați schema:",
-    "ps-page-desc-edit-schema": "Modificați schema de pagină pentru această categorie:",
-    "ps-delimiter-label": "Delimitator pentru valori (implicit este „,”):",
-    "ps-multiple-temp-label": "Permite mai multe instanțe ale acestui format",
-    "ps-field-list-label": "Acest câmp poate conține o listă de valori",
-    "ps-template": "Format",
-    "ps-add-template": "Adaugă formatul",
-    "ps-remove-template": "Elimină formatul",
-    "ps-field": "Câmp",
-    "ps-namelabel": "Nume:",
-    "ps-displaylabel": "Afișează eticheta:",
-    "ps-add-field": "Adaugă câmp",
-    "ps-remove-field": "Șterge câmpul",
-    "ps-add-xml-label": "XML suplimentar:",
-    "ps-optional-name": "Nume (lăsați necompletat pentru a seta numele câmpului):",
-    "editschema": "Modificare schemă",
-    "createschema": "Creare schemă",
-    "right-generatepages": "Vizualizează fila și pagina „Generare pagini”",
-    "action-generatepages": "vizualizați fila și pagina „Generare pagini”"
+	"@metadata": {
+		"authors": [
+			"Minisarm",
+			"Stelistcristi"
+		]
+	},
+	"ps-desc": "Definește structura datelor pentru toate paginile dintr-o categorie, utilizând XML",
+	"ps-schema-description": "Schema paginii",
+	"generatepages": "Generare pagini",
+	"ps-generatepages-desc": "Generează următoarele pagini pe baza schemei acestei categorii:",
+	"ps-generatepages-success": "Paginile selectate vor fi generate.",
+	"ps-generatepages-noschema": "Eroare: Nu există nicio schemă de pagină definită pentru această categorie.",
+	"ps-generatepages-editsummary": "Generată dintr-o schemă de pagină",
+	"ps-page-desc-cat-not-exist": "Această categorie nu există încă. Creați această categorie și schema de pagină asociată:",
+	"ps-page-desc-ps-not-exist": "Această categorie există, dar nu are asociată o schemă de pagină. Creați schema:",
+	"ps-page-desc-edit-schema": "Modificați schema de pagină pentru această categorie:",
+	"ps-delimiter-label": "Delimitator pentru valori (implicit este „,”):",
+	"ps-multiple-temp-label": "Permite mai multe instanțe ale acestui format",
+	"ps-field-list-label": "Acest câmp poate conține o listă de valori",
+	"ps-template": "Format",
+	"ps-add-template": "Adaugă formatul",
+	"ps-remove-template": "Elimină formatul",
+	"ps-field": "Câmp",
+	"ps-namelabel": "Nume:",
+	"ps-displaylabel": "Afișează eticheta:",
+	"ps-add-field": "Adaugă câmp",
+	"ps-remove-field": "Șterge câmpul",
+	"ps-add-xml-label": "XML suplimentar:",
+	"ps-optional-name": "Nume (lăsați necompletat pentru a seta numele câmpului):",
+	"editschema": "Modificare schemă",
+	"createschema": "Creare schemă",
+	"right-generatepages": "Vizualizează fila și pagina „Generare pagini”",
+	"action-generatepages": "vizualizați fila și pagina „Generare pagini”"
 }

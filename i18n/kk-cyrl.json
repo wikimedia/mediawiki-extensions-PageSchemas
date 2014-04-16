@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Arystanbek"
-        ]
-    },
-    "ps-createpage-notfound": "Мақала табылмады",
-    "ps-field-display-always": "Кейде бұл жолақты көрсету",
-    "ps-field-display-hide": "Жасыру"
+	"@metadata": {
+		"authors": [
+			"Arystanbek"
+		]
+	},
+	"ps-createpage-notfound": "Мақала табылмады",
+	"ps-field-display-always": "Кейде бұл жолақты көрсету",
+	"ps-field-display-hide": "Жасыру"
 }

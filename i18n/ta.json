@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Karthi.dr",
-            "Shanmugamp7"
-        ]
-    },
-    "generatepages": "பக்கங்களை உருவாக்கு",
-    "ps-template": "வார்ப்புரு",
-    "ps-add-template": "வார்ப்புருவைச் சேர்",
-    "ps-remove-template": "வார்ப்புருவை நீக்கு",
-    "ps-field": "புலம்",
-    "ps-namelabel": "பெயர்:",
-    "ps-add-field": "புலத்தைச் சேர்",
-    "ps-remove-field": "புலத்தை நீக்கு"
+	"@metadata": {
+		"authors": [
+			"Karthi.dr",
+			"Shanmugamp7"
+		]
+	},
+	"generatepages": "பக்கங்களை உருவாக்கு",
+	"ps-template": "வார்ப்புரு",
+	"ps-add-template": "வார்ப்புருவைச் சேர்",
+	"ps-remove-template": "வார்ப்புருவை நீக்கு",
+	"ps-field": "புலம்",
+	"ps-namelabel": "பெயர்:",
+	"ps-add-field": "புலத்தைச் சேர்",
+	"ps-remove-field": "புலத்தை நீக்கு"
 }

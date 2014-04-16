@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cedric31"
-        ]
-    },
-    "ps-desc": "Definís l'estructura de las donadas per totas las paginas dins una categoria en utilizant XML",
-    "ps-add-section": "Apondre una seccion",
-    "ps-removepagesection": "Levar una seccion",
-    "ps-sectionname": "Nom de la seccion :",
-    "ps-sectionlevel": "Nivèl de seccion :",
-    "ps-section": "Seccion",
-    "ps-level": "Nivèl",
-    "ps-otherparams": "Autres paramètres"
+	"@metadata": {
+		"authors": [
+			"Cedric31"
+		]
+	},
+	"ps-desc": "Definís l'estructura de las donadas per totas las paginas dins una categoria en utilizant XML",
+	"ps-add-section": "Apondre una seccion",
+	"ps-removepagesection": "Levar una seccion",
+	"ps-sectionname": "Nom de la seccion :",
+	"ps-sectionlevel": "Nivèl de seccion :",
+	"ps-section": "Seccion",
+	"ps-level": "Nivèl",
+	"ps-otherparams": "Autres paramètres"
 }

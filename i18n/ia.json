@@ -1,34 +1,34 @@
 {
-    "@metadata": {
-        "authors": [
-            "McDutchie"
-        ]
-    },
-    "ps-desc": "Defini le structura de datos pro tote le paginas in un categoria usante XML",
-    "ps-schema-description": "Schema de pagina",
-    "generatepages": "Generar paginas",
-    "ps-generatepages-desc": "Generar le sequente paginas a base del schema de iste categoria:",
-    "ps-generatepages-success": "Le paginas seligite essera generate.",
-    "ps-generatepages-noschema": "Error: Il non ha un schema de pagina definite pro iste categoria.",
-    "ps-generatepages-editsummary": "Generate ab un schema de pagina",
-    "ps-page-desc-cat-not-exist": "Iste categoria non existe ancora. Crea iste categoria e su schema de pagina:",
-    "ps-page-desc-ps-not-exist": "Iste categoria existe, ma non ha un schema de pagina. Crea le schema:",
-    "ps-page-desc-edit-schema": "Modifica le schema de pagina pro iste categoria:",
-    "ps-delimiter-label": "Delimitator pro valores (predefinition es \",\"):",
-    "ps-multiple-temp-label": "Permitter plure instantias de iste patrono",
-    "ps-field-list-label": "Iste campo pote tener un lista de valores",
-    "ps-template": "Patrono",
-    "ps-add-template": "Adder patrono",
-    "ps-remove-template": "Remover patrono",
-    "ps-field": "Campo",
-    "ps-namelabel": "Nomine:",
-    "ps-displaylabel": "Etiquetta pro monstrar:",
-    "ps-add-field": "Adder campo",
-    "ps-remove-field": "Remover campo",
-    "ps-add-xml-label": "Additional XML:",
-    "ps-optional-name": "Nomine (lassar vacue pro definir como le nomine del campo):",
-    "editschema": "Modificar schema",
-    "createschema": "Crear schema",
-    "right-generatepages": "Vider le scheda e pagina \"{{int:generatepages}}\"",
-    "action-generatepages": "vider le scheda e pagina \"{{int:Generatepages}}\""
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"ps-desc": "Defini le structura de datos pro tote le paginas in un categoria usante XML",
+	"ps-schema-description": "Schema de pagina",
+	"generatepages": "Generar paginas",
+	"ps-generatepages-desc": "Generar le sequente paginas a base del schema de iste categoria:",
+	"ps-generatepages-success": "Le paginas seligite essera generate.",
+	"ps-generatepages-noschema": "Error: Il non ha un schema de pagina definite pro iste categoria.",
+	"ps-generatepages-editsummary": "Generate ab un schema de pagina",
+	"ps-page-desc-cat-not-exist": "Iste categoria non existe ancora. Crea iste categoria e su schema de pagina:",
+	"ps-page-desc-ps-not-exist": "Iste categoria existe, ma non ha un schema de pagina. Crea le schema:",
+	"ps-page-desc-edit-schema": "Modifica le schema de pagina pro iste categoria:",
+	"ps-delimiter-label": "Delimitator pro valores (predefinition es \",\"):",
+	"ps-multiple-temp-label": "Permitter plure instantias de iste patrono",
+	"ps-field-list-label": "Iste campo pote tener un lista de valores",
+	"ps-template": "Patrono",
+	"ps-add-template": "Adder patrono",
+	"ps-remove-template": "Remover patrono",
+	"ps-field": "Campo",
+	"ps-namelabel": "Nomine:",
+	"ps-displaylabel": "Etiquetta pro monstrar:",
+	"ps-add-field": "Adder campo",
+	"ps-remove-field": "Remover campo",
+	"ps-add-xml-label": "Additional XML:",
+	"ps-optional-name": "Nomine (lassar vacue pro definir como le nomine del campo):",
+	"editschema": "Modificar schema",
+	"createschema": "Crear schema",
+	"right-generatepages": "Vider le scheda e pagina \"{{int:generatepages}}\"",
+	"action-generatepages": "vider le scheda e pagina \"{{int:Generatepages}}\""
 }

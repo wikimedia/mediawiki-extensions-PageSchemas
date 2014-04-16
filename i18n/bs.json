@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "CERminator"
-        ]
-    },
-    "ps-desc": "Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika"
+	"@metadata": {
+		"authors": [
+			"CERminator"
+		]
+	},
+	"ps-desc": "Podržava šablone koji definiraju svoju strukturu podataka preko XML opisnog jezika"
 }

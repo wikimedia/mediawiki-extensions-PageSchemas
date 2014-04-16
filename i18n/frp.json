@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "ChrisPtDe"
-        ]
-    },
-    "ps-desc": "Dèfenét la structura de les balyês por totes les pâges dens una catègorie en utilisent XML.",
-    "ps-schema-description": "Plan de la pâge",
-    "generatepages": "Fâre les pâges",
-    "ps-generatepages-editsummary": "Fêt dês lo plan de pâge",
-    "ps-template": "Modèlo",
-    "ps-add-template": "Apondre un modèlo",
-    "ps-remove-template": "Enlevar un modèlo",
-    "ps-field": "Champ",
-    "ps-namelabel": "Nom :",
-    "ps-displaylabel": "Ètiquèta por la visualisacion :",
-    "ps-add-field": "Apondre un champ",
-    "ps-remove-field": "Enlevar un champ",
-    "ps-add-xml-label": "XML de ples :",
-    "editschema": "Changiér lo plan",
-    "createschema": "Fâre lo plan"
+	"@metadata": {
+		"authors": [
+			"ChrisPtDe"
+		]
+	},
+	"ps-desc": "Dèfenét la structura de les balyês por totes les pâges dens una catègorie en utilisent XML.",
+	"ps-schema-description": "Plan de la pâge",
+	"generatepages": "Fâre les pâges",
+	"ps-generatepages-editsummary": "Fêt dês lo plan de pâge",
+	"ps-template": "Modèlo",
+	"ps-add-template": "Apondre un modèlo",
+	"ps-remove-template": "Enlevar un modèlo",
+	"ps-field": "Champ",
+	"ps-namelabel": "Nom :",
+	"ps-displaylabel": "Ètiquèta por la visualisacion :",
+	"ps-add-field": "Apondre un champ",
+	"ps-remove-field": "Enlevar un champ",
+	"ps-add-xml-label": "XML de ples :",
+	"editschema": "Changiér lo plan",
+	"createschema": "Fâre lo plan"
 }

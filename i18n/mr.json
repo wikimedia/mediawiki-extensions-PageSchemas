@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "V.narsikar"
-        ]
-    },
-    "ps-add-section": "विभाग जोडा",
-    "ps-removepagesection": "विभाग हटवा",
-    "ps-sectionname": "विभागाचे नाव:",
-    "ps-sectionlevel": "विभाग स्तर:",
-    "ps-section": "विभाग",
-    "ps-level": "पातळी",
-    "ps-otherparams": "ईतर प्राचले"
+	"@metadata": {
+		"authors": [
+			"V.narsikar"
+		]
+	},
+	"ps-add-section": "विभाग जोडा",
+	"ps-removepagesection": "विभाग हटवा",
+	"ps-sectionname": "विभागाचे नाव:",
+	"ps-sectionlevel": "विभाग स्तर:",
+	"ps-section": "विभाग",
+	"ps-level": "पातळी",
+	"ps-otherparams": "ईतर प्राचले"
 }

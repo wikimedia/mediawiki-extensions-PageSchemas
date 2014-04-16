@@ -1,18 +1,18 @@
 {
-    "@metadata": {
-        "authors": [
-            "Cainamarques",
-            "Hamilton Abreu",
-            "Luckas",
-            "Luckas Blade"
-        ]
-    },
-    "ps-desc": "Define a estrutura de dados de todas as páginas utilizando XML",
-    "ps-template": "Predefinição",
-    "ps-add-template": "Adicionar predefinição",
-    "ps-remove-template": "Remover predefinição",
-    "ps-namelabel": "Nome:",
-    "ps-add-xml-label": "XML adicional:",
-    "ps-level": "Nível",
-    "ps-otherparams": "Outros parâmetros"
+	"@metadata": {
+		"authors": [
+			"Cainamarques",
+			"Hamilton Abreu",
+			"Luckas",
+			"Luckas Blade"
+		]
+	},
+	"ps-desc": "Define a estrutura de dados de todas as páginas utilizando XML",
+	"ps-template": "Predefinição",
+	"ps-add-template": "Adicionar predefinição",
+	"ps-remove-template": "Remover predefinição",
+	"ps-namelabel": "Nome:",
+	"ps-add-xml-label": "XML adicional:",
+	"ps-level": "Nível",
+	"ps-otherparams": "Outros parâmetros"
 }

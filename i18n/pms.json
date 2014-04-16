@@ -1,35 +1,35 @@
 {
-    "@metadata": {
-        "authors": [
-            "Borichèt",
-            "Dragonòt"
-        ]
-    },
-    "ps-desc": "A definiss la strutura dij dat për tute le pàgine ant na categorìa an dovrand XML",
-    "ps-schema-description": "Schema ëd la pàgina",
-    "generatepages": "Generé le pàgine",
-    "ps-generatepages-desc": "Generé le pàgine sì-dapress, basà dzora lë schema ëd costa categorìa:",
-    "ps-generatepages-success": "Le pàgine selessionà a saran generà.",
-    "ps-generatepages-noschema": "Eror: A-i é gnun schema ëd pàgina definì për costa categorìa.",
-    "ps-generatepages-editsummary": "Generà da në schema ëd pàgina",
-    "ps-page-desc-cat-not-exist": "Costa categorìa a esist ancor nen. Creé costa categorìa e sò schema ëd pàgina:",
-    "ps-page-desc-ps-not-exist": "Sta categorìa a esist, ma a l'ha pa në schema ëd pàgina. Creé lë schema:",
-    "ps-page-desc-edit-schema": "Ch'a modifica lë schema ëd pàgina për costa categorìa:",
-    "ps-delimiter-label": "Delimitador për ij valor (col predefinì a l'é «,»):",
-    "ps-multiple-temp-label": "Përmëtte vàire istanse ëd së stamp",
-    "ps-field-list-label": "Ël camp a peul conten-e na lista ëd valor",
-    "ps-template": "Stamp",
-    "ps-add-template": "Gionté në stamp",
-    "ps-remove-template": "Gavé lë stamp",
-    "ps-field": "Camp",
-    "ps-namelabel": "Nòm:",
-    "ps-displaylabel": "Tichëtta për la visualisassion:",
-    "ps-add-field": "Gionté un camp",
-    "ps-remove-field": "Gavé un camp",
-    "ps-add-xml-label": "XML adissional:",
-    "ps-optional-name": "Nòm (lassé veuid për amposté al nòm dël camp):",
-    "editschema": "Modifiché lë schema",
-    "createschema": "Creé lë schema",
-    "right-generatepages": "Smon-e la scheda «Generé le pàgine» e la pàgina",
-    "action-generatepages": "smon-e la scheda e la pàgina «{{int:Generatepages}}»"
+	"@metadata": {
+		"authors": [
+			"Borichèt",
+			"Dragonòt"
+		]
+	},
+	"ps-desc": "A definiss la strutura dij dat për tute le pàgine ant na categorìa an dovrand XML",
+	"ps-schema-description": "Schema ëd la pàgina",
+	"generatepages": "Generé le pàgine",
+	"ps-generatepages-desc": "Generé le pàgine sì-dapress, basà dzora lë schema ëd costa categorìa:",
+	"ps-generatepages-success": "Le pàgine selessionà a saran generà.",
+	"ps-generatepages-noschema": "Eror: A-i é gnun schema ëd pàgina definì për costa categorìa.",
+	"ps-generatepages-editsummary": "Generà da në schema ëd pàgina",
+	"ps-page-desc-cat-not-exist": "Costa categorìa a esist ancor nen. Creé costa categorìa e sò schema ëd pàgina:",
+	"ps-page-desc-ps-not-exist": "Sta categorìa a esist, ma a l'ha pa në schema ëd pàgina. Creé lë schema:",
+	"ps-page-desc-edit-schema": "Ch'a modifica lë schema ëd pàgina për costa categorìa:",
+	"ps-delimiter-label": "Delimitador për ij valor (col predefinì a l'é «,»):",
+	"ps-multiple-temp-label": "Përmëtte vàire istanse ëd së stamp",
+	"ps-field-list-label": "Ël camp a peul conten-e na lista ëd valor",
+	"ps-template": "Stamp",
+	"ps-add-template": "Gionté në stamp",
+	"ps-remove-template": "Gavé lë stamp",
+	"ps-field": "Camp",
+	"ps-namelabel": "Nòm:",
+	"ps-displaylabel": "Tichëtta për la visualisassion:",
+	"ps-add-field": "Gionté un camp",
+	"ps-remove-field": "Gavé un camp",
+	"ps-add-xml-label": "XML adissional:",
+	"ps-optional-name": "Nòm (lassé veuid për amposté al nòm dël camp):",
+	"editschema": "Modifiché lë schema",
+	"createschema": "Creé lë schema",
+	"right-generatepages": "Smon-e la scheda «Generé le pàgine» e la pàgina",
+	"action-generatepages": "smon-e la scheda e la pàgina «{{int:Generatepages}}»"
 }
