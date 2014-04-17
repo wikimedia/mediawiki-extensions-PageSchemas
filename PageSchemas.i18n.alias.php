@@ -35,7 +35,7 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'GeneratePages' => array( 'PeréVırazin' ),
+	'GeneratePages' => array( 'PerréVırazin' ),
 	'EditSchema' => array( 'ŞemaVırnayış' ),
 );
 
