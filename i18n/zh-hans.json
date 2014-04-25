@@ -15,6 +15,7 @@
 	"generatepages": "生成页面",
 	"ps-generatepages-desc": "基于此分类的结构生成以下页面：",
 	"ps-generatepages-success": "将生成选定页面。",
+	"ps-generatepages-editsummary": "从页面架构生成",
 	"ps-page-desc-edit-schema": "从此分类编辑页面架构：",
 	"ps-template": "模板",
 	"ps-add-template": "添加模板",
