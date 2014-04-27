@@ -17,6 +17,7 @@
 	"ps-generatepages-success": "将生成选定页面。",
 	"ps-generatepages-editsummary": "从页面架构生成",
 	"ps-page-desc-edit-schema": "从此分类编辑页面架构：",
+	"ps-delimiter-label": "值的分隔符（默认值“,”）：",
 	"ps-template": "模板",
 	"ps-add-template": "添加模板",
 	"ps-remove-template": "移除模板",
