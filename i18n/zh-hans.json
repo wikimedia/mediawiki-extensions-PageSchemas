@@ -16,6 +16,8 @@
 	"ps-generatepages-desc": "基于此分类的结构生成以下页面：",
 	"ps-generatepages-success": "将生成选定页面。",
 	"ps-generatepages-editsummary": "从页面架构生成",
+	"ps-page-desc-cat-not-exist": "此分类尚不存在。创建此分类及其页面架构：",
+	"ps-page-desc-ps-not-exist": "此分类存在，但尚无页面架构。创建架构：",
 	"ps-page-desc-edit-schema": "从此分类编辑页面架构：",
 	"ps-delimiter-label": "值的分隔符（默认值“,”）：",
 	"ps-template": "模板",
