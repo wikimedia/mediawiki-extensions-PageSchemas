@@ -19,13 +19,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Configuration */
 
-define( 'PAGE_SCHEMAS_VERSION', '0.5.0' );
+define( 'PAGE_SCHEMAS_VERSION', '0.4.3' );
 
 // Credits
 $wgExtensionCredits['parserhook'][] = array(
 	'path'			=> __FILE__,
 	'name'			=> 'Page Schemas',
-	'author'		=> array( 'Yaron Koren', 'Ankit Garg' ),
+	'author'		=> array( 'Yaron Koren', 'Ankit Garg', '...' ),
 	'version'		=> PAGE_SCHEMAS_VERSION,
 	'url'			=> 'http://www.mediawiki.org/wiki/Extension:Page_Schemas',
 	'descriptionmsg'	=> 'ps-desc',
