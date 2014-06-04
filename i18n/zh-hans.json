@@ -21,6 +21,8 @@
 	"ps-page-desc-ps-not-exist": "此分类存在，但尚无页面架构。创建架构：",
 	"ps-page-desc-edit-schema": "从此分类编辑页面架构：",
 	"ps-delimiter-label": "值的分隔符（默认值“,”）：",
+	"ps-multiple-temp-label": "允许此模板多个实例",
+	"ps-field-list-label": "此字段可包含值的列表",
 	"ps-template": "模板",
 	"ps-add-template": "添加模板",
 	"ps-remove-template": "移除模板",
@@ -47,5 +49,6 @@
 	"ps-createpage-notfound": "未找到条目",
 	"ps-field-display-always": "总是显示此字段",
 	"ps-field-display-notempty": "显示，如果不为空",
-	"ps-field-display-hide": "隐藏"
+	"ps-field-display-hide": "隐藏",
+	"ps-field-namespace": "此字段在以下名字空间将总拥有值："
 }
