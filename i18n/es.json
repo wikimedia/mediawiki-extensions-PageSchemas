@@ -34,6 +34,8 @@
 	"createschema": "Crear el esquema",
 	"right-generatepages": "Ver la pestaña y la página «{{int:generatepages}}»",
 	"action-generatepages": "Ver la pestaña y la página \"{{int:generatepages}}\"",
+	"ps-add-section": "Añadir sección",
+	"ps-removepagesection": "Eliminar sección",
 	"ps-sectionname": "Nombre de la sección:",
 	"ps-sectionlevel": "Nivel de la sección:",
 	"ps-section": "Sección",
