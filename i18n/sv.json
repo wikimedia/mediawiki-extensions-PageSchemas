@@ -4,7 +4,8 @@
 			"Jopparn",
 			"Martinwiss",
 			"Per",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
 	"ps-desc": "Definierar en datastruktur för alla sidor i en kategori m.h.a. XML",
@@ -34,11 +35,18 @@
 	"createschema": "Skapa schema",
 	"right-generatepages": "Visa fliken och sidan \"{{int:generatepages}}\"",
 	"action-generatepages": "visa fliken och sidan \"{{int:Generatepages}}\"",
+	"ps-add-section": "Lägg till avsnitt",
+	"ps-removepagesection": "Ta bort avsnitt",
+	"ps-sectionname": "Avsnittsnamn:",
+	"ps-sectionlevel": "Avsnittsnivå:",
+	"ps-section": "Avsnitt",
 	"ps-level": "Nivå",
 	"ps-otherparams": "Andra parametrar",
 	"ps-createpage-irregulartext": "Wikisidan \"$1\" innehåller inte vanlig wikitext.",
 	"ps-createpage-invalidtitle": "Ogiltig titel",
 	"ps-createpage-notfound": "Artikel hittades inte",
 	"ps-field-display-always": "Visa alltid detta fält",
-	"ps-field-display-hide": "Dölj"
+	"ps-field-display-notempty": "Visa om inte tom",
+	"ps-field-display-hide": "Dölj",
+	"ps-field-namespace": "Detta fält har alltid värden i följande namnrymder:"
 }
