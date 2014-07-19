@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Liangent",
-			"Mark85296341"
+			"Mark85296341",
+			"Liuxinyu970226"
 		]
 	},
-	"ps-desc": "使用XML爲分類中的所有頁面定義數據結構"
+	"ps-desc": "使用XML爲分類中的所有頁面定義數據結構",
+	"ps-template": "樣版"
 }
