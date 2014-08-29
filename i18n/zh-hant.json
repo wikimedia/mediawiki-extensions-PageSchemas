@@ -8,6 +8,7 @@
 	},
 	"ps-desc": "使用XML爲分類中的所有頁面定義數據結構",
 	"ps-template": "樣版",
+	"ps-add-template": "加入樣版",
 	"ps-add-section": "新增章節",
 	"ps-removepagesection": "移除章節",
 	"ps-sectionname": "章節名稱：",
