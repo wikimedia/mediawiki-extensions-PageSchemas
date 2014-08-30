@@ -89,5 +89,6 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'EditSchema' => array( '編輯架構' ),
+	'GeneratePages' => array( '產生頁面' ),
+	'EditSchema' => array( '編輯綱要' ),
 );
