@@ -9,6 +9,7 @@
 	"ps-desc": "Termeniñ a ra framm ar roadennoù evit holl bajennoù ur rummad bennak en ur ober gant XML",
 	"ps-schema-description": "Chema ar bajenn",
 	"generatepages": "Genel ar pajennoù",
+	"ps-generatepages-success": "Ganet e vo ar pajennoù diuzet.",
 	"ps-multiple-temp-label": "Aotren meur a eilad eus ar patrom-mañ",
 	"ps-field-list-label": "Ne c'hall ket ar vaezienn-mañ bezañ ur roll talvoudoù enni",
 	"ps-template": "Patrom",
@@ -19,6 +20,17 @@
 	"ps-displaylabel": "Tikedenn diskwel :",
 	"ps-add-field": "Ouzhpennañ ur vaezienn",
 	"ps-remove-field": "Lemel ar vaezienn",
+	"ps-add-xml-label": "XML ouzhpenn :",
 	"editschema": "Kemmañ ar chema",
-	"createschema": "Krouiñ ur chema"
+	"createschema": "Krouiñ ur chema",
+	"ps-add-section": "Ouzhpennañ ur rann",
+	"ps-removepagesection": "Lemel ur rann",
+	"ps-sectionname": "Anv ar rann :",
+	"ps-level": "Live",
+	"ps-otherparams": "Arventennoù all",
+	"ps-createpage-invalidtitle": "Titl direizh",
+	"ps-createpage-notfound": "N'eo ket bet kavet ar pennad",
+	"ps-field-display-always": "Diskwel atav ar vaezienn-mañ",
+	"ps-field-display-notempty": "Diskwel ma ne vez ket goullo",
+	"ps-field-display-hide": "Kuzhat"
 }
