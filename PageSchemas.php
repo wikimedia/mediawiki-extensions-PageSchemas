@@ -86,7 +86,6 @@ $wgResourceModules += array(
 			'PageSchemas.css',
 		),
 		'dependencies' => array(
-			'jquery',
 		),
 	),
 );
@@ -98,7 +97,6 @@ $wgResourceModules += array(
 		'styles' => array(
 		),
 		'dependencies' => array(
-			'jquery',
 		),
 	),
 );
