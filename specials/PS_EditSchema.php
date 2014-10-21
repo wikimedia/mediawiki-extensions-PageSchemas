@@ -145,7 +145,6 @@ class PSEditSchema extends IncludableSpecialPage {
 		$res = $dbr->select( 'page_props',
 			array(
 				'pp_page',
-				'pp_propname',
 				'pp_value'
 			),
 			array(
@@ -155,7 +154,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
 		$text .= "<ul>\n";
 		while ( $row = $dbr->fetchRow( $res ) ) {
-			if ( $row[2] == null ) {
+			if ( $row[1] == null ) {
 				continue;
 			}
 			$catTitle = Title::newFromID( $row[0] );
@@ -690,22 +689,21 @@ END;
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'page_props',
 			array(
-				'pp_page',
-				'pp_propname',
 				'pp_value'
 			),
 			array(
 				'pp_page' => $pageId,
+				'pp_propname' => 'PageSchema',
 			)
 		);
 
 		$row = $dbr->fetchRow( $res );
-		if ( $row == null && !$title->exists() ) {
+		if ( !$title->exists() ) {
 			// Category doesn't exist.
 			$wgOut->setPageTitle( wfMessage( 'createschema' )->parse() );
 			$text = '<p>' . wfMessage( 'ps-page-desc-cat-not-exist' )->parse() . '</p>';
 			$text .= self::printForm();
-		} elseif ( ( $row[1] != 'PageSchema' ) || ( $row[2] == null ) ) {
+		} elseif ( $row == null ) {
 			// Category exists, but has no page schema.
 			$text = '<p>' . wfMessage( 'ps-page-desc-ps-not-exist' )->parse() . '</p>';
 			$wgOut->setPageTitle( wfMessage( 'createschema' )->parse() );
@@ -714,7 +712,7 @@ END;
 			// It's a category with an existing page schema -
 			// populate the form with its values.
 			$pageSchemaObj = new PSSchema( $category );
-			$pageXMLstr = $row[2];
+			$pageXMLstr = $row[0];
 			$pageXML = simplexml_load_string( $pageXMLstr );
 			$text = self::printForm( $pageSchemaObj, $pageXML );
 		}
