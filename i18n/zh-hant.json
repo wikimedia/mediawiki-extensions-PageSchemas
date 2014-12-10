@@ -10,7 +10,7 @@
 	"ps-desc": "使用XML爲分類中的所有頁面定義數據結構",
 	"generatepages": "生成頁面",
 	"ps-template": "樣板",
-	"ps-add-template": "加入樣版",
+	"ps-add-template": "加入樣板",
 	"right-generatepages": "檢視 \"{{int:generatepages}}\" 標籤和頁面",
 	"action-generatepages": "檢視 \"{{int:generatepages}}\" 標籤和頁面",
 	"ps-add-section": "新增章節",
