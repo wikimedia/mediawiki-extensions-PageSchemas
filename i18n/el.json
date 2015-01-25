@@ -30,6 +30,20 @@
 	"ps-optional-name": "Όνομα (αφήστε το κενό αν θέλετε να είναι ίδιο με το όνομα πεδίου):",
 	"editschema": "Επεξεργασία σχήματος",
 	"createschema": "Δημιουργία σχήματος",
-	"right-generatepages": "Προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»",
-	"action-generatepages": "προβολή καρτέλας και σελίδας «Παραγωγή σελίδων»"
+	"right-generatepages": "Προβολή καρτέλας και σελίδας «{{int:generatepages}}»",
+	"action-generatepages": "προβολή καρτέλας και σελίδας «{{int:generatepages}}»",
+	"ps-add-section": "Προσθήκη ενότητας",
+	"ps-removepagesection": "Αφαίρεση ενότητας",
+	"ps-sectionname": "Όνομα ενότητας:",
+	"ps-sectionlevel": "Επίπεδο ενότητας:",
+	"ps-section": "Ενότητα",
+	"ps-level": "Επίπεδο",
+	"ps-otherparams": "Άλλες παράμετροι",
+	"ps-createpage-irregulartext": "Η σελίδα «$1» του wiki δεν περιέχει κανονικό κώδικα wiki.",
+	"ps-createpage-invalidtitle": "Μη έγκυρος τίτλος",
+	"ps-createpage-notfound": "Το άρθρο δεν βρέθηκε",
+	"ps-field-display-always": "Εμφάνιση αυτού του πεδίου πάντα",
+	"ps-field-display-notempty": "Εμφάνιση μόνο αν δεν είναι κενό",
+	"ps-field-display-hide": "Απόκρυψη",
+	"ps-field-namespace": "Το πεδίο αυτό θα έχει πάντα τιμές στον ακόλουθο ονοματοχώρο:"
 }
