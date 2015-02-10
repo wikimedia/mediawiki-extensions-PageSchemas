@@ -412,6 +412,10 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateHTML .= "\n\t\t" . '<div class="multipleInstanceTemplateAttributes">';
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$multipleInstanceOnly = call_user_func( array( $psHandlerClass, "isTemplateDataMultipleInstanceOnly" ) );
+			if ( !$multipleInstanceOnly ) {
+				continue;
+			}
 			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getTemplateEditingHTML" ), $psTemplate );
 			if ( is_null( $valuesFromExtension ) ) {
 				continue;
@@ -423,6 +427,22 @@ class PSEditSchema extends IncludableSpecialPage {
 		}
 
 		$templateHTML .= "\n\t\t" . '</div><!-- multipleInstanceTemplateAttributes -->';
+
+		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
+			$multipleInstanceOnly = call_user_func( array( $psHandlerClass, "isTemplateDataMultipleInstanceOnly" ) );
+			if ( $multipleInstanceOnly ) {
+				continue;
+			}
+			$valuesFromExtension = call_user_func( array( $psHandlerClass, "getTemplateEditingHTML" ), $psTemplate );
+			if ( is_null( $valuesFromExtension ) ) {
+				continue;
+			}
+			$label = call_user_func( array( $psHandlerClass, "getTemplateDisplayString" ) );
+			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
+			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
+			$templateHTML .= str_replace( 'num', $template_num, $html );
+		}
+
 		$templateHTML .= "\n\t\t" . '<div class="fieldsList">';
 		$fieldNumInTemplate = 0;
 		// If this is a "starter" template, create the starter

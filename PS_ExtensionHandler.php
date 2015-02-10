@@ -55,6 +55,10 @@ class PSExtensionHandler {
 		return null;
 	}
 
+	public static function isTemplateDataMultipleInstanceOnly() {
+		return true;
+	}
+
 	public static function getTemplateDisplayString() {
 		return null;
 	}
