@@ -1,6 +1,6 @@
 Page Schemas extension
 
-        Version 0.4.4
+        Version 0.4.5
         Yaron Koren and Ankit Garg
 
 This is free software licensed under the GNU General Public License. Please
@@ -47,8 +47,8 @@ Google Summer of Code, again mentored by Yaron.
 
 Important code contributions were also made by Vedmaka.
 
-Language translations were provided by many people; see the file
-PageSchemas.i18n.php for the full listing.
+Language translations were provided by many people; see the files in
+the /i18n directory for the full listing.
 
 == Contact ==
 
