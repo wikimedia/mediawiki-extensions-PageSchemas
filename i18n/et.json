@@ -1,13 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Avjoska"
+			"Avjoska",
+			"Roland"
 		]
 	},
+	"ps-page-desc-ps-not-exist": "See kategooria on olemas, aga puudub lehe skeem. Koosta skeem:",
 	"ps-template": "Mall",
 	"ps-add-template": "Lisa mall",
 	"ps-field": "Väli",
 	"ps-namelabel": "Nimi:",
 	"ps-add-field": "Lisa väli",
-	"ps-remove-field": "Eemalda väli"
+	"ps-remove-field": "Eemalda väli",
+	"createschema": "Koosta skeem",
+	"ps-add-section": "Lisa sektsioon"
 }
