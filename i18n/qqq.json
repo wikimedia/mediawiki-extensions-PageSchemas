@@ -7,10 +7,11 @@
 			"Purodha",
 			"Raymond",
 			"Shirayuki",
-			"Siebrand"
+			"Siebrand",
+			"Umherirrender"
 		]
 	},
-	"ps-desc": "{{desc|name=Page Schemas|url=http://www.mediawiki.org/wiki/Extension:Page_Schemas}}",
+	"ps-desc": "{{desc|name=Page Schemas|url=https://www.mediawiki.org/wiki/Extension:Page_Schemas}}",
 	"generatepages": "{{doc-special|GeneratePages}}\nUsed as label for the tab.\n\nUsed in:\n* {{msg-mw|Right-generatepages}}\n* {{msg-mw|Action-generatepages}}",
 	"ps-delimiter-label": "Used as label for delimiter of values.\n{{Identical|Delimiter for values (default is \",\"):}}",
 	"ps-field-list-label": "Label for is_list checkbox.\n{{Identical|This field can hold a list of values}}",
