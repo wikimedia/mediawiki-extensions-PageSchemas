@@ -21,7 +21,7 @@ $specialPageAliases['ar'] = array(
 	'EditSchema' => array( 'تعديل_السكيما' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'GeneratePages' => array( 'توليد_صفحات' ),
 	'EditSchema' => array( 'تعديل_السكيما' ),
