@@ -4,7 +4,8 @@
 			"Armando-Martin",
 			"Ciencia Al Poder",
 			"Fitoschido",
-			"Translationista"
+			"Translationista",
+			"Ryo567"
 		]
 	},
 	"ps-desc": "Define la estrutura de datos de todas las páginas de una categoría mediante formato XML",
@@ -41,6 +42,7 @@
 	"ps-section": "Sección",
 	"ps-level": "Nivel",
 	"ps-otherparams": "Otros parámetros",
+	"ps-createpage-irregulartext": "La página de la wiki \"$1\" no tiene wikitexto normal.",
 	"ps-createpage-invalidtitle": "El título no es válido",
 	"ps-createpage-notfound": "No se encontró el artículo",
 	"ps-field-display-always": "Siempre mostrar este campo",
