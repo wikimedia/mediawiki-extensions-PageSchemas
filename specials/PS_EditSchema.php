@@ -739,4 +739,8 @@ END;
 		$wgOut->addHTML( $text );
 		return true;
 	}
+
+	protected function getGroupName() {
+		return 'other';
+	}
 }

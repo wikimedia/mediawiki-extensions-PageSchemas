@@ -58,8 +58,6 @@ $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 // Register special pages
 $wgSpecialPages['GeneratePages'] = 'PSGeneratePages';
 $wgSpecialPages['EditSchema'] = 'PSEditSchema';
-$wgSpecialPageGroups['GeneratePages'] = 'other';
-$wgSpecialPageGroups['EditSchema'] = 'other';
 // Register parser hook
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
 

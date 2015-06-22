@@ -94,4 +94,8 @@ class PSGeneratePages extends IncludableSpecialPage {
 	function isListed() {
 		return false;
 	}
+
+	protected function getGroupName() {
+		return 'other';
+	}
 }
