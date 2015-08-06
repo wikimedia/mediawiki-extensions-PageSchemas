@@ -58,12 +58,9 @@ $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 // Register special pages
 $wgSpecialPages['GeneratePages'] = 'PSGeneratePages';
 $wgSpecialPages['EditSchema'] = 'PSEditSchema';
-// Register parser hook
+
+// Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
-
-// Register page_props usage
-$wgPageProps['PageSchema'] = 'Contents of &lt;PageSchema&gt; tag';
-
 $wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
 $wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
 $wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTabs2';
