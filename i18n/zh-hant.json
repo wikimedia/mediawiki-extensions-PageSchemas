@@ -12,6 +12,7 @@
 	"ps-template": "模板",
 	"ps-add-template": "加入模板",
 	"ps-remove-template": "移除模板",
+	"ps-namelabel": "名稱：",
 	"right-generatepages": "檢視 \"{{int:generatepages}}\" 標籤和頁面",
 	"action-generatepages": "檢視 \"{{int:generatepages}}\" 標籤和頁面",
 	"ps-add-section": "新增章節",
