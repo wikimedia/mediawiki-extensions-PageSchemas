@@ -290,9 +290,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldIsListSet = $fieldIsListInput . ' ';
 		$fieldIsListSet .= wfMessage( 'ps-field-list-label' )->parse();
 		$fieldHTML .= Html::rawElement( 'p', null,  $fieldIsListSet);
-		$fieldDelimiterInput = Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
-		$fieldDelimiterInputAndLabel = wfMessage( 'ps-delimiter-label' )->parse() . ' ';
-		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterInput );
+		$fieldDelimiterSet = wfMessage( 'ps-delimiter-label' )->parse() . ' ' .
+			Html::input ( 'f_delimiter_' . $fieldNum, $delimiter, 'text', array( 'size' => 3 ) );
+		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterSet );
 		// Create radiobutton for display of field
 		$displayShownAttrs = array();
 		$displayIfNonEmptyAttrs = array();
