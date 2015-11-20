@@ -431,7 +431,7 @@ class PSTemplate {
 		// Index for template objects
 		$i = 0 ;
 		$inherited_fields = array();
-		foreach ($templateXML->children() as $child) {
+		foreach ( $templateXML->children() as $child ) {
 			if ( $child->getName() == 'InheritsFrom' ) {
 				$schema_to_inherit = (string) $child->attributes()->schema;
 				$template_to_inherit = (string) $child->attributes()->template;
@@ -445,11 +445,13 @@ class PSTemplate {
 					}
 				}
 			} elseif ( $child->getName() == "Field" ) {
+				$fieldObj = new PSTemplateField( $child );
+				$this->mFields[$i++]= $fieldObj;
+				// "Ignore" the below code for now; it's not
+				// needed, and doesn't work yet.
+/*
 				$ignore = (string) $child->attributes()->ignore;
-				if ( count($child->children()) > 0 ) { //@TODO :Can be dealt more efficiently
-					$fieldObj = new PSTemplateField( $child );
-					$this->mFields[$i++]= $fieldObj;
-				} elseif ( $ignore != "true" ) {
+				if ( $ignore != "true" ) {
 					// Code to add fields from inherited templates
 					$field_name = (string) $child->attributes()->name;
 					foreach ( $inherited_fields as $inherited_field ) {
@@ -458,6 +460,7 @@ class PSTemplate {
 						}
 					}
 				}
+*/
 			}
 		}
 	}
