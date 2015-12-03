@@ -317,51 +317,61 @@ class PSSchema {
 		$row = $dbr->fetchRow( $res );
 		if ( $row == null) {
 			$this->mIsPSDefined = false;
-		} else {
-			// retrieve the third attribute, which is pp_value
-			$pageXMLstr = $row[2];
-			$this->mPageXML = simplexml_load_string ( $pageXMLstr );
-			// index for template objects
-			$templateCount = 0;
-			$pageSectionCount = 0;
-			$inherited_templates = array();
-			foreach ( $this->mPageXML->children() as $tag => $child ) {
-				if ( $tag == 'InheritsFrom ' ) {
-					$schema_to_inherit = (string) $child->attributes()->schema;
-					if( $schema_to_inherit != null ) {
-						$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
-						$inherited_templates = $inheritedSchemaObj->getTemplates();
-					}
+			return;
+		}
+
+		// Retrieve the third attribute, which is pp_value.
+		$pageXMLstr = $row[2];
+
+		// Parse the string - if the parsing fails, just exit
+		// without displaying an error message; the parsing error
+		// messages aren't that helpful anyway.
+		$this->mPageXML = simplexml_load_string( $pageXMLstr, 'SimpleXMLElement', LIBXML_NOERROR );
+		if ( $this->mPageXML == null ) {
+			$this->mIsPSDefined = false;
+			return;
+		}
+
+		// Index for template objects
+		$templateCount = 0;
+		$pageSectionCount = 0;
+		$inherited_templates = array();
+		foreach ( $this->mPageXML->children() as $tag => $child ) {
+			if ( $tag == 'InheritsFrom ' ) {
+				$schema_to_inherit = (string) $child->attributes()->schema;
+				if( $schema_to_inherit != null ) {
+					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
+					$inherited_templates = $inheritedSchemaObj->getTemplates();
 				}
-				if ( $tag == 'Template' ) {
-					$ignore = (string) $child->attributes()->ignore;
-					if ( count( $child->children() ) > 0 ) {
-						$templateObj = new PSTemplate( $child );
-						$this->mFormItemsList[] = array( 'type' => $tag,
-							'number' => $templateCount,
-							'item' => $templateObj );
-							$this->mTemplates[$templateCount]= $templateObj;
-						$templateCount++;
-					} elseif ( $ignore != "true" ) {
-						// Code to add templates from inherited templates
-						$temp_name = (string) $child->attributes()->name;
-						foreach( $inherited_templates as $inherited_template ) {
-							if( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
-								$this->mFormItemsList[] = array( 'type' => $tag,
-									'number' => $templateCount,
-									'item' => $inherited_template );
-									$this->mTemplates[$templateCount] = $inherited_template;
-								$templateCount++;
-							}
+			}
+			if ( $tag == 'Template' ) {
+				$ignore = (string) $child->attributes()->ignore;
+				if ( count( $child->children() ) > 0 ) {
+					$templateObj = new PSTemplate( $child );
+					$this->mFormItemsList[] = array( 'type' => $tag,
+						'number' => $templateCount,
+						'item' => $templateObj );
+						$this->mTemplates[$templateCount]= $templateObj;
+					$templateCount++;
+				} elseif ( $ignore != "true" ) {
+					// Code to add templates from inherited templates
+					$temp_name = (string) $child->attributes()->name;
+					foreach( $inherited_templates as $inherited_template ) {
+						if( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
+							$this->mFormItemsList[] = array( 'type' => $tag,
+								'number' => $templateCount,
+								'item' => $inherited_template );
+								$this->mTemplates[$templateCount] = $inherited_template;
+							$templateCount++;
 						}
 					}
-				} elseif ( $tag == 'Section' ) {
-					$pageSectionObj = new PSPageSection( $child );
-					$this->mFormItemsList[] = array( 'type' => $tag,
-							'number' => $pageSectionCount,
-							'item' => $pageSectionObj );
-					$pageSectionCount++;
 				}
+			} elseif ( $tag == 'Section' ) {
+				$pageSectionObj = new PSPageSection( $child );
+				$this->mFormItemsList[] = array( 'type' => $tag,
+					'number' => $pageSectionCount,
+					'item' => $pageSectionObj );
+				$pageSectionCount++;
 			}
 		}
 	}
