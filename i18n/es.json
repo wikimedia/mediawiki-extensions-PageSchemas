@@ -5,7 +5,8 @@
 			"Ciencia Al Poder",
 			"Fitoschido",
 			"Translationista",
-			"Ryo567"
+			"Ryo567",
+			"Macofe"
 		]
 	},
 	"ps-desc": "Define la estrutura de datos de todas las páginas de una categoría mediante formato XML",
@@ -15,7 +16,7 @@
 	"ps-generatepages-success": "Se generarán las páginas seleccionadas.",
 	"ps-generatepages-noschema": "Erro: No hay ningún esquema de página definido para esta categoría.",
 	"ps-generatepages-editsummary": "Generado a partir del esquema de página",
-	"ps-page-desc-cat-not-exist": "Esta categoría aun no existe. Cree esta categoría y su esquema de página:",
+	"ps-page-desc-cat-not-exist": "Esta categoría aún no existe. Crea esta categoría y su esquema de página:",
 	"ps-page-desc-ps-not-exist": "Esta categoría existe, pero no tiene un esquema de página. Cree el esquema:",
 	"ps-page-desc-edit-schema": "Edite el esquema de página de esta categoría:",
 	"ps-delimiter-label": "Delimitador para los valores (por defecto es \",\"):",
