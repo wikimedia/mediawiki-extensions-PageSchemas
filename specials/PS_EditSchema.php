@@ -649,10 +649,8 @@ END;
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
 		if ( !is_null( $category ) && ( !$wgUser->isAllowed( 'edit' ) || !$wgTitle->userCan( 'edit' ) ) ) {
-			$wgOut->permissionRequired( 'edit' );
-			return;
+			throw new PermissionsError( 'edit' );
 		}
-
 
 		$this->setHeaders();
 		$text = '<p>' . wfMessage( 'ps-page-desc-edit-schema' )->parse() . '</p>';

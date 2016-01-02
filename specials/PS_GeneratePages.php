@@ -17,8 +17,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		global $wgUser, $wgRequest, $wgOut, $wgPageSchemasHandlerClasses;
 
 		if ( ! $wgUser->isAllowed( 'generatepages' ) ) {
-			$wgOut->permissionRequired( 'generatepages' );
-			return;
+			throw new PermissionsError( 'generatepages' );
 		}
 
 		$this->setHeaders();
