@@ -6,7 +6,7 @@
 	},
 	"ps-desc": "Jitt de Dateschtruktur vun alle SIgge en en Saachjropp en enem <i lang=\"en\">XML</i>-Fommaad aan.",
 	"ps-schema-description": "Et Sigge-Schema",
-	"generatepages": "Sigge automattesch aanlääje",
+	"generatepages": "Sigge automattesch aanlähje",
 	"ps-generatepages-desc": "Donn de Sigge en dä Leß heh automattesch aanlääje, noh dämm XML-Schema för di Saachjropp:",
 	"ps-generatepages-success": "e ußjewähltei Sigge wääde automattesch aanjelaat.",
 	"ps-generatepages-noschema": "Fähler: Mer han kei XML-Schema för di Saachjropp.",
