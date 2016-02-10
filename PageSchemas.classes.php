@@ -108,25 +108,25 @@ END;
 			// that this is a header row for extension data, and thus should have special
 			// display.
 			// In the future, the background color may get used, though.
-			$data_type = HTML::element( 'span', array( 'style' => "color: #993333;" ), $data_type );
+			$data_type = Html::element( 'span', array( 'style' => "color: #993333;" ), $data_type );
 		}
 		if ( $value == '' ) {
 			$content = $data_type;
 		} else {
-			$content = "$data_type: " . HTML::element( 'span', array( 'class' => 'rowValue' ), $value );
+			$content = "$data_type: " . Html::element( 'span', array( 'class' => 'rowValue' ), $value );
 		}
 		$cellAttrs = array( 'colspan' => 2, 'class' => $css_class );
-		$cell = HTML::rawElement( 'td', $cellAttrs, $content );
-		$text = HTML::rawElement( 'tr', array( 'style' => 'border: 1px black solid; margin: 10px;' ), $cell );
+		$cell = Html::rawElement( 'td', $cellAttrs, $content );
+		$text = Html::rawElement( 'tr', array( 'style' => 'border: 1px black solid; margin: 10px;' ), $cell );
 		$text .= "\n";
 		return $text;
 	}
 
 	static function attrRowHTML( $cssClass, $fieldName, $value ) {
 		$fieldNameAttrs = array( 'class' => $cssClass, 'style' => 'font-weight: normal;' );
-		$fieldNameCell = HTML::rawElement( 'td', $fieldNameAttrs, $fieldName );
-		$valueCell = HTML::element( 'td', array( 'class' => 'msg', 'style' => 'font-weight: bold;' ), $value );
-		$text = HTML::rawElement( 'tr', null, $fieldNameCell . "\n" . $valueCell );
+		$fieldNameCell = Html::rawElement( 'td', $fieldNameAttrs, $fieldName );
+		$valueCell = Html::element( 'td', array( 'class' => 'msg', 'style' => 'font-weight: bold;' ), $value );
+		$text = Html::rawElement( 'tr', null, $fieldNameCell . "\n" . $valueCell );
 		$text .= "\n";
 		return $text;
 	}
