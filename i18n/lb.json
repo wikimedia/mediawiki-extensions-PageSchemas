@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Les Meloures"
 		]
 	},
 	"ps-desc": "Definéiert d'Date-Struktur per XML fir all Säiten an enger Kategorie",
 	"ps-schema-description": "Schema vun der Säit",
 	"generatepages": "Säite generéieren",
 	"ps-generatepages-desc": "Dës Säiten op der Basis vum Schema vun dëser Kategorie generéieren:",
-	"ps-generatepages-success": "Déi erausgesichte Säite gi generéiert.",
+	"ps-generatepages-success": "Déi erausgesicht Säite gi generéiert.",
 	"ps-generatepages-noschema": "Feeler: et ass kee Säite-Schema fir dës Kategorie definéiert",
 	"ps-generatepages-editsummary": "Generéiert op Basis vum Säite-Schema",
 	"ps-page-desc-cat-not-exist": "Dës Kategorie gëtt et nach net. Leet dës Kategorie an hire Säite-Schema un:",
