@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joachim Mos"
+			"Joachim Mos",
+			"Servien"
 		]
 	},
-	"ps-namelabel": "Naam:"
+	"ps-namelabel": "Naam:",
+	"ps-field-display-hide": "Versteken"
 }
