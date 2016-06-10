@@ -4,11 +4,13 @@
 			"Amire80",
 			"Inkbug",
 			"YaronSh",
-			"חיים"
+			"חיים",
+			"Guycn2"
 		]
 	},
 	"ps-desc": "הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML",
 	"generatepages": "יצירת דפים",
 	"ps-template": "תבנית",
+	"right-generatepages": "צפייה בדף \"{{int:generatepages}}\"",
 	"ps-createpage-invalidtitle": "כותרת בלתי תקינה"
 }
