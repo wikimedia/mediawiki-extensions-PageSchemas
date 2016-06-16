@@ -9,8 +9,9 @@
 		]
 	},
 	"ps-desc": "הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML",
-	"generatepages": "יצירת דפים",
+	"generatepages": "הפקת דפים",
 	"ps-template": "תבנית",
 	"right-generatepages": "צפייה בדף \"{{int:generatepages}}\"",
+	"action-generatepages": "לצפות בדף \"{{int:generatepages}}\"",
 	"ps-createpage-invalidtitle": "כותרת בלתי תקינה"
 }
