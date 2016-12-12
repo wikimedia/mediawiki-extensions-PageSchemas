@@ -660,9 +660,9 @@ END;
 		if ( $save_page ) {
 			$psXML = self::createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			$categoryArticle = new Article( $categoryTitle );
+			$categoryPage = new WikiPage( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
-				$pageText = $categoryArticle->getContent();
+				$pageText = $categoryPage->getContent()->getNativeData();
 				$pageSchemaObj = new PSSchema( $category );
 				if ( $pageSchemaObj->isPSDefined() ) {
 					// Do some preg_replace magic.
@@ -678,7 +678,8 @@ END;
 				$pageText = $psXML;
 			}
 			$editSummary = $wgRequest->getVal( 'wpSummary' );
-			$categoryArticle->doEdit( $pageText, $editSummary );
+			$pageContent = ContentHandler::makeContent( $pageText, $categoryPage->getTitle() );
+			$categoryPage->doEditContent( $pageContent, $editSummary );
 			$redirectURL = $categoryTitle->getLocalURL();
 			$text = <<<END
 		<script type="text/javascript">
