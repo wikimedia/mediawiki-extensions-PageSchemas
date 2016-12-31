@@ -49,16 +49,11 @@ class PSCreatePageJob extends Job {
 		$actual_user = $wgUser;
 		$wgUser = User::newFromId( $this->params['user_id'] );
 		$edit_summary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
-		if ( method_exists( 'WikiPage', 'getContent' ) ) {
-			// MW >= 1.21
-			$content = new WikitextContent( $page_text );
-			$wikiPage->doEditContent( $content, $edit_summary );
-		} else {
-			$article->doEdit( $page_text, $edit_summary );
-		}
+		$content = new WikitextContent( $page_text );
+		$wikiPage->doEditContent( $content, $edit_summary );
+
 		$wgUser = $actual_user;
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
 }
-
