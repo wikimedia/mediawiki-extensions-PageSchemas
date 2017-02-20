@@ -24,7 +24,7 @@
 	"ps-remove-template": "틀 제거",
 	"ps-field": "필드",
 	"ps-namelabel": "이름:",
-	"ps-displaylabel": "보여줄 레이블:",
+	"ps-displaylabel": "표시 레이블:",
 	"ps-add-field": "필드 추가",
 	"ps-remove-field": "필드 제거",
 	"ps-add-xml-label": "추가적인 XML:",
@@ -44,7 +44,7 @@
 	"ps-createpage-invalidtitle": "제목이 잘못되었습니다.",
 	"ps-createpage-notfound": "문서를 찾을 수 없음",
 	"ps-field-display-always": "이 필드를 항상 표시",
-	"ps-field-display-notempty": "비어 있지 않으면 보기",
+	"ps-field-display-notempty": "비어 있지 않으면 표시",
 	"ps-field-display-hide": "숨기기",
 	"ps-field-namespace": "이 필드는 항상 다음 이름공간을 값으로 가져야 합니다:"
 }
