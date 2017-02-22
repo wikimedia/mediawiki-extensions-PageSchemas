@@ -8,10 +8,11 @@
 			"Liangent",
 			"Liuxinyu970226",
 			"Yfdyh000",
-			"LNDDYL"
+			"LNDDYL",
+			"Wmr"
 		]
 	},
-	"ps-desc": "使用XML为分类中的所有页面定义数据结构",
+	"ps-desc": "使用XML为分类下的所有页面定义数据结构",
 	"ps-schema-description": "页面架构",
 	"generatepages": "生成页面",
 	"ps-generatepages-desc": "基于此分类的结构生成以下页面：",
