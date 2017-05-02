@@ -32,7 +32,7 @@
 	"ps-optional-name": "Nazwa (pozostaw puste aby ustawić nazwę pola):",
 	"editschema": "Edytuj schemat",
 	"createschema": "Utwórz schemat",
-	"right-generatepages": "Wyświetlanie karty i strony „{int:generatepages}}”",
+	"right-generatepages": "Wyświetlanie karty i strony „{{int:generatepages}}”",
 	"action-generatepages": "wyświetl kartę i stronę \"{{int:Generatepages}}\"",
 	"ps-add-section": "Dodaj sekcję",
 	"ps-removepagesection": "Usuń sekcję",
