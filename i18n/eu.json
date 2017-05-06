@@ -1,9 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Subi"
 		]
 	},
 	"ps-template": "Txantiloi",
-	"ps-namelabel": "Izena:"
+	"ps-add-template": "Gehitu txantiloia",
+	"ps-remove-template": "Kendu txantiloia",
+	"ps-field": "Eremua",
+	"ps-namelabel": "Izena:",
+	"ps-add-section": "Gehitu atala",
+	"ps-removepagesection": "Kendu atala",
+	"ps-sectionname": "Atalaren izena:",
+	"ps-sectionlevel": "Atalaren maila:",
+	"ps-section": "Atala",
+	"ps-level": "Maila",
+	"ps-otherparams": "Bestelako parametroak",
+	"ps-createpage-notfound": "Ez da artikulua aurkitu",
+	"ps-field-display-hide": "Ezkutatu"
 }
