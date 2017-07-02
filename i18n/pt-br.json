@@ -3,7 +3,8 @@
 		"authors": [
 			"Cainamarques",
 			"Daemorris",
-			"Jaideraf"
+			"Jaideraf",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"ps-desc": "Define a estrutura de dados para todas as páginas contidas em uma categoria utilizando XML",
@@ -39,5 +40,10 @@
 	"ps-sectionlevel": "Nível da seção:",
 	"ps-section": "Seção",
 	"ps-level": "Nível",
-	"ps-otherparams": "Outros parâmetros"
+	"ps-otherparams": "Outros parâmetros",
+	"ps-createpage-invalidtitle": "Título inválido",
+	"ps-createpage-notfound": "Artigo não encontrado",
+	"ps-field-display-always": "Exibir este campo sempre",
+	"ps-field-display-hide": "Ocultar",
+	"ps-field-namespace": "Este campo sempre terá valores no seguinte namespace:"
 }
