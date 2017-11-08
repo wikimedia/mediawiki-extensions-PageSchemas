@@ -13,7 +13,7 @@
 	"ps-generatepages-editsummary": "Xenerada dende un esquema de páxina",
 	"ps-page-desc-cat-not-exist": "Esta categoría inda nun existe. Cree esta categoría ya'l so esquema de páxina:",
 	"ps-page-desc-ps-not-exist": "Esta categoría existe, pero nun tien un esquema de páxina. Cree l'esquema:",
-	"ps-page-desc-edit-schema": "Edite l'esquema de páxina d'esta categoría:",
+	"ps-page-desc-edit-schema": "Edita l'esquema de páxina d'esta categoría:",
 	"ps-delimiter-label": "Llende pa los valores (el predetermináu ye \",\"):",
 	"ps-multiple-temp-label": "Permitir instancies múltiples d'esta plantía",
 	"ps-field-list-label": "Esti campu pue contener una llista de valores",
