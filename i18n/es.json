@@ -19,7 +19,7 @@
 	"ps-page-desc-cat-not-exist": "Esta categoría aún no existe. Crea esta categoría y su esquema de página:",
 	"ps-page-desc-ps-not-exist": "Esta categoría existe, pero no tiene un esquema de página. Cree el esquema:",
 	"ps-page-desc-edit-schema": "Edite el esquema de página de esta categoría:",
-	"ps-delimiter-label": "Delimitador para los valores (por defecto es \",\"):",
+	"ps-delimiter-label": "Delimitador de los valores (el predeterminado es «,»):",
 	"ps-multiple-temp-label": "Permitir varios ejemplos de esta plantilla",
 	"ps-field-list-label": "Este campo puede contener una lista de valores",
 	"ps-template": "Plantilla",
