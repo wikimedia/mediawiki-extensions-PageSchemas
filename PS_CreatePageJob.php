@@ -16,18 +16,14 @@ class PSCreatePageJob extends Job {
 	 * @return boolean success
 	 */
 	function run() {
-		wfProfileIn( __METHOD__ );
-
 		if ( is_null( $this->title ) ) {
 			$this->error = wfMessage( 'ps-createpage-invalidtitle' )->text();
-			wfProfileOut( __METHOD__ );
 			return false;
 		}
 		if ( method_exists( 'WikiPage', 'getContent' ) ) {
 			// MW >= 1.21
 			if ( $this->title->getContentModel() !== CONTENT_MODEL_WIKITEXT ) {
 				$this->error = wfMessage( 'ps-createpage-irregulartext', $this->title->getPrefixedDBkey() )->text();
-				wfProfileOut( __METHOD__ );
 				return false;
 			}
 			$wikiPage = new WikiPage( $this->title );
@@ -35,7 +31,6 @@ class PSCreatePageJob extends Job {
 			$article = new Article( $this->title );
 			if ( !$article ) {
 				$this->error = wfMessage( 'ps-createpage-notfound', $this->title->getPrefixedDBkey() )->text();
-				wfProfileOut( __METHOD__ );
 				return false;
 			}
 		}
@@ -53,7 +48,6 @@ class PSCreatePageJob extends Job {
 		$wikiPage->doEditContent( $content, $edit_summary );
 
 		$wgUser = $actual_user;
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 }
