@@ -29,7 +29,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version'		=> PAGE_SCHEMAS_VERSION,
 	'url'			=> 'https://www.mediawiki.org/wiki/Extension:Page_Schemas',
 	'descriptionmsg'	=> 'ps-desc',
-	'license-name'		=> 'GPL-2.0+'
+	'license-name'		=> 'GPL-2.0-or-later'
 );
 
 // Shortcut to this extension directory
