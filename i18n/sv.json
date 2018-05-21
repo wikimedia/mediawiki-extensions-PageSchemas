@@ -44,7 +44,6 @@
 	"ps-otherparams": "Andra parametrar",
 	"ps-createpage-irregulartext": "Wikisidan \"$1\" innehåller inte vanlig wikitext.",
 	"ps-createpage-invalidtitle": "Ogiltig titel",
-	"ps-createpage-notfound": "Artikel hittades inte",
 	"ps-field-display-always": "Visa alltid detta fält",
 	"ps-field-display-notempty": "Visa om inte tom",
 	"ps-field-display-hide": "Dölj",

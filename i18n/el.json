@@ -41,7 +41,6 @@
 	"ps-otherparams": "Άλλες παράμετροι",
 	"ps-createpage-irregulartext": "Η σελίδα «$1» του wiki δεν περιέχει κανονικό κώδικα wiki.",
 	"ps-createpage-invalidtitle": "Μη έγκυρος τίτλος",
-	"ps-createpage-notfound": "Το άρθρο δεν βρέθηκε",
 	"ps-field-display-always": "Εμφάνιση αυτού του πεδίου πάντα",
 	"ps-field-display-notempty": "Εμφάνιση μόνο αν δεν είναι κενό",
 	"ps-field-display-hide": "Απόκρυψη",

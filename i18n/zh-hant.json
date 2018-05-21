@@ -44,7 +44,6 @@
 	"ps-otherparams": "其它參數",
 	"ps-createpage-irregulartext": "Wiki 頁面「$1」未包含正規 wiki 文字。",
 	"ps-createpage-invalidtitle": "無效標題",
-	"ps-createpage-notfound": "查無條目",
 	"ps-field-display-always": "永遠顯示此欄位",
 	"ps-field-display-notempty": "若不為空則顯示",
 	"ps-field-display-hide": "隱藏",

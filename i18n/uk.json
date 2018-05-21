@@ -45,7 +45,6 @@
 	"ps-otherparams": "Інші параметри",
 	"ps-createpage-irregulartext": "Вікі-сторінка \"$1\" не містить регулярного тексту вікі.",
 	"ps-createpage-invalidtitle": "Невірний заголовок",
-	"ps-createpage-notfound": "Статтю не знайдено",
 	"ps-field-display-always": "Відображати це поле завжди",
 	"ps-field-display-notempty": "Відображати, якщо поле не порожнє",
 	"ps-field-display-hide": "Приховати",

@@ -48,7 +48,6 @@
 	"ps-otherparams": "其他参数",
 	"ps-createpage-irregulartext": "Wiki页面“$1”不能改正wiki文本。",
 	"ps-createpage-invalidtitle": "无效标题",
-	"ps-createpage-notfound": "未找到条目",
 	"ps-field-display-always": "总是显示此字段",
 	"ps-field-display-notempty": "显示，如果不为空",
 	"ps-field-display-hide": "隐藏",

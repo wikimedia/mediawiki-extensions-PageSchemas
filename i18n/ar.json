@@ -42,7 +42,6 @@
 	"ps-otherparams": "وسائط أخرى",
 	"ps-createpage-irregulartext": "لا تحتوي صفحة الويكي \"$1\" على نص ويكي منتظم.",
 	"ps-createpage-invalidtitle": "عنوان غير صالح",
-	"ps-createpage-notfound": "المقالة غير موجودة",
 	"ps-field-display-always": "اعرض هذا الحقل دائما",
 	"ps-field-display-notempty": "العرض إذا لم يكن فارغا",
 	"ps-field-display-hide": "إخفاء",

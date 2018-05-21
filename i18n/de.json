@@ -42,7 +42,6 @@
 	"ps-otherparams": "Andere Parameter",
 	"ps-createpage-irregulartext": "Die Wikiseite „$1“ enthält keinen normalen Wikitext.",
 	"ps-createpage-invalidtitle": "Ungültiger Titel",
-	"ps-createpage-notfound": "Artikel nicht gefunden",
 	"ps-field-display-always": "Dieses Feld immer anzeigen",
 	"ps-field-display-notempty": "Anzeigen, falls nicht leer",
 	"ps-field-display-hide": "Verstecken",

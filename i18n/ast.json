@@ -40,7 +40,6 @@
 	"ps-otherparams": "Otros parámetros",
 	"ps-createpage-irregulartext": "La páxina wiki \"$1\" nun contien testu wiki regular.",
 	"ps-createpage-invalidtitle": "Títulu inválidu",
-	"ps-createpage-notfound": "Nun s'alcontró l'artículu",
 	"ps-field-display-always": "Amosar esti campu siempre",
 	"ps-field-display-notempty": "Amosar si nun ta baleru",
 	"ps-field-display-hide": "Anubrir",

@@ -43,7 +43,6 @@
 	"ps-otherparams": "پارامترهای دیگر",
 	"ps-createpage-irregulartext": "صفحهٔ ویکی \"$1\" متن ویکی منظمی را دریافت نمی‌کند.",
 	"ps-createpage-invalidtitle": "عنوان نادرست",
-	"ps-createpage-notfound": "مقاله پیدا نشد",
 	"ps-field-display-always": "نمایش همیشگی این زمینه",
 	"ps-field-display-notempty": "اگر خالی نباشد نمایش دهد",
 	"ps-field-display-hide": "نهفتن",

@@ -42,7 +42,6 @@
 	"ps-otherparams": "その他のパラメーター",
 	"ps-createpage-irregulartext": "ウィキページ「$1」は通常のウィキテキストを保持していません。",
 	"ps-createpage-invalidtitle": "無効なページ名",
-	"ps-createpage-notfound": "記事が見つかりません",
 	"ps-field-display-always": "このフィールドを常に表示",
 	"ps-field-display-notempty": "空ではない場合表示",
 	"ps-field-display-hide": "非表示"

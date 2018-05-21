@@ -40,7 +40,6 @@
 	"ps-otherparams": "Drugi parametri",
 	"ps-createpage-irregulartext": "Wikistran »$1« ne vsebuje navadnega wikibesedila.",
 	"ps-createpage-invalidtitle": "Neveljavni naslov",
-	"ps-createpage-notfound": "Članka ni mogoče najti",
 	"ps-field-display-always": "Polje vedno prikaži",
 	"ps-field-display-notempty": "Prikaži, če ni prazno",
 	"ps-field-display-hide": "Skrij",

@@ -46,7 +46,6 @@
 	"ps-otherparams": "Autres paramètres",
 	"ps-createpage-irregulartext": "La page wiki \"$1\" ne contient pas de texte valide.",
 	"ps-createpage-invalidtitle": "Titre non valide",
-	"ps-createpage-notfound": "Article non trouvé",
 	"ps-field-display-always": "Toujours afficher ce champ",
 	"ps-field-display-notempty": "À afficher si le champ n'est pas vide",
 	"ps-field-display-hide": "Cacher",
