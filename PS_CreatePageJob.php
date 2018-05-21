@@ -20,21 +20,12 @@ class PSCreatePageJob extends Job {
 			$this->error = wfMessage( 'ps-createpage-invalidtitle' )->text();
 			return false;
 		}
-		if ( method_exists( 'WikiPage', 'getContent' ) ) {
-			// MW >= 1.21
-			if ( $this->title->getContentModel() !== CONTENT_MODEL_WIKITEXT ) {
-				$this->error = wfMessage( 'ps-createpage-irregulartext', $this->title->getPrefixedDBkey() )->text();
-				return false;
-			}
-			$wikiPage = new WikiPage( $this->title );
-		} else {
-			$article = new Article( $this->title );
-			if ( !$article ) {
-				$this->error = wfMessage( 'ps-createpage-notfound', $this->title->getPrefixedDBkey() )->text();
-				return false;
-			}
+		if ( $this->title->getContentModel() !== CONTENT_MODEL_WIKITEXT ) {
+			$this->error = wfMessage( 'ps-createpage-irregulartext', $this->title->getPrefixedDBkey() )->text();
+			return false;
 		}
 
+		$wikiPage = new WikiPage( $this->title );
 		$page_text = $this->params['page_text'];
 
 		// Change global $wgUser variable to the one
