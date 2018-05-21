@@ -33,11 +33,13 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * the form.
 	 */
 	static function createPageSchemaXMLFromForm() {
-		global $wgRequest, $wgPageSchemasHandlerClasses;
+		global $wgPageSchemasHandlerClasses;
+
+		$request = $this->getRequest();
 
 		// Generate the XML from the form elements.
 		$psXML = '<PageSchema>';
-		$additionalXML = $wgRequest->getText( 'ps_add_xml' );
+		$additionalXML = $request->getText( 'ps_add_xml' );
 		$psXML .= $additionalXML;
 		$fieldName = "";
 		$fieldNum = -1;
@@ -59,16 +61,16 @@ class PSEditSchema extends IncludableSpecialPage {
 				$psXML .= $xml;
 			}
 		}
-		foreach ( $wgRequest->getValues() as $var => $val ) {
+		foreach ( $request->getValues() as $var => $val ) {
 			// Ignore fields from the hidden/starter div
 			if ( substr( $var, 0, 7 ) == 't_name_' ) {
 				$templateNum = substr( $var, 7 );
 				$templateAttrs = array( 'name' => $val );
-				if ( $wgRequest->getCheck( 'is_multiple_' . $templateNum ) ) {
+				if ( $request->getCheck( 'is_multiple_' . $templateNum ) ) {
 					$templateAttrs['multiple'] = 'multiple';
 				}
-				if ( $wgRequest->getCheck( 'template_format_' . $templateNum ) ) {
-					$templateAttrs['format'] = $wgRequest->getVal( 'template_format_' . $templateNum );
+				if ( $request->getCheck( 'template_format_' . $templateNum ) ) {
+					$templateAttrs['format'] = $request->getVal( 'template_format_' . $templateNum );
 				}
 				$psXML .= Xml::openElement( 'Template', $templateAttrs );
 
@@ -82,18 +84,18 @@ class PSEditSchema extends IncludableSpecialPage {
 				$fieldNum = substr( $var, 7 );
 				$fieldName = $val;
 				$fieldAttrs = array( 'name' => $fieldName );
-				if ( $wgRequest->getCheck( 'f_is_list_' . $fieldNum ) ) {
+				if ( $request->getCheck( 'f_is_list_' . $fieldNum ) ) {
 					$fieldAttrs['list'] = 'list';
-					$delimiter = $wgRequest->getText( 'f_delimiter_' . $fieldNum );
+					$delimiter = $request->getText( 'f_delimiter_' . $fieldNum );
 					if ( $delimiter != '' ) {
 						$fieldAttrs['delimiter'] = $delimiter;
 					}
 				}
-				$fieldDisplay = $wgRequest->getText( 'f_display_' . $fieldNum );
+				$fieldDisplay = $request->getText( 'f_display_' . $fieldNum );
 				if ( $fieldDisplay != 'show' ) {
 					$fieldAttrs['display'] = $fieldDisplay;
 				}
-				$fieldNamespace = $wgRequest->getText( 'f_namespace_' . $fieldNum );
+				$fieldNamespace = $request->getText( 'f_namespace_' . $fieldNum );
 				if ( $fieldNamespace != '' ) {
 					$fieldAttrs['namespace'] = $fieldNamespace;
 				}
@@ -118,7 +120,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			} elseif ( substr( $var, 0, 7 ) == 's_name_' ) {
 				$pageSectionNum = substr( $var, 7 );
 				$sectionName = $val;
-				$sectionLevel = $wgRequest->getVal( "s_level_" . $pageSectionNum );
+				$sectionLevel = $request->getVal( "s_level_" . $pageSectionNum );
 				$psXML .= '<Section name="' . $sectionName . '" level="' . $sectionLevel . '">';
 				foreach ( $pageSectionXMLFromExtensions as $extensionName => $xmlPerPageSection ) {
 					if ( !empty( $xmlPerPageSection[$pageSectionNum] ) ) {
@@ -643,12 +645,15 @@ END;
 	}
 
 	function execute( $category ) {
-		global $wgRequest, $wgOut, $wgUser, $wgTitle;
+		$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
+		$user = $this->getUser();
+		$request = $this->getRequest();
+		$out = $this->getOutput();
 
 		// If a category has been selected (i.e., it's not just
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
-		if ( !is_null( $category ) && ( !$wgUser->isAllowed( 'edit' ) || !$wgTitle->userCan( 'edit' ) ) ) {
+		if ( !is_null( $category ) && ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) ) ) {
 			throw new PermissionsError( 'edit' );
 		}
 
@@ -656,7 +661,7 @@ END;
 		$text = '<p>' . wfMessage( 'ps-page-desc-edit-schema' )->parse() . '</p>';
 		PageSchemas::addJavascriptAndCSS();
 
-		$save_page = $wgRequest->getCheck( 'wpSave' );
+		$save_page = $request->getCheck( 'wpSave' );
 		if ( $save_page ) {
 			$psXML = self::createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
@@ -677,7 +682,7 @@ END;
 			} else {
 				$pageText = $psXML;
 			}
-			$editSummary = $wgRequest->getVal( 'wpSummary' );
+			$editSummary = $request->getVal( 'wpSummary' );
 			$pageContent = ContentHandler::makeContent( $pageText, $categoryPage->getTitle() );
 			$categoryPage->doEditContent( $pageContent, $editSummary );
 			$redirectURL = $categoryTitle->getLocalURL();
@@ -689,7 +694,7 @@ END;
 		</script>
 
 END;
-			$wgOut->addHTML( $text );
+			$out->addHTML( $text );
 			return true;
 		}
 
@@ -697,14 +702,13 @@ END;
 			// No category was specified - show the list of
 			// categories with a page schema defined.
 			$text = self::showLinksToCategories();
-			$wgOut->addHTML( $text );
+			$out->addHTML( $text );
 			return true;
 		}
 
 		// We have a category - show a form.
 		// See if a page schema has already been defined for this category.
-		$title = Title::newFromText( $category, NS_CATEGORY );
-		$pageId = $title->getArticleID();
+		$pageId = $categoryTitle->getArticleID();
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'page_props',
 			array(
@@ -717,15 +721,15 @@ END;
 		);
 
 		$row = $dbr->fetchRow( $res );
-		if ( !$title->exists() ) {
+		if ( !$categoryTitle->exists() ) {
 			// Category doesn't exist.
-			$wgOut->setPageTitle( wfMessage( 'createschema' )->parse() );
+			$out->setPageTitle( wfMessage( 'createschema' )->parse() );
 			$text = '<p>' . wfMessage( 'ps-page-desc-cat-not-exist' )->parse() . '</p>';
 			$text .= self::printForm();
 		} elseif ( $row == null ) {
 			// Category exists, but has no page schema.
 			$text = '<p>' . wfMessage( 'ps-page-desc-ps-not-exist' )->parse() . '</p>';
-			$wgOut->setPageTitle( wfMessage( 'createschema' )->parse() );
+			$out->setPageTitle( wfMessage( 'createschema' )->parse() );
 			$text .= self::printForm();
 		} else {
 			// It's a category with an existing page schema -
@@ -735,7 +739,7 @@ END;
 			$pageXML = simplexml_load_string( $pageXMLstr );
 			$text = self::printForm( $pageSchemaObj, $pageXML );
 		}
-		$wgOut->addHTML( $text );
+		$out->addHTML( $text );
 		return true;
 	}
 

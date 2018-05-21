@@ -14,19 +14,23 @@ class PSGeneratePages extends IncludableSpecialPage {
 	}
 
 	function execute( $category ) {
-		global $wgUser, $wgRequest, $wgOut, $wgPageSchemasHandlerClasses;
+		global $wgPageSchemasHandlerClasses;
 
-		if ( ! $wgUser->isAllowed( 'generatepages' ) ) {
+		$user = $this->getUser();
+		$request = $this->getRequest();
+		$out = $this->getOutput();
+
+		if ( ! $user->isAllowed( 'generatepages' ) ) {
 			throw new PermissionsError( 'generatepages' );
 		}
 
 		$this->setHeaders();
-		$param = $wgRequest->getText('param');
+		$param = $request->getText('param');
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
-			$this->generatePages( $param, $wgRequest->getArray( 'page' ) );
+			$this->generatePages( $param, $request->getArray( 'page' ) );
 			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-success' )->parse() );
-			$wgOut->addHTML( $text );
+			$out->addHTML( $text );
 			return true;
 		}
 
@@ -41,7 +45,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
 			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-noschema' )->parse() );
-			$wgOut->addHTML( $text );
+			$out->addHTML( $text );
 			return true;
 		}
 
@@ -54,7 +58,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		<input type="button" id="ps_check_none" value="'.wfMessage('powersearch-togglenone')->parse().'" />
 		</div><br/>';
 
-		$wgOut->addModules('ext.pageschemas.generatepages');
+		$out->addModules('ext.pageschemas.generatepages');
 
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
@@ -75,7 +79,8 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$text .= "<br />\n";
 		$text .= Html::input( null, wfMessage( 'generatepages' )->parse(), 'submit' );
 		$text .= "\n</form>";
-		$wgOut->addHTML( $text );
+		$out->addHTML( $text );
+
 		return true;
 	}
 
