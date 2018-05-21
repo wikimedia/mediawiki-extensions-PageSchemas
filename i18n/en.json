@@ -38,7 +38,6 @@
 	"ps-otherparams": "Other parameters",
 	"ps-createpage-irregulartext": "Wiki page \"$1\" does not hold regular wikitext.",
 	"ps-createpage-invalidtitle": "Invalid title",
-	"ps-createpage-notfound": "Article not found",
 	"ps-field-display-always": "Display this field always",
 	"ps-field-display-notempty": "Display if not empty",
 	"ps-field-display-hide": "Hide",

@@ -47,7 +47,6 @@
 	"ps-otherparams": "{{Identical|Other parameter}}",
 	"ps-createpage-irregulartext": "Error message when the text input is irregular.\nParameter:\n* $1 is the wikipage with irregular text",
 	"ps-createpage-invalidtitle": "Error message when the title requested is invalid.\n{{Identical|Invalid title}}",
-	"ps-createpage-notfound": "Error message when the requested article is not found.",
 	"ps-field-display-always": "Label for radio button for always display.\n\nSee also:\n* {{msg-mw|ps-field-display-notempty}}\n* {{msg-mw|ps-field-display-hide}}",
 	"ps-field-display-notempty": "Used as message on [[Special:EditSchema]]",
 	"ps-field-display-hide": "Label for radio button for display hide.\n\nSee also:\n* {{msg-mw|ps-field-display-notempty}}\n* {{msg-mw|ps-field-display-always}}\n{{Identical|Hide}}",
