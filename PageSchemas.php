@@ -44,17 +44,17 @@ $wgJobClasses['pageSchemasCreatePage'] = 'PSCreatePageJob';
 
 // Register page classes
 $wgAutoloadClasses['PageSchemasHooks'] = $dir . 'PageSchemas.hooks.php';
-$wgAutoloadClasses['PageSchemas'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PSTemplate'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PSTemplateField'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PSPageSection'] = $dir . 'PageSchemas.classes.php';
+$wgAutoloadClasses['PageSchemas'] = $dir . 'includes/PageSchemas.classes.php';
+$wgAutoloadClasses['PSSchema'] = $dir . 'includes/PageSchemas.classes.php';
+$wgAutoloadClasses['PSTemplate'] = $dir . 'includes/PageSchemas.classes.php';
+$wgAutoloadClasses['PSTemplateField'] = $dir . 'includes/PageSchemas.classes.php';
+$wgAutoloadClasses['PSPageSection'] = $dir . 'includes/PageSchemas.classes.php';
 $wgAutoloadClasses['PSEditSchema'] = $dir . 'specials/PS_EditSchema.php';
 $wgAutoloadClasses['PSGeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
-$wgAutoloadClasses['PSEditSchemaAction'] = $dir . 'PS_EditSchemaAction.php';
-$wgAutoloadClasses['PSGeneratePagesAction'] = $dir . 'PS_GeneratePagesAction.php';
-$wgAutoloadClasses['PSExtensionHandler'] = $dir . 'PS_ExtensionHandler.php';
-$wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
+$wgAutoloadClasses['PSEditSchemaAction'] = $dir . 'includes/PS_EditSchemaAction.php';
+$wgAutoloadClasses['PSGeneratePagesAction'] = $dir . 'includes/PS_GeneratePagesAction.php';
+$wgAutoloadClasses['PSExtensionHandler'] = $dir . 'includes/PS_ExtensionHandler.php';
+$wgAutoloadClasses['PSCreatePageJob'] = $dir . 'includes/PS_CreatePageJob.php';
 
 // Register special pages
 $wgSpecialPages['EditSchema'] = 'PSEditSchema';
@@ -81,23 +81,17 @@ $pageSchemasResourceTemplate = array(
 $wgResourceModules += array(
 	'ext.pageschemas.main' => $pageSchemasResourceTemplate + array(
 		'scripts' => array(
-			'PageSchemas.js',
+			'resources/PageSchemas.js',
 		),
 		'styles' => array(
-			'PageSchemas.css',
-		),
-		'dependencies' => array(
+			'resources/PageSchemas.css',
 		),
 	),
 );
 $wgResourceModules += array(
 	'ext.pageschemas.generatepages' => $pageSchemasResourceTemplate + array(
 		'scripts' => array(
-			'generatepages.js',
-		),
-		'styles' => array(
-		),
-		'dependencies' => array(
+			'resources/PS_GeneratePages.js',
 		),
 	),
 );
