@@ -49,21 +49,25 @@ $wgAutoloadClasses['PSSchema'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['PSTemplate'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['PSTemplateField'] = $dir . 'PageSchemas.classes.php';
 $wgAutoloadClasses['PSPageSection'] = $dir . 'PageSchemas.classes.php';
-$wgAutoloadClasses['PSGeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
 $wgAutoloadClasses['PSEditSchema'] = $dir . 'specials/PS_EditSchema.php';
-$wgAutoloadClasses['PSTabs'] = $dir . 'PS_Tabs.php';
+$wgAutoloadClasses['PSGeneratePages'] = $dir . 'specials/PS_GeneratePages.php';
+$wgAutoloadClasses['PSEditSchemaAction'] = $dir . 'PS_EditSchemaAction.php';
+$wgAutoloadClasses['PSGeneratePagesAction'] = $dir . 'PS_GeneratePagesAction.php';
 $wgAutoloadClasses['PSExtensionHandler'] = $dir . 'PS_ExtensionHandler.php';
 $wgAutoloadClasses['PSCreatePageJob'] = $dir . 'PS_CreatePageJob.php';
 
 // Register special pages
-$wgSpecialPages['GeneratePages'] = 'PSGeneratePages';
 $wgSpecialPages['EditSchema'] = 'PSEditSchema';
+$wgSpecialPages['GeneratePages'] = 'PSGeneratePages';
+
+// Actions
+$wgActions['editschema'] = 'PSEditSchemaAction';
+$wgActions['generatepages'] = 'PSGeneratePagesAction';
 
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
-$wgHooks['UnknownAction'][] = 'PSTabs::onUnknownAction';
-$wgHooks['SkinTemplateTabs'][] = 'PSTabs::displayTabs';
-$wgHooks['SkinTemplateNavigation'][] = 'PSTabs::displayTabs2';
++$wgHooks['SkinTemplateNavigation'][] = 'PSEditSchemaAction::displayTab';
++$wgHooks['SkinTemplateNavigation'][] = 'PSGeneratePagesAction::displayTab';
 
 // User right for viewing the 'Generate pages' page
 $wgAvailableRights[] = 'generatepages';
