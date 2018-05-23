@@ -1,0 +1,79 @@
+{
+	"name": "Page Schemas",
+	"version": "0.4.6",
+	"author": [
+		"Yaron Koren",
+		"Ankit Garg",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Page_Schemas",
+	"descriptionmsg": "ps-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "specialpage",
+	"GroupPermissions": {
+		"sysop": {
+			"generatepages": true
+		}
+	},
+	"AvailableRights": [
+		"generatepages"
+	],
+        "Actions": {
+                "editschema": "PSEditSchemaAction",
+                "generatepages": "PSGeneratePagesAction"
+        },
+	"SpecialPages": {
+		"EditSchema": "PSEditSchema",
+		"GeneratePages": "PSGeneratePages"
+	},
+	"JobClasses": {
+		"pageSchemasCreatePage": "PSCreatePageJob"
+	},
+	"MessagesDirs": {
+		"PageSchemas": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"PageSchemasAlias": "PageSchemas.i18n.alias.php"
+	},
+	"AutoloadClasses": {
+		"PageSchemasHooks": "PageSchemas.hooks.php",
+		"PageSchemas": "includes/PageSchemas.classes.php",
+		"PSSchema": "includes/PageSchemas.classes.php",
+		"PSTemplate": "includes/PageSchemas.classes.php",
+		"PSTemplateField": "includes/PageSchemas.classes.php",
+		"PSPageSection": "includes/PageSchemas.classes.php",
+		"PSEditSchema": "specials/PS_EditSchema.php",
+		"PSEditSchemaAction": "includes/PS_EditSchemaAction.php",
+		"PSGeneratePages": "specials/PS_GeneratePages.php",
+		"PSGeneratePagesAction": "includes/PS_GeneratePagesAction.php",
+		"PSExtensionHandler": "includes/PS_ExtensionHandler.php",
+		"PSCreatePageJob": "includes/PS_CreatePageJob.php"
+	},
+	"ResourceModules": {
+		"ext.pageschemas.main": {
+			"scripts": "resources/PageSchemas.js",
+			"styles": "resources/PageSchemas.css"
+		},
+		"ext.pageschemas.generatepages": {
+			"scripts": "resources/PS_GeneratePages.js"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "PageSchemas"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "PageSchemasHooks::register",
+		"SkinTemplateNavigation": [
+			"PSEditSchemaAction::displayTab",
+			"PSGeneratePagesAction::displayTab"
+		]
+	},
+	"config": {
+		"PageSchemasFieldNum": 0,
+		"PageSchemasHandlerClasses": []
+	},
+	"manifest_version": 1
+}
