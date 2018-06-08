@@ -17,7 +17,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Code based on
 	 * http://coffeecoders.de/2011/03/how-to-pretty-print-a-simplexmlobject-in-php/
 	 */
-	static function prettyPrintXML( $xml ){
+	function prettyPrintXML( $xml ){
 		// Turn the XML string into a DOMDocument object, and then
 		// back again, to have it displayed nicely.
 		$domDocument = new DOMDocument('1.0');
@@ -32,7 +32,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Creates full <PageSchema> XML text, based on what was passed in by
 	 * the form.
 	 */
-	static function createPageSchemaXMLFromForm() {
+	function createPageSchemaXMLFromForm() {
 		global $wgPageSchemasHandlerClasses;
 
 		$request = $this->getRequest();
@@ -131,7 +131,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 		}
 		$psXML .= '</PageSchema>';
-		return self::prettyPrintXML( $psXML );
+		return $this->prettyPrintXML( $psXML );
 	}
 
 	/**
@@ -663,7 +663,7 @@ END;
 
 		$save_page = $request->getCheck( 'wpSave' );
 		if ( $save_page ) {
-			$psXML = self::createPageSchemaXMLFromForm();
+			$psXML = $this->createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryPage = new WikiPage( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
