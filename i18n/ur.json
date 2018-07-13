@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"BukhariSaeed"
 		]
 	},
 	"ps-remove-template": "سانچے کو حذف کریں",
@@ -9,5 +10,6 @@
 	"ps-namelabel": "نام:",
 	"ps-displaylabel": "ڈسپلے لیبل:",
 	"ps-add-field": "فیلڈ کا اضافہ کریں",
-	"ps-remove-field": "میدان حذف کریں"
+	"ps-remove-field": "میدان حذف کریں",
+	"ps-field-display-hide": "چھپائیں"
 }
