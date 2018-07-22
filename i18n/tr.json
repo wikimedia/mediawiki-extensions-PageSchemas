@@ -4,7 +4,8 @@
 			"Hedda Gabler",
 			"Incelemeelemani",
 			"Suelnur",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Hedda"
 		]
 	},
 	"ps-desc": "XML kullanarak bir kategoride yer alan bütün sayfalar için veri yapısını tanımlamaktadır",
@@ -26,5 +27,6 @@
 	"editschema": "Şemayı düzenle",
 	"createschema": "Şema oluştur",
 	"right-generatepages": "\"Sayfa oluştur\" sekmesini ve sayfasını görüntüle",
-	"action-generatepages": "\"Sayfa oluştur\" sekmesini ve sayfasını görüntüle"
+	"action-generatepages": "\"Sayfa oluştur\" sekmesini ve sayfasını görüntüle",
+	"ps-field-display-hide": "Gizle"
 }
