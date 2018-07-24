@@ -66,8 +66,8 @@ $wgActions['generatepages'] = 'PSGeneratePagesAction';
 
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'PageSchemasHooks::register';
-+$wgHooks['SkinTemplateNavigation'][] = 'PSEditSchemaAction::displayTab';
-+$wgHooks['SkinTemplateNavigation'][] = 'PSGeneratePagesAction::displayTab';
+$wgHooks['SkinTemplateNavigation'][] = 'PSEditSchemaAction::displayTab';
+$wgHooks['SkinTemplateNavigation'][] = 'PSGeneratePagesAction::displayTab';
 
 // User right for viewing the 'Generate pages' page
 $wgAvailableRights[] = 'generatepages';
