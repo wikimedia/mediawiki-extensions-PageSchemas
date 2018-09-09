@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MetalBrasil",
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"ps-desc": "Define a estrutura de datos de todas as páxinas dunha categoría mediante formato XML",
@@ -23,7 +24,7 @@
 	"ps-remove-template": "Eliminar un modelo",
 	"ps-field": "Campo",
 	"ps-namelabel": "Nome:",
-	"ps-displaylabel": "Mostrar a etiqueta:",
+	"ps-displaylabel": "Amosar a etiqueta:",
 	"ps-add-field": "Engadir un campo",
 	"ps-remove-field": "Eliminar un campo",
 	"ps-add-xml-label": "XML adicional:",
@@ -41,8 +42,8 @@
 	"ps-otherparams": "Outros parámetros",
 	"ps-createpage-irregulartext": "A páxina wiki \"$1\" non contén texto wiki habitual.",
 	"ps-createpage-invalidtitle": "Título non válido",
-	"ps-field-display-always": "Mostrar sempre este campo",
-	"ps-field-display-notempty": "Mostrar se non está baleiro",
+	"ps-field-display-always": "Amosar sempre este campo",
+	"ps-field-display-notempty": "Amosar se non está baleiro",
 	"ps-field-display-hide": "Agochar",
 	"ps-field-namespace": "Este campo ha ter sempre valores nos seguintes espazos de nomes:"
 }
