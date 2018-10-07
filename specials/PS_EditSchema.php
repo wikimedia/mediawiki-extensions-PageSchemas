@@ -653,7 +653,7 @@ END;
 		// If a category has been selected (i.e., it's not just
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
-		if ( !is_null( $category ) && ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) ) ) {
+		if ( !is_null( $categoryTitle ) && ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) ) ) {
 			throw new PermissionsError( 'edit' );
 		}
 
