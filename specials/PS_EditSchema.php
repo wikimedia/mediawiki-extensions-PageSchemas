@@ -337,7 +337,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			// their number set via Javascript) and field names from
 			// other extensions (which get their number set via PHP).
 			// Is this important to do? Probably not.
-			$fieldHTML .= str_replace( 'num', $fieldNum, $html );
+			$fieldHTML .= str_replace( '_num', '_' . $fieldNum, $html );
 		}
 
 		// TODO - this needs to get set.
@@ -425,7 +425,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			$label = call_user_func( array( $psHandlerClass, "getTemplateDisplayString" ) );
 			$color = call_user_func( array( $psHandlerClass, "getDisplayColor" ) );
 			$html = self::printFieldHTMLForExtension( $valuesFromExtension, $label, $color );
-			$templateHTML .= str_replace( 'num', $template_num, $html );
+			$templateHTML .= str_replace( '_num', '_' . $template_num, $html );
 		}
 
 		$templateHTML .= "\n\t\t" . '</div><!-- multipleInstanceTemplateAttributes -->';
