@@ -54,11 +54,11 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
 		$text .= '<div id="ps_check_all_check_none">
-		<input type="button" id="ps_check_all" value="'.wfMessage('powersearch-toggleall')->parse().'" />
-		<input type="button" id="ps_check_none" value="'.wfMessage('powersearch-togglenone')->parse().'" />
+		<input type="button" id="ps_check_all" value="' . wfMessage('powersearch-toggleall')->parse() . '" />
+		<input type="button" id="ps_check_none" value="' . wfMessage('powersearch-togglenone')->parse() . '" />
 		</div><br/>';
 
-		$out->addModules('ext.pageschemas.generatepages');
+		$out->addModules( 'ext.pageschemas.generatepages' );
 
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
