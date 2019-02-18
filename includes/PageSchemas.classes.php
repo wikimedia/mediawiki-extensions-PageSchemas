@@ -145,7 +145,7 @@ END;
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getSchemaDisplayValues' ), $schemaXML );
-			if ( count( $returnVals ) != 2 ) {
+			if ( ! is_array( $returnVals) || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
@@ -186,7 +186,7 @@ END;
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
-			if ( count( $returnVals ) != 2 ) {
+			if ( ! is_array( $returnVals) || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
