@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dudi",
-			"Ghaly"
+			"Ghaly",
+			"Meno25"
 		]
 	},
 	"ps-desc": "بيدعم القوالب اللى بتعرّف هيكل الداتا بتاعتها عن طريق علامات XML"
