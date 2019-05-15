@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Andrei Stroe"
 		]
 	},
 	"ps-desc": "Definește structura datelor pentru toate paginile dintr-o categorie, utilizând XML",
@@ -30,6 +31,6 @@
 	"ps-optional-name": "Nume (lăsați necompletat pentru a seta numele câmpului):",
 	"editschema": "Modificare schemă",
 	"createschema": "Creare schemă",
-	"right-generatepages": "Vizualizează fila și pagina „Generare pagini”",
-	"action-generatepages": "vizualizați fila și pagina „Generare pagini”"
+	"right-generatepages": "Vizualizează tabul și pagina „{{int:generatepages}}”",
+	"action-generatepages": "vizualizați tabul și pagina „{{int:generatepages}}”"
 }
