@@ -13,7 +13,7 @@ class PageSchemas {
 
 	public static function getCategoriesWithPSDefined(){
 		$cat_titles = array();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		//get the result set, query : select page_props
 		$res = $dbr->select( 'page_props',
 			array(
@@ -301,7 +301,7 @@ class PSSchema {
 	function __construct ( $categoryName ) {
 		$this->mCategoryName = $categoryName;
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props',
 			array(
 				'pp_page',
