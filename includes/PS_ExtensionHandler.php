@@ -105,27 +105,27 @@ class PSExtensionHandler {
 	}
 
 	public static function getSchemaDisplayValues( $schemaXML ) {
-		return null;
+		return array();
 	}
 
 	/**
 	 * Displays form details for one template in the Page Schemas XML.
 	 */
 	public static function getTemplateDisplayValues( $templateXML ) {
-		return null;
+		return array();
 	}
 
 	/**
 	 * Displays data on a single form input in the Page Schemas XML.
 	 */
 	public static function getFieldDisplayValues( $fieldXML ) {
-		return null;
+		return array();
 	}
 
 	/**
 	 * Displays form details for one page section in the Page Schemas XML.
 	 */
 	public static function getPageSectionDisplayValues( $pageSectionXML ) {
-		return null;
+		return array();
 	}
 }
