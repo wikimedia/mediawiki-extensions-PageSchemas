@@ -232,7 +232,7 @@ END;
 		// each handle displaying their data, by adding to this array.
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( array( $psHandlerClass, 'getFieldDisplayValues' ), $fieldXML );
-			if ( count( $returnVals ) != 2 ) {
+			if ( $returnVals == null || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
