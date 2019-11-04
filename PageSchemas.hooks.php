@@ -26,7 +26,7 @@ class PageSchemasHooks {
 	// Render the displayed XML, if any
 	public static function render( $input, $args, $parser, $frame ) {
 		// Disable cache so that CSS will get loaded.
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry( 0 );
 
 		// If this call is contained in a transcluded page or template,
 		// or if the input is empty, display nothing.
