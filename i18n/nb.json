@@ -1,8 +1,48 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jon Harald Søby"
 		]
 	},
-	"ps-desc": "Støtter maler som definerer datastrukturen sin gjennom XML-markering"
+	"ps-desc": "Definerer datastrukturen for alle sider i en kategori med XML",
+	"ps-schema-description": "Sideskjema",
+	"generatepages": "Generer sider",
+	"ps-generatepages-desc": "Generer følgende sider, basert på kategoriens skjema:",
+	"ps-generatepages-success": "De listede sidene blir generert.",
+	"ps-generatepages-noschema": "Feli: Ikke noe sideskjema er definert for denne kategorien.",
+	"ps-generatepages-editsummary": "Generert fra et sideskjema",
+	"ps-page-desc-cat-not-exist": "Denne kategorien finnes ikke ennå. Opprett denne kategorien og dens sideskjema:",
+	"ps-page-desc-ps-not-exist": "Denne kategorien finnes, men har ikke noe sideskjema. Opprett skjema:",
+	"ps-page-desc-edit-schema": "Rediger sideskjemaet for denne kategorien:",
+	"ps-delimiter-label": "Avgrensingstegn for verdier (standard er «,»):",
+	"ps-multiple-temp-label": "Tillat flere instanser av denne malen",
+	"ps-field-list-label": "Dette feltet kan holde en liste over verdier",
+	"ps-template": "Mal",
+	"ps-add-template": "Legg til mal",
+	"ps-remove-template": "Fjern mal",
+	"ps-field": "Felt",
+	"ps-namelabel": "Navn:",
+	"ps-displaylabel": "Vis etikett:",
+	"ps-add-field": "Legg til felt",
+	"ps-remove-field": "Fjern felt",
+	"ps-add-xml-label": "Ekstra XML:",
+	"ps-optional-name": "Navn (la denne være blank for å sette til feltnavn):",
+	"editschema": "Rediger skjema",
+	"createschema": "Opprett skjema",
+	"right-generatepages": "Vise fanen og siden «{{int:generatepages}}»",
+	"action-generatepages": "vise fanen og siden «{{int:generatepages}}»",
+	"ps-add-section": "Legg til seksjon",
+	"ps-removepagesection": "Fjern seksjon",
+	"ps-sectionname": "Seksjonsnavn:",
+	"ps-sectionlevel": "Seksjonsnivå:",
+	"ps-section": "Seksjon",
+	"ps-level": "Nivå",
+	"ps-otherparams": "Andre parametre",
+	"ps-createpage-irregulartext": "Wikisiden «$1» inneholder ikke vanlig wikitekst.",
+	"ps-createpage-invalidtitle": "Ugyldig tittel",
+	"ps-field-display-always": "Vis alltid dette feltet",
+	"ps-field-display-notempty": "Vis hvis det ikke er tomt",
+	"ps-field-display-hide": "Skjul",
+	"ps-field-namespace": "Dette feltet vil alltid ha verdier i følgende navnerom:"
 }
