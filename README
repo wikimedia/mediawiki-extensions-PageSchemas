@@ -14,9 +14,9 @@ schema information about a "class", or data type - for naming, display,
 data input, and browsing - within a single piece of XML contained within a
 category page. This XML can then be used to generate all the necessary
 additional pages needed to put the schema into effect, such as template
-pages and, for instance, if Semantic Forms is installed, form pages. The
-XML can be created and edited via a helper form, preventing users from
-having to generate or modify it manually.
+pages and, if Page Forms is installed, form pages. The XML can be created
+and edited via a helper form, preventing users from having to generate or
+modify it manually.
 
 Page Schemas allows other extensions to define their own fields to add to
 the XML, using hooks.
@@ -26,7 +26,7 @@ https://www.mediawiki.org/wiki/Extension:Page_Schemas
 
 == Requirements ==
 
-This version of the Page Schemas extension requires MediaWiki 1.23 or higher.
+This version of the Page Schemas extension requires MediaWiki 1.28 or higher.
 
 == Installation ==
 

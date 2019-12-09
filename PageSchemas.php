@@ -99,8 +99,3 @@ $wgResourceModules += array(
 // Page Schemas global variables
 $wgPageSchemasFieldNum = 0;
 $wgPageSchemasHandlerClasses = array();
-
-// Backward compatibility for MW < 1.28.
-if ( !defined( 'DB_REPLICA' ) ) {
-	define( 'DB_REPLICA', DB_SLAVE );
-}

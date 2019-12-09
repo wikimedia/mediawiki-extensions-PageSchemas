@@ -10,15 +10,10 @@ class PageSchemasHooks {
 
 	// Initialization
 	public static function register( &$parser ) {
-		// Backward compatibility for MW < 1.28.
-		if ( !defined( 'DB_REPLICA' ) ) {
-			define( 'DB_REPLICA', DB_SLAVE );
-		}
-
-		// Register the hook with the parser
+		// Register the hook with the parser.
 		$parser->setHook( 'PageSchema', array( 'PageSchemasHooks', 'render' ) );
 
-		// Initialize the global array of "handler" classes
+		// Initialize the global array of "handler" classes.
 		Hooks::run( 'PageSchemasRegisterHandlers' );
 		return true;
 	}
