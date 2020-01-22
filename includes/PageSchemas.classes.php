@@ -134,9 +134,11 @@ END;
 	// TODO - this should be a non-static method of the PSSchema class,
 	// instead of taking in XML.
 	static function displaySchema( $schemaXML ) {
-		global $wgTitle, $wgPageSchemasHandlerClasses;
+		global $wgPageSchemasHandlerClasses;
 
-		if ( is_null( $wgTitle ) || $wgTitle->getNamespace() != NS_CATEGORY ) {
+		$title = RequestContext::getMain()->getTitle();
+
+		if ( is_null( $title ) || $title->getNamespace() != NS_CATEGORY ) {
 			return '';
 		}
 		$text = "<table class=\"pageSchema mw-collapsible mw-collapsed\">\n";
