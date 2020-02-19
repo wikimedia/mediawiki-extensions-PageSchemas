@@ -386,16 +386,16 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
 		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . wfMessage( 'ps-multiple-temp-label' )->parse() );
 
-		// Use an input from the Semantic Forms extension for the
-		// template format.
+		// Use an input from the Page Forms extension for the template
+		// format.
 		// This is against the basic principles of Page Schemas, which
 		// is that other extensions should rely on it, not the other
 		// way around. However, the creation of templates is a special
 		// case: they're a standard MediaWiki component, but the
-		// creation of them is (for no strong reason) done by Semantic
+		// creation of them is (for no strong reason) done by Page
 		// Forms. In the future, this may change.
-		if ( class_exists( 'SFCreateTemplate' ) && method_exists( 'SFCreateTemplate', 'printTemplateStyleInput' ) ) {
-			$templateHTML .= SFCreateTemplate::printTemplateStyleInput( 'template_format_' . $template_num, $templateFormat );
+		if ( method_exists( 'PFCreateTemplate', 'printTemplateStyleInput' ) ) {
+			$templateHTML .= PFCreateTemplate::printTemplateStyleInput( 'template_format_' . $template_num, $templateFormat );
 		}
 		$template_add_xml = "";
 		// TODO - set this correctly.
