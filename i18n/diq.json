@@ -2,12 +2,25 @@
 	"@metadata": {
 		"authors": [
 			"Erdemaslancan",
-			"Mirzali"
+			"Mirzali",
+			"1917 Ekim Devrimi"
 		]
 	},
+	"ps-schema-description": "Şemay pela",
+	"generatepages": "Pelan vırazê",
 	"ps-template": "Şablon",
 	"ps-add-template": "Şablon cı ke",
+	"ps-remove-template": "Şabloni wedarne",
 	"ps-field": "Ca",
 	"ps-namelabel": "Name:",
+	"ps-displaylabel": "Mocneyaye etiket :",
+	"ps-add-field": "Ca dek",
+	"ps-remove-field": "Cay wedarne",
+	"ps-add-xml-label": "İlave XML:",
+	"ps-optional-name": "Name (Seba cay namey saz kerdışi rê veng verdê ):",
+	"editschema": "Şemay bıvurnê",
+	"createschema": "Şema vırazê",
+	"ps-sectionname": "Namey letey:",
+	"ps-section": "Lete",
 	"ps-field-display-hide": "Bınımne"
 }
