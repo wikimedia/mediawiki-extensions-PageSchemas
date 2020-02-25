@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Handles the 'editschema' action and tab.
  *
@@ -55,19 +58,23 @@ class PSEditSchemaAction extends Action {
 	 * @return bool
 	 */
 	static function displayTab( $obj, &$links ) {
-		if ( method_exists( $obj, 'getTitle' ) ) {
-			$title = $obj->getTitle();
-		} else {
-			$title = $obj->mTitle;
-		}
+		$title = $obj->getTitle();
 
 		if ( $title->getNamespace() != NS_CATEGORY ){
 			return true;
 		}
 
 		$user = $obj->getUser();
-		if ( !$user->isAllowed( 'edit' ) || !$title->userCan( 'edit' ) ) {
-			return true;
+		if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
+			// MW 1.33+
+			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+			if ( !$permissionManager->userCan( 'edit', $user, $title ) ) {
+				return true;
+			}
+		} else {
+			if ( !$user->isAllowed( 'edit' ) || !$title->userCan( 'edit' ) ) {
+				return true;
+			}
 		}
 
 		$request = $obj->getRequest();

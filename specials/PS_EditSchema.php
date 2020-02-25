@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Displays an interface to let users create and edit the <PageSchema> XML.
  *
@@ -653,8 +655,17 @@ END;
 		// If a category has been selected (i.e., it's not just
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
-		if ( !is_null( $categoryTitle ) && ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) ) ) {
-			throw new PermissionsError( 'edit' );
+		if ( !is_null( $categoryTitle ) ) {
+			if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
+				// MW 1.33+
+				$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+				$userCanEdit = $permissionManager->userCan( 'edit', $user, $categoryTitle );
+			} else {
+				$userCanEdit = ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) );
+			}
+			if ( !$userCanEdit ) {
+				throw new PermissionsError( 'edit' );
+			}
 		}
 
 		$this->setHeaders();
