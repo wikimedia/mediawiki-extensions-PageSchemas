@@ -43,7 +43,7 @@
 	"ps-section": "Bölüm",
 	"ps-level": "Seviye",
 	"ps-otherparams": "Diğer parametreler",
-	"ps-createpage-irregulartext": "\"$1\" wiki sayfası normal wiki metin içermiyor.",
+	"ps-createpage-irregulartext": "\"$1\" viki sayfası normal vikimetin içermiyor.",
 	"ps-createpage-invalidtitle": "Geçersiz başlık",
 	"ps-field-display-always": "Bu alanı her zaman göster",
 	"ps-field-display-notempty": "Boş değilse görüntüle",
