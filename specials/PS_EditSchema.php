@@ -661,7 +661,7 @@ END;
 				$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 				$userCanEdit = $permissionManager->userCan( 'edit', $user, $categoryTitle );
 			} else {
-				$userCanEdit = ( !$user->isAllowed( 'edit' ) || !$categoryTitle->userCan( 'edit' ) );
+				$userCanEdit = ( $user->isAllowed( 'edit' ) && $categoryTitle->userCan( 'edit' ) );
 			}
 			if ( !$userCanEdit ) {
 				throw new PermissionsError( 'edit' );
