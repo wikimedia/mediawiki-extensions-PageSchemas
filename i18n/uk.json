@@ -6,7 +6,8 @@
 			"NickK",
 			"Prima klasy4na",
 			"Тест",
-			"Ата"
+			"Ата",
+			"Piramidion"
 		]
 	},
 	"ps-desc": "Визначає структуру даних усіх сторінок категорії через XML",
@@ -34,8 +35,8 @@
 	"ps-optional-name": "Назва (залишити порожнім для такої ж як назва поля):",
 	"editschema": "Редагувати схему",
 	"createschema": "Створити схему",
-	"right-generatepages": "Переглядати вкладку і сторінку \"{{int:generatepages}}\"",
-	"action-generatepages": "переглянути вкладку \"{{int:Generatepages}}\" і сторінку",
+	"right-generatepages": "Перегляд вкладки і сторінки «{{int:generatepages}}»",
+	"action-generatepages": "перегляд вкладки і сторінки «{{int:Generatepages}}»",
 	"ps-add-section": "Додати розділ",
 	"ps-removepagesection": "Вилучити розділ",
 	"ps-sectionname": "Назва розділу:",
