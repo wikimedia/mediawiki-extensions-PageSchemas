@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Nghtwlkr"
 		]
 	},
 	"ps-desc": "Definerer datastrukturen for alle sider i en kategori med XML",

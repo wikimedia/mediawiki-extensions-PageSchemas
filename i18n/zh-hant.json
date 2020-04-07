@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liangent",
-			"Mark85296341",
-			"Liuxinyu970226",
+			"Kly",
 			"LNDDYL",
-			"Kly"
+			"Liangent",
+			"Liuxinyu970226",
+			"Mark85296341"
 		]
 	},
 	"ps-desc": "使用 XML 為分類中的所有頁面定義資料結構",

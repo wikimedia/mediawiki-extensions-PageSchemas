@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andrei Stroe",
 			"Minisarm",
-			"Stelistcristi",
-			"Andrei Stroe"
+			"Stelistcristi"
 		]
 	},
 	"ps-desc": "Definește structura datelor pentru toate paginile dintr-o categorie, utilizând XML",

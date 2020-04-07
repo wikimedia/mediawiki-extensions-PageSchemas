@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Gianfranco",
-			"Fitoschido"
+			"Fitoschido",
+			"Gianfranco"
 		]
 	},
 	"ps-desc": "Definisce la struttura di dati per tutte le pagine in una categoria utilizzando XML",

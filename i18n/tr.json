@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
+			"Hedda",
 			"Hedda Gabler",
 			"Incelemeelemani",
 			"Suelnur",
-			"Vito Genovese",
-			"Hedda",
-			"BaRaN6161 TURK"
+			"Vito Genovese"
 		]
 	},
 	"ps-desc": "XML kullanarak bir kategoride yer alan bütün sayfalar için veri yapısını tanımlamaktadır",

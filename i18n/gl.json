@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Elisardojm",
 			"MetalBrasil",
-			"Toliño",
-			"Elisardojm"
+			"Toliño"
 		]
 	},
 	"ps-desc": "Define a estrutura de datos de todas as páxinas dunha categoría mediante formato XML",

@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Jopparn",
+			"Lokal Profil",
 			"Martinwiss",
 			"Per",
-			"WikiPhoenix",
-			"Lokal Profil"
+			"WikiPhoenix"
 		]
 	},
 	"ps-desc": "Definierar en datastruktur för alla sidor i en kategori m.h.a. XML",
