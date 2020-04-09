@@ -8,25 +8,25 @@
 
 class PageSchemas {
 
-	public static function getCategoriesWithPSDefined(){
-		$cat_titles = array();
+	public static function getCategoriesWithPSDefined() {
+		$cat_titles = [];
 		$dbr = wfGetDB( DB_REPLICA );
-		//get the result set, query : select page_props
+		// get the result set, query : select page_props
 		$res = $dbr->select( 'page_props',
-			array(
+			[
 				'pp_page',
 				'pp_propname',
 				'pp_value'
-			),
-			array(
+			],
+			[
 				'pp_propname' => 'PageSchema'
-			)
+			]
 		);
 		while ( $row = $dbr->fetchRow( $res ) ) {
-			if( $row[2] != null ){
+			if ( $row[2] != null ) {
 				$page_id_cat = $row[0];
-				if( Title::newFromId($page_id_cat)->getNamespace() == NS_CATEGORY){
-					$cat_text = Title::newFromId($page_id_cat)->getText();
+				if ( Title::newFromId( $page_id_cat )->getNamespace() == NS_CATEGORY ) {
+					$cat_text = Title::newFromId( $page_id_cat )->getText();
 					$cat_titles[] = $cat_text;
 				}
 			}
@@ -50,7 +50,7 @@ class PageSchemas {
 
 		// Handling depends on whether or not this page is embedded
 		// in another page.
-		if ( !is_null( $parser ) ) {
+		if ( $parser !== null ) {
 			$output = $parser->getOutput();
 		} else {
 			global $wgOut;
@@ -73,7 +73,7 @@ class PageSchemas {
 	}
 
 	public static function validateXML( $xml, &$error_msg ) {
-		$xmlDTD =<<<END
+		$xmlDTD = <<<END
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE PageSchema [
 <!ELEMENT PageSchema (Template*)>
@@ -91,8 +91,8 @@ END;
 		// We are using the SimpleXML library to do the XML validation
 		// for now - this may change later.
 		// Hide parsing warnings.
-		libxml_use_internal_errors(true);
-		$xml_success = simplexml_load_string($xmlDTD.$xml);
+		libxml_use_internal_errors( true );
+		$xml_success = simplexml_load_string( $xmlDTD . $xml );
 		$errors = libxml_get_errors();
 		$error_msg = $errors[0]->message;
 		return $xml_success;
@@ -100,29 +100,29 @@ END;
 
 	static function tableRowHTML( $css_class, $data_type, $value = null, $bgColor = null ) {
 		$data_type = htmlspecialchars( $data_type );
-		if ( !is_null( $bgColor ) ) {
+		if ( $bgColor !== null ) {
 			// We don't actually use the passed-in background color, except as an indicator
 			// that this is a header row for extension data, and thus should have special
 			// display.
 			// In the future, the background color may get used, though.
-			$data_type = Html::element( 'span', array( 'style' => "color: #993333;" ), $data_type );
+			$data_type = Html::element( 'span', [ 'style' => "color: #993333;" ], $data_type );
 		}
 		if ( $value == '' ) {
 			$content = $data_type;
 		} else {
-			$content = "$data_type: " . Html::element( 'span', array( 'class' => 'rowValue' ), $value );
+			$content = "$data_type: " . Html::element( 'span', [ 'class' => 'rowValue' ], $value );
 		}
-		$cellAttrs = array( 'colspan' => 2, 'class' => $css_class );
+		$cellAttrs = [ 'colspan' => 2, 'class' => $css_class ];
 		$cell = Html::rawElement( 'td', $cellAttrs, $content );
-		$text = Html::rawElement( 'tr', array( 'style' => 'border: 1px black solid; margin: 10px;' ), $cell );
+		$text = Html::rawElement( 'tr', [ 'style' => 'border: 1px black solid; margin: 10px;' ], $cell );
 		$text .= "\n";
 		return $text;
 	}
 
 	static function attrRowHTML( $cssClass, $fieldName, $value ) {
-		$fieldNameAttrs = array( 'class' => $cssClass, 'style' => 'font-weight: normal;' );
+		$fieldNameAttrs = [ 'class' => $cssClass, 'style' => 'font-weight: normal;' ];
 		$fieldNameCell = Html::rawElement( 'td', $fieldNameAttrs, $fieldName );
-		$valueCell = Html::element( 'td', array( 'class' => 'msg', 'style' => 'font-weight: bold;' ), $value );
+		$valueCell = Html::element( 'td', [ 'class' => 'msg', 'style' => 'font-weight: bold;' ], $value );
 		$text = Html::rawElement( 'tr', null, $fieldNameCell . "\n" . $valueCell );
 		$text .= "\n";
 		return $text;
@@ -135,7 +135,7 @@ END;
 
 		$title = RequestContext::getMain()->getTitle();
 
-		if ( is_null( $title ) || $title->getNamespace() != NS_CATEGORY ) {
+		if ( $title === null || $title->getNamespace() != NS_CATEGORY ) {
 			return '';
 		}
 		$text = "<table class=\"pageSchema mw-collapsible mw-collapsed\">\n";
@@ -143,20 +143,20 @@ END;
 		$text .= self::tableRowHTML( 'pageSchemaHeader', 'Page schema' );
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$returnVals = call_user_func( array( $psHandlerClass, 'getSchemaDisplayValues' ), $schemaXML );
-			if ( ! is_array( $returnVals) || count( $returnVals ) != 2 ) {
+			$returnVals = call_user_func( [ $psHandlerClass, 'getSchemaDisplayValues' ], $schemaXML );
+			if ( !is_array( $returnVals ) || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
-			$label = call_user_func( array( $psHandlerClass, 'getSchemaDisplayString' ) );
-			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
+			$label = call_user_func( [ $psHandlerClass, 'getSchemaDisplayString' ] );
+			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'schemaExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'schemaAttrRow', $fieldName, $value );
 			}
 		}
 		foreach ( $schemaXML->children() as $tag => $child ) {
-			if ( $tag == 'Template') {
+			if ( $tag == 'Template' ) {
 				$text .= self::displayTemplate( $child );
 			} elseif ( $tag == 'Section' ) {
 				$text .= self::displayPageSection( $child );
@@ -184,13 +184,13 @@ END;
 		}
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$returnVals = call_user_func( array( $psHandlerClass, 'getTemplateDisplayValues' ), $templateXML );
-			if ( ! is_array( $returnVals) || count( $returnVals ) != 2 ) {
+			$returnVals = call_user_func( [ $psHandlerClass, 'getTemplateDisplayValues' ], $templateXML );
+			if ( !is_array( $returnVals ) || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
-			$label = call_user_func( array( $psHandlerClass, 'getTemplateDisplayString' ) );
-			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
+			$label = call_user_func( [ $psHandlerClass, 'getTemplateDisplayString' ] );
+			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
@@ -214,11 +214,11 @@ END;
 		$name = $fieldXML->attributes()->name;
 		$text = self::tableRowHTML( 'fieldRow', wfMessage( 'ps-field' )->parse(), $name );
 
-		if( ((string) $fieldXML->attributes()->list) == "list" ) {
+		if ( ( (string)$fieldXML->attributes()->list ) == "list" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
 		}
-		$fieldDisplay = (string) $fieldXML->attributes()->display;
-		if( $fieldDisplay != "" ) {
+		$fieldDisplay = (string)$fieldXML->attributes()->display;
+		if ( $fieldDisplay != "" ) {
 			$text .= self::attrRowHTML( 'fieldAttrRow', 'Display', $fieldDisplay );
 		}
 		foreach ( $fieldXML->children() as $tag => $child ) {
@@ -230,13 +230,13 @@ END;
 		// Let extensions that store data within the Page Schemas XML
 		// each handle displaying their data, by adding to this array.
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$returnVals = call_user_func( array( $psHandlerClass, 'getFieldDisplayValues' ), $fieldXML );
+			$returnVals = call_user_func( [ $psHandlerClass, 'getFieldDisplayValues' ], $fieldXML );
 			if ( $returnVals == null || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
-			$label = call_user_func( array( $psHandlerClass, 'getFieldDisplayString' ) );
-			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
+			$label = call_user_func( [ $psHandlerClass, 'getFieldDisplayString' ] );
+			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
@@ -258,13 +258,13 @@ END;
 		$text .= self::attrRowHTML( 'schemaAttrRow', wfMessage( 'ps-level' )->parse(), $level );
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$returnVals = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayValues' ), $pageSectionXML );
+			$returnVals = call_user_func( [ $psHandlerClass, 'getPageSectionDisplayValues' ], $pageSectionXML );
 			if ( count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
-			$label = call_user_func( array( $psHandlerClass, 'getPageSectionDisplayString' ) );
-			$bgColor = call_user_func( array( $psHandlerClass, 'getDisplayColor' ) );
+			$label = call_user_func( [ $psHandlerClass, 'getPageSectionDisplayString' ] );
+			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
 			foreach ( $values as $fieldName => $value ) {
 				$text .= self::attrRowHTML( 'fieldAttrRow', $fieldName, $value );
@@ -275,7 +275,7 @@ END;
 	}
 
 	public static function getValueFromObject( $object, $key ) {
-		if ( is_null( $object ) ) {
+		if ( $object === null ) {
 			return null;
 		} elseif ( !array_key_exists( $key, $object ) ) {
 			return null;
