@@ -41,7 +41,7 @@
 		"PageSchemasHooks": "PageSchemas.hooks.php",
 		"PageSchemas": "includes/PageSchemas.classes.php",
 		"PSSchema": "includes/PageSchemas.classes.php",
-		"PSTemplate": "includes/PageSchemas.classes.php",
+		"PSTemplate": "includes/PSTemplate.php",
 		"PSTemplateField": "includes/PSTemplateField.php",
 		"PSPageSection": "includes/PSPageSection.php",
 		"PSEditSchema": "includes/specials/PSEditSchema.php",
