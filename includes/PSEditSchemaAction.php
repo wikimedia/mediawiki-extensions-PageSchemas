@@ -60,7 +60,7 @@ class PSEditSchemaAction extends Action {
 	static function displayTab( $obj, &$links ) {
 		$title = $obj->getTitle();
 
-		if ( $title->getNamespace() != NS_CATEGORY ){
+		if ( $title->getNamespace() != NS_CATEGORY ) {
 			return true;
 		}
 
@@ -83,19 +83,19 @@ class PSEditSchemaAction extends Action {
 		$category = $title->getText();
 		$pageSchemaObj = new PSSchema( $category );
 
-		$content_actions['editschema'] = array(
+		$content_actions['editschema'] = [
 			'text' => ( $pageSchemaObj->isPSDefined() ) ? wfMessage( 'editschema' )->parse() : wfMessage( 'createschema' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=editschema' )
-		);
+		];
 
-		$content_actions['generatepages'] = array(
+		$content_actions['generatepages'] = [
 			'text' => wfMessage( 'generatepages' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
-		);
+		];
 
-		return true; // always return true, in order not to stop MW's hook processing!
+		// always return true, in order not to stop MW's hook processing!
+		return true;
 	}
-
 }

@@ -13,10 +13,10 @@ class PSCreatePageJob extends Job {
 
 	/**
 	 * Run a pageSchemasCreatePage job
-	 * @return boolean success
+	 * @return bool success
 	 */
 	function run() {
-		if ( is_null( $this->title ) ) {
+		if ( $this->title === null ) {
 			$this->error = wfMessage( 'ps-createpage-invalidtitle' )->text();
 			return false;
 		}

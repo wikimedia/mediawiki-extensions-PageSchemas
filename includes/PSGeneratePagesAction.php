@@ -60,7 +60,7 @@ class PSGeneratePagesAction extends Action {
 			$title = $obj->mTitle;
 		}
 
-		if ( $title->getNamespace() != NS_CATEGORY ){
+		if ( $title->getNamespace() != NS_CATEGORY ) {
 			return true;
 		}
 
@@ -74,17 +74,17 @@ class PSGeneratePagesAction extends Action {
 		$content_actions = &$links['views'];
 		$category = $title->getText();
 		$pageSchemaObj = new PSSchema( $category );
-		if ( ! $pageSchemaObj->isPSDefined() ) {
+		if ( !$pageSchemaObj->isPSDefined() ) {
 			return true;
 		}
 
-		$content_actions['generatepages'] = array(
+		$content_actions['generatepages'] = [
 			'text' => wfMessage( 'generatepages' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
-		);
+		];
 
-		return true; // always return true, in order not to stop MW's hook processing!
+		// always return true, in order not to stop MW's hook processing!
+		return true;
 	}
-
 }

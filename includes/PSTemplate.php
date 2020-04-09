@@ -1,7 +1,7 @@
 <?php
 
 class PSTemplate {
-	private $mFields = array();
+	private $mFields = [];
 	private $mTemplateName = "";
 	private $mTemplateXML = null;
 	private $mMultipleAllowed = false;
@@ -9,30 +9,30 @@ class PSTemplate {
 
 	function __construct( $templateXML ) {
 		$this->mTemplateXML = $templateXML;
-		$this->mTemplateName = (string) $templateXML->attributes()->name;
-		if( ((string) $templateXML->attributes()->multiple) == "multiple" ) {
+		$this->mTemplateName = (string)$templateXML->attributes()->name;
+		if ( ( (string)$templateXML->attributes()->multiple ) == "multiple" ) {
 			$this->mMultipleAllowed = true;
 		}
-		$this->mTemplateFormat = (string) $templateXML->attributes()->format;
+		$this->mTemplateFormat = (string)$templateXML->attributes()->format;
 		// Index for template objects
-		$i = 0 ;
-		$inherited_fields = array();
+		$i = 0;
+		$inherited_fields = [];
 		foreach ( $templateXML->children() as $child ) {
 			if ( $child->getName() == 'InheritsFrom' ) {
-				$schema_to_inherit = (string) $child->attributes()->schema;
-				$template_to_inherit = (string) $child->attributes()->template;
+				$schema_to_inherit = (string)$child->attributes()->schema;
+				$template_to_inherit = (string)$child->attributes()->template;
 				if ( $schema_to_inherit != null && $template_to_inherit != null ) {
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
 					$inherited_templates = $inheritedSchemaObj->getTemplates();
-					foreach( $inherited_templates as $inherited_template ) {
-						if( $template_to_inherit == $inherited_template->getName() ){
+					foreach ( $inherited_templates as $inherited_template ) {
+						if ( $template_to_inherit == $inherited_template->getName() ) {
 							$inherited_fields = $inherited_template->getFields();
 						}
 					}
 				}
 			} elseif ( $child->getName() == "Field" ) {
 				$fieldObj = new PSTemplateField( $child );
-				$this->mFields[$i++]= $fieldObj;
+				$this->mFields[$i++] = $fieldObj;
 				// "Ignore" the below code for now; it's not
 				// needed, and doesn't work yet.
 /*
@@ -73,7 +73,7 @@ class PSTemplate {
 	public function getObject( $objectName ) {
 		global $wgPageSchemasHandlerClasses;
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mTemplateXML );
+			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName, $this->mTemplateXML );
 			if ( $object ) {
 				return $object;
 			}

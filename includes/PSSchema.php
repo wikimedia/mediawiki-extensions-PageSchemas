@@ -7,29 +7,29 @@ class PSSchema {
 	private $mCategoryName = "";
 	private $mPageXML = null;
 	/* Stores the template objects */
-	private $mTemplates = array();
+	private $mTemplates = [];
 	/* Stores the template and page section objects */
-	private $mFormItemsList = array();
+	private $mFormItemsList = [];
 	private $mIsPSDefined = true;
 
-	function __construct ( $categoryName ) {
+	function __construct( $categoryName ) {
 		$this->mCategoryName = $categoryName;
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props',
-			array(
+			[
 				'pp_page',
 				'pp_propname',
 				'pp_value'
-			),
-			array(
+			],
+			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'PageSchema'
-			)
+			]
 		);
 		// first row of the result set
 		$row = $dbr->fetchRow( $res );
-		if ( $row == null) {
+		if ( $row == null ) {
 			$this->mIsPSDefined = false;
 			return;
 		}
@@ -49,32 +49,32 @@ class PSSchema {
 		// Index for template objects
 		$templateCount = 0;
 		$pageSectionCount = 0;
-		$inherited_templates = array();
+		$inherited_templates = [];
 		foreach ( $this->mPageXML->children() as $tag => $child ) {
 			if ( $tag == 'InheritsFrom ' ) {
-				$schema_to_inherit = (string) $child->attributes()->schema;
-				if( $schema_to_inherit != null ) {
+				$schema_to_inherit = (string)$child->attributes()->schema;
+				if ( $schema_to_inherit != null ) {
 					$inheritedSchemaObj = new PSSchema( $schema_to_inherit );
 					$inherited_templates = $inheritedSchemaObj->getTemplates();
 				}
 			}
 			if ( $tag == 'Template' ) {
-				$ignore = (string) $child->attributes()->ignore;
+				$ignore = (string)$child->attributes()->ignore;
 				if ( count( $child->children() ) > 0 ) {
 					$templateObj = new PSTemplate( $child );
-					$this->mFormItemsList[] = array( 'type' => $tag,
+					$this->mFormItemsList[] = [ 'type' => $tag,
 						'number' => $templateCount,
-						'item' => $templateObj );
-						$this->mTemplates[$templateCount]= $templateObj;
+						'item' => $templateObj ];
+						$this->mTemplates[$templateCount] = $templateObj;
 					$templateCount++;
 				} elseif ( $ignore != "true" ) {
 					// Code to add templates from inherited templates
-					$temp_name = (string) $child->attributes()->name;
-					foreach( $inherited_templates as $inherited_template ) {
-						if( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
-							$this->mFormItemsList[] = array( 'type' => $tag,
+					$temp_name = (string)$child->attributes()->name;
+					foreach ( $inherited_templates as $inherited_template ) {
+						if ( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
+							$this->mFormItemsList[] = [ 'type' => $tag,
 								'number' => $templateCount,
-								'item' => $inherited_template );
+								'item' => $inherited_template ];
 								$this->mTemplates[$templateCount] = $inherited_template;
 							$templateCount++;
 						}
@@ -82,9 +82,9 @@ class PSSchema {
 				}
 			} elseif ( $tag == 'Section' ) {
 				$pageSectionObj = new PSPageSection( $child );
-				$this->mFormItemsList[] = array( 'type' => $tag,
+				$this->mFormItemsList[] = [ 'type' => $tag,
 					'number' => $pageSectionCount,
-					'item' => $pageSectionObj );
+					'item' => $pageSectionObj ];
 				$pageSectionCount++;
 			}
 		}
@@ -93,10 +93,10 @@ class PSSchema {
 	/**
 	 * Generates all pages selected by the user, based on the Page Schemas XML.
 	 */
-	public function generateAllPages ( $selectedPageList ) {
+	public function generateAllPages( $selectedPageList ) {
 		global $wgPageSchemasHandlerClasses;
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			call_user_func( array( $psHandlerClass, 'generatePages' ), $this, $selectedPageList );
+			call_user_func( [ $psHandlerClass, 'generatePages' ], $this, $selectedPageList );
 		}
 	}
 
@@ -129,8 +129,8 @@ class PSSchema {
 	public function getObject( $objectName ) {
 		global $wgPageSchemasHandlerClasses;
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mPageXML );
-			if ( !is_null( $object ) ) {
+			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName, $this->mPageXML );
+			if ( $object !== null ) {
 				return $object;
 			}
 		}

@@ -7,7 +7,6 @@
  * @author Yaron Koren
  */
 
-
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'GeneratePages', 'generatepages' );
@@ -20,12 +19,12 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$request = $this->getRequest();
 		$out = $this->getOutput();
 
-		if ( ! $user->isAllowed( 'generatepages' ) ) {
+		if ( !$user->isAllowed( 'generatepages' ) ) {
 			throw new PermissionsError( 'generatepages' );
 		}
 
 		$this->setHeaders();
-		$param = $request->getText('param');
+		$param = $request->getText( 'param' );
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
 			$this->generatePages( $param, $request->getArray( 'page' ) );
@@ -34,7 +33,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 			return true;
 		}
 
-		if ( $category == "") {
+		if ( $category == "" ) {
 			// No category listed.
 			// TODO - show an error message.
 			return true;
@@ -54,26 +53,28 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
 		$text .= '<div id="ps_check_all_check_none">
-		<input type="button" id="ps_check_all" value="' . wfMessage('powersearch-toggleall')->parse() . '" />
-		<input type="button" id="ps_check_none" value="' . wfMessage('powersearch-togglenone')->parse() . '" />
+		<input type="button" id="ps_check_all" value="' . wfMessage( 'powersearch-toggleall' )->parse() . '" />
+		<input type="button" id="ps_check_none" value="' . wfMessage( 'powersearch-togglenone' )->parse() . '" />
 		</div><br/>';
 
 		$out->addModules( 'ext.pageschemas.generatepages' );
 
 		// This hook will set an array of strings, with each value
 		// as a title of a page to be created.
-		$pageList = array();
+		$pageList = [];
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$pagesFromHandler = call_user_func( array( $psHandlerClass, "getPagesToGenerate" ), $pageSchemaObj );
+			$pagesFromHandler = call_user_func( [ $psHandlerClass, "getPagesToGenerate" ], $pageSchemaObj );
 			foreach ( $pagesFromHandler as $page ) {
 				$pageList[] = $page;
 			}
 		}
 
 		foreach ( $pageList as $page ) {
-			if ( !( $page instanceof Title ) ) { continue; }
+			if ( !( $page instanceof Title ) ) {
+				continue;
+			}
 			$pageName = PageSchemas::titleString( $page );
-			$text .= Html::input( 'page[]', $pageName, 'checkbox', array( 'checked' => true ) );
+			$text .= Html::input( 'page[]', $pageName, 'checkbox', [ 'checked' => true ] );
 			$text .= "\n" . Linker::link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";

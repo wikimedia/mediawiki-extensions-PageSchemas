@@ -15,7 +15,7 @@ class PSExtensionHandler {
 	 * object from the Page Schemas extension.
 	 */
 	public static function createPageSchemasObject( $tagName, $xml ) {
-		return array();
+		return [];
 	}
 
 	/**
@@ -74,6 +74,7 @@ class PSExtensionHandler {
 	public static function getPageSectionDisplayString() {
 		return null;
 	}
+
 	/**
 	 * Returns the HTML for inputs to define a single form field,
 	 * within the Page Schemas 'edit schema' page.
@@ -95,7 +96,7 @@ class PSExtensionHandler {
 	 * the current Page Schemas schema.
 	 */
 	public static function getPagesToGenerate( $psSchemaObj ) {
-		return array();
+		return [];
 	}
 
 	/**
@@ -105,27 +106,27 @@ class PSExtensionHandler {
 	}
 
 	public static function getSchemaDisplayValues( $schemaXML ) {
-		return array();
+		return [];
 	}
 
 	/**
 	 * Displays form details for one template in the Page Schemas XML.
 	 */
 	public static function getTemplateDisplayValues( $templateXML ) {
-		return array();
+		return [];
 	}
 
 	/**
 	 * Displays data on a single form input in the Page Schemas XML.
 	 */
 	public static function getFieldDisplayValues( $fieldXML ) {
-		return array();
+		return [];
 	}
 
 	/**
 	 * Displays form details for one page section in the Page Schemas XML.
 	 */
 	public static function getPageSectionDisplayValues( $pageSectionXML ) {
-		return array();
+		return [];
 	}
 }

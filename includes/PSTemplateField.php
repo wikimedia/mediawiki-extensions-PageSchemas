@@ -12,7 +12,7 @@ class PSTemplateField {
 	function __construct( $fieldXML ) {
 		$this->mFieldXML = $fieldXML;
 		$this->mFieldName = (string)$fieldXML->attributes()->name;
-		if ( ((string)$fieldXML->attributes()->list) == "list") {
+		if ( ( (string)$fieldXML->attributes()->list ) == "list" ) {
 			$this->mIsList = true;
 		}
 		$this->mDelimiter = $fieldXML->attributes()->delimiter;
@@ -53,8 +53,8 @@ class PSTemplateField {
 		global $wgPageSchemasHandlerClasses;
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$object = call_user_func( array( $psHandlerClass, 'createPageSchemasObject' ), $objectName, $this->mFieldXML );
-			if ( !is_null( $object ) ) {
+			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName, $this->mFieldXML );
+			if ( $object !== null ) {
 				return $object;
 			}
 		}

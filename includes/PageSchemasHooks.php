@@ -11,7 +11,7 @@ class PageSchemasHooks {
 	// Initialization
 	public static function register( &$parser ) {
 		// Register the hook with the parser.
-		$parser->setHook( 'PageSchema', array( 'PageSchemasHooks', 'render' ) );
+		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
 
 		// Initialize the global array of "handler" classes.
 		Hooks::run( 'PageSchemasRegisterHandlers' );
@@ -37,7 +37,7 @@ class PageSchemasHooks {
 		// function call, as opposed to a real XML tag.
 		$input = Xml::tags( 'PageSchema', $args, $input );
 
- 		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
+		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
 			// Store the XML in the page_props table
 			$parser->getOutput()->setProperty( 'PageSchema', $input );
 			// Display the schema on the screen
