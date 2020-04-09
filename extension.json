@@ -38,7 +38,7 @@
 		"PageSchemasAlias": "PageSchemas.i18n.alias.php"
 	},
 	"AutoloadClasses": {
-		"PageSchemasHooks": "PageSchemas.hooks.php",
+		"PageSchemasHooks": "includes/PageSchemasHooks.php",
 		"PageSchemas": "includes/PageSchemas.php",
 		"PSSchema": "includes/PSSchema.php",
 		"PSTemplate": "includes/PSTemplate.php",
