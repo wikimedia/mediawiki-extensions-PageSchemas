@@ -44,12 +44,12 @@
 		"PSTemplate": "includes/PageSchemas.classes.php",
 		"PSTemplateField": "includes/PageSchemas.classes.php",
 		"PSPageSection": "includes/PageSchemas.classes.php",
-		"PSEditSchema": "includes/specials/PS_EditSchema.php",
-		"PSEditSchemaAction": "includes/PS_EditSchemaAction.php",
-		"PSGeneratePages": "includes/specials/PS_GeneratePages.php",
-		"PSGeneratePagesAction": "includes/PS_GeneratePagesAction.php",
-		"PSExtensionHandler": "includes/PS_ExtensionHandler.php",
-		"PSCreatePageJob": "includes/PS_CreatePageJob.php"
+		"PSEditSchema": "includes/specials/PSEditSchema.php",
+		"PSEditSchemaAction": "includes/PSEditSchemaAction.php",
+		"PSGeneratePages": "includes/specials/PSGeneratePages.php",
+		"PSGeneratePagesAction": "includes/PSGeneratePagesAction.php",
+		"PSExtensionHandler": "includes/PSExtensionHandler.php",
+		"PSCreatePageJob": "includes/PSCreatePageJob.php"
 	},
 	"ResourceModules": {
 		"ext.pageschemas.main": {
@@ -57,7 +57,7 @@
 			"styles": "resources/PageSchemas.css"
 		},
 		"ext.pageschemas.generatepages": {
-			"scripts": "resources/PS_GeneratePages.js"
+			"scripts": "resources/PSGeneratePages.js"
 		}
 	},
 	"ResourceFileModulePaths": {
