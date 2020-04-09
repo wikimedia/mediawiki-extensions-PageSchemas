@@ -40,7 +40,7 @@
 	"AutoloadClasses": {
 		"PageSchemasHooks": "PageSchemas.hooks.php",
 		"PageSchemas": "includes/PageSchemas.classes.php",
-		"PSSchema": "includes/PageSchemas.classes.php",
+		"PSSchema": "includes/PSSchema.php",
 		"PSTemplate": "includes/PSTemplate.php",
 		"PSTemplateField": "includes/PSTemplateField.php",
 		"PSPageSection": "includes/PSPageSection.php",
