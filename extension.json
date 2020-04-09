@@ -44,9 +44,9 @@
 		"PSTemplate": "includes/PageSchemas.classes.php",
 		"PSTemplateField": "includes/PageSchemas.classes.php",
 		"PSPageSection": "includes/PageSchemas.classes.php",
-		"PSEditSchema": "specials/PS_EditSchema.php",
+		"PSEditSchema": "includes/specials/PS_EditSchema.php",
 		"PSEditSchemaAction": "includes/PS_EditSchemaAction.php",
-		"PSGeneratePages": "specials/PS_GeneratePages.php",
+		"PSGeneratePages": "includes/specials/PS_GeneratePages.php",
 		"PSGeneratePagesAction": "includes/PS_GeneratePagesAction.php",
 		"PSExtensionHandler": "includes/PS_ExtensionHandler.php",
 		"PSCreatePageJob": "includes/PS_CreatePageJob.php"
