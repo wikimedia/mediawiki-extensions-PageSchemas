@@ -1,14 +1,11 @@
 <?php
 /**
- * Classes for the Page Schemas extension.
+ * Class that holds utility functions for the Page Schemas extension.
  *
  * @file
  * @ingroup Extensions
  */
 
-/**
- * Class that holds utility functions for the Page Schemas extension.
- */
 class PageSchemas {
 
 	public static function getCategoriesWithPSDefined(){

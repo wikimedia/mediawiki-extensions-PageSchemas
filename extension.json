@@ -39,7 +39,7 @@
 	},
 	"AutoloadClasses": {
 		"PageSchemasHooks": "PageSchemas.hooks.php",
-		"PageSchemas": "includes/PageSchemas.classes.php",
+		"PageSchemas": "includes/PageSchemas.php",
 		"PSSchema": "includes/PSSchema.php",
 		"PSTemplate": "includes/PSTemplate.php",
 		"PSTemplateField": "includes/PSTemplateField.php",
