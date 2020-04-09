@@ -3,91 +3,91 @@
  * Aliases for special pages of PageSchemas extension.
  *
  * @file
- * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
+ * @license GPL-2.0-or-later
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'GeneratePages' => array( 'GeneratePages' ),
-	'EditSchema' => array( 'EditSchema' ),
-);
+$specialPageAliases['en'] = [
+	'GeneratePages' => [ 'GeneratePages' ],
+	'EditSchema' => [ 'EditSchema' ],
+];
 
 /** Arabic (العربية) */
-$specialPageAliases['ar'] = array(
-	'GeneratePages' => array( 'توليد_صفحات' ),
-	'EditSchema' => array( 'تعديل_السكيما' ),
-);
+$specialPageAliases['ar'] = [
+	'GeneratePages' => [ 'توليد_صفحات' ],
+	'EditSchema' => [ 'تعديل_السكيما' ],
+];
 
 /** Egyptian Arabic (مصرى) */
-$specialPageAliases['arz'] = array(
-	'GeneratePages' => array( 'توليد_صفحات' ),
-	'EditSchema' => array( 'تعديل_السكيما' ),
-);
+$specialPageAliases['arz'] = [
+	'GeneratePages' => [ 'توليد_صفحات' ],
+	'EditSchema' => [ 'تعديل_السكيما' ],
+];
 
 /** German (Deutsch) */
-$specialPageAliases['de'] = array(
-	'GeneratePages' => array( 'Seiten_generieren' ),
-	'EditSchema' => array( 'Schema_bearbeiten' ),
-);
+$specialPageAliases['de'] = [
+	'GeneratePages' => [ 'Seiten_generieren' ],
+	'EditSchema' => [ 'Schema_bearbeiten' ],
+];
 
 /** Zazaki (Zazaki) */
-$specialPageAliases['diq'] = array(
-	'GeneratePages' => array( 'PerréVırazin' ),
-	'EditSchema' => array( 'ŞemaVırnayış' ),
-);
+$specialPageAliases['diq'] = [
+	'GeneratePages' => [ 'PerréVırazin' ],
+	'EditSchema' => [ 'ŞemaVırnayış' ],
+];
 
 /** Greek (Ελληνικά) */
-$specialPageAliases['el'] = array(
-	'GeneratePages' => array( 'ΠαραγωγήΣελίδων' ),
-	'EditSchema' => array( 'ΕπεξεργασίαΣχήματος' ),
-);
+$specialPageAliases['el'] = [
+	'GeneratePages' => [ 'ΠαραγωγήΣελίδων' ],
+	'EditSchema' => [ 'ΕπεξεργασίαΣχήματος' ],
+];
 
 /** Italian (italiano) */
-$specialPageAliases['it'] = array(
-	'GeneratePages' => array( 'GeneraPagine' ),
-	'EditSchema' => array( 'ModificaSchema' ),
-);
+$specialPageAliases['it'] = [
+	'GeneratePages' => [ 'GeneraPagine' ],
+	'EditSchema' => [ 'ModificaSchema' ],
+];
 
 /** Japanese (日本語) */
-$specialPageAliases['ja'] = array(
-	'GeneratePages' => array( 'ページ生成' ),
-	'EditSchema' => array( 'スキーマ編集' ),
-);
+$specialPageAliases['ja'] = [
+	'GeneratePages' => [ 'ページ生成' ],
+	'EditSchema' => [ 'スキーマ編集' ],
+];
 
 /** Korean (한국어) */
-$specialPageAliases['ko'] = array(
-	'GeneratePages' => array( '문서생성' ),
-	'EditSchema' => array( '스키마편집' ),
-);
+$specialPageAliases['ko'] = [
+	'GeneratePages' => [ '문서생성' ],
+	'EditSchema' => [ '스키마편집' ],
+];
 
 /** Luxembourgish (Lëtzebuergesch) */
-$specialPageAliases['lb'] = array(
-	'GeneratePages' => array( 'Säite_generéieren' ),
-	'EditSchema' => array( 'Schema_änneren' ),
-);
+$specialPageAliases['lb'] = [
+	'GeneratePages' => [ 'Säite_generéieren' ],
+	'EditSchema' => [ 'Schema_änneren' ],
+];
 
 /** Macedonian (македонски) */
-$specialPageAliases['mk'] = array(
-	'GeneratePages' => array( 'СоздајСтраници' ),
-	'EditSchema' => array( 'УредиШема' ),
-);
+$specialPageAliases['mk'] = [
+	'GeneratePages' => [ 'СоздајСтраници' ],
+	'EditSchema' => [ 'УредиШема' ],
+];
 
 /** Dutch (Nederlands) */
-$specialPageAliases['nl'] = array(
-	'GeneratePages' => array( 'PaginasAanmaken' ),
-	'EditSchema' => array( 'SchemaBewerken' ),
-);
+$specialPageAliases['nl'] = [
+	'GeneratePages' => [ 'PaginasAanmaken' ],
+	'EditSchema' => [ 'SchemaBewerken' ],
+];
 
 /** Simplified Chinese (中文（简体）‎) */
-$specialPageAliases['zh-hans'] = array(
-	'GeneratePages' => array( '生成页面' ),
-	'EditSchema' => array( '编辑架构' ),
-);
+$specialPageAliases['zh-hans'] = [
+	'GeneratePages' => [ '生成页面' ],
+	'EditSchema' => [ '编辑架构' ],
+];
 
 /** Traditional Chinese (中文（繁體）‎) */
-$specialPageAliases['zh-hant'] = array(
-	'GeneratePages' => array( '產生頁面' ),
-	'EditSchema' => array( '編輯綱要' ),
-);
+$specialPageAliases['zh-hant'] = [
+	'GeneratePages' => [ '產生頁面' ],
+	'EditSchema' => [ '編輯綱要' ],
+];
