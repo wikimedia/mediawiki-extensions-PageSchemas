@@ -8,7 +8,12 @@
 
 class PageSchemasHooks {
 
-	// Initialization
+	/**
+	 * Initialization
+	 *
+	 * @param Parser &$parser
+	 * @return true
+	 */
 	public static function register( &$parser ) {
 		// Register the hook with the parser.
 		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
@@ -18,7 +23,15 @@ class PageSchemasHooks {
 		return true;
 	}
 
-	// Render the displayed XML, if any
+	/**
+	 * Render the displayed XML, if any.
+	 *
+	 * @param string $input
+	 * @param array $args
+	 * @param Parser $parser
+	 * @param PPFrame $frame
+	 * @return string|void
+	 */
 	public static function render( $input, $args, $parser, $frame ) {
 		// Disable cache so that CSS will get loaded.
 		$parser->getOutput()->updateCacheExpiry( 0 );
