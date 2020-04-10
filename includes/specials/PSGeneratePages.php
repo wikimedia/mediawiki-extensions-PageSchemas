@@ -12,6 +12,10 @@ class PSGeneratePages extends IncludableSpecialPage {
 		parent::__construct( 'GeneratePages', 'generatepages' );
 	}
 
+	/**
+	 * @param string $category
+	 * @return true
+	 */
 	function execute( $category ) {
 		global $wgPageSchemasHandlerClasses;
 
@@ -87,6 +91,9 @@ class PSGeneratePages extends IncludableSpecialPage {
 
 	/**
 	 * Creates all the pages that the user specified.
+	 *
+	 * @param string $categoryName
+	 * @param string $selectedPageList
 	 */
 	function generatePages( $categoryName, $selectedPageList ) {
 		$pageSchema = new PSSchema( $categoryName );
@@ -95,11 +102,16 @@ class PSGeneratePages extends IncludableSpecialPage {
 
 	/**
 	 * Don't list this in Special:SpecialPages.
+	 *
+	 * @return false
 	 */
 	function isListed() {
 		return false;
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getGroupName() {
 		return 'other';
 	}
