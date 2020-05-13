@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Background job to create a new property page,
- *
- * @author Ankit Garg
+ * Background job to create or modify a "data structure" page.
  */
 class PSCreatePageJob extends Job {
 
@@ -30,20 +28,12 @@ class PSCreatePageJob extends Job {
 			return false;
 		}
 
-		$wikiPage = new WikiPage( $this->title );
-		$page_text = $this->params['page_text'];
+		$wikiPage = WikiPage::factory( $this->title );
+		$pageText = $this->params['page_text'];
+		$editSummary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
+		$user = User::newFromId( $this->params['user_id'] );
+		PageSchemas::createOrModifyPage( $wikiPage, $pageText, $editSummary, $user );
 
-		// Change global $wgUser variable to the one
-		// specified by the job only for the extent of this
-		// replacement.
-		global $wgUser;
-		$actual_user = $wgUser;
-		$wgUser = User::newFromId( $this->params['user_id'] );
-		$edit_summary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
-		$content = new WikitextContent( $page_text );
-		$wikiPage->doEditContent( $content, $edit_summary );
-
-		$wgUser = $actual_user;
 		return true;
 	}
 }

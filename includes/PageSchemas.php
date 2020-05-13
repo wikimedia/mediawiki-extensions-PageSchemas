@@ -283,4 +283,18 @@ END;
 		return $object[$key];
 	}
 
+	public static function createOrModifyPage( $wikiPage, $pageText, $editSummary, $user ) {
+		$newContent = new WikitextContent( $pageText );
+		$flags = 0;
+
+		if ( class_exists( 'PageUpdater' ) ) {
+			// MW 1.32+
+			$updater = $wikiPage->newPageUpdater( $user );
+			$updater->setContent( SlotRecord::MAIN, $newContent );
+			$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
+		} else {
+			$wikiPage->doEditContent( $newContent, $editSummary, $flags, $originalRevId = false, $user );
+		}
+	}
+
 }

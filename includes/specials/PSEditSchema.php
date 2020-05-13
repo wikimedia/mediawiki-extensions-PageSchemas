@@ -682,7 +682,7 @@ END;
 		if ( $save_page ) {
 			$psXML = $this->createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			$categoryPage = new WikiPage( $categoryTitle );
+			$categoryPage = WikiPage::factory( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
 				$pageText = $categoryPage->getContent()->getNativeData();
 				$pageSchemaObj = new PSSchema( $category );
@@ -700,8 +700,8 @@ END;
 				$pageText = $psXML;
 			}
 			$editSummary = $request->getVal( 'wpSummary' );
-			$pageContent = ContentHandler::makeContent( $pageText, $categoryPage->getTitle() );
-			$categoryPage->doEditContent( $pageContent, $editSummary );
+			PageSchemas::createOrModifyPage( $categoryPage, $pageText, $editSummary, $user );
+
 			$redirectURL = $categoryTitle->getLocalURL();
 			$text = <<<END
 		<script type="text/javascript">
