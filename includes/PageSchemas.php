@@ -8,33 +8,6 @@
 
 class PageSchemas {
 
-	public static function getCategoriesWithPSDefined() {
-		$cat_titles = [];
-		$dbr = wfGetDB( DB_REPLICA );
-		// get the result set, query : select page_props
-		$res = $dbr->select( 'page_props',
-			[
-				'pp_page',
-				'pp_propname',
-				'pp_value'
-			],
-			[
-				'pp_propname' => 'PageSchema'
-			]
-		);
-		while ( $row = $dbr->fetchRow( $res ) ) {
-			if ( $row[2] != null ) {
-				$page_id_cat = $row[0];
-				if ( Title::newFromId( $page_id_cat )->getNamespace() == NS_CATEGORY ) {
-					$cat_text = Title::newFromId( $page_id_cat )->getText();
-					$cat_titles[] = $cat_text;
-				}
-			}
-		}
-		$dbr->freeResult( $res );
-		return $cat_titles;
-	}
-
 	/**
 	 * Includes the necessary Javascript and CSS files for the form
 	 * to display and work correctly.
