@@ -84,13 +84,13 @@ class PSEditSchemaAction extends Action {
 		$pageSchemaObj = new PSSchema( $category );
 
 		$content_actions['editschema'] = [
-			'text' => ( $pageSchemaObj->isPSDefined() ) ? wfMessage( 'editschema' )->parse() : wfMessage( 'createschema' )->parse(),
+			'text' => ( $pageSchemaObj->isPSDefined() ) ? $obj->msg( 'editschema' )->parse() : wfMessage( 'createschema' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=editschema' )
 		];
 
 		$content_actions['generatepages'] = [
-			'text' => wfMessage( 'generatepages' )->parse(),
+			'text' => $obj->msg( 'generatepages' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
 		];

@@ -79,7 +79,7 @@ class PSGeneratePagesAction extends Action {
 		}
 
 		$content_actions['generatepages'] = [
-			'text' => wfMessage( 'generatepages' )->parse(),
+			'text' => $obj->msg( 'generatepages' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
 		];

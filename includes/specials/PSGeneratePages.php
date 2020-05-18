@@ -32,7 +32,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
 			$this->generatePages( $param, $request->getArray( 'page' ) );
-			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-success' )->parse() );
+			$text = Html::element( 'p', null, $this->msg( 'ps-generatepages-success' )->parse() );
 			$out->addHTML( $text );
 			return true;
 		}
@@ -47,19 +47,35 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// Check for a valid category, with a page schema defined.
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-noschema' )->parse() );
+			$text = Html::element( 'p', null, $this->msg( 'ps-generatepages-noschema' )->parse() );
 			$out->addHTML( $text );
 			return true;
 		}
 
-		$text = Html::element( 'p', null, wfMessage( 'ps-generatepages-desc' )->parse() ) . "\n";
+		$text = Html::element(
+			'p', null,
+			$this->msg( 'ps-generatepages-desc' )->parse()
+		) . "\n";
 		$text .= '<form method="post">';
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
-		$text .= '<div id="ps_check_all_check_none">
-		<input type="button" id="ps_check_all" value="' . wfMessage( 'powersearch-toggleall' )->parse() . '" />
-		<input type="button" id="ps_check_none" value="' . wfMessage( 'powersearch-togglenone' )->parse() . '" />
-		</div><br/>';
+		$checkAllButton = Html::input(
+			null,
+			$this->msg( 'powersearch-toggleall' )->parse(),
+			'button',
+			[ 'id' => 'ps_check_all' ]
+		);
+		$checkNoneButton = Html::input(
+			null,
+			$this->msg( 'powersearch-togglenone' )->parse(),
+			'button',
+			[ 'id' => 'ps_check_none' ]
+		);
+		$text .= Html::rawElement(
+			'div',
+			[ 'id' => 'ps_check_all_check_none' ],
+			$checkAllButton . "\n" . $checkNoneButton . "\n"
+		) . "<br />\n";
 
 		$out->addModules( 'ext.pageschemas.generatepages' );
 
@@ -82,7 +98,11 @@ class PSGeneratePages extends IncludableSpecialPage {
 			$text .= "\n" . Linker::link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
-		$text .= Html::input( null, wfMessage( 'generatepages' )->parse(), 'submit' );
+		$text .= Html::input(
+			null,
+			$this->msg( 'generatepages' )->parse(),
+			'submit'
+		);
 		$text .= "\n</form>";
 		$out->addHTML( $text );
 
