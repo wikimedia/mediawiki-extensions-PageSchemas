@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Robin van der Vliet",
 			"Yekrats"
 		]
 	},
@@ -10,5 +11,6 @@
 	"ps-field": "Kampo",
 	"ps-namelabel": "Nomo:",
 	"ps-add-field": "Aldoni kampon",
-	"ps-remove-field": "Forigi kampon"
+	"ps-remove-field": "Forigi kampon",
+	"ps-field-display-hide": "Kaŝi"
 }
