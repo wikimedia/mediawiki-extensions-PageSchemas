@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beluga"
+			"Beluga",
+			"Crt"
 		]
 	},
 	"ps-desc": "Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.",
