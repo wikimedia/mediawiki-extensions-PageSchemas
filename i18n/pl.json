@@ -3,6 +3,7 @@
 		"authors": [
 			"BeginaFelicysym",
 			"Chrumps",
+			"Rail",
 			"Sp5uhe",
 			"Woytecr"
 		]
@@ -17,7 +18,7 @@
 	"ps-page-desc-cat-not-exist": "Ta kategoria jeszcze nie istnieje. Utwórz tę kategorię i jej schemat stron:",
 	"ps-page-desc-ps-not-exist": "Ta kategoria istnieje, ale nie posiada schematu strony. Utwórz schemat:",
 	"ps-page-desc-edit-schema": "Edytuj schemat stron dla tej kategorii:",
-	"ps-delimiter-label": "Separator wartości (domyślnie \",\"):",
+	"ps-delimiter-label": "Separator wartości (domyślnie „,”):",
 	"ps-multiple-temp-label": "Zezwalaj na wiele wystąpień tego szablonu",
 	"ps-field-list-label": "To pole może zawierać listę wartości",
 	"ps-template": "Szablon",
@@ -33,7 +34,7 @@
 	"editschema": "Edytuj schemat",
 	"createschema": "Utwórz schemat",
 	"right-generatepages": "Wyświetlanie karty i strony „{{int:generatepages}}”",
-	"action-generatepages": "wyświetl kartę i stronę \"{{int:Generatepages}}\"",
+	"action-generatepages": "wyświetlania karty i strony „{{int:generatepages}}”",
 	"ps-add-section": "Dodaj sekcję",
 	"ps-removepagesection": "Usuń sekcję",
 	"ps-sectionname": "Nazwa sekcji:",
@@ -41,7 +42,10 @@
 	"ps-section": "Sekcja",
 	"ps-level": "Poziom",
 	"ps-otherparams": "Inne parametry",
+	"ps-createpage-irregulartext": "Strona „$1” nie zawiera typowego wikitekstu.",
 	"ps-createpage-invalidtitle": "Nieprawidłowy tytuł",
 	"ps-field-display-always": "Zawsze pokazuj to pole",
-	"ps-field-display-hide": "Ukryj"
+	"ps-field-display-notempty": "Pokaż, jeśli nie jest puste",
+	"ps-field-display-hide": "Ukryj",
+	"ps-field-namespace": "To pole zawsze będzie mieć wartości w następującej przestrzeni nazw:"
 }
