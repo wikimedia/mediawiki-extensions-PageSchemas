@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Beluga",
-			"Crt"
+			"Crt",
+			"Yupik"
 		]
 	},
 	"ps-desc": "Tukee mallineiden tietorakenteiden määrittelyä XML-merkkauskielen kautta.",
@@ -13,5 +14,6 @@
 	"ps-namelabel": "Nimi:",
 	"ps-displaylabel": "Näyttönimi:",
 	"ps-add-field": "Lisää kenttä",
-	"ps-remove-field": "Poista kenttä"
+	"ps-remove-field": "Poista kenttä",
+	"ps-field-display-hide": "Piilota"
 }
