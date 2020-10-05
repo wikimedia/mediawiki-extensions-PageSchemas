@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"DCLXVI",
+			"Kareyac",
 			"StanProg",
 			"පසිඳු කාවින්ද"
 		]
 	},
+	"ps-add-template": "Добавяне на шаблон",
 	"ps-field": "Поле",
 	"ps-namelabel": "Име:",
 	"ps-field-display-hide": "Скриване"
