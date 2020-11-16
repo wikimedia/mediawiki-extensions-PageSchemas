@@ -6,6 +6,7 @@
 			"PieRRoMaN",
 			"Sherbrooke",
 			"Thibaut120094",
+			"Verdy p",
 			"Wyz",
 			"Yann.fauche",
 			"Zebulon84"
@@ -49,6 +50,6 @@
 	"ps-createpage-invalidtitle": "Titre non valide",
 	"ps-field-display-always": "Toujours afficher ce champ",
 	"ps-field-display-notempty": "À afficher si le champ n'est pas vide",
-	"ps-field-display-hide": "Cacher",
+	"ps-field-display-hide": "Masquer",
 	"ps-field-namespace": "Ce champ aura toujours des valeurs dans l’espace de noms suivant :"
 }
