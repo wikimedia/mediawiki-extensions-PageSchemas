@@ -11,7 +11,7 @@
 	"generatepages": "Genera pagine",
 	"ps-generatepages-desc": "Genera le seguenti pagine, basate sullo schema di questa categoria:",
 	"ps-generatepages-success": "Le pagine selezionate verranno generate.",
-	"ps-generatepages-noschema": "Errore: non c'è nessuno schema di pagina definito per questa categoria.",
+	"ps-generatepages-noschema": "Errore: nessuno schema di pagina definito per questa categoria.",
 	"ps-generatepages-editsummary": "Generata da uno schema di pagina",
 	"ps-page-desc-cat-not-exist": "Questa categoria non esiste ancora. Crea questa categoria e il relativo schema di pagina:",
 	"ps-page-desc-ps-not-exist": "Questa categoria esiste, ma non ha uno schema di pagina. Crea uno schema:",
