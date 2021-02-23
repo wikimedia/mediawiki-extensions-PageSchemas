@@ -28,6 +28,8 @@ class PSGeneratePages extends IncludableSpecialPage {
 		}
 
 		$this->setHeaders();
+		$out->enableOOUI();
+
 		$param = $request->getText( 'param' );
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
@@ -59,18 +61,14 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$text .= '<form method="post">';
 		$text .= Html::input( 'param', $category, 'hidden' ) . "\n";
 
-		$checkAllButton = Html::input(
-			null,
-			$this->msg( 'powersearch-toggleall' )->parse(),
-			'button',
-			[ 'id' => 'ps_check_all' ]
-		);
-		$checkNoneButton = Html::input(
-			null,
-			$this->msg( 'powersearch-togglenone' )->parse(),
-			'button',
-			[ 'id' => 'ps_check_none' ]
-		);
+		$checkAllButton = new OOUI\ButtonWidget( [
+			'label' => $this->msg( 'powersearch-toggleall' )->parse(),
+			'id' => 'ps_check_all'
+		] );
+		$checkNoneButton = new OOUI\ButtonWidget( [
+			'label' => $this->msg( 'powersearch-togglenone' )->parse(),
+			'id' => 'ps_check_none'
+		] );
 		$text .= Html::rawElement(
 			'div',
 			[ 'id' => 'ps_check_all_check_none' ],
@@ -94,15 +92,19 @@ class PSGeneratePages extends IncludableSpecialPage {
 				continue;
 			}
 			$pageName = PageSchemas::titleString( $page );
-			$text .= Html::input( 'page[]', $pageName, 'checkbox', [ 'checked' => true ] );
+			$text .= new OOUI\CheckboxInputWidget( [
+				'name' => 'page[]',
+				'value' => $pageName,
+				'selected' => true
+			] );
 			$text .= "\n" . Linker::link( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
-		$text .= Html::input(
-			null,
-			$this->msg( 'generatepages' )->parse(),
-			'submit'
-		);
+		$text .= new OOUI\ButtonInputWidget( [
+			'type' => 'submit',
+			'label' => $this->msg( 'generatepages' )->parse(),
+			'flags' => [ 'progressive', 'primary' ]
+		] );
 		$text .= "\n</form>";
 		$out->addHTML( $text );
 

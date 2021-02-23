@@ -184,13 +184,21 @@ class PSEditSchema extends IncludableSpecialPage {
 		// Section header
 		$headerContents = '';
 		if ( empty( $sectionClass ) ) {
-			$checkboxAttrs = [ 'class' => 'sectionCheckbox' ];
+			$checkboxAttrs = [ 'classes' => [ 'sectionCheckbox' ] ];
 			if ( $hasExistingValues ) {
-				$checkboxAttrs['checked'] = true;
+				$checkboxAttrs['selected'] = true;
 			}
-			$headerContents .= "\n\t\t" . Html::input( 'show_section', null, 'checkbox', $checkboxAttrs ) . ' ';
+			$checkbox = new OOUI\CheckboxInputWidget( $checkboxAttrs );
+			$headerContents .= "\n\t\t" . new OOUI\FieldLayout(
+				$checkbox,
+				[
+					'label' => $label,
+					'align' => 'inline'
+				]
+			 );
+		} else {
+			$headerContents .= $label . "\n";
 		}
-		$headerContents .= $label . "\n";
 		$sectionHTML = "\n\t\t\t\t\t" . Html::rawElement( 'div', [
 			'class' => 'sectionHeader',
 			'style' => "background: $headerColor;"
@@ -348,11 +356,13 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= "\n\t\t\t\t" . Html::hidden( "f_add_xml_$fieldNum", $field_add_xml );
 		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
 		//$fieldHTML .= "<p>" . $this->msg('ps-add-xml-label')->parse() . $additionalXMLInput . "</p>\n";
-		$fieldHTML .= Html::input(
-			'remove-field',
-			$this->msg( 'ps-remove-field' )->parse(),
-			'button',
-			[ 'class' => 'deleteField' ]
+		$fieldHTML .= new OOUI\ButtonWidget(
+			[
+				'name' => 'remove-field',
+				'classes' => [ 'deleteField' ],
+				'icon' => 'close',
+				'label' => $this->msg( 'ps-remove-field' )->parse(),
+			]
 		);
 		$text .= "\n" . $this->printFormSection( $this->msg( 'ps-field' )->parse(), '#AAA', $fieldHTML, 'editSchemaFieldSection' );
 		$text .= "\t</div><!-- fieldBox -->\n";
@@ -473,11 +483,11 @@ class PSEditSchema extends IncludableSpecialPage {
 			}
 		}
 		$templateHTML .= "\t</div><!-- fieldsList -->\n";
-		$add_field_button = Html::element( 'input',
+		$add_field_button = new OOUI\ButtonWidget(
 			[
-				'type' => 'button',
-				'class' => 'editSchemaAddField',
-				'value' => $this->msg( 'ps-add-field' )->parse(),
+				'classes' => [ 'editSchemaAddField' ],
+				'icon' => 'add',
+				'label' => $this->msg( 'ps-add-field' )->parse(),
 			]
 		);
 		$templateHTML .= Html::rawElement( 'p', null, $add_field_button ) . "\n";
@@ -485,11 +495,13 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateHTML .= "\n\t\t\t\t" . Html::hidden( "t_add_xml_$template_num", $template_add_xml );
 		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
 		//$templateHTML .= "\n<p>" . $this->msg('ps-add-xml-label')->parse() . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
-		$templateHTML .= '<p>' . Html::input(
-			'remove-template',
-			$this->msg( 'ps-remove-template' )->text(),
-			'button',
-			[ 'class' => 'deleteTemplate' ]
+		$templateHTML .= '<p>' . new OOUI\ButtonWidget(
+			[
+				'name' => 'remove-template',
+				'classes' => [ 'deleteTemplate' ],
+				'icon' => 'close',
+				'label' => $this->msg( 'ps-remove-template' )->parse(),
+			]
 		) . "</p>\n";
 		$text .= $this->printFormSection( $this->msg( 'ps-template' )->parse(), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
 		$text .= "\t</div><!-- templateBox-->\n";
@@ -541,11 +553,13 @@ class PSEditSchema extends IncludableSpecialPage {
 			$html = $this->printFormSection( $label, $color, $valuesFromExtension, 'editSchemaPageSection' );
 			$pageSectionHTML .= str_replace( 'num', $section_num, $html );
 		}
-		$pageSectionHTML .= '<p>' . Html::input(
-			'remove-pageSection',
-			$this->msg( 'ps-removepagesection' )->parse(),
-			'button',
-			[ 'class' => 'deletePageSection' ]
+		$pageSectionHTML .= '<p>' . new OOUI\ButtonWidget(
+			[
+				'name' => 'remove-pageSection',
+				'label' => $this->msg( 'ps-removepagesection' )->parse(),
+				'icon' => 'close',
+				'classes' => [ 'deletePageSection' ]
+			]
 		) . "</p>\n";
 		$text .= $this->printFormSection( $this->msg( 'ps-section' )->parse(), '#A6B7CC', $pageSectionHTML, 'pageSection' );
 		$text .= "\t</div><!-- pageSectionBox-->\n";
@@ -627,17 +641,19 @@ class PSEditSchema extends IncludableSpecialPage {
 				$pageSectionNum++;
 			}
 		}
-		$add_template_button = Html::input(
-			null,
-			$this->msg( 'ps-add-template' )->parse(),
-			'button',
-			[ 'class' => 'editSchemaAddTemplate' ]
+		$add_template_button = new OOUI\ButtonWidget(
+			[
+				'label' => $this->msg( 'ps-add-template' )->parse(),
+				'icon' => 'add',
+				'classes' => [ 'editSchemaAddTemplate' ]
+			]
 		);
-		$add_section_button = Html::input(
-			null,
-			$this->msg( 'ps-add-section' )->parse(),
-			'button',
-			[ 'class' => 'editSchemaAddSection' ]
+		$add_section_button = new OOUI\ButtonWidget(
+			[
+				'label' => $this->msg( 'ps-add-section' )->parse(),
+				'icon' => 'add',
+				'classes' => [ 'editSchemaAddSection' ]
+			]
 		);
 		$text .= "\t</div><!-- templatesList -->\n";
 		$text .= Html::rawElement( 'p', null, $add_template_button . $add_section_button ) . "\n";
@@ -658,13 +674,14 @@ class PSEditSchema extends IncludableSpecialPage {
 	</p>
 
 END;
-		$saveButton = Html::input(
-			'wpSave',
-			$this->msg( 'savearticle' )->parse(),
-			'submit',
+		$saveButton = new OOUI\ButtonInputWidget(
 			[
+				'name' => 'wpSave',
+				'label' => $this->msg( 'savearticle' )->parse(),
+				'type' => 'submit',
+				'flags' => [ 'progressive', 'primary' ],
 				'id' => 'wpSave',
-				'accesskey' => $this->msg( 'accesskey-save' )->parse(),
+				'accessKey' => $this->msg( 'accesskey-save' )->parse(),
 				'title' => $this->msg( 'tooltip-save' )->parse(),
 			]
 		);
@@ -701,6 +718,7 @@ END;
 		}
 
 		$this->setHeaders();
+		$out->enableOOUI();
 		$text = '<p>' . $this->msg( 'ps-page-desc-edit-schema' )->parse() . '</p>';
 		PageSchemas::addJavascriptAndCSS();
 

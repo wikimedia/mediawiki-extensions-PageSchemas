@@ -95,7 +95,7 @@ jQuery.fn.editSchemaToggleDelimiterInput = function() {
 }
 
 jQuery.fn.editSchemaToggleSectionDisplay = function() {
-	if (this.is(":checked")) {
+	if (this.find("input").is(":checked")) {
 		this.closest('.editSchemaSection').find('.sectionBody').css('display', '').removeClass('hiddenSection');
 	} else {
 		this.closest('.editSchemaSection').find('.sectionBody').css('display', 'none').addClass('hiddenSection');
