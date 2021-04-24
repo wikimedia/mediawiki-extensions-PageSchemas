@@ -86,7 +86,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 				$pageList[] = $page;
 			}
 		}
-
+		$linkRenderer = $this->getLinkRenderer();
 		foreach ( $pageList as $page ) {
 			if ( !( $page instanceof Title ) ) {
 				continue;
@@ -97,7 +97,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 				'value' => $pageName,
 				'selected' => true
 			] );
-			$text .= "\n" . Linker::link( $page ) . "<br />\n";
+			$text .= "\n" . $linkRenderer->makeLink( $page ) . "<br />\n";
 		}
 		$text .= "<br />\n";
 		$text .= new OOUI\ButtonInputWidget( [
