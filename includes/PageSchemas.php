@@ -6,6 +6,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\MediaWikiServices;
+
 class PageSchemas {
 
 	/**
@@ -38,8 +40,7 @@ class PageSchemas {
 			$namespace .= ':';
 		}
 		if ( MWNamespace::isCapitalized( $title->getNamespace() ) ) {
-			global $wgContLang;
-			return $namespace . $wgContLang->ucfirst( $title->getText() );
+			return $namespace . MediaWikiServices::getInstance()->getContentLanguage()->ucfirst( $title->getText() );
 		} else {
 			return $namespace . $title->getText();
 		}

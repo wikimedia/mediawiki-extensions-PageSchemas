@@ -225,8 +225,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Based in part on MediaWiki's Html::namespaceSelector().
 	 */
 	static function printNamespaceDropdown( $inputName, $curNamespace ) {
-		global $wgContLang;
-		$options = $wgContLang->getFormattedNamespaces();
+		$options = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
 
 		// Convert $options to HTML and filter out namespaces below 0
 		$optionsHtml = [];
