@@ -26,17 +26,16 @@ https://www.mediawiki.org/wiki/Extension:Page_Schemas
 
 == Requirements ==
 
-This version of the Page Schemas extension requires MediaWiki 1.28 or higher.
+This version of the Page Schemas extension requires MediaWiki 1.32 or
+higher.
 
 == Installation ==
 
 To install the extension, place the entire 'PageSchemas' directory
-within your MediaWiki 'extensions' directory, then add either one of
-the following lines to your 'LocalSettings.php' file:
+within your MediaWiki 'extensions' directory, then add the following
+line to your 'LocalSettings.php' file:
 
      wfLoadExtension( 'PageSchemas' );
-
-     require_once( "$IP/extensions/PageSchemas/PageSchemas.php" );
 
 == Credits ==
 

@@ -260,16 +260,10 @@ END;
 
 	public static function createOrModifyPage( $wikiPage, $pageText, $editSummary, $user ) {
 		$newContent = new WikitextContent( $pageText );
+		$updater = $wikiPage->newPageUpdater( $user );
+		$updater->setContent( SlotRecord::MAIN, $newContent );
 		$flags = 0;
-
-		if ( class_exists( 'PageUpdater' ) ) {
-			// MW 1.32+
-			$updater = $wikiPage->newPageUpdater( $user );
-			$updater->setContent( SlotRecord::MAIN, $newContent );
-			$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
-		} else {
-			$wikiPage->doEditContent( $newContent, $editSummary, $flags, $originalRevId = false, $user );
-		}
+		$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
 	}
 
 }
