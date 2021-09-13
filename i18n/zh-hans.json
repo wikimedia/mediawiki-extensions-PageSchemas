@@ -8,6 +8,7 @@
 			"Li3939108",
 			"Liangent",
 			"Liuxinyu970226",
+			"Tranve",
 			"Wmr",
 			"Yfdyh000"
 		]
@@ -46,7 +47,7 @@
 	"ps-section": "部分",
 	"ps-level": "等级",
 	"ps-otherparams": "其他参数",
-	"ps-createpage-irregulartext": "Wiki页面“$1”不能改正wiki文本。",
+	"ps-createpage-irregulartext": "Wiki页面“$1”不能改正wikitext。",
 	"ps-createpage-invalidtitle": "无效标题",
 	"ps-field-display-always": "总是显示此字段",
 	"ps-field-display-notempty": "显示，如果不为空",
