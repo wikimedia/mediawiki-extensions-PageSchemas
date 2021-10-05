@@ -3,6 +3,7 @@
 		"authors": [
 			"Beluga",
 			"Crt",
+			"MITO",
 			"Yupik"
 		]
 	},
@@ -15,5 +16,13 @@
 	"ps-displaylabel": "Näyttönimi:",
 	"ps-add-field": "Lisää kenttä",
 	"ps-remove-field": "Poista kenttä",
+	"ps-add-section": "Lisää osio",
+	"ps-removepagesection": "Poista osio",
+	"ps-sectionname": "Osion nimi:",
+	"ps-sectionlevel": "Osion taso:",
+	"ps-section": "Osio",
+	"ps-level": "Taso",
+	"ps-otherparams": "Muut parametrit",
+	"ps-createpage-invalidtitle": "Virheellinen otsikko",
 	"ps-field-display-hide": "Piilota"
 }
