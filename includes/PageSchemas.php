@@ -40,7 +40,15 @@ class PageSchemas {
 		if ( $namespace != '' ) {
 			$namespace .= ':';
 		}
-		if ( MWNamespace::isCapitalized( $title->getNamespace() ) ) {
+		if ( method_exists( "MediaWiki\\MediaWikiServices", "getNamespaceInfo" ) ) {
+			// MW 1.34+
+			$isCapitalized = MediaWikiServices::getInstance()
+				->getNamespaceInfo()
+				->isCapitalized( $title->getNamespace() );
+		} else {
+			$isCapitalized = MWNamespace::isCapitalized( $title->getNamespace() );
+		}
+		if ( $isCapitalized ) {
 			return $namespace . MediaWikiServices::getInstance()->getContentLanguage()->ucfirst( $title->getText() );
 		} else {
 			return $namespace . $title->getText();
