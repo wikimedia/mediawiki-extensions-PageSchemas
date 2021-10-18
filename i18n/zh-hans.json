@@ -10,6 +10,7 @@
 			"Liuxinyu970226",
 			"Tranve",
 			"Wmr",
+			"Xiplus",
 			"Yfdyh000"
 		]
 	},
@@ -52,5 +53,5 @@
 	"ps-field-display-always": "总是显示此字段",
 	"ps-field-display-notempty": "显示，如果不为空",
 	"ps-field-display-hide": "隐藏",
-	"ps-field-namespace": "此字段在以下名字空间将总拥有值："
+	"ps-field-namespace": "此字段在以下命名空间将总拥有值："
 }

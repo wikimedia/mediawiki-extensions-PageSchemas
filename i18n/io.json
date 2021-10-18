@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"JSantos"
+			"JSantos",
+			"Joao Xavier"
 		]
 	},
-	"ps-template": "Shablono"
+	"ps-template": "Shablono",
+	"ps-field-display-always": "Montrez ico sempre",
+	"ps-field-display-notempty": "Montrez se ne esas vakua",
+	"ps-field-display-hide": "Celez"
 }
