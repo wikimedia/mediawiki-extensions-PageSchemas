@@ -4,6 +4,7 @@
 			"Armando-Martin",
 			"Ciencia Al Poder",
 			"Fitoschido",
+			"Jakeukalane",
 			"Macofe",
 			"Ryo567",
 			"Translationista"
@@ -43,7 +44,7 @@
 	"ps-section": "Sección",
 	"ps-level": "Nivel",
 	"ps-otherparams": "Otros parámetros",
-	"ps-createpage-irregulartext": "La página «$1» del wiki no contiene wikitexto normal.",
+	"ps-createpage-irregulartext": "La página «$1» de la wiki no contiene wikitexto normal.",
 	"ps-createpage-invalidtitle": "El título no es válido",
 	"ps-field-display-always": "Siempre mostrar este campo",
 	"ps-field-display-notempty": "Mostrar si no está vacío",
