@@ -20,8 +20,8 @@ wfLoadExtension( 'PageSchemas' );
 $wgMessagesDirs['PageSchemas'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['PageSchemasAlias'] = $dir . 'PageSchemas.i18n.alias.php';
 
-/* wfWarn(
+wfWarn(
 	'Deprecated PHP entry point used for Page Schemas extension. ' .
 	'Please use wfLoadExtension instead, ' .
 	'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
-); */
+);
