@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"ps-desc": "Opredeljuje zgradbo podatkov vseh strani v kategoriji z uporabo XML",
@@ -38,7 +39,7 @@
 	"ps-section": "Razdelek",
 	"ps-level": "Raven",
 	"ps-otherparams": "Drugi parametri",
-	"ps-createpage-irregulartext": "Wikistran »$1« ne vsebuje navadnega wikibesedila.",
+	"ps-createpage-irregulartext": "Wikistran »$1« ne vsebuje navadnega vikibesedila.",
 	"ps-createpage-invalidtitle": "Neveljavni naslov",
 	"ps-field-display-always": "Polje vedno prikaži",
 	"ps-field-display-notempty": "Prikaži, če ni prazno",

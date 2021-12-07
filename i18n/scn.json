@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"ps-template": "Template",
+	"ps-add-template": "Agghiunci template",
+	"ps-remove-template": "Leva template",
+	"ps-namelabel": "Nomu:",
+	"ps-add-section": "Agghiunci sizzioni",
+	"ps-removepagesection": "Leva sizzioni",
+	"ps-sectionname": "Nomu dâ sizzioni:",
+	"ps-sectionlevel": "Liveddu dâ sizzioni",
+	"ps-section": "Sizzioni",
+	"ps-level": "Liveddu",
+	"ps-createpage-invalidtitle": "Tîtulu nun vàlidu",
+	"ps-field-display-hide": "Ammuccia"
+}

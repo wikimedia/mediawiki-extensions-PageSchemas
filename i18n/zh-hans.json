@@ -9,7 +9,9 @@
 			"Liangent",
 			"Liuxinyu970226",
 			"Wmr",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Tranve",
+			"Xiplus"
 		]
 	},
 	"ps-desc": "使用XML为分类下的所有页面定义数据结构",
@@ -46,10 +48,10 @@
 	"ps-section": "部分",
 	"ps-level": "等级",
 	"ps-otherparams": "其他参数",
-	"ps-createpage-irregulartext": "Wiki页面“$1”不能改正wiki文本。",
+	"ps-createpage-irregulartext": "Wiki页面“$1”不能改正wikitext。",
 	"ps-createpage-invalidtitle": "无效标题",
 	"ps-field-display-always": "总是显示此字段",
 	"ps-field-display-notempty": "显示，如果不为空",
 	"ps-field-display-hide": "隐藏",
-	"ps-field-namespace": "此字段在以下名字空间将总拥有值："
+	"ps-field-namespace": "此字段在以下命名空间将总拥有值："
 }
