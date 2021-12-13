@@ -3,9 +3,11 @@
 		"authors": [
 			"DCLXVI",
 			"StanProg",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Kareyac"
 		]
 	},
+	"ps-add-template": "Добавяне на шаблон",
 	"ps-field": "Поле",
 	"ps-namelabel": "Име:",
 	"ps-field-display-hide": "Скриване"

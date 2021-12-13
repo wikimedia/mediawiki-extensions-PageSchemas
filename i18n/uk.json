@@ -7,13 +7,14 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ата",
-			"Тест"
+			"Тест",
+			"DDPAT"
 		]
 	},
 	"ps-desc": "Визначає структуру даних усіх сторінок категорії через XML",
 	"ps-schema-description": "Схема сторінки",
 	"generatepages": "Створення сторінок",
-	"ps-generatepages-desc": "Створити наступні сторінки, основані на схемі цієї категорії:",
+	"ps-generatepages-desc": "Створити такі сторінки, основані на схемі цієї категорії:",
 	"ps-generatepages-success": "Обрані сторінки буде створено.",
 	"ps-generatepages-noschema": "Помилка: Для цієї категорії не визначено схему сторінки.",
 	"ps-generatepages-editsummary": "Створено зі схеми сторінки",
