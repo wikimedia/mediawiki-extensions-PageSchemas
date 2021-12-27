@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daud I.F. Argana",
 			"IvanLanin",
 			"පසිඳු කාවින්ද"
 		]
 	},
-	"ps-desc": "Mendukung templat untuk dapat mendefinisikan struktur data mereka melalui markah XML",
+	"ps-desc": "Mendefinisikan struktur data untuk semua halaman dalam suatu kategori menggunakan XML",
+	"ps-schema-description": "Skema halaman",
 	"ps-template": "Templat",
 	"ps-namelabel": "Nama:"
 }
