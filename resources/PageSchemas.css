@@ -38,7 +38,7 @@ body.rtl .pageSchema .schemaExtensionRow {
 
 .pageSchema .schemaAttrRow {
 	padding-left: 25px;
-	background: white;
+	background: #fff;
 	font-weight: bold;
 }
 
@@ -57,12 +57,13 @@ body.rtl .pageSchema .templaterow {
 	padding-right: 5px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .pageSchema span.rowValue {
 	font-weight: bold;
 }
 
 .pageSchema .fieldRow {
-	background: #eeddbb;
+	background: #edb;
 	padding-left: 25px;
 }
 
@@ -83,7 +84,7 @@ body.rtl .pageSchema .fieldExtensionRow {
 
 .pageSchema .fieldAttrRow {
 	padding-left: 45px;
-	background: white;
+	background: #fff;
 	font-weight: bold;
 }
 
@@ -94,7 +95,7 @@ body.rtl .pageSchema .fieldAttrRow {
 
 .pageSchema .paramData {
 	padding-left: 5px;
-	background: #77dd77;
+	background: #7d7;
 }
 
 body.rtl .pageSchema .paramData {
@@ -102,12 +103,13 @@ body.rtl .pageSchema .paramData {
 	padding-right: 5px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .pageSchema .paramData span.rowValue {
 	font-weight: bold;
 }
 
 .pageSchema .paramDataField {
-	background: #99ff99;
+	background: #9f9;
 	padding-left: 35px;
 }
 
@@ -118,7 +120,7 @@ body.rtl .pageSchema .paramDataField {
 
 .pageSchema .msg {
 	padding-left: 5px;
-	background: white;
+	background: #fff;
 }
 
 body.rtl .pageSchema .msg {
@@ -130,29 +132,36 @@ body.rtl .pageSchema .msg {
  * Used in Special:EditSchema
  */
 div.editSchemaSection {
-	 border: 1px #999 solid;
-	 background: white;
-	 padding: 0px;
-	 margin-bottom: 10px;
-	 margin-top: 10px;
+	border: 1px #999 solid;
+	background: #fff;
+	/* stylelint-disable-next-line length-zero-no-unit */
+	padding: 0px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
+
 div.editSchemaTemplateSection {
-	background: #EEE;
+	background: #eee;
 }
+
 div.editSchemaFieldSection {
-	background: #CCC;
+	background: #ccc;
 }
+
 div.pageSection {
-	background: #D0DAE6;
+	background: #d0dae6;
 }
+
 div.editSchemaPageSection {
-	background: #FFFFFF;
+	background: #fff;
 }
+
 div.editSchemaSection .sectionHeader {
 	font-weight: bold;
 	padding: 4px 7px;
 	border-bottom: 1px #bbb solid;
 }
+
 div.editSchemaSection .sectionBody {
 	padding: 5px 15px;
 }

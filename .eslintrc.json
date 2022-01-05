@@ -1,7 +1,12 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client-es5",
+		"wikimedia/client-es6",
 		"wikimedia/mediawiki"
-	]
+	],
+	"rules": {
+		"no-implicit-globals": "off",
+		"no-undef": "off",
+		"no-var": "off"
+	}
 }
