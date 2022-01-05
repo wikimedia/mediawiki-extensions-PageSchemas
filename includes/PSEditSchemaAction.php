@@ -14,7 +14,7 @@ class PSEditSchemaAction extends Action {
 
 	/**
 	 * Return the name of the action this object responds to
-	 * @return String lowercase
+	 * @return string lowercase
 	 */
 	public function getName() {
 		return 'editschema';
@@ -44,7 +44,7 @@ class PSEditSchemaAction extends Action {
 
 	/**
 	 * Execute the action in a silent fashion: do not display anything or release any errors.
-	 * @return Bool whether execution was successful
+	 * @return bool whether execution was successful
 	 */
 	public function execute() {
 		return true;
@@ -84,7 +84,8 @@ class PSEditSchemaAction extends Action {
 		$pageSchemaObj = new PSSchema( $category );
 
 		$content_actions['editschema'] = [
-			'text' => ( $pageSchemaObj->isPSDefined() ) ? $obj->msg( 'editschema' )->parse() : wfMessage( 'createschema' )->parse(),
+			'text' => ( $pageSchemaObj->isPSDefined() ) ? $obj->msg( 'editschema' )->parse() :
+				wfMessage( 'createschema' )->parse(),
 			'class' => $request->getVal( 'action' ) == 'editschema' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=editschema' )
 		];

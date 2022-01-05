@@ -111,8 +111,10 @@ END;
 		return $text;
 	}
 
-	// TODO - this should be a non-static method of the PSSchema class,
-	// instead of taking in XML.
+	/**
+	 * @todo - this should be a non-static method of the PSSchema class,
+	 * instead of taking in XML.
+	 */
 	static function displaySchema( $schemaXML ) {
 		global $wgPageSchemasHandlerClasses;
 

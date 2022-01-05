@@ -24,7 +24,8 @@ class PSPageSection {
 		global $wgPageSchemasHandlerClasses;
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName, $this->mPageSectionXML );
+			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName,
+				$this->mPageSectionXML );
 			if ( $object !== null ) {
 				return $object;
 			}

@@ -6,9 +6,9 @@
 class PSSchema {
 	private $mCategoryName = "";
 	private $mPageXML = null;
-	/* Stores the template objects */
+	/** @var array Stores the template objects */
 	private $mTemplates = [];
-	/* Stores the template and page section objects */
+	/** @var array Stores the template and page section objects */
 	private $mFormItemsList = [];
 	private $mIsPSDefined = true;
 
@@ -71,7 +71,8 @@ class PSSchema {
 					// Code to add templates from inherited templates
 					$temp_name = (string)$child->attributes()->name;
 					foreach ( $inherited_templates as $inherited_template ) {
-						if ( $inherited_template['type'] == $tag && $temp_name == $inherited_template['item']->getName() ) {
+						if ( $inherited_template['type'] == $tag &&
+						$temp_name == $inherited_template['item']->getName() ) {
 							$this->mFormItemsList[] = [ 'type' => $tag,
 								'number' => $templateCount,
 								'item' => $inherited_template ];

@@ -157,7 +157,8 @@ class PSEditSchema extends IncludableSpecialPage {
 		);
 		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
 		$text .= "<ul>\n";
-		while ( $row = $dbr->fetchRow( $res ) ) {
+		$row = $dbr->fetchRow( $res );
+		while ( $row ) {
 			if ( $row[1] == null ) {
 				continue;
 			}
@@ -171,6 +172,7 @@ class PSEditSchema extends IncludableSpecialPage {
 				null,
 				Html::element( 'a', [ 'href' => $url ], $catName )
 			);
+			$row = $dbr->fetchRow( $res );
 		}
 		$text .= "</ul>\n";
 		$dbr->freeResult( $res );
@@ -279,8 +281,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		} else {
 			$text .= '<div class="fieldBox" >';
 			$fieldName = (string)$field_xml->attributes()->name;
-			if ( ( (string)$field_xml->attributes()->delimiter ) != null || ( (string)$field_xml->attributes()->delimiter ) != '' ) {
-				$delimiter = (string)$field_xml->attributes()->delimiter;
+			$fieldDelimiter = (string)$field_xml->attributes()->delimiter;
+			if ( $fieldDelimiter != null || $fieldDelimiter != '' ) {
+				$delimiter = $fieldDelimiter;
 			}
 			foreach ( $field_xml->children() as $tag => $child ) {
 				if ( $tag == 'Label' ) {
@@ -353,7 +356,8 @@ class PSEditSchema extends IncludableSpecialPage {
 		// TODO - this needs to get set.
 		$field_add_xml = null;
 		$fieldHTML .= "\n\t\t\t\t" . Html::hidden( "f_add_xml_$fieldNum", $field_add_xml );
-		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
+		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml,
+		// [ 'rows' => 4, 'style' => 'width: 100%;' ] );
 		//$fieldHTML .= "<p>" . $this->msg('ps-add-xml-label')->parse() . $additionalXMLInput . "</p>\n";
 		$fieldHTML .= new OOUI\ButtonWidget(
 			[
@@ -363,7 +367,8 @@ class PSEditSchema extends IncludableSpecialPage {
 				'label' => $this->msg( 'ps-remove-field' )->parse(),
 			]
 		);
-		$text .= "\n" . $this->printFormSection( $this->msg( 'ps-field' )->parse(), '#AAA', $fieldHTML, 'editSchemaFieldSection' );
+		$text .= "\n" . $this->printFormSection( $this->msg( 'ps-field' )->parse(), '#AAA', $fieldHTML,
+			'editSchemaFieldSection' );
 		$text .= "\t</div><!-- fieldBox -->\n";
 		return $text;
 	}
@@ -399,7 +404,8 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateNameInput .= Html::input( 't_name_' . $template_num, $templateName, 'text' );
 		$templateHTML = "\t\t" . Html::rawElement( 'p', null, $templateNameInput ) . "\n";
 		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
-		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' . $this->msg( 'ps-multiple-temp-label' )->parse() );
+		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' .
+			$this->msg( 'ps-multiple-temp-label' )->parse() );
 
 		// Use an input from the Page Forms extension for the template
 		// format.
@@ -410,7 +416,8 @@ class PSEditSchema extends IncludableSpecialPage {
 		// creation of them is (for no strong reason) done by Page
 		// Forms. In the future, this may change.
 		if ( method_exists( 'PFCreateTemplate', 'printTemplateStyleInput' ) ) {
-			$templateHTML .= PFCreateTemplate::printTemplateStyleInput( 'template_format_' . $template_num, $templateFormat );
+			$templateHTML .= PFCreateTemplate::printTemplateStyleInput( 'template_format_' . $template_num,
+				$templateFormat );
 		}
 		$template_add_xml = "";
 		// TODO - set this correctly.
@@ -492,8 +499,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		$templateHTML .= Html::rawElement( 'p', null, $add_field_button ) . "\n";
 		$templateHTML .= "<hr />\n";
 		$templateHTML .= "\n\t\t\t\t" . Html::hidden( "t_add_xml_$template_num", $template_add_xml );
-		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
-		//$templateHTML .= "\n<p>" . $this->msg('ps-add-xml-label')->parse() . "\n\t\t\t\t" . $additionalXMLInput . "\n\t\t\t</p>";
+		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml,
+		//[ 'rows' => 4, 'style' => 'width: 100%;' ] );
+		//$templateHTML .= "\n<p>" . $this->msg('ps-add-xml-label')->parse() . $additionalXMLInput . </p>";
 		$templateHTML .= '<p>' . new OOUI\ButtonWidget(
 			[
 				'name' => 'remove-template',
@@ -502,7 +510,8 @@ class PSEditSchema extends IncludableSpecialPage {
 				'label' => $this->msg( 'ps-remove-template' )->parse(),
 			]
 		) . "</p>\n";
-		$text .= $this->printFormSection( $this->msg( 'ps-template' )->parse(), '#CCC', $templateHTML, 'editSchemaTemplateSection' );
+		$text .= $this->printFormSection( $this->msg( 'ps-template' )->parse(), '#CCC', $templateHTML,
+			'editSchemaTemplateSection' );
 		$text .= "\t</div><!-- templateBox-->\n";
 		return $text;
 	}
@@ -532,7 +541,8 @@ class PSEditSchema extends IncludableSpecialPage {
 			[ 'size' => '30', 'id' => 'sectionname' ]
 		) . "\n";
 		$header_options = '';
-		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, $this->msg( 'ps-sectionlevel' )->parse() ) . "\n";
+		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, $this->msg( 'ps-sectionlevel' )->parse() ) .
+			"\n";
 		for ( $i = 1; $i < 7; $i++ ) {
 			if ( $section_level == $i ) {
 				$header_options .= " " . Html::element( 'option', [ 'value' => $i, 'selected' ], $i ) . "\n";
@@ -540,7 +550,8 @@ class PSEditSchema extends IncludableSpecialPage {
 				$header_options .= " " . Html::element( 'option', [ 'value' => $i ], $i ) . "\n";
 			}
 		}
-		$pageSectionHTML .= '&nbsp&nbsp' . Html::rawElement( 'select', [ 'name' => "s_level_" . $section_num ], $header_options ) . "</p>\n";
+		$pageSectionHTML .= '&nbsp&nbsp' . Html::rawElement( 'select', [ 'name' => "s_level_" . $section_num ],
+			$header_options ) . "</p>\n";
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$valuesFromExtension = call_user_func( [ $psHandlerClass, "getPageSectionEditingHTML" ], $psPageSection );
@@ -560,7 +571,8 @@ class PSEditSchema extends IncludableSpecialPage {
 				'classes' => [ 'deletePageSection' ]
 			]
 		) . "</p>\n";
-		$text .= $this->printFormSection( $this->msg( 'ps-section' )->parse(), '#A6B7CC', $pageSectionHTML, 'pageSection' );
+		$text .= $this->printFormSection( $this->msg( 'ps-section' )->parse(), '#A6B7CC', $pageSectionHTML,
+			'pageSection' );
 		$text .= "\t</div><!-- pageSectionBox-->\n";
 		return $text;
 	}
@@ -595,7 +607,8 @@ class PSEditSchema extends IncludableSpecialPage {
 
 		$text = '<form id="editSchemaForm" action="" method="post">' . "\n";
 		$text .= "\n\t\t\t\t" . Html::hidden( 'ps_add_xml', $ps_add_xml );
-		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( 'ps_add_xml', $ps_add_xml, array( 'rows' => 4, 'style' => 'width: 100%;' ) );
+		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( 'ps_add_xml', $ps_add_xml,
+		//[ 'rows' => 4, 'style' => 'width: 100%;' ] );
 		//$text .= '<p>' . $this->msg( 'ps-add-xml-label' )->parse() . $additionalXMLInput . "\n</p>";
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {

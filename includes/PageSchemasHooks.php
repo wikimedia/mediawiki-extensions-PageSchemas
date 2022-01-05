@@ -50,7 +50,8 @@ class PageSchemasHooks {
 		// function call, as opposed to a real XML tag.
 		$input = Xml::tags( 'PageSchema', $args, $input );
 
-		if ( $xml_object = PageSchemas::validateXML( $input, $error_msg ) ) {
+		$xml_object = PageSchemas::validateXML( $input, $error_msg );
+		if ( $xml_object ) {
 			// Store the XML in the page_props table
 			$parser->getOutput()->setProperty( 'PageSchema', $input );
 			// Display the schema on the screen

@@ -73,7 +73,8 @@ class PSTemplate {
 	public function getObject( $objectName ) {
 		global $wgPageSchemasHandlerClasses;
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
-			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName, $this->mTemplateXML );
+			$object = call_user_func( [ $psHandlerClass, 'createPageSchemasObject' ], $objectName,
+				$this->mTemplateXML );
 			if ( $object ) {
 				return $object;
 			}
