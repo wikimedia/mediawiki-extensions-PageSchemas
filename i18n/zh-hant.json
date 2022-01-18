@@ -5,7 +5,8 @@
 			"LNDDYL",
 			"Liangent",
 			"Liuxinyu970226",
-			"Mark85296341"
+			"Mark85296341",
+			"Tranve"
 		]
 	},
 	"ps-desc": "使用 XML 為分類中的所有頁面定義資料結構",
@@ -42,7 +43,7 @@
 	"ps-section": "段落",
 	"ps-level": "等級",
 	"ps-otherparams": "其它參數",
-	"ps-createpage-irregulartext": "Wiki 頁面「$1」未包含正規 wiki 文字。",
+	"ps-createpage-irregulartext": "Wiki 頁面「$1」未包含正規 wikitext。",
 	"ps-createpage-invalidtitle": "無效標題",
 	"ps-field-display-always": "永遠顯示此欄位",
 	"ps-field-display-notempty": "若不為空則顯示",
