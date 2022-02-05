@@ -16,7 +16,7 @@ class PSSchema {
 		$this->mCategoryName = $categoryName;
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'page_props',
+		$row = $dbr->selectRow( 'page_props',
 			[
 				'pp_page',
 				'pp_propname',
@@ -27,15 +27,11 @@ class PSSchema {
 				'pp_propname' => 'PageSchema'
 			]
 		);
-		// first row of the result set
-		$row = $dbr->fetchRow( $res );
-		if ( $row == null ) {
+		if ( !$row ) {
 			$this->mIsPSDefined = false;
 			return;
 		}
-
-		// Retrieve the third attribute, which is pp_value.
-		$pageXMLstr = $row[2];
+		$pageXMLstr = $row->pp_value;
 
 		// Parse the string - if the parsing fails, just exit
 		// without displaying an error message; the parsing error

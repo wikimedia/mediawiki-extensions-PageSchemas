@@ -157,12 +157,11 @@ class PSEditSchema extends IncludableSpecialPage {
 		);
 		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
 		$text .= "<ul>\n";
-		$row = $dbr->fetchRow( $res );
-		while ( $row ) {
-			if ( $row[1] == null ) {
+		foreach ( $res as $row ) {
+			if ( $row->pp_value == null ) {
 				continue;
 			}
-			$catTitle = Title::newFromID( $row[0] );
+			$catTitle = Title::newFromID( $row->pp_page );
 			if ( $catTitle->getNamespace() !== NS_CATEGORY ) {
 				continue;
 			}
@@ -172,10 +171,8 @@ class PSEditSchema extends IncludableSpecialPage {
 				null,
 				Html::element( 'a', [ 'href' => $url ], $catName )
 			);
-			$row = $dbr->fetchRow( $res );
 		}
 		$text .= "</ul>\n";
-		$dbr->freeResult( $res );
 		return $text;
 	}
 
@@ -784,7 +781,7 @@ END;
 		// See if a page schema has already been defined for this category.
 		$pageId = $categoryTitle->getArticleID();
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'page_props',
+		$row = $dbr->selectRow( 'page_props',
 			[
 				'pp_value'
 			],
@@ -794,13 +791,12 @@ END;
 			]
 		);
 
-		$row = $dbr->fetchRow( $res );
 		if ( !$categoryTitle->exists() ) {
 			// Category doesn't exist.
 			$out->setPageTitle( $this->msg( 'createschema' )->parse() );
 			$text = '<p>' . $this->msg( 'ps-page-desc-cat-not-exist' )->parse() . '</p>';
 			$text .= $this->printForm();
-		} elseif ( $row == null ) {
+		} elseif ( !$row ) {
 			// Category exists, but has no page schema.
 			$text = '<p>' . $this->msg( 'ps-page-desc-ps-not-exist' )->parse() . '</p>';
 			$out->setPageTitle( $this->msg( 'createschema' )->parse() );
@@ -809,7 +805,7 @@ END;
 			// It's a category with an existing page schema -
 			// populate the form with its values.
 			$pageSchemaObj = new PSSchema( $category );
-			$pageXMLstr = $row[0];
+			$pageXMLstr = $row->pp_value;
 			$pageXML = simplexml_load_string( $pageXMLstr );
 			$text = $this->printForm( $pageSchemaObj, $pageXML );
 		}
