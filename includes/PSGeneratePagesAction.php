@@ -54,12 +54,7 @@ class PSGeneratePagesAction extends Action {
 	 * @return bool
 	 */
 	static function displayTab( $obj, &$links ) {
-		if ( method_exists( $obj, 'getTitle' ) ) {
-			$title = $obj->getTitle();
-		} else {
-			$title = $obj->mTitle;
-		}
-
+		$title = $obj->getTitle();
 		if ( $title->getNamespace() != NS_CATEGORY ) {
 			return true;
 		}
