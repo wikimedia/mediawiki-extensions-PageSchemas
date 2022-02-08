@@ -301,7 +301,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
 		$fieldIsListSet = $fieldIsListInput . ' ';
 		$fieldIsListSet .= $this->msg( 'ps-field-list-label' )->parse();
-		$fieldHTML .= Html::rawElement( 'p', null,  $fieldIsListSet );
+		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListSet );
 		$fieldDelimiterSet = $this->msg( 'ps-delimiter-label' )->parse() . ' ' .
 			Html::input( 'f_delimiter_' . $fieldNum, $delimiter, 'text', [ 'size' => 3 ] );
 		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterSet );

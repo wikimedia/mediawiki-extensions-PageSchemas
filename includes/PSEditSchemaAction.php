@@ -21,11 +21,11 @@ class PSEditSchemaAction extends Action {
 	}
 
 	/**
-	 * The main action entry point.  Do all output for display and send it to the context
-	 * output.  Do not use globals $wgOut, $wgRequest, etc, in implementations; use
-	 * $this->getOutput(), etc.
-	 * @throws ErrorPageError
-	 * @return false
+	 * The main action entry point. Do all output for display and send it
+	 * to the context output. Do not use globals $wgOut, $wgRequest, etc,
+	 * in implementations; use $this->getOutput(), etc.
+	 *
+	 * @return bool
 	 */
 	public function show() {
 		$title = $this->page->getTitle();
@@ -43,7 +43,9 @@ class PSEditSchemaAction extends Action {
 	}
 
 	/**
-	 * Execute the action in a silent fashion: do not display anything or release any errors.
+	 * Execute the action in a silent fashion: do not display anything or
+	 * release any errors.
+	 *
 	 * @return bool whether execution was successful
 	 */
 	public function execute() {
@@ -52,8 +54,9 @@ class PSEditSchemaAction extends Action {
 
 	/**
 	 * Adds an "action" (i.e., a tab) to edit the current article with
-	 * a form
-	 * @param Title $obj
+	 * a form.
+	 *
+	 * @param SkinTemplate $obj
 	 * @param array &$links
 	 * @return bool
 	 */
