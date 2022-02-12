@@ -33,8 +33,9 @@ class PageSchemasHooks {
 	 * @return string|void
 	 */
 	public static function render( $input, $args, $parser, $frame ) {
+		$parserOutput = $parser->getOutput();
 		// Disable cache so that CSS will get loaded.
-		$parser->getOutput()->updateCacheExpiry( 0 );
+		$parserOutput->updateCacheExpiry( 0 );
 
 		// If this call is contained in a transcluded page or template,
 		// or if the input is empty, display nothing.
@@ -53,14 +54,24 @@ class PageSchemasHooks {
 		$xml_object = PageSchemas::validateXML( $input, $error_msg );
 		if ( $xml_object ) {
 			// Store the XML in the page_props table
-			$parser->getOutput()->setProperty( 'PageSchema', $input );
+			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
+				// MW 1.38
+				$parserOutput->setPageProperty( 'PageSchema', $input );
+			} else {
+				$parserOutput->setProperty( 'PageSchema', $input );
+			}
 			// Display the schema on the screen
 			global $wgOut, $wgScriptPath;
 			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/PageSchemas.css' );
 			$text = PageSchemas::displaySchema( $xml_object );
 		} else {
 			// Store error message in the page_props table
-			$parser->getOutput()->setProperty( 'PageSchema', $error_msg );
+			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
+				// MW 1.38
+				$parserOutput->setPageProperty( 'PageSchema', $error_msg );
+			} else {
+				$parserOutput->setProperty( 'PageSchema', $error_msg );
+			}
 			$text = Html::element( 'p', null, "The (incorrect) XML definition for this template is:" ) . "\n";
 			$text .= Html::element( 'pre', null, $input );
 		}
