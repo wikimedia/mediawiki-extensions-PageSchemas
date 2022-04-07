@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mousa"
+			"Mousa",
+			"Alp Er Tunqa"
 		]
 	},
 	"ps-desc": "ایکس‌اِل‌اِل ایله بیر بؤلمه‌ده بوتون صحیفه‌لره دیتا قورولوشو تعریف ائدر",
@@ -19,7 +20,7 @@
 	"ps-field-list-label": "بو فیلد، دَیَرلر لیستینی ساخلایا بیلر",
 	"ps-template": "شابلون",
 	"ps-add-template": "شابلون آرتیر",
-	"ps-remove-template": "شابلون سیل",
+	"ps-remove-template": "شابلونو سیل",
 	"ps-field": "فیلد",
 	"ps-namelabel": "آد:",
 	"ps-displaylabel": "گؤسترمک برچسبی:",
