@@ -68,16 +68,9 @@ class PSEditSchemaAction extends Action {
 		}
 
 		$user = $obj->getUser();
-		if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
-			// MW 1.33+
-			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-			if ( !$permissionManager->userCan( 'edit', $user, $title ) ) {
-				return true;
-			}
-		} else {
-			if ( !$user->isAllowed( 'edit' ) || !$title->userCan( 'edit' ) ) {
-				return true;
-			}
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		if ( !$permissionManager->userCan( 'edit', $user, $title ) ) {
+			return true;
 		}
 
 		$request = $obj->getRequest();

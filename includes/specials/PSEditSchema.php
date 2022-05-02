@@ -714,14 +714,8 @@ END;
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
 		if ( $categoryTitle !== null ) {
-			if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
-				// MW 1.33+
-				$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-				$userCanEdit = $permissionManager->userCan( 'edit', $user, $categoryTitle );
-			} else {
-				$userCanEdit = ( $user->isAllowed( 'edit' ) && $categoryTitle->userCan( 'edit' ) );
-			}
-			if ( !$userCanEdit ) {
+			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+			if ( !$permissionManager->userCan( 'edit', $user, $categoryTitle ) ) {
 				throw new PermissionsError( 'edit' );
 			}
 		}
