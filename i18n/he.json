@@ -11,6 +11,7 @@
 	"ps-desc": "הגדרת מבני נתונים לכל הדפים בקטגוריה באמצעות XML",
 	"generatepages": "הפקת דפים",
 	"ps-template": "תבנית",
+	"editschema": "עריכת סכֵמה",
 	"right-generatepages": "צפייה בדף \"{{int:generatepages}}\"",
 	"action-generatepages": "לצפות בדף \"{{int:generatepages}}\"",
 	"ps-createpage-invalidtitle": "כותרת בלתי־תקינה"
