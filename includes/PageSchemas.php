@@ -244,7 +244,7 @@ END;
 
 		foreach ( $wgPageSchemasHandlerClasses as $psHandlerClass ) {
 			$returnVals = call_user_func( [ $psHandlerClass, 'getPageSectionDisplayValues' ], $pageSectionXML );
-			if ( count( $returnVals ) != 2 ) {
+			if ( $returnVals == null || count( $returnVals ) != 2 ) {
 				continue;
 			}
 			list( $elementName, $values ) = $returnVals;
