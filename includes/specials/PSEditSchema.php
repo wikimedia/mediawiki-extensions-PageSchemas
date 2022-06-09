@@ -753,7 +753,10 @@ END;
 				$categoryPage = WikiPage::factory( $categoryTitle );
 			}
 			if ( $categoryTitle->exists() ) {
-				$pageText = $categoryPage->getContent()->getNativeData();
+				/** @var TextContent $content */
+				'@phan-var TextContent $content';
+				$content = $categoryPage->getContent();
+				$pageText = $content->getText();
 				$pageSchemaObj = new PSSchema( $category );
 				if ( $pageSchemaObj->isPSDefined() ) {
 					// Do some preg_replace magic.
