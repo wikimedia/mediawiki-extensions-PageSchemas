@@ -729,7 +729,12 @@ END;
 		if ( $save_page ) {
 			$psXML = $this->createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			$categoryPage = WikiPage::factory( $categoryTitle );
+			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+				// MW 1.36+
+				$categoryPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $categoryTitle );
+			} else {
+				$categoryPage = WikiPage::factory( $categoryTitle );
+			}
 			if ( $categoryTitle->exists() ) {
 				$pageText = $categoryPage->getContent()->getNativeData();
 				$pageSchemaObj = new PSSchema( $category );

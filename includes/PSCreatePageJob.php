@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Background job to create or modify a "data structure" page.
  */
@@ -28,7 +30,12 @@ class PSCreatePageJob extends Job {
 			return false;
 		}
 
-		$wikiPage = WikiPage::factory( $this->title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
+		} else {
+			$wikiPage = WikiPage::factory( $this->title );
+		}
 		$pageText = $this->params['page_text'];
 		$editSummary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
 		$user = User::newFromId( $this->params['user_id'] );
