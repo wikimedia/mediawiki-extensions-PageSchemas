@@ -62,7 +62,7 @@ class PageSchemasHooks {
 			}
 			// Display the schema on the screen
 			global $wgOut, $wgScriptPath;
-			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/PageSchemas.css' );
+			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/resources/PageSchemas.css' );
 			$text = PageSchemas::displaySchema( $xml_object );
 		} else {
 			// Store error message in the page_props table
