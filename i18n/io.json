@@ -6,6 +6,7 @@
 		]
 	},
 	"ps-template": "Shablono",
+	"ps-namelabel": "Nomo:",
 	"ps-field-display-always": "Montrez ico sempre",
 	"ps-field-display-notempty": "Montrez se ne esas vakua",
 	"ps-field-display-hide": "Celez"
