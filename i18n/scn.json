@@ -16,5 +16,6 @@
 	"ps-section": "Sizzioni",
 	"ps-level": "Liveddu",
 	"ps-createpage-invalidtitle": "Tîtulu nun vàlidu",
+	"ps-field-display-notempty": "Ammustra si nun vacanti",
 	"ps-field-display-hide": "Ammuccia"
 }
