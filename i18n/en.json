@@ -22,6 +22,7 @@
 	"ps-namelabel": "Name:",
 	"ps-displaylabel": "Display label:",
 	"ps-add-field": "Add field",
+	"ps-add-field-above": "Add another field above this one",
 	"ps-remove-field": "Remove field",
 	"ps-add-xml-label": "Additional XML:",
 	"ps-optional-name": "Name (leave blank to set to field name):",

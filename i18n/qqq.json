@@ -31,6 +31,7 @@
 	"ps-namelabel": "{{Identical|Name}}",
 	"ps-displaylabel": "The term for the text that shows up next to a field when it is displayed",
 	"ps-add-field": "Used as message on [[Special:EditSchema]]",
+	"ps-add-field-above": "The text on a button",
 	"ps-remove-field": "The text on a button that removes the current field",
 	"ps-add-xml-label": "Used as label on [[Special:EditSchema]]",
 	"ps-optional-name": "Used as label",

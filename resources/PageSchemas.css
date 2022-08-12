@@ -132,6 +132,7 @@ body.rtl .pageSchema .msg {
  * Used in Special:EditSchema
  */
 div.editSchemaSection {
+	position: relative;
 	border: 1px #999 solid;
 	background: #fff;
 	/* stylelint-disable-next-line length-zero-no-unit */
@@ -146,6 +147,62 @@ div.editSchemaTemplateSection {
 
 div.editSchemaFieldSection {
 	background: #ccc;
+}
+
+div.editSchemaFieldSection table {
+	width: 100%;
+}
+
+td.fieldRearranger {
+	cursor: move;
+	width: 32px;
+}
+
+a.addAboveButton {
+	display: block;
+	background: center / contain no-repeat #000 url( PS_add_above.svg );
+	background-size: 14px;
+}
+
+a.removeButton {
+	display: block;
+	background: center / contain no-repeat #000 url( PS_remove.svg );
+	background-size: 9px;
+}
+
+td.fieldAddAbove a.addAboveButton,
+td.fieldRemove a.removeButton {
+	width: 21px;
+	height: 21px;
+	cursor: pointer;
+	border-radius: 100%;
+	opacity: 0.9;
+	transition: 0.1s;
+}
+
+td.fieldAddAbove,
+td.fieldRemove {
+	padding: 0;
+	width: 34px;
+	overflow: visible;
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+td.fieldAddAbove {
+	right: 30px;
+	top: -11px;
+}
+
+td.fieldRemove {
+	right: 4px;
+	top: -11px;
+}
+
+div.editSchemaFieldSection:hover .fieldAddAbove,
+div.editSchemaFieldSection:hover .fieldRemove {
+	opacity: 1;
 }
 
 div.pageSection {
@@ -171,4 +228,29 @@ div.editSchemaMinorFields {
 	margin-left: 5px;
 	padding-left: 15px;
 	border-left: 3px solid #aaa;
+}
+
+/* Style for touch-screen devices */
+
+@media ( hover: none ), ( pointer: none ), ( pointer: coarse ) {
+	td.fieldAddAbove,
+	td.fieldRemove {
+		opacity: 1;
+		position: initial;
+	}
+
+	td.fieldAddAbove {
+		width: 42px;
+	}
+
+	td.instanceAddAbove a.addAboveButton,
+	td.instanceRemove a.removeButton {
+		background-size: 21px;
+		width: 30px;
+		height: 30px;
+	}
+
+	td.instanceRemove a.removeButton {
+		background-size: 14px;
+	}
 }

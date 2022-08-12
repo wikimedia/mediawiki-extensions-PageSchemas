@@ -53,8 +53,12 @@
 	},
 	"ResourceModules": {
 		"ext.pageschemas.main": {
-			"scripts": "resources/PageSchemas.js",
-			"styles": "resources/PageSchemas.css"
+			"scripts": [
+				"resources/PageSchemas.js",
+				"resources/Sortable.js"
+			],
+			"styles": "resources/PageSchemas.css",
+			"messages": "ps-field"
 		},
 		"ext.pageschemas.generatepages": {
 			"scripts": "resources/PSGeneratePages.js"

@@ -51,6 +51,10 @@ Important code contributions were also made by Vedmaka.
 Language translations were provided by many people; see the files in
 the /i18n directory for the full listing.
 
+Page Schemas includes the SortableJS JavaScript library
+(https://sortablejs.github.io/Sortable/) by RubaXa and owenm,
+distributed under the MIT license.
+
 == Contact ==
 
 Comments, questions, suggestions and bug reports are welcome, and can

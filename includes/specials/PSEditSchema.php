@@ -195,6 +195,28 @@ class PSEditSchema extends IncludableSpecialPage {
 					'align' => 'inline'
 				]
 			 );
+		} elseif ( $sectionClass == 'editSchemaFieldSection' ) {
+			$this->getOutput()->enableOOUI();
+			$this->getOutput()->addModuleStyles( [ 'oojs-ui.styles.icons-movement' ] );
+
+			$grabberIcon = new OOUI\IconWidget( [
+				'icon' => 'draggable'
+			] );
+			$addAboveButton = Html::element( 'a', [
+				'class' => 'addAboveButton',
+				'title' => $this->msg( 'ps-add-field-above' )->parse()
+			] );
+			$removeButton = Html::element( 'a', [
+				'class' => 'removeButton',
+				'title' => $this->msg( 'ps-remove-field' )->parse()
+			] );
+			$headerContents .=
+				"<table><tr>" .
+				"<td class=\"fieldRearranger\">$grabberIcon</td>" .
+				"<td class=\"fieldLabel\">$label</td>" .
+				"<td class=\"fieldAddAbove\">$addAboveButton</td>" .
+				"<td class=\"fieldRemove\">$removeButton</td>" .
+				"</tr></table>" . "\n";
 		} else {
 			$headerContents .= $label . "\n";
 		}
@@ -294,7 +316,8 @@ class PSEditSchema extends IncludableSpecialPage {
 			$fieldNamespace = (string)$field_xml->attributes()->namespace;
 		}
 		$fieldHTML = $this->msg( 'ps-namelabel' )->parse() . ' ';
-		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text', [ 'size' => 25 ] ) . ' ';
+		$fieldHTML .= Html::input( 'f_name_' . $fieldNum, $fieldName, 'text',
+			[ 'class' => 'nameInput', 'size' => 25 ] ) . ' ';
 		$fieldHTML .= $this->msg( 'ps-displaylabel' )->parse() . ' ';
 		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', [ 'size' => 25 ] );
 		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
@@ -356,14 +379,6 @@ class PSEditSchema extends IncludableSpecialPage {
 		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "f_add_xml_$fieldNum", $field_add_xml,
 		// [ 'rows' => 4, 'style' => 'width: 100%;' ] );
 		//$fieldHTML .= "<p>" . $this->msg('ps-add-xml-label')->parse() . $additionalXMLInput . "</p>\n";
-		$fieldHTML .= new OOUI\ButtonWidget(
-			[
-				'name' => 'remove-field',
-				'classes' => [ 'deleteField' ],
-				'icon' => 'close',
-				'label' => $this->msg( 'ps-remove-field' )->parse(),
-			]
-		);
 		$text .= "\n" . $this->printFormSection( $this->msg( 'ps-field' )->parse(), '#AAA', $fieldHTML,
 			'editSchemaFieldSection' );
 		$text .= "\t</div><!-- fieldBox -->\n";
@@ -503,6 +518,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			[
 				'name' => 'remove-template',
 				'classes' => [ 'deleteTemplate' ],
+				'flags' => [ 'destructive' ],
 				'icon' => 'close',
 				'label' => $this->msg( 'ps-remove-template' )->parse(),
 			]
@@ -564,6 +580,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			[
 				'name' => 'remove-pageSection',
 				'label' => $this->msg( 'ps-removepagesection' )->parse(),
+				'flags' => [ 'destructive' ],
 				'icon' => 'close',
 				'classes' => [ 'deletePageSection' ]
 			]
