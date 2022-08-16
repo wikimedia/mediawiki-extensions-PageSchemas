@@ -32,6 +32,7 @@
 	"ps-namelabel": "Nom :",
 	"ps-displaylabel": "Afficher le libellé:",
 	"ps-add-field": "Ajouter un champ",
+	"ps-add-field-above": "Ajouter un autre champ au-dessus de celui-ci",
 	"ps-remove-field": "Supprimer un champ",
 	"ps-add-xml-label": "XML supplémentaire:",
 	"ps-optional-name": "Nom (laisser blanc pour mettre le nom du champ):",
