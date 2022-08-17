@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
 	"ps-desc": "Ја определува податочната структура на сите страници во една категорија користејќи XML",
@@ -24,6 +25,7 @@
 	"ps-namelabel": "Име:",
 	"ps-displaylabel": "Натпис за приказ:",
 	"ps-add-field": "Додај поле",
+	"ps-add-field-above": "Додај друго поле над ова",
 	"ps-remove-field": "Отстрани поле",
 	"ps-add-xml-label": "Дополнителен XML:",
 	"ps-optional-name": "Име (оставете празно за да биде како името на полето):",
