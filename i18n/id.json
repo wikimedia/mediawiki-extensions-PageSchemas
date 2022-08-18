@@ -3,11 +3,13 @@
 		"authors": [
 			"Daud I.F. Argana",
 			"IvanLanin",
+			"Veracious",
 			"පසිඳු කාවින්ද"
 		]
 	},
 	"ps-desc": "Mendefinisikan struktur data untuk semua halaman dalam suatu kategori menggunakan XML",
 	"ps-schema-description": "Skema halaman",
 	"ps-template": "Templat",
-	"ps-namelabel": "Nama:"
+	"ps-namelabel": "Nama:",
+	"ps-add-field-above": "Tambahkan bidang lain di atas yang ini"
 }
