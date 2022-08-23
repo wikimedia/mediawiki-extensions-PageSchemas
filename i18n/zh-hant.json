@@ -30,6 +30,7 @@
 	"ps-namelabel": "名稱：",
 	"ps-displaylabel": "顯示標籤：",
 	"ps-add-field": "增加欄位",
+	"ps-add-field-above": "於此上方新增別的欄位",
 	"ps-remove-field": "移除欄位",
 	"ps-add-xml-label": "額外 XML：",
 	"ps-optional-name": "名稱（留空以設定欄位名稱）：",
