@@ -202,6 +202,9 @@ jQuery( document ).ready( function () {
 	jQuery( '.sectionCheckbox' ).each( function () {
 		jQuery( this ).editSchemaToggleSectionDisplay();
 	} );
+	jQuery( '.sectionCheckbox' ).click( function () {
+		jQuery( this ).editSchemaToggleSectionDisplay();
+	} );
 	jQuery( '.editSchemaFieldSection > .sectionHeader' ).click( function ( e ) {
 		jQuery( this ).editSchemaToggleFieldOnClick( e );
 	} );
