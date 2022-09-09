@@ -215,7 +215,7 @@ jQuery( document ).ready( function () {
 		jQuery( this ).editSchemaToggleMultiInstanceTemplateAttrs();
 	} );
 	jQuery( '#editSchemaForm' ).submit( function () {
-		jQuery( ':hidden' ).find( 'input, select, textarea' ).attr( 'disabled', 'disabled' );
+		jQuery( '#starterTemplate, #starterPageSection' ).find( 'input, select, textarea' ).attr( 'disabled', 'disabled' );
 		return true;
 	} );
 
