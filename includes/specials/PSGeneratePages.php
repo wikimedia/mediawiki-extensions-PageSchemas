@@ -91,10 +91,9 @@ class PSGeneratePages extends IncludableSpecialPage {
 			if ( !( $page instanceof Title ) ) {
 				continue;
 			}
-			$pageName = PageSchemas::titleString( $page );
 			$text .= new OOUI\CheckboxInputWidget( [
 				'name' => 'page[]',
-				'value' => $pageName,
+				'value' => $page->getPrefixedText(),
 				'selected' => true
 			] );
 			$text .= "\n" . $linkRenderer->makeLink( $page ) . "<br />\n";

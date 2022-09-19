@@ -6,7 +6,6 @@
  * @ingroup Extensions
  */
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
 
 class PageSchemas {
@@ -33,26 +32,6 @@ class PageSchemas {
 			$output = $wgOut;
 		}
 		$output->addModules( 'ext.pageschemas.main' );
-	}
-
-	public static function titleString( $title ) {
-		$namespace = $title->getNsText();
-		if ( $namespace != '' ) {
-			$namespace .= ':';
-		}
-		if ( method_exists( "MediaWiki\\MediaWikiServices", "getNamespaceInfo" ) ) {
-			// MW 1.34+
-			$isCapitalized = MediaWikiServices::getInstance()
-				->getNamespaceInfo()
-				->isCapitalized( $title->getNamespace() );
-		} else {
-			$isCapitalized = MWNamespace::isCapitalized( $title->getNamespace() );
-		}
-		if ( $isCapitalized ) {
-			return $namespace . MediaWikiServices::getInstance()->getContentLanguage()->ucfirst( $title->getText() );
-		} else {
-			return $namespace . $title->getText();
-		}
 	}
 
 	public static function validateXML( $xml, &$error_msg ) {
