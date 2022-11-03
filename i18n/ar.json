@@ -26,6 +26,7 @@
 	"ps-namelabel": "الاسم:",
 	"ps-displaylabel": "تسمية العرض:",
 	"ps-add-field": "إضافة حقل",
+	"ps-add-field-above": "أضف حقلاً آخر فوق هذا الحقل",
 	"ps-remove-field": "إزالة الحقل",
 	"ps-add-xml-label": "XML إضافي:",
 	"ps-optional-name": "الاسم (اتركه فارغًا لتعيينه إلى اسم الحقل):",
