@@ -53,17 +53,16 @@ class PSGeneratePagesAction extends Action {
 	 *
 	 * @param SkinTemplate $obj
 	 * @param array &$links
-	 * @return bool
 	 */
 	static function displayTab( $obj, &$links ) {
 		$title = $obj->getTitle();
 		if ( $title->getNamespace() != NS_CATEGORY ) {
-			return true;
+			return;
 		}
 
 		$user = $obj->getUser();
 		if ( !$user->isAllowed( 'generatepages' ) ) {
-			return true;
+			return;
 		}
 
 		$request = $obj->getRequest();
@@ -72,7 +71,7 @@ class PSGeneratePagesAction extends Action {
 		$category = $title->getText();
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			return true;
+			return;
 		}
 
 		$content_actions['generatepages'] = [
@@ -80,8 +79,5 @@ class PSGeneratePagesAction extends Action {
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
 		];
-
-		// always return true, in order not to stop MW's hook processing!
-		return true;
 	}
 }

@@ -58,19 +58,18 @@ class PSEditSchemaAction extends Action {
 	 *
 	 * @param SkinTemplate $obj
 	 * @param array &$links
-	 * @return bool
 	 */
 	static function displayTab( $obj, &$links ) {
 		$title = $obj->getTitle();
 
 		if ( $title->getNamespace() != NS_CATEGORY ) {
-			return true;
+			return;
 		}
 
 		$user = $obj->getUser();
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( !$permissionManager->userCan( 'edit', $user, $title ) ) {
-			return true;
+			return;
 		}
 
 		$request = $obj->getRequest();
@@ -91,8 +90,5 @@ class PSEditSchemaAction extends Action {
 			'class' => $request->getVal( 'action' ) == 'generatepages' ? 'selected' : '',
 			'href' => $title->getLocalURL( 'action=generatepages' )
 		];
-
-		// always return true, in order not to stop MW's hook processing!
-		return true;
 	}
 }
