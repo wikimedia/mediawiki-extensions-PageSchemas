@@ -5,7 +5,7 @@
 			"Eleassar"
 		]
 	},
-	"ps-desc": "Opredeljuje zgradbo podatkov vseh strani v kategoriji z uporabo XML",
+	"ps-desc": "Opredeli podatkovno strukturo vseh strani v kategoriji z uporabo XML",
 	"ps-schema-description": "Shema strani",
 	"generatepages": "Ustvari strani",
 	"ps-generatepages-desc": "Ustvari naslednje strani, temelječe na shemi te kategorije:",
