@@ -5,6 +5,7 @@
 			"Hedda",
 			"Hedda Gabler",
 			"Incelemeelemani",
+			"Rapsar",
 			"Sezgin İbiş",
 			"Suelnur",
 			"Vito Genovese"
@@ -33,7 +34,7 @@
 	"ps-remove-field": "Alanı kaldır",
 	"ps-add-xml-label": "Ek XML:",
 	"ps-optional-name": "İsim (Alan adını ayarlamak için boş bırakın):",
-	"editschema": "Şemayı düzenle",
+	"editschema": "Şemayı değiştir",
 	"createschema": "Şema oluştur",
 	"right-generatepages": "\"{{int:generatepages}}\" sekmesini ve sayfasını görüntüle",
 	"action-generatepages": "\"{{int:generatepages}}\" sekmesini ve sayfasını görüntüle",
