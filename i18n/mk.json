@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
 	"ps-desc": "Ја определува податочната структура на сите страници во една категорија користејќи XML",
@@ -31,11 +32,11 @@
 	"createschema": "Создај шема",
 	"right-generatepages": "Достапност на јазичето „{{int:generatepages}}“ и неговата страница",
 	"action-generatepages": "приказ на јазичето „{{int:Generatepages}}“ и неговата страница",
-	"ps-add-section": "Додај поднаслов",
-	"ps-removepagesection": "Отстрани поднаслов",
-	"ps-sectionname": "Назив на поднасловот:",
-	"ps-sectionlevel": "Ниво на поднасловот:",
-	"ps-section": "Поднаслов",
+	"ps-add-section": "Додај оддел",
+	"ps-removepagesection": "Отстрани оддел",
+	"ps-sectionname": "Назив на одделот:",
+	"ps-sectionlevel": "Ниво на одделот:",
+	"ps-section": "Оддел",
 	"ps-level": "Ниво",
 	"ps-otherparams": "Други параметри",
 	"ps-createpage-irregulartext": "Викистраницата „$1“ нема обичен викитекст.",
