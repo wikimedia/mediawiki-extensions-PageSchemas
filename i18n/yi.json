@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"פוילישער",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Pacha Tchernof"
 		]
 	},
+	"ps-template": "מוסטער",
 	"ps-namelabel": "נאָמען:",
 	"ps-add-section": "צולייגן ניווא",
 	"ps-removepagesection": "אראפנעמען אפטייל",
@@ -12,5 +14,6 @@
 	"ps-sectionlevel": "אפטייל ניווא:",
 	"ps-section": "אפטייל",
 	"ps-level": "ניווא",
-	"ps-otherparams": "אנדערע פאראמעטערס"
+	"ps-otherparams": "אנדערע פאראמעטערס",
+	"ps-field-display-hide": "באַהאַלטן"
 }
