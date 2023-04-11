@@ -25,6 +25,7 @@
 	"ps-namelabel": "Navn:",
 	"ps-displaylabel": "Vis etikett:",
 	"ps-add-field": "Legg til felt",
+	"ps-add-field-above": "Legg til enda et felt over dette",
 	"ps-remove-field": "Fjern felt",
 	"ps-add-xml-label": "Ekstra XML:",
 	"ps-optional-name": "Navn (la denne være blank for å sette til feltnavn):",
