@@ -6,6 +6,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\MediaWikiServices;
+
 class PageSchemasHooks {
 
 	/**
@@ -19,7 +21,7 @@ class PageSchemasHooks {
 		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
 
 		// Initialize the global array of "handler" classes.
-		Hooks::run( 'PageSchemasRegisterHandlers' );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'PageSchemasRegisterHandlers' );
 		return true;
 	}
 
