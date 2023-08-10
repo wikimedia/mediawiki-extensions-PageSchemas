@@ -1,8 +1,48 @@
 {
 	"@metadata": {
 		"authors": [
-			"Manvydasz"
+			"Manvydasz",
+			"Nokeoo"
 		]
 	},
-	"ps-remove-template": "Pašalinti šabloną"
+	"ps-desc": "Apibrėžia visų kategorijos puslapių duomenų struktūrą naudojant XML",
+	"ps-schema-description": "Puslapio schema",
+	"generatepages": "Generuoti puslapius",
+	"ps-generatepages-desc": "Generuoti šiuos puslapį pagal šios kategorijos schemą:",
+	"ps-generatepages-success": "Pasirinkti puslapiai bus sugeneruoti.",
+	"ps-generatepages-noschema": "Klaida: šiai kategorijai nėra apibrėžta puslapio schema.",
+	"ps-generatepages-editsummary": "Sugeneruota pagal puslapio schemą",
+	"ps-page-desc-cat-not-exist": "Ši kategorija dar neegzistuoja. Sukurkite šią kategoriją ir jos puslapio schemą:",
+	"ps-page-desc-ps-not-exist": "Ši kategorija egzistuoja, bet neturi puslapio schemos. Sukurkite schemą:",
+	"ps-page-desc-edit-schema": "Redaguokite šios kategorijos puslapio schemą:",
+	"ps-multiple-temp-label": "Leisti kelis šio šablono egzempliorius",
+	"ps-field-list-label": "Šiame lauke gali būti reikšmių sąrašas",
+	"ps-template": "Šablonas",
+	"ps-add-template": "Pridėti šabloną",
+	"ps-remove-template": "Pašalinti šabloną",
+	"ps-field": "Laukas",
+	"ps-namelabel": "Pavadinimas:",
+	"ps-displaylabel": "Rodomas užrašas:",
+	"ps-add-field": "Pridėti lauką",
+	"ps-add-field-above": "Pridėti dar vieną lauką virš šio",
+	"ps-remove-field": "Pašalinti lauką",
+	"ps-add-xml-label": "Papildomas XML:",
+	"ps-optional-name": "Pavadinimas (jei norite nustatyti tokį pat, kaip lauko pavadinimas, palikite tuščią):",
+	"editschema": "Redaguoti schemą",
+	"createschema": "Sukurti schemą",
+	"right-generatepages": "Peržiūrėti „{{int:generatepages}}“ skirtuką ir puslapį",
+	"action-generatepages": "peržiūrėti „{{int:generatepages}}“ skirtuką ir puslapį",
+	"ps-add-section": "Pridėti skyrių",
+	"ps-removepagesection": "Pašalinti skyrių",
+	"ps-sectionname": "Skyriaus pavadinimas:",
+	"ps-sectionlevel": "Skyriaus lygis:",
+	"ps-section": "Skyrius",
+	"ps-level": "Lygis",
+	"ps-otherparams": "Kiti parametrai",
+	"ps-createpage-irregulartext": "Viki puslapyje „$1“ nėra įprasto vikiteksto.",
+	"ps-createpage-invalidtitle": "Neleistinas pavadinimas",
+	"ps-field-display-always": "Visada rodyti šį lauką",
+	"ps-field-display-notempty": "Rodyti, jei nėra tuščias",
+	"ps-field-display-hide": "Slėpti",
+	"ps-field-namespace": "Šiame lauke visada bus reikšmės šioje vardų srityje:"
 }
