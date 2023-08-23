@@ -15,7 +15,7 @@
 	"ps-generatepages-success": "הדפים שנבחרו יופקו.",
 	"ps-generatepages-noschema": "שגיאה: לא הוגדרה סכֵמת דף עבור הקטגוריה הזאת.",
 	"ps-generatepages-editsummary": "הופק מסכֵמת דף",
-	"ps-page-desc-cat-not-exist": "הקטגוריה הזו עדיין לא קיימת. יש ליצור את הקטגוריה הזאת ואת סכֵמת הדפים שלה:",
+	"ps-page-desc-cat-not-exist": "הקטגוריה הזאת עדיין לא קיימת. יש ליצור את הקטגוריה הזאת ואת סכֵמת הדפים שלה:",
 	"ps-page-desc-ps-not-exist": "הקטגוריה הזאת קיימת, אך אין לה סכֵמת דף. יצירת סכֵמה:",
 	"ps-page-desc-edit-schema": "עריכת סכֵמת הדף עבור הקטגוריה הזאת:",
 	"ps-delimiter-label": "תו מפריד לערכים (ברירת המחדל היא \",\"):",
