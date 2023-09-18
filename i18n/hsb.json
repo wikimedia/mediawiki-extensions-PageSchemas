@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Michawiki"
 		]
 	},
@@ -30,5 +31,5 @@
 	"editschema": "Šemu wobdźěłać",
 	"createschema": "Šemu wutworić",
 	"right-generatepages": "Rajtark a stronu \"{{int:generatepages}}\" pokazać",
-	"action-generatepages": "Rajtark a stronu \"{{int:Generatepages}}\"  pokazać"
+	"action-generatepages": "Rajtark a stronu \"{{int:Generatepages}}\" pokazać"
 }
