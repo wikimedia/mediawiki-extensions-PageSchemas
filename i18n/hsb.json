@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"Amire80"
 		]
 	},
 	"ps-desc": "Definuje datowu strukturu za wšě strony w kategoriji z pomocu XML",
@@ -30,5 +31,5 @@
 	"editschema": "Šemu wobdźěłać",
 	"createschema": "Šemu wutworić",
 	"right-generatepages": "Rajtark a stronu \"{{int:generatepages}}\" pokazać",
-	"action-generatepages": "Rajtark a stronu \"{{int:Generatepages}}\"  pokazać"
+	"action-generatepages": "Rajtark a stronu \"{{int:Generatepages}}\" pokazać"
 }
