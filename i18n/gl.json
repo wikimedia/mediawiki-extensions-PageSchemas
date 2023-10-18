@@ -26,6 +26,7 @@
 	"ps-namelabel": "Nome:",
 	"ps-displaylabel": "Amosar a etiqueta:",
 	"ps-add-field": "Engadir un campo",
+	"ps-add-field-above": "Engadir outro campo por riba deste",
 	"ps-remove-field": "Eliminar un campo",
 	"ps-add-xml-label": "XML adicional:",
 	"ps-optional-name": "Nome (déixeo en branco para definir o nome do campo):",
