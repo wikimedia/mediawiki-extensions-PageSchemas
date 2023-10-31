@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"ps-desc": "Define la estructura de datos de toles páxines d'una categoría usando XML",
@@ -38,7 +39,7 @@
 	"ps-section": "Seición",
 	"ps-level": "Nivel",
 	"ps-otherparams": "Otros parámetros",
-	"ps-createpage-irregulartext": "La páxina wiki \"$1\" nun contien testu wiki regular.",
+	"ps-createpage-irregulartext": "La páxina wiki \"$1\" nun contién testu wiki regular.",
 	"ps-createpage-invalidtitle": "Títulu inválidu",
 	"ps-field-display-always": "Amosar esti campu siempre",
 	"ps-field-display-notempty": "Amosar si nun ta baleru",
