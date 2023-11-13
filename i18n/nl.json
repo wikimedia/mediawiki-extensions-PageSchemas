@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"JurgenNL",
+			"McDutchie",
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin"
@@ -27,6 +28,7 @@
 	"ps-namelabel": "Naam:",
 	"ps-displaylabel": "Label weergeven:",
 	"ps-add-field": "Veld toevoegen",
+	"ps-add-field-above": "Nog een veld toevoegen boven dit veld",
 	"ps-remove-field": "Veld verwijderen",
 	"ps-add-xml-label": "Extra XML:",
 	"ps-optional-name": "Naam (laat leeg om in te stellen op de veldnaam):",
