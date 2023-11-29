@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriot Kor"
+			"Patriot Kor",
+			"Гусейн"
 		]
 	},
+	"ps-template": "Šablon",
 	"ps-field-display-hide": "Niyon karde"
 }
