@@ -144,7 +144,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$cat_titles = [];
 		$count_title = 0;
 		$text = "";
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = PageSchemas::getReadDB();
 		// get the result set, query : slect page_props
 		$res = $dbr->select( 'page_props',
 			[
@@ -799,7 +799,7 @@ END;
 		// We have a category - show a form.
 		// See if a page schema has already been defined for this category.
 		$pageId = $categoryTitle->getArticleID();
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = PageSchemas::getReadDB();
 		$row = $dbr->selectRow( 'page_props',
 			[
 				'pp_value'

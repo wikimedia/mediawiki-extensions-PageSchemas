@@ -15,7 +15,7 @@ class PSSchema {
 	function __construct( $categoryName ) {
 		$this->mCategoryName = $categoryName;
 		$title = Title::newFromText( $categoryName, NS_CATEGORY );
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = PageSchemas::getReadDB();
 		$row = $dbr->selectRow( 'page_props',
 			[
 				'pp_page',

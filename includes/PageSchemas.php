@@ -6,6 +6,7 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
 
 class PageSchemas {
@@ -253,6 +254,16 @@ END;
 		$updater->setContent( SlotRecord::MAIN, $newContent );
 		$flags = 0;
 		$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editSummary ), $flags );
+	}
+
+	public static function getReadDB() {
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		if ( method_exists( $lbFactory, 'getReplicaDatabase' ) ) {
+			// MW 1.40+
+			return $lbFactory->getReplicaDatabase();
+		} else {
+			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+		}
 	}
 
 }
