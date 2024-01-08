@@ -1,6 +1,6 @@
 {
 	"name": "Page Schemas",
-	"version": "0.8",
+	"version": "0.9-alpha",
 	"author": [
 		"Yaron Koren",
 		"Ankit Garg",
@@ -81,6 +81,6 @@
 	},
 	"manifest_version": 1,
 	"requires": {
-		"MediaWiki": ">= 1.35"
+		"MediaWiki": ">= 1.36"
 	}
 }

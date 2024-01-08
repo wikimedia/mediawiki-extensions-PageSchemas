@@ -746,12 +746,7 @@ END;
 		if ( $save_page ) {
 			$psXML = $this->createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-				// MW 1.36+
-				$categoryPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $categoryTitle );
-			} else {
-				$categoryPage = WikiPage::factory( $categoryTitle );
-			}
+			$categoryPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
 				/** @var TextContent $content */
 				'@phan-var TextContent $content';
