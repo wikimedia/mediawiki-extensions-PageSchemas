@@ -13,7 +13,9 @@ jQuery.fn.editSchemaMakeTemplateDeleter = function () {
 	jQuery( this ).click( function () {
 		// Remove the encompassing div for this instance.
 		jQuery( this ).closest( '.templateBox' )
-			.fadeOut( 'fast', function () { jQuery( this ).remove(); } );
+			.fadeOut( 'fast', function () {
+				jQuery( this ).remove();
+			} );
 	} );
 };
 
@@ -33,7 +35,9 @@ jQuery.fn.editSchemaMakePageSectionDeleter = function () {
 	jQuery( this ).click( function () {
 		// Remove the encompassing div for this instance.
 		jQuery( this ).closest( '.pageSectionBox' )
-			.fadeOut( 'fast', function () { jQuery( this ).remove(); } );
+			.fadeOut( 'fast', function () {
+				jQuery( this ).remove();
+			} );
 	} );
 };
 
