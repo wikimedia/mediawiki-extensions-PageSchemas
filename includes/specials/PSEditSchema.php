@@ -65,7 +65,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		}
 		foreach ( $request->getValues() as $var => $val ) {
 			// Ignore fields from the hidden/starter div
-			if ( substr( $var, 0, 7 ) == 't_name_' ) {
+			if ( substr( $var, -5 ) == '_fnum' ) {
+				continue;
+			} elseif ( substr( $var, 0, 7 ) == 't_name_' ) {
 				$templateNum = substr( $var, 7 );
 				$templateAttrs = [ 'name' => $val ];
 				if ( $request->getCheck( 'is_multiple_' . $templateNum ) ) {
