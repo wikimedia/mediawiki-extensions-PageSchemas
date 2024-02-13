@@ -762,7 +762,7 @@ END;
 					// currently does not, but it may well
 					// in the future.
 					$tag = "PageSchema";
-					$pageText = preg_replace( '{<' . $tag . '[^>]*>([^@]*?)</' . $tag . '>' . '}', $psXML, $pageText );
+					$pageText = preg_replace( '/<' . $tag . '[^>]*>(.*?)<\/' . $tag . '>/s', $psXML, $pageText );
 				} else {
 					$pageText = $psXML . $pageText;
 				}
