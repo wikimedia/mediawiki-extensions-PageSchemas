@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lluis Cat"
+		]
+	},
+	"ps-multiple-temp-label": "Permet múltiples instàncies d'aquesta plantilla",
+	"ps-template": "Plantilla",
+	"ps-add-template": "Afegeix una plantilla",
+	"ps-remove-template": "Suprimeix la plantilla"
+}
