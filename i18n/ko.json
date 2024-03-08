@@ -27,7 +27,6 @@
 	"ps-namelabel": "이름:",
 	"ps-displaylabel": "표시 레이블:",
 	"ps-add-field": "필드 추가",
-	"ps-add-field-above": "이거 위에 다른 필드를 추가해",
 	"ps-remove-field": "필드 제거",
 	"ps-add-xml-label": "추가적인 XML:",
 	"ps-optional-name": "이름 (비어 있으면 필드 이름 사용):",
