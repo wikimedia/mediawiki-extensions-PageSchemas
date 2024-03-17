@@ -240,7 +240,7 @@ class PSEditSchema extends IncludableSpecialPage {
 	 * Returns the HTML for a form section coming from a specific extension.
 	 */
 	function printFieldHTMLForExtension( $valuesFromExtension, $label, $color ) {
-		list( $html, $hasExistingValues ) = $valuesFromExtension;
+		[ $html, $hasExistingValues ] = $valuesFromExtension;
 		return $this->printFormSection( $label, $color, $html, null, $hasExistingValues );
 	}
 

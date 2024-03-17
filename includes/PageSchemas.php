@@ -112,7 +112,7 @@ END;
 			if ( !is_array( $returnVals ) || count( $returnVals ) != 2 ) {
 				continue;
 			}
-			list( $elementName, $values ) = $returnVals;
+			[ $elementName, $values ] = $returnVals;
 			$label = call_user_func( [ $psHandlerClass, 'getSchemaDisplayString' ] );
 			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'schemaExtensionRow', $label, $elementName, $bgColor );
@@ -153,7 +153,7 @@ END;
 			if ( !is_array( $returnVals ) || count( $returnVals ) != 2 ) {
 				continue;
 			}
-			list( $elementName, $values ) = $returnVals;
+			[ $elementName, $values ] = $returnVals;
 			$label = call_user_func( [ $psHandlerClass, 'getTemplateDisplayString' ] );
 			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
@@ -199,7 +199,7 @@ END;
 			if ( $returnVals == null || count( $returnVals ) != 2 ) {
 				continue;
 			}
-			list( $elementName, $values ) = $returnVals;
+			[ $elementName, $values ] = $returnVals;
 			$label = call_user_func( [ $psHandlerClass, 'getFieldDisplayString' ] );
 			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
@@ -227,7 +227,7 @@ END;
 			if ( $returnVals == null || count( $returnVals ) != 2 ) {
 				continue;
 			}
-			list( $elementName, $values ) = $returnVals;
+			[ $elementName, $values ] = $returnVals;
 			$label = call_user_func( [ $psHandlerClass, 'getPageSectionDisplayString' ] );
 			$bgColor = call_user_func( [ $psHandlerClass, 'getDisplayColor' ] );
 			$text .= self::tableRowHTML( 'fieldExtensionRow', $label, $elementName, $bgColor );
