@@ -29,7 +29,7 @@ class PSEditSchemaAction extends Action {
 	 * @return bool
 	 */
 	public function show() {
-		$title = $this->page->getTitle();
+		$title = $this->getTitle();
 
 		// These tabs should only exist for category pages
 		if ( $title->getNamespace() != NS_CATEGORY ) {
