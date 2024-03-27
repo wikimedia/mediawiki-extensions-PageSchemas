@@ -5,7 +5,8 @@
 			"Beginneruser",
 			"Mjbmr",
 			"Omidh",
-			"Reza1615"
+			"Reza1615",
+			"Ebraminio"
 		]
 	},
 	"ps-desc": "تعریف ساختار داده‌ها برای همهٔ صفحات در یک مقوله با استفاده از ایکس‌ام‌ال",
@@ -13,7 +14,7 @@
 	"generatepages": "تولید صفحه‌ها",
 	"ps-generatepages-desc": "تولید صفحه‌های زیر، برپایه طرحواره این رده:",
 	"ps-generatepages-success": "صفحه‌های انتخاب شده تولید خواهند شد.",
-	"ps-generatepages-noschema": "خطا: هیچ طرح صفحه‌ای برای این مقوله تعریف نشده‌است.",
+	"ps-generatepages-noschema": "خطا: هیچ طرح صفحه‌ای برای این مقوله تعریف نشده است.",
 	"ps-generatepages-editsummary": "از یک طرح صفحه تولید شده",
 	"ps-page-desc-cat-not-exist": "این مقوله هنوز وجود ندارد. این مقوله را ایجاد کنید و این طرح صفحه است:",
 	"ps-page-desc-ps-not-exist": "این مقوله وجود دارد، اما طرح صفحه ندارد. طرح ایجاد کنید:",
