@@ -4,7 +4,8 @@
 			"Clockoon",
 			"Priviet",
 			"아라",
-			"Dr1t jg"
+			"Dr1t jg",
+			"Suleiman the Magnificent Television"
 		]
 	},
 	"ps-desc": "XML을 사용하여 분류에 모든 문서에 대한 데이터 구조를 정의",
@@ -27,7 +28,7 @@
 	"ps-namelabel": "이름:",
 	"ps-displaylabel": "표시 레이블:",
 	"ps-add-field": "필드 추가",
-	"ps-add-field-above": "이거 위에 다른 필드를 추가해",
+	"ps-add-field-above": "이 필드 위에 다른 필드를 추가하세요.",
 	"ps-remove-field": "필드 제거",
 	"ps-add-xml-label": "추가적인 XML:",
 	"ps-optional-name": "이름 (비어 있으면 필드 이름 사용):",
