@@ -72,7 +72,7 @@ jQuery.fn.editSchemaMakeFieldAdder = function () {
 };
 
 jQuery.fn.editSchemaMakeTemplateAdder = function () {
-	jQuery( this ).click( function () {
+	jQuery( this ).click( () => {
 		newField = jQuery( '#starterTemplate' ).clone().css( 'display', '' ).remove( '#starterField' ).removeAttr( 'id' );
 		newHTML = newField.html().replace( /tnum/g, templateNum );
 		newField.html( newHTML );
@@ -97,7 +97,7 @@ jQuery.fn.editSchemaMakeTemplateAdder = function () {
 };
 
 jQuery.fn.editSchemaMakePageSectionAdder = function () {
-	jQuery( this ).click( function () {
+	jQuery( this ).click( () => {
 		newField = jQuery( '#starterPageSection' ).clone().css( 'display', '' ).removeAttr( 'id' );
 		newHTML = newField.html().replace( /snum/g, pageSectionNum );
 		newField.html( newHTML );
@@ -182,7 +182,7 @@ jQuery.fn.editSchemaMakeFieldListSortable = function () {
 	} );
 };
 
-jQuery( document ).ready( function () {
+jQuery( document ).ready( () => {
 	fieldNum = jQuery( '.fieldBox:visible' ).length;
 	templateNum = jQuery( '.templateBox:visible' ).length;
 	pageSectionNum = jQuery( '.pageSectionBox:visible' ).length;
@@ -218,7 +218,7 @@ jQuery( document ).ready( function () {
 	jQuery( '.multipleInstanceTemplateCheckbox' ).click( function () {
 		jQuery( this ).editSchemaToggleMultiInstanceTemplateAttrs();
 	} );
-	jQuery( '#editSchemaForm' ).submit( function () {
+	jQuery( '#editSchemaForm' ).submit( () => {
 		jQuery( '#starterTemplate, #starterPageSection' ).find( 'input, select, textarea' ).attr( 'disabled', 'disabled' );
 		return true;
 	} );
@@ -231,7 +231,7 @@ jQuery( document ).ready( function () {
 		jQuery( this ).editSchemaMakeFieldListSortable();
 	} );
 
-	$( 'form#editSchemaForm' ).click( function ( e ) {
+	$( 'form#editSchemaForm' ).click( ( e ) => {
 		var $target = $( e.target );
 
 		// Ignore clicks on "Add field" button

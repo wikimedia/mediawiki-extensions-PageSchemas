@@ -1,4 +1,4 @@
-$( document ).ready( function () {
+$( document ).ready( () => {
 	$( '#ps_check_all' ).click( function () {
 		$( this ).parent().parent().find( 'input[type="checkbox"]' ).prop( 'checked', true );
 		return false;
