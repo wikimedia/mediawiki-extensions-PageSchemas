@@ -33,7 +33,7 @@ class PSCreatePageJob extends Job {
 		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
 		$pageText = $this->params['page_text'];
 		$editSummary = wfMessage( 'ps-generatepages-editsummary' )->inContentLanguage()->parse();
-		$user = User::newFromId( $this->params['user_id'] );
+		$user = MediaWikiServices::getInstance()->getUserFactory()->newFromId( $this->params['user_id'] );
 		PageSchemas::createOrModifyPage( $wikiPage, $pageText, $editSummary, $user );
 
 		return true;
