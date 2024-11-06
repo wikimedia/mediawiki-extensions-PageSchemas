@@ -56,24 +56,14 @@ class PageSchemasHooks {
 		$xml_object = PageSchemas::validateXML( $input, $error_msg );
 		if ( $xml_object ) {
 			// Store the XML in the page_props table
-			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
-				// MW 1.38
-				$parserOutput->setPageProperty( 'PageSchema', $input );
-			} else {
-				$parserOutput->setProperty( 'PageSchema', $input );
-			}
+			$parserOutput->setPageProperty( 'PageSchema', $input );
 			// Display the schema on the screen
 			global $wgOut, $wgScriptPath;
 			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/resources/PageSchemas.css' );
 			$text = PageSchemas::displaySchema( $xml_object );
 		} else {
 			// Store error message in the page_props table
-			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
-				// MW 1.38
-				$parserOutput->setPageProperty( 'PageSchema', $error_msg );
-			} else {
-				$parserOutput->setProperty( 'PageSchema', $error_msg );
-			}
+			$parserOutput->setPageProperty( 'PageSchema', $error_msg );
 			$text = Html::element( 'p', null, "The (incorrect) XML definition for this template is:" ) . "\n";
 			$text .= Html::element( 'pre', null, $input );
 		}
