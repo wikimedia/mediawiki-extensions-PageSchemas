@@ -4,5 +4,8 @@
 			"Cabal"
 		]
 	},
+	"ps-template": "ਫਰਮਾ",
+	"ps-add-template": "ਫਰਮਾ ਜੋੜੋ",
+	"ps-remove-template": "ਫਰਮਾ ਹਟਾਓ",
 	"ps-section": "ਭਾਗ"
 }
