@@ -25,7 +25,8 @@ class PSSchema {
 			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'PageSchema'
-			]
+			],
+			__METHOD__
 		);
 		if ( !$row ) {
 			$this->mIsPSDefined = false;
