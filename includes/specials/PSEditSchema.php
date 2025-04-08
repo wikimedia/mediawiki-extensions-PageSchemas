@@ -805,7 +805,8 @@ END;
 			[
 				'pp_page' => $pageId,
 				'pp_propname' => 'PageSchema',
-			]
+			],
+			__METHOD__
 		);
 
 		if ( !$categoryTitle->exists() ) {
