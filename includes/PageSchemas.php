@@ -257,13 +257,8 @@ END;
 	}
 
 	public static function getReadDB() {
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		if ( method_exists( $lbFactory, 'getReplicaDatabase' ) ) {
-			// MW 1.40+
-			return $lbFactory->getReplicaDatabase();
-		} else {
-			return $lbFactory->getMainLB()->getConnection( DB_REPLICA );
-		}
+		return MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			->getReplicaDatabase();
 	}
 
 }
