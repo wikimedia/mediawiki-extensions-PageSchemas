@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Title\Title;
+
 /**
  * Holds the data contained within the <PageSchema> XML tag.
  */
