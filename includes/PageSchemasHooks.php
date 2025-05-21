@@ -6,16 +6,21 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\Config\Config;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\MainConfigNames;
 
 class PageSchemasHooks implements
 	\MediaWiki\Hook\ParserFirstCallInitHook
 {
+	private Config $config;
 	private HookContainer $hookContainer;
 
 	public function __construct(
+		Config $config,
 		HookContainer $hookContainer
 	) {
+		$this->config = $config;
 		$this->hookContainer = $hookContainer;
 	}
 
@@ -27,7 +32,7 @@ class PageSchemasHooks implements
 	 */
 	public function onParserFirstCallInit( $parser ) {
 		// Register the hook with the parser.
-		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
+		$parser->setHook( 'PageSchema', [ $this, 'render' ] );
 
 		// Initialize the global array of "handler" classes.
 		$this->hookContainer->run( 'PageSchemasRegisterHandlers' );
@@ -43,7 +48,7 @@ class PageSchemasHooks implements
 	 * @param PPFrame $frame
 	 * @return string|void
 	 */
-	public static function render( $input, $args, $parser, $frame ) {
+	public function render( $input, $args, $parser, $frame ) {
 		$parserOutput = $parser->getOutput();
 		// Disable cache so that CSS will get loaded.
 		$parserOutput->updateCacheExpiry( 0 );
@@ -67,8 +72,9 @@ class PageSchemasHooks implements
 			// Store the XML in the page_props table
 			$parserOutput->setPageProperty( 'PageSchema', $input );
 			// Display the schema on the screen
-			global $wgOut, $wgScriptPath;
-			$wgOut->addStyle( $wgScriptPath . '/extensions/PageSchemas/resources/PageSchemas.css' );
+			global $wgOut;
+			$scriptPath = $this->config->get( MainConfigNames::ScriptPath );
+			$wgOut->addStyle( "$scriptPath/extensions/PageSchemas/resources/PageSchemas.css" );
 			$text = PageSchemas::displaySchema( $xml_object );
 		} else {
 			// Store error message in the page_props table

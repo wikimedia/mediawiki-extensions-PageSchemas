@@ -72,6 +72,7 @@
 		"main": {
 			"class": "PageSchemasHooks",
 			"services": [
+				"MainConfig",
 				"HookContainer"
 			]
 		}
