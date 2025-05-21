@@ -8,6 +8,7 @@
 
 use MediaWiki\Config\Config;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Html\Html;
 use MediaWiki\MainConfigNames;
 
 class PageSchemasHooks implements

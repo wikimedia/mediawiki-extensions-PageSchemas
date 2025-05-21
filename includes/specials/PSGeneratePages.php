@@ -7,6 +7,8 @@
  * @author Yaron Koren
  */
 
+use MediaWiki\Html\Html;
+
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
 		parent::__construct( 'GeneratePages', 'generatepages' );
