@@ -90,6 +90,6 @@
 	},
 	"manifest_version": 1,
 	"requires": {
-		"MediaWiki": ">= 1.40"
+		"MediaWiki": ">= 1.41"
 	}
 }
