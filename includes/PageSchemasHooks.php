@@ -8,15 +8,17 @@
 
 use MediaWiki\MediaWikiServices;
 
-class PageSchemasHooks {
+class PageSchemasHooks implements
+	\MediaWiki\Hook\ParserFirstCallInitHook
+{
 
 	/**
 	 * Initialization
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @return true
 	 */
-	public static function register( &$parser ) {
+	public function onParserFirstCallInit( $parser ) {
 		// Register the hook with the parser.
 		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
 

@@ -68,8 +68,13 @@
 		"localBasePath": "",
 		"remoteExtPath": "PageSchemas"
 	},
+	"HookHandlers": {
+		"main": {
+			"class": "PageSchemasHooks"
+		}
+	},
 	"Hooks": {
-		"ParserFirstCallInit": "PageSchemasHooks::register",
+		"ParserFirstCallInit": "main",
 		"SkinTemplateNavigation::Universal": [
 			"PSEditSchemaAction::displayTab",
 			"PSGeneratePagesAction::displayTab"
