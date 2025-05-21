@@ -70,7 +70,10 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "PageSchemasHooks"
+			"class": "PageSchemasHooks",
+			"services": [
+				"HookContainer"
+			]
 		}
 	},
 	"Hooks": {

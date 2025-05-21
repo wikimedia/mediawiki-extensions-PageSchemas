@@ -6,11 +6,18 @@
  * @ingroup Extensions
  */
 
-use MediaWiki\MediaWikiServices;
+use MediaWiki\HookContainer\HookContainer;
 
 class PageSchemasHooks implements
 	\MediaWiki\Hook\ParserFirstCallInitHook
 {
+	private HookContainer $hookContainer;
+
+	public function __construct(
+		HookContainer $hookContainer
+	) {
+		$this->hookContainer = $hookContainer;
+	}
 
 	/**
 	 * Initialization
@@ -23,7 +30,7 @@ class PageSchemasHooks implements
 		$parser->setHook( 'PageSchema', [ 'PageSchemasHooks', 'render' ] );
 
 		// Initialize the global array of "handler" classes.
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'PageSchemasRegisterHandlers' );
+		$this->hookContainer->run( 'PageSchemasRegisterHandlers' );
 		return true;
 	}
 
