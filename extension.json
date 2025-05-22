@@ -23,7 +23,14 @@
 		"generatepages": "PSGeneratePagesAction"
 	},
 	"SpecialPages": {
-		"EditSchema": "PSEditSchema",
+		"EditSchema": {
+			"class": "PSEditSchema",
+			"services": [
+				"ContentLanguage",
+				"PermissionManager",
+				"WikiPageFactory"
+			]
+		},
 		"GeneratePages": "PSGeneratePages"
 	},
 	"JobClasses": {

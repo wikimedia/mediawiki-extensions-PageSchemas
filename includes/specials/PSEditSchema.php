@@ -1,7 +1,9 @@
 <?php
 
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Language\Language;
+use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
 
 /**
@@ -11,8 +13,19 @@ use MediaWiki\Title\Title;
  * @author Yaron Koren
  */
 class PSEditSchema extends IncludableSpecialPage {
-	function __construct() {
+	private Language $contentLanguage;
+	private PermissionManager $permissionManager;
+	private WikiPageFactory $wikiPageFactory;
+
+	public function __construct(
+		Language $contentLanguage,
+		PermissionManager $permissionManager,
+		WikiPageFactory $wikiPageFactory
+	) {
 		parent::__construct( 'EditSchema', 'edit' );
+		$this->contentLanguage = $contentLanguage;
+		$this->permissionManager = $permissionManager;
+		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**
@@ -249,8 +262,8 @@ class PSEditSchema extends IncludableSpecialPage {
 	/**
 	 * Based in part on MediaWiki's Html::namespaceSelector().
 	 */
-	static function printNamespaceDropdown( $inputName, $curNamespace ) {
-		$options = MediaWikiServices::getInstance()->getContentLanguage()->getFormattedNamespaces();
+	private function printNamespaceDropdown( $inputName, $curNamespace ) {
+		$options = $this->contentLanguage->getFormattedNamespaces();
 
 		// Convert $options to HTML and filter out namespaces below 0
 		$optionsHtml = [];
@@ -357,7 +370,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldHTML .= Html::rawElement( 'p', null, $fieldDisplaySet );
 
 		$fieldNamespaceSet = $this->msg( 'ps-field-namespace' )->parse() . ' ';
-		$fieldNamespaceSet .= self::printNamespaceDropdown( 'f_namespace_' . $fieldNum, $fieldNamespace );
+		$fieldNamespaceSet .= $this->printNamespaceDropdown( 'f_namespace_' . $fieldNum, $fieldNamespace );
 		$fieldHTML .= Html::rawElement( 'div', [ 'class' => 'editSchemaMinorFields' ], $fieldNamespaceSet );
 
 		// Insert HTML text from extensions
@@ -735,8 +748,7 @@ END;
 		// Special:EditSchema), only display this if the user is
 		// allowed to edit the category page.
 		if ( $categoryTitle !== null ) {
-			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-			if ( !$permissionManager->userCan( 'edit', $user, $categoryTitle ) ) {
+			if ( !$this->permissionManager->userCan( 'edit', $user, $categoryTitle ) ) {
 				throw new PermissionsError( 'edit' );
 			}
 		}
@@ -750,7 +762,7 @@ END;
 		if ( $save_page ) {
 			$psXML = $this->createPageSchemaXMLFromForm();
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
-			$categoryPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $categoryTitle );
+			$categoryPage = $this->wikiPageFactory->newFromTitle( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
 				/** @var TextContent $content */
 				'@phan-var TextContent $content';
