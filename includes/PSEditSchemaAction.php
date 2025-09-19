@@ -37,7 +37,12 @@ class PSEditSchemaAction extends Action {
 		}
 
 		$categoryName = $title->getText();
-		$editSchemaPage = new PSEditSchema();
+		$services = MediaWiki\MediaWikiServices::getInstance();
+		$editSchemaPage = new PSEditSchema(
+			$services->getContentLanguage(),
+			$services->getPermissionManager(),
+			$services->getWikiPageFactory()
+		);
 		$editSchemaPage->execute( $categoryName );
 
 		return false;
