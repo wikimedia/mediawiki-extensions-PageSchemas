@@ -6,6 +6,7 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;

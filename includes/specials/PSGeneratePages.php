@@ -8,6 +8,7 @@
  */
 
 use MediaWiki\Html\Html;
+use MediaWiki\Title\Title;
 
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
