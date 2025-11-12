@@ -6,8 +6,10 @@
 	},
 	"ps-template": "Калып",
 	"ps-add-template": "Калып кошуу",
+	"ps-remove-template": "Калыпты алып салуу",
 	"ps-field": "Талаа",
 	"ps-add-section": "Бөлүм кошуу",
+	"ps-removepagesection": "Бөлүмдү алып салуу",
 	"ps-level": "Деңгээл",
 	"ps-field-display-hide": "Жашыруу"
 }
