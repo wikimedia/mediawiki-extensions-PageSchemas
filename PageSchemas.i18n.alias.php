@@ -80,13 +80,19 @@ $specialPageAliases['nl'] = [
 	'EditSchema' => [ 'SchemaBewerken' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Chinese (中文) */
+$specialPageAliases['zh'] = [
+	'GeneratePages' => [ 'GeneratePages' ],
+	'EditSchema' => [ 'EditSchema' ],
+];
+
+/** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'GeneratePages' => [ '生成页面' ],
 	'EditSchema' => [ '编辑架构' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'GeneratePages' => [ '產生頁面' ],
 	'EditSchema' => [ '編輯綱要' ],
