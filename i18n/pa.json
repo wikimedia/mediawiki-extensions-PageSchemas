@@ -4,6 +4,7 @@
 			"Cabal"
 		]
 	},
+	"ps-schema-description": "ਵਰਕੇ ਦਾ ਖ਼ਾਕਾ",
 	"ps-template": "ਫਰਮਾ",
 	"ps-add-template": "ਫਰਮਾ ਜੋੜੋ",
 	"ps-remove-template": "ਫਰਮਾ ਹਟਾਓ",
