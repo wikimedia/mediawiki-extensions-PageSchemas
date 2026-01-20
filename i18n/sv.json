@@ -5,7 +5,8 @@
 			"Lokal Profil",
 			"Martinwiss",
 			"Per",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"ps-desc": "Definierar en datastruktur för alla sidor i en kategori m.h.a. XML",
@@ -28,6 +29,7 @@
 	"ps-namelabel": "Namn:",
 	"ps-displaylabel": "Visa etikett:",
 	"ps-add-field": "Lägg till fält",
+	"ps-add-field-above": "Lägg till ett annat fält ovanför detta",
 	"ps-remove-field": "Ta bort fält",
 	"ps-add-xml-label": "Tilläggande XML:",
 	"ps-optional-name": "Namn (fältnamnet används om du inte anger värde)",
