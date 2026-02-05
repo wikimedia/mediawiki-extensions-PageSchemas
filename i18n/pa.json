@@ -5,8 +5,21 @@
 		]
 	},
 	"ps-schema-description": "ਵਰਕੇ ਦਾ ਖ਼ਾਕਾ",
+	"generatepages": "ਵਰਕੇ ਬਣਾਓ",
 	"ps-template": "ਫਰਮਾ",
 	"ps-add-template": "ਫਰਮਾ ਜੋੜੋ",
 	"ps-remove-template": "ਫਰਮਾ ਹਟਾਓ",
-	"ps-section": "ਭਾਗ"
+	"ps-field": "ਖੇਤਰ",
+	"ps-namelabel": "ਨਾਂ:",
+	"ps-add-field": "ਖੇਤਰ ਸ਼ਾਮਲ ਕਰੋ",
+	"ps-remove-field": "ਖੇਤਰ ਹਟਾਓ",
+	"ps-add-section": "ਭਾਗ ਜੋੜੋ",
+	"ps-removepagesection": "ਭਾਗ ਹਟਾਓ",
+	"ps-sectionname": "ਭਾਗ ਦਾ ਨਾਂ",
+	"ps-section": "ਭਾਗ",
+	"ps-otherparams": "ਹੋਰ ਮਾਪਦੰਡ",
+	"ps-createpage-invalidtitle": "ਗਲਤ ਸਿਰਲੇਖ",
+	"ps-field-display-always": "ਇਸ ਖੇਤਰ ਨੂੰ ਹਮੇਸ਼ਾ ਵਿਖਾਓ",
+	"ps-field-display-notempty": "ਜੇ ਖਾਲੀ ਨਹੀਂ ਤਾਂ ਵੇਖਾਓ",
+	"ps-field-display-hide": "ਲੁਕਾਓ"
 }
