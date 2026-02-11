@@ -3,6 +3,7 @@
 		"authors": [
 			"Gomoko",
 			"IAlex",
+			"Od1n",
 			"PieRRoMaN",
 			"Sherbrooke",
 			"Thibaut120094",
@@ -33,7 +34,7 @@
 	"ps-displaylabel": "Libellé affiché :",
 	"ps-add-field": "Ajouter un champ",
 	"ps-add-field-above": "Ajouter un autre champ au-dessus de celui-ci",
-	"ps-remove-field": "Enlever un champ",
+	"ps-remove-field": "Retirer un champ",
 	"ps-add-xml-label": "XML supplémentaire :",
 	"ps-optional-name": "Nom (laisser vide pour définir le nom du champ):",
 	"editschema": "Modifier le schéma",
