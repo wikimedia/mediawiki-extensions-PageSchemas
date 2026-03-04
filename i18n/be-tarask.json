@@ -32,5 +32,6 @@
 	"ps-remove-field": "Выдаліць поле",
 	"ps-add-xml-label": "Дадатковы XML:",
 	"editschema": "Рэдагаваць схему",
-	"createschema": "Стварыць схему"
+	"createschema": "Стварыць схему",
+	"ps-level": "Ровень"
 }
