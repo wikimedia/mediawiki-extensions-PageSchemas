@@ -5,6 +5,7 @@
 			"Dr1t jg",
 			"Priviet",
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"아라"
 		]
 	},
@@ -42,7 +43,7 @@
 	"ps-sectionlevel": "문단 수준:",
 	"ps-section": "문단",
 	"ps-level": "수준",
-	"ps-otherparams": "다른 변수",
+	"ps-otherparams": "다른 매개변수",
 	"ps-createpage-irregulartext": "위키 페이지 \"$1\"은(는) 위키 텍스트를 포함하고 있지 않습니다.",
 	"ps-createpage-invalidtitle": "제목이 잘못되었습니다.",
 	"ps-field-display-always": "이 필드를 항상 표시",
