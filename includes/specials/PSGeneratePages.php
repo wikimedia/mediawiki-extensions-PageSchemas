@@ -12,7 +12,7 @@ use MediaWiki\Title\Title;
 
 class PSGeneratePages extends IncludableSpecialPage {
 	function __construct() {
-		parent::__construct( 'GeneratePages', 'generatepages' );
+		parent::__construct( 'GeneratePages' );
 	}
 
 	/**
@@ -26,8 +26,9 @@ class PSGeneratePages extends IncludableSpecialPage {
 		$request = $this->getRequest();
 		$out = $this->getOutput();
 
+		// Check permissions.
 		if ( !$user->isAllowed( 'generatepages' ) ) {
-			throw new PermissionsError( 'generatepages' );
+			$this->displayRestrictionError();
 		}
 
 		$this->setHeaders();

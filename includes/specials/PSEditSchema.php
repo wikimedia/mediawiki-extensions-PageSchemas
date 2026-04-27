@@ -22,7 +22,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		PermissionManager $permissionManager,
 		WikiPageFactory $wikiPageFactory
 	) {
-		parent::__construct( 'EditSchema', 'edit' );
+		parent::__construct( 'EditSchema' );
 		$this->contentLanguage = $contentLanguage;
 		$this->permissionManager = $permissionManager;
 		$this->wikiPageFactory = $wikiPageFactory;
@@ -739,10 +739,16 @@ END;
 	}
 
 	function execute( $category ) {
-		$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 		$user = $this->getUser();
 		$request = $this->getRequest();
 		$out = $this->getOutput();
+
+		// Check permissions.
+		if ( !$user->isAllowed( 'edit' ) ) {
+			$this->displayRestrictionError();
+		}
+
+		$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 
 		// If a category has been selected (i.e., it's not just
 		// Special:EditSchema), only display this if the user is
