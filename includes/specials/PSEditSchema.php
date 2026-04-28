@@ -55,7 +55,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$request = $this->getRequest();
 
 		// Generate the XML from the form elements.
-		$psXML = '<PageSchema>';
+		$psXML = Xml::openElement( 'PageSchema' );
 		$additionalXML = $request->getText( 'ps_add_xml' );
 		$psXML .= $additionalXML;
 		$fieldName = "";
@@ -121,7 +121,7 @@ class PSEditSchema extends IncludableSpecialPage {
 				$psXML .= Xml::openElement( 'Field', $fieldAttrs );
 			} elseif ( substr( $var, 0, 8 ) == 'f_label_' ) {
 				if ( !empty( $val ) ) {
-					$psXML .= '<Label>' . $val . '</Label>';
+					$psXML .= Xml::element( 'Label', null, $val );
 				}
 
 				// Get XML created by extensions for this field
@@ -132,24 +132,24 @@ class PSEditSchema extends IncludableSpecialPage {
 				}
 			} elseif ( substr( $var, 0, 10 ) == 'f_add_xml_' ) {
 				$psXML .= $val;
-				$psXML .= '</Field>';
+				$psXML .= Xml::closeElement( 'Field' );
 			} elseif ( substr( $var, 0, 10 ) == 't_add_xml_' ) {
 				$psXML .= $val;
-				$psXML .= '</Template>';
+				$psXML .= Xml::closeElement( 'Template' );
 			} elseif ( substr( $var, 0, 7 ) == 's_name_' ) {
 				$pageSectionNum = substr( $var, 7 );
 				$sectionName = $val;
 				$sectionLevel = $request->getVal( "s_level_" . $pageSectionNum );
-				$psXML .= '<Section name="' . $sectionName . '" level="' . $sectionLevel . '">';
+				$psXML .= Xml::openElement( 'Section', [ 'name' => $sectionName, 'level' => $sectionLevel ] );
 				foreach ( $pageSectionXMLFromExtensions as $extensionName => $xmlPerPageSection ) {
 					if ( !empty( $xmlPerPageSection[$pageSectionNum] ) ) {
 						$psXML .= $xmlPerPageSection[$pageSectionNum];
 					}
 				}
-				$psXML .= '</Section>';
+				$psXML .= Xml::closeElement( 'Section' );
 			}
 		}
-		$psXML .= '</PageSchema>';
+		$psXML .= Xml::closeElement( 'PageSchema' );
 		return $this->prettyPrintXML( $psXML );
 	}
 
