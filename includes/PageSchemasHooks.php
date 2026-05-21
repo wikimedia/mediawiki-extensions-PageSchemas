@@ -80,8 +80,8 @@ class PageSchemasHooks implements
 		} else {
 			// Store error message in the page_props table
 			$parserOutput->setPageProperty( 'PageSchema', $error_msg );
-			$text = Html::element( 'p', null, "The (incorrect) XML definition for this template is:" ) . "\n";
-			$text .= Html::element( 'pre', null, $input );
+			$text = Html::element( 'p', [], "The (incorrect) XML definition for this template is:" ) . "\n";
+			$text .= Html::element( 'pre', [], $input );
 		}
 
 		return $text;

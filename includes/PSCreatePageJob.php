@@ -13,7 +13,7 @@ class PSCreatePageJob extends Job {
 	 * @param array $params
 	 * @param int $id
 	 */
-	function __construct( $title, $params = '', $id = 0 ) {
+	function __construct( $title, $params = [], $id = 0 ) {
 		parent::__construct( 'pageSchemasCreatePage', $title, $params, $id );
 	}
 

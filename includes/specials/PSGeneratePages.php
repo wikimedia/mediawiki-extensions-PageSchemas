@@ -38,7 +38,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 		if ( !empty( $param ) && !empty( $category ) ) {
 			// Generate the pages!
 			$this->generatePages( $param, $request->getArray( 'page' ) );
-			$text = Html::element( 'p', null, $this->msg( 'ps-generatepages-success' )->parse() );
+			$text = Html::element( 'p', [], $this->msg( 'ps-generatepages-success' )->parse() );
 			$out->addHTML( $text );
 			return true;
 		}
@@ -53,13 +53,13 @@ class PSGeneratePages extends IncludableSpecialPage {
 		// Check for a valid category, with a page schema defined.
 		$pageSchemaObj = new PSSchema( $category );
 		if ( !$pageSchemaObj->isPSDefined() ) {
-			$text = Html::element( 'p', null, $this->msg( 'ps-generatepages-noschema' )->parse() );
+			$text = Html::element( 'p', [], $this->msg( 'ps-generatepages-noschema' )->parse() );
 			$out->addHTML( $text );
 			return true;
 		}
 
 		$text = Html::element(
-			'p', null,
+			'p', [],
 			$this->msg( 'ps-generatepages-desc' )->parse()
 		) . "\n";
 		$text .= '<form method="post">';
@@ -118,7 +118,7 @@ class PSGeneratePages extends IncludableSpecialPage {
 	 * Creates all the pages that the user specified.
 	 *
 	 * @param string $categoryName
-	 * @param string $selectedPageList
+	 * @param string[] $selectedPageList
 	 */
 	function generatePages( $categoryName, $selectedPageList ) {
 		$pageSchema = new PSSchema( $categoryName );

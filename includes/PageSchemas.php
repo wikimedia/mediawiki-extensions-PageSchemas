@@ -88,7 +88,7 @@ END;
 		$fieldNameAttrs = [ 'class' => $cssClass, 'style' => 'font-weight: normal;' ];
 		$fieldNameCell = Html::rawElement( 'td', $fieldNameAttrs, $fieldName );
 		$valueCell = Html::element( 'td', [ 'class' => 'msg', 'style' => 'font-weight: bold;' ], $value );
-		$text = Html::rawElement( 'tr', null, $fieldNameCell . "\n" . $valueCell );
+		$text = Html::rawElement( 'tr', [], $fieldNameCell . "\n" . $valueCell );
 		$text .= "\n";
 		return $text;
 	}
@@ -143,7 +143,7 @@ END;
 		$text = self::tableRowHTML( 'templateRow', wfMessage( 'ps-template' )->parse(), $name );
 		$multiple = $templateXML->attributes()->multiple;
 		if ( $multiple == 'multiple' ) {
-			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', null );
+			$text .= self::attrRowHTML( 'schemaAttrRow', 'multiple', '' );
 		}
 		$format = $templateXML->attributes()->format;
 		if ( $format ) {
@@ -182,7 +182,7 @@ END;
 		$text = self::tableRowHTML( 'fieldRow', wfMessage( 'ps-field' )->parse(), $name );
 
 		if ( ( (string)$fieldXML->attributes()->list ) == "list" ) {
-			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', null );
+			$text .= self::attrRowHTML( 'fieldAttrRow', 'List', '' );
 		}
 		$fieldDisplay = (string)$fieldXML->attributes()->display;
 		if ( $fieldDisplay != "" ) {

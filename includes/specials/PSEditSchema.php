@@ -170,7 +170,8 @@ class PSEditSchema extends IncludableSpecialPage {
 			],
 			[
 				'pp_propname' => 'PageSchema'
-			]
+			],
+			__METHOD__
 		);
 		$editSchemaPage = SpecialPage::getTitleFor( 'EditSchema' );
 		$text .= "<ul>\n";
@@ -185,7 +186,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			$catName = $catTitle->getText();
 			$url = $catTitle->getFullURL( 'action=editschema' );
 			$text .= Html::rawElement( 'li',
-				null,
+				[],
 				Html::element( 'a', [ 'href' => $url ], $catName )
 			);
 		}
@@ -337,11 +338,11 @@ class PSEditSchema extends IncludableSpecialPage {
 			[ 'class' => 'nameInput', 'size' => 25 ] ) . ' ';
 		$fieldHTML .= $this->msg( 'ps-displaylabel' )->parse() . ' ';
 		$fieldHTML .= Html::input( 'f_label_' . $fieldNum, $fieldLabel, 'text', [ 'size' => 25 ] );
-		$fieldHTML = Html::rawElement( 'p', null, $fieldHTML ) . "\n";
-		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, null, 'checkbox', $isListAttrs );
+		$fieldHTML = Html::rawElement( 'p', [], $fieldHTML ) . "\n";
+		$fieldIsListInput = Html::input( 'f_is_list_' . $fieldNum, '', 'checkbox', $isListAttrs );
 		$fieldIsListSet = $fieldIsListInput . ' ';
 		$fieldIsListSet .= $this->msg( 'ps-field-list-label' )->parse();
-		$fieldHTML .= Html::rawElement( 'p', null, $fieldIsListSet );
+		$fieldHTML .= Html::rawElement( 'p', [], $fieldIsListSet );
 		$fieldDelimiterSet = $this->msg( 'ps-delimiter-label' )->parse() . ' ' .
 			Html::input( 'f_delimiter_' . $fieldNum, $delimiter, 'text', [ 'size' => 3 ] );
 		$fieldHTML .= "\n" . Html::rawElement( 'p', $delimiterAttrs, $fieldDelimiterSet );
@@ -367,7 +368,7 @@ class PSEditSchema extends IncludableSpecialPage {
 		$fieldDisplayHiddenInput = Html::input( $groupName, 'hidden', 'radio', $displayHiddenAttrs );
 		$fieldDisplaySet .= $fieldDisplayHiddenInput . ' ';
 		$fieldDisplaySet .= $this->msg( 'ps-field-display-hide' )->parse();
-		$fieldHTML .= Html::rawElement( 'p', null, $fieldDisplaySet );
+		$fieldHTML .= Html::rawElement( 'p', [], $fieldDisplaySet );
 
 		$fieldNamespaceSet = $this->msg( 'ps-field-namespace' )->parse() . ' ';
 		$fieldNamespaceSet .= $this->printNamespaceDropdown( 'f_namespace_' . $fieldNum, $fieldNamespace );
@@ -431,9 +432,9 @@ class PSEditSchema extends IncludableSpecialPage {
 		}
 		$templateNameInput = $this->msg( 'ps-namelabel' )->parse() . ' ';
 		$templateNameInput .= Html::input( 't_name_' . $template_num, $templateName, 'text' );
-		$templateHTML = "\t\t" . Html::rawElement( 'p', null, $templateNameInput ) . "\n";
-		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, null, 'checkbox', $attrs );
-		$templateHTML .= "\t\t" . Html::rawElement( 'p', null, $templateIsMultipleInput . ' ' .
+		$templateHTML = "\t\t" . Html::rawElement( 'p', [], $templateNameInput ) . "\n";
+		$templateIsMultipleInput = Html::input( 'is_multiple_' . $template_num, '', 'checkbox', $attrs );
+		$templateHTML .= "\t\t" . Html::rawElement( 'p', [], $templateIsMultipleInput . ' ' .
 			$this->msg( 'ps-multiple-temp-label' )->parse() );
 
 		// Use an input from the Page Forms extension for the template
@@ -504,9 +505,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			$templateHTML .= $this->printFieldSection();
 		}
 		foreach ( $templateXMLElements as $templateXMLElement ) {
-			if ( empty( $templateXMLElement ) ) {
-				// Do nothing (?)
-			} elseif ( $templateXMLElement->getName() == "Field" ) {
+			if ( $templateXMLElement->getName() == "Field" ) {
 				if ( array_key_exists( $fieldNumInTemplate, $psTemplateFields ) ) {
 					$psTemplateField = $psTemplateFields[$fieldNumInTemplate];
 				} else {
@@ -525,7 +524,7 @@ class PSEditSchema extends IncludableSpecialPage {
 				'label' => $this->msg( 'ps-add-field' )->parse(),
 			]
 		);
-		$templateHTML .= Html::rawElement( 'p', null, $add_field_button ) . "\n";
+		$templateHTML .= Html::rawElement( 'p', [], $add_field_button ) . "\n";
 		$templateHTML .= "<hr />\n";
 		$templateHTML .= "\n\t\t\t\t" . Html::hidden( "t_add_xml_$template_num", $template_add_xml );
 		// $additionalXMLInput = "\n\t\t\t\t" . Html::textarea( "t_add_xml_$template_num", $template_add_xml,
@@ -563,7 +562,7 @@ class PSEditSchema extends IncludableSpecialPage {
 			$section_level = (string)$pageSectionXML->attributes()->level;
 		}
 
-		$pageSectionHTML = '<p>' . Html::rawElement( 'span', null, $this->msg( 'ps-sectionname' )->parse() ) . "\n";
+		$pageSectionHTML = '<p>' . Html::rawElement( 'span', [], $this->msg( 'ps-sectionname' )->parse() ) . "\n";
 		$pageSectionHTML .= '</t>' . Html::input(
 			's_name_' . $section_num,
 			$pageSectionName,
@@ -571,13 +570,13 @@ class PSEditSchema extends IncludableSpecialPage {
 			[ 'size' => '30', 'id' => 'sectionname' ]
 		) . "\n";
 		$header_options = '';
-		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', null, $this->msg( 'ps-sectionlevel' )->parse() ) .
+		$pageSectionHTML .= '<br />' . Html::rawElement( 'span', [], $this->msg( 'ps-sectionlevel' )->parse() ) .
 			"\n";
 		for ( $i = 1; $i < 7; $i++ ) {
 			if ( $section_level == $i ) {
-				$header_options .= " " . Html::element( 'option', [ 'value' => $i, 'selected' ], $i ) . "\n";
+				$header_options .= " " . Html::element( 'option', [ 'value' => $i, 'selected' ], (string)$i ) . "\n";
 			} else {
-				$header_options .= " " . Html::element( 'option', [ 'value' => $i ], $i ) . "\n";
+				$header_options .= " " . Html::element( 'option', [ 'value' => $i ], (string)$i ) . "\n";
 			}
 		}
 		$pageSectionHTML .= '&nbsp&nbsp' . Html::rawElement( 'select', [ 'name' => "s_level_" . $section_num ],
@@ -699,11 +698,11 @@ class PSEditSchema extends IncludableSpecialPage {
 			]
 		);
 		$text .= "\t</div><!-- templatesList -->\n";
-		$text .= Html::rawElement( 'p', null, $add_template_button . $add_section_button ) . "\n";
+		$text .= Html::rawElement( 'p', [], $add_template_button . $add_section_button ) . "\n";
 		$text .= "\t\t<hr />\n";
 		$label = $this->msg( 'summary' )->parse();
 		$summaryInput = Html::input(
-			'wpSummary', null, 'text',
+			'wpSummary', '', 'text',
 			[
 				'id' => 'wpSummary',
 				'maxlength' => 200,
@@ -770,10 +769,7 @@ END;
 			$categoryTitle = Title::newFromText( $category, NS_CATEGORY );
 			$categoryPage = $this->wikiPageFactory->newFromTitle( $categoryTitle );
 			if ( $categoryTitle->exists() ) {
-				/** @var TextContent $content */
-				'@phan-var TextContent $content';
-				$content = $categoryPage->getContent();
-				$pageText = $content->getText();
+				$pageText = $categoryPage->getContent()->getText();
 				$pageSchemaObj = new PSSchema( $category );
 				if ( $pageSchemaObj->isPSDefined() ) {
 					// Do some preg_replace magic.
