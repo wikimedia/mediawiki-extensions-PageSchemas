@@ -9,7 +9,8 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Movses"
 		]
 	},
 	"ps-desc": "Визначає структуру даних усіх сторінок категорії через XML",
@@ -32,6 +33,7 @@
 	"ps-namelabel": "Назва:",
 	"ps-displaylabel": "Показувати мітку:",
 	"ps-add-field": "Додати поле",
+	"ps-add-field-above": "Додати ще одне поле над цим",
 	"ps-remove-field": "Вилучити поле",
 	"ps-add-xml-label": "Додатковий XML:",
 	"ps-optional-name": "Назва (залишити порожнім для такої ж як назва поля):",
