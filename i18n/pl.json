@@ -5,7 +5,8 @@
 			"Chrumps",
 			"Rail",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"PanWor"
 		]
 	},
 	"ps-desc": "Definiuje strukturę danych dla wszystkich stron w kategorii z wykorzystaniem XML",
@@ -42,7 +43,7 @@
 	"ps-section": "Sekcja",
 	"ps-level": "Poziom",
 	"ps-otherparams": "Inne parametry",
-	"ps-createpage-irregulartext": "Strona „$1” nie zawiera typowego wikitekstu.",
+	"ps-createpage-irregulartext": "Strona „$1” nie zawiera typowego wikikodu.",
 	"ps-createpage-invalidtitle": "Nieprawidłowy tytuł",
 	"ps-field-display-always": "Zawsze pokazuj to pole",
 	"ps-field-display-notempty": "Pokaż, jeśli nie jest puste",
