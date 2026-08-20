@@ -1,11 +1,37 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
+	"ps-schema-description": "د مخ جوړښتي‌گارليک",
+	"generatepages": "مخونه وزېږوئ",
 	"ps-template": "کينډۍ",
 	"ps-add-template": "کينډۍ ورگډول",
 	"ps-field": "ډگر",
-	"ps-namelabel": "نوم:"
+	"ps-namelabel": "نوم:",
+	"ps-displaylabel": "ښکارېدنې نښکه:",
+	"ps-add-field": "ډگر ورگډول",
+	"ps-add-field-above": "د دې دپاسه بل ډگر ورگډول",
+	"ps-remove-field": "ډگر لرې‌کول",
+	"ps-add-xml-label": "زياتي اېکس‌اېم‌اېل:",
+	"ps-optional-name": "نوم (د ډگر نوم ته د اوڼلو لپاره يې تش پرېږدئ):",
+	"editschema": "جوړښتي‌گارليک سمول",
+	"createschema": "جوړښتي‌گارليک جوړول",
+	"right-generatepages": "\"{{int:generatepages}}\" مخ او ريښکه کتل",
+	"action-generatepages": "\"{{int:generatepages}}\" مخ او ريښکه کتل",
+	"ps-add-section": "برخه ورگډول",
+	"ps-removepagesection": "برخه لرې‌کول",
+	"ps-sectionname": "د برخې نوم:",
+	"ps-sectionlevel": "د برخې کچه:",
+	"ps-section": "برخه",
+	"ps-level": "کچه",
+	"ps-otherparams": "نور ارزښتونه",
+	"ps-createpage-irregulartext": "\"$1\" ويکي مخ سمدودی ويکي‌ليک نه لري.",
+	"ps-createpage-invalidtitle": "ناسم سرليک",
+	"ps-field-display-always": "دا ډگر هر وخت ښکاره کړئ",
+	"ps-field-display-notempty": "که تش نه وي؛ نو ښکاره يې کړئ",
+	"ps-field-display-hide": "پټول",
+	"ps-field-namespace": "دا ډگر به تل په لاندې نوم‌تشيال کې ارزښتونه ولري:"
 }
