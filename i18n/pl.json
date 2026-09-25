@@ -17,7 +17,7 @@
 	"ps-generatepages-noschema": "Błąd: Nie zdefiniowano schematu strony dla tej kategorii.",
 	"ps-generatepages-editsummary": "Wygenerowane na podstawie schematu strony",
 	"ps-page-desc-cat-not-exist": "Ta kategoria jeszcze nie istnieje. Utwórz tę kategorię i jej schemat stron:",
-	"ps-page-desc-ps-not-exist": "Ta kategoria istnieje, ale nie posiada schematu strony. Utwórz schemat:",
+	"ps-page-desc-ps-not-exist": "Ta kategoria istnieje, ale nie zawiera schematu strony. Utwórz schemat:",
 	"ps-page-desc-edit-schema": "Edytuj schemat stron dla tej kategorii:",
 	"ps-delimiter-label": "Separator wartości (domyślnie „,”):",
 	"ps-multiple-temp-label": "Zezwalaj na wiele wystąpień tego szablonu",
