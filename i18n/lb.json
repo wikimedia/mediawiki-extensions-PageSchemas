@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"ps-desc": "Definéiert d'Date-Struktur per XML fir all Säiten an enger Kategorie",
@@ -31,8 +32,8 @@
 	"ps-optional-name": "Numm (eidel loosse fir den Numm vum Feld ze benotzen):",
 	"editschema": "Schema änneren",
 	"createschema": "Schema uleeën",
-	"right-generatepages": "Den Onglet \"{{int:generatepages}}\" an d'Säit weisen",
-	"action-generatepages": "den Onglet \"{{int:Generatepages}}\" an d'Säit gesinn",
+	"right-generatepages": "Den Onglet „{{int:generatepages}}“ an d'Säit weisen",
+	"action-generatepages": "den Onglet „{{int:generatepages}}“ an d'Säit ze weisen",
 	"ps-add-section": "Abschnitt derbäisetzen",
 	"ps-removepagesection": "Abschnitt ewechhuelen",
 	"ps-sectionname": "Numm vum Abschnitt:",
